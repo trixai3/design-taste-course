@@ -30,12 +30,6 @@ printable cheat sheets.
 That's it — no build step and no server. The lessons are plain static HTML/CSS/JS (no `fetch`, no
 modules), so opening the file directly works. Fonts and placeholder images load over the internet.
 
-Optional: if you'd rather serve over `http://` (cleaner origin, avoids any `file://` quirks), run:
-```bash
-python3 -m http.server 8000
-# then visit http://localhost:8000/lessons/0001-the-tell.html
-```
-
 ## What's inside
 
 | | |
