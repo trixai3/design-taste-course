@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 05 课：风格图鉴 II，暗色与大胆家族</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="../../assets/course.css">
+<!-- Style-family specimens live in a shared stylesheet (also used by Lesson 04). -->
+<link rel="stylesheet" href="../../assets/atlas-families.css">
+<style>
+  /* glass A/B: the same frosted card done right vs done wrong, on one mesh */
+  .glass-ab { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+  .glass-scene { background: #050505; border-radius: var(--radius); padding: 30px 24px; position: relative; overflow: hidden;
+    background-image: radial-gradient(45% 60% at 20% 20%, rgba(29,158,117,0.30), transparent 70%),
+                      radial-gradient(48% 55% at 85% 82%, rgba(56,116,180,0.28), transparent 72%); }
+  .glass-scene .cap { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: rgba(255,255,255,0.62); margin: 14px 2px 0; }
+  .g-card { border-radius: 16px; padding: 20px 22px; color: #fff; }
+  .g-card .eb { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #6EE7B7; margin: 0 0 8px; }
+  .g-card h5 { font-family: var(--font-display); font-weight: 800; font-size: 20px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .g-card p { font-size: 12.5px; color: rgba(255,255,255,0.6); margin: 0; }
+  /* RIGHT: blur + inner border + inner highlight = edge refraction */
+  .g-right { background: rgba(255,255,255,0.06); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.16); box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 20px 50px -22px rgba(0,0,0,0.7); }
+  /* WRONG: blur only. no edge, no highlight. reads as muddy grey. */
+  .g-wrong { background: rgba(255,255,255,0.06); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border: none; box-shadow: none; }
+  @media (prefers-reduced-transparency: reduce) {
+    .g-right { background: #14171C; -webkit-backdrop-filter: none; backdrop-filter: none; }
+    .g-wrong { background: #101216; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  }
+  @media (max-width: 860px) { .glass-ab { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>模块 B：命名</span><span class="sep">/</span>
+      <span>第 05 课</span><span class="sep">/</span>
+      <span>约 16 分钟</span>
+    </p>
+    <h1>风格图鉴 II：暗色与大胆家族</h1>
+    <div class="win">
+      <span class="tag">你的一个小胜利</span>
+      <p style="margin:0">再学会看一眼就认出五个家族：<strong>Ethereal Glass（空灵玻璃）、Deep Dark
+        Mode（深灰暗色模式）、Dark Tech（黑客终端风）、Tactical Telemetry（战术遥测风）、Bold Studio
+        Solid（大胆纯色块）</strong>。再加上那个人人都会做假的效果：你会看到玻璃拟态<strong>做对</strong>的样子，
+        紧挨着同一张卡片<strong>做错</strong>的样子，从边缘上一眼看出区别。</p>
+    </div>
+  </header>
+
+  <!-- ===== spaced recall from Lessons 01-04 ===== -->
+  <section style="margin-bottom:44px">
+    <div id="recall"></div>
+  </section>
+
+  <section class="prose">
+    <p class="lead">第 04 课讲的亮色家族，主要靠<em>基底（substrate）</em>区分。暗色家族靠别的东西区分：
+      <strong>它们怎么使用黑色</strong>。纯 OLED 黑配发光光球，和石墨色的产品级暗色模式是两个不同的家族，
+      跟绿字配黑底的终端风又完全不同。同样是深色，三种不同的意图。</p>
+    <p>设置和上次一样：同一个虚构产品，日程规划应用 <strong>Meridian</strong>，
+      在每个家族里各渲染一遍，让你看到的每一处差异都是家族本身，而不是内容。用那三个问题读每个面板：
+      基底、层级载体、边缘签名。</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE ATLAS (dark & bold) ================= -->
+  <section class="wide">
+    <p class="eyebrow" style="text-align:center;margin-bottom:18px">再来五个家族。慢慢往下滚。</p>
+
+    <!-- 6 · Ethereal Glass -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-glass">
+        <div class="glass">
+          <p class="eb">Meridian AI</p>
+          <h4>Plan your day with a little help.</h4>
+          <p class="sub">A calm planner with an AI that drafts your schedule, then gets out of the way.</p>
+          <a class="cta" href="#atlas-game" onclick="return false">Start planning</a>
+        </div>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">06</span>Ethereal Glass</p>
+        <p class="atlas-smell">闻起来像：<b>AI 创业公司、Linear、Vercel、Arc</b>。最深的 OLED 黑，
+          暗色光球藏在磨砂卡片背后，卡片带一圈明亮的折射边。</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#050505"></span>#050505 OLED</span>
+          <span class="atlas-chip"><span class="sw" style="background:#1D9E75"></span>暗翡翠绿光球</span>
+          <span class="atlas-chip"><span class="sw" style="background:#3874B4"></span>暗蓝光球</span>
+          <span class="atlas-chip atlas-chip--txt">背景模糊 + 白色/14 发丝边</span>
+          <span class="atlas-chip atlas-chip--txt">内高光 = 折射效果</span>
+          <span class="atlas-chip atlas-chip--txt">宽体几何怪诞体</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 · Deep Dark Mode -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-dark">
+        <p class="eb">Meridian &middot; Today</p>
+        <h4>Everything for today, in the dark.</h4>
+        <div class="cards">
+          <div class="card-d"><p class="k">Focus left</p><p class="v">2h 40m</p></div>
+          <div class="card-d"><p class="k">Done</p><p class="v">9 <em>of 12</em></p></div>
+          <div class="card-d"><p class="k">Next</p><p class="v">11:00</p></div>
+        </div>
+        <a class="cta" href="#atlas-game" onclick="return false">Open planner</a>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">07</span>Deep Dark Mode</p>
+        <p class="atlas-smell">闻起来像：<b>GitHub 暗色模式、Raycast，以及大多数产品的暗色模式</b>。
+          是石墨色，不是黑色。实心带边框的卡片，一个克制的强调色微光，没有磨砂效果。</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#0E0E11"></span>#0E0E11 石墨色</span>
+          <span class="atlas-chip"><span class="sw" style="background:#17171C"></span>#17171C 卡片</span>
+          <span class="atlas-chip"><span class="sw" style="background:#26262E"></span>1px #26262E</span>
+          <span class="atlas-chip"><span class="sw" style="background:#34D399"></span>一个强调色，节制使用</span>
+          <span class="atlas-chip atlas-chip--txt">圆角 12px，无模糊</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 · Dark Tech / Hacker -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-hacker">
+        <div class="term">
+          <div class="term-bar"><i></i><i></i><i></i><span>meridian &middot; zsh</span></div>
+          <div class="term-body">
+            <div><span class="dim">$</span> <span class="p">meridian</span> plan today</div>
+            <div class="dim">&nbsp;&nbsp;parsing 6 tasks... ok</div>
+            <div class="dim">&nbsp;&nbsp;3 scheduled, 3 deferred</div>
+            <div><span class="dim">$</span> <span class="cur">&nbsp;</span></div>
+          </div>
+        </div>
+        <a class="cta" href="#atlas-game" onclick="return false">[ run meridian ]</a>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">08</span>Dark Tech / Hacker</p>
+        <p class="atlas-smell">闻起来像：<b>开发者工具、CLI、安全类产品</b>。绿字配黑底，
+          清一色等宽字体，终端提示符和光标，霓虹强调色。</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#0A0F0A"></span>#0A0F0A</span>
+          <span class="atlas-chip"><span class="sw" style="background:#4ADE80"></span>霓虹绿</span>
+          <span class="atlas-chip atlas-chip--txt">只用等宽字体</span>
+          <span class="atlas-chip atlas-chip--txt">终端元素，提示符 + 光标</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 · Tactical Telemetry -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-telemetry">
+        <div class="hud">
+          <div class="rowline"><span>SYS: MERIDIAN</span><b>NOMINAL</b></div>
+          <div class="rowline"><span>LAT 40.71</span><span>LON -74.00</span></div>
+          <h4>Day Load</h4>
+          <p class="stat">72<span style="font-size:14px">%</span></p>
+          <div class="rowline"><span>TASKS 09/12</span><b>ON TRACK</b></div>
+          <a class="cta" href="#atlas-game" onclick="return false">&gt; engage</a>
+        </div>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">09</span>Tactical Telemetry</p>
+        <p class="atlas-smell">闻起来像：<b>航空 HUD、交易终端、任务控制台</b>。琥珀荧光色，
+          ASCII 角括号框架，坐标，表格化读数，微光效果。</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#06080A"></span>#06080A</span>
+          <span class="atlas-chip"><span class="sw" style="background:#FFB000"></span>琥珀荧光色</span>
+          <span class="atlas-chip atlas-chip--txt">HUD 框架，准星刻度</span>
+          <span class="atlas-chip atlas-chip--txt">表格数据，全大写标签</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 · Bold Studio Solid -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-studio">
+        <p class="eb">Meridian</p>
+        <h4>Own your morning.</h4>
+        <p class="sub">One loud, confident planner. No dark corners, no soft grays, just the plan.</p>
+        <span class="cta">Start free</span>
+        <span class="cta ghost">See a demo</span>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">10</span>Bold Studio Solid</p>
+        <p class="atlas-smell">闻起来像：<b>Gumroad、Linktree，以及大胆的 DTC 品牌</b>。一整块满铺的
+          高饱和色，锐利高对比的文字，只留一个亮色给 CTA。</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#1E2FA8"></span>#1E2FA8 色块</span>
+          <span class="atlas-chip"><span class="sw" style="background:#FFE45E"></span>CTA 的亮色</span>
+          <span class="atlas-chip"><span class="sw" style="background:#EAF0FF"></span>近白色文字</span>
+          <span class="atlas-chip atlas-chip--txt">厚重怪诞体，锐利对比</span>
+          <span class="atlas-chip atlas-chip--txt">牛血红 / 宝蓝 / 森绿 / 翡翠绿</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= GLASS: RIGHT vs WRONG ================= -->
+  <section class="prose">
+    <h2>人人都做假的那一个：玻璃拟态（glassmorphism）</h2>
+    <p>“磨砂玻璃”是最常被尝试、也最常翻车的暗色效果。翻车的原因总是一样的：
+      人们伸手就用 <code>backdrop-filter: blur()</code>，然后就止步于此。只有模糊没有边，
+      卡片就会读起来像一块灰扑扑的模糊色块。真正的玻璃有一圈<strong>发亮的边缘（lit rim）</strong>：
+      一条 1px 的内边框加一道明亮的内高光，让光看起来在边缘发生弯折。那条亮边，就是整个幻觉的关键。</p>
+  </section>
+
+  <section class="wide" style="margin-top:8px">
+    <div class="glass-ab">
+      <div class="glass-scene">
+        <div class="g-card g-right">
+          <p class="eb">Right</p>
+          <h5>Refraction edge</h5>
+          <p>Blur + 1px white/16 border + inner highlight. The rim catches light; the card feels like a pane.</p>
+        </div>
+        <p class="cap">blur + hairline border + inset highlight</p>
+      </div>
+      <div class="glass-scene">
+        <div class="g-card g-wrong">
+          <p class="eb" style="color:#F0997B">Wrong</p>
+          <h5>Blur only</h5>
+          <p>No border, no highlight. Same blur, but the edges dissolve and it reads as a muddy grey box.</p>
+        </div>
+        <p class="cap">blur only, no edge treatment</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="note note--teach">
+      <p class="eyebrow">为什么“液态玻璃”是一个要核实的说法</p>
+      <p style="margin:0">苹果只为自己的平台记录了 Liquid Glass（液态玻璃）规范。网页上
+        <strong>没有官方的 <code>liquid-glass.css</code></strong>：任何网页版本都是用
+        <code>backdrop-filter</code> 加分层边框做出的近似效果。所以当某个需求或工具说“用苹果的液态玻璃”时，
+        诚实的做法是搭一个近似效果并如实标注它是近似的，同时为
+        <code>prefers-reduced-transparency</code> 提供一个纯色回退方案。忽略这个设置的玻璃效果是不可访问的。</p>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>把暗色家族分清楚</h2>
+    <ul>
+      <li><strong>Ethereal Glass vs Deep Dark Mode：</strong>两者都是暗色，但 Glass 生活在纯 OLED 黑上，
+        带彩色光球和<em>磨砂</em>卡片。Deep Dark 是石墨色，配<em>实心</em>带边框卡片，没有模糊效果。
+        如果你能透过一张卡片看到后面，那就是 Glass。</li>
+      <li><strong>Dark Tech vs Tactical Telemetry：</strong>两者都是黑底配霓虹色的等宽字体。
+        Dark Tech 是一个<em>终端</em>（提示符、光标、你要敲的命令）。Telemetry 是一台<em>仪器</em>
+        （读数、坐标、你在监看的状态）。黑客是“敲”，遥测是“看”。</li>
+      <li><strong>Bold Studio Solid vs 其他所有家族：</strong>它是唯一不走暗色的一个。一整块饱和色
+        铺满整个画面。如果背景是一种自信的颜色，而不是黑或白，你就在 Studio Solid 里。</li>
+    </ul>
+    <div class="note">
+      <p class="eyebrow">关于黑色的一句轻声提醒</p>
+      <p style="margin:0">Ethereal Glass 用的是接近 OLED 的 <code>#050505</code>，不是纯粹的
+        <code>#000000</code>。即使暗到极致，这些家族也都避开真正的黑色，因为纯黑会压掉层次，
+        显得是数字默认值。深色是一种颜色选择，而不是“没有颜色”。</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= INTERLEAVED GAME (all 10) ================= -->
+  <section class="prose">
+    <h2>闪速辨认，全部十个家族</h2>
+    <p>这个游戏把第 04 课的五个亮色家族和今天的五个暗色 / 大胆家族混在一起。混着来才是重点：
+      <strong>交叉练习（interleaving）</strong>比按家族分块练习更难，而正是这种难度才能让名字真正记牢。
+      十个样本，逐一说出名字。</p>
+  </section>
+  <div class="wide" id="atlas-game" style="margin-top:20px;max-width:760px;margin-inline:auto"></div>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../../reference/style-atlas.html">
+      <div>
+        <p class="eyebrow">参考资料 &middot; 留着它</p>
+        <h3>风格图鉴，现已完整</h3>
+        <p>全部十个家族的 token 和使用场景，亮色与暗色都在一张可打印的表格里。</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <div class="card">
+      <p class="eyebrow">主要来源 &middot; 读这个</p>
+      <h3>high-end-visual-design &sect;3，变化引擎</h3>
+      <p>气质与质感的原型，包括 Ethereal Glass。阅读
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/soft-skill/SKILL.md">技能文件</a>
+        （上游文件夹是 <code>soft-skill</code>，本地安装名是 <code>high-end-visual-design</code>）。
+        关于怎么把玻璃做对，见
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">design-taste-frontend &sect;2.B 和 &sect;5</a>；
+        关于遥测风格，见 industrial-brutalist-ui &sect;2.2（第 06 课的预告）。</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">你的老师</p>
+      <h3>随时追问</h3>
+      <p>想试试真正的玻璃效果代码，还是拿不准某个网站是 Deep Dark 还是 Ethereal Glass？
+        带来对话里，我们一起读。</p>
+    </div>
+
+    <a class="card next-link" href="./0006-the-two-brutalisms.html">
+      <div>
+        <p class="eyebrow">下一课</p>
+        <h3>06 &mdash; 两种粗野主义</h3>
+        <p>一次风格深挖：一个家族如何分裂成 Swiss Industrial Print 和 Tactical Telemetry，
+          以及为什么这两者绝不能混用。</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../../assets/quiz.js"></script>
+<script src="../../assets/atlas.js"></script>
+<script>
+  /* ---- recall from Lessons 01-04 ---- */
+  Quiz.mount("#recall", [
+    { q: "读一个风格家族时的第一个问题是什么？",
+      options: ["基底是什么", "字号是多少", "栅格间距是多少", "用了什么框架"],
+      answer: 0,
+      why: "基底（背景表面）是最快的判别信号，能瞬间把大多数家族区分开。" },
+    { q: "哪个家族闻起来像 Notion 或 Linear 的文档页？",
+      options: ["Premium Utilitarian Minimalism", "Editorial Luxury", "Quiet Premium Neutral", "Soft Structuralism"],
+      answer: 0,
+      why: "PUM：白色基底、1px 发丝边、粉彩标签，一份假装成应用的文档。" },
+    { q: "AI 式紫蓝渐变辉光叫什么？",
+      options: ["The Lila rule", "The Aurora rule", "The Neon rule", "The Mesh rule"],
+      answer: 0,
+      why: "Lila 在德语里是紫色的意思。它是最容易被认出的单一 AI 指纹。" }
+  ]);
+
+  /* ---- interleaved flash-recognition across all 10 families ---- */
+  var V = {
+    /* light (Lesson 04 families) */
+    pum: '<div class="f-pum"><div class="os"><div class="os-bar"><i></i><i></i><i></i></div><div class="os-body"><h4>Notes that file themselves</h4><p class="sub">Every capture lands in the right project page.</p><div class="tags"><span class="tag-y">Inbox</span><span class="tag-b">Projects</span></div><div class="row"><span>Quick capture</span><kbd>&#8984;&nbsp;N</kbd></div><a class="cta">Try it</a></div></div></div>',
+    lux: '<div class="f-lux"><p class="meta">Field Notes &middot; Spring</p><h4>Mornings, kept.</h4><p class="sub">Notes on slow planning, from people who plan for a living.</p><a class="sage">Read the essay</a><span class="folio">p. 3</span></div>',
+    soft: '<div class="f-soft"><h4>Your week,<br>at a glance.</h4><div class="cards"><div class="card-f"><p class="k">Deep work</p><p class="big">11h 20m</p></div><div class="card-f"><p class="k">Meetings</p><p class="big">4h <small>total</small></p></div></div><a class="cta">See trends</a></div>',
+    pristine: '<div class="f-pristine"><div class="top"><span>Meridian</span><span>Method</span></div><h4>Three moves, every morning.</h4><div class="ix"><i>01</i><span>Empty your head onto one page.</span></div><div class="ix"><i>02</i><span>Circle the three that matter.</span></div><div class="ix"><i>03</i><span>Schedule those, ignore the rest.</span></div><a class="cta">Start today</a></div>',
+    quiet: '<div class="f-quiet"><p class="wordmark">Meridian</p><div class="panel-q"><h4>Daily planning, quietly done.</h4><p class="sub">A calm surface that expects you to think, then gets out of the way.</p><a class="cta">Discover</a></div></div>',
+    /* dark & bold (Lesson 05 families) */
+    glass: '<div class="f-glass"><div class="glass"><p class="eb">Meridian AI</p><h4>Your schedule, drafted.</h4><p class="sub">The AI blocks your day; you approve it in one tap.</p><a class="cta">Start planning</a></div></div>',
+    dark: '<div class="f-dark"><p class="eb">Meridian &middot; Today</p><h4>Today, in the dark.</h4><div class="cards"><div class="card-d"><p class="k">Focus</p><p class="v">2h 40m</p></div><div class="card-d"><p class="k">Done</p><p class="v">9 <em>/12</em></p></div></div><a class="cta">Open planner</a></div>',
+    hacker: '<div class="f-hacker"><div class="term"><div class="term-bar"><i></i><i></i><i></i><span>meridian &middot; zsh</span></div><div class="term-body"><div><span class="dim">$</span> <span class="p">meridian</span> plan today</div><div class="dim">&nbsp;&nbsp;3 scheduled, 3 deferred</div><div><span class="dim">$</span> <span class="cur">&nbsp;</span></div></div></div><a class="cta">[ run ]</a></div>',
+    telemetry: '<div class="f-telemetry"><div class="hud"><div class="rowline"><span>SYS: MERIDIAN</span><b>NOMINAL</b></div><h4>Day Load</h4><p class="stat">72<span style="font-size:14px">%</span></p><div class="rowline"><span>TASKS 09/12</span><b>ON TRACK</b></div><a class="cta">&gt; engage</a></div></div>',
+    studio: '<div class="f-studio"><p class="eb">Meridian</p><h4>Own your morning.</h4><p class="sub">One loud, confident planner. No soft grays, just the plan.</p><span class="cta">Start free</span></div>'
+  };
+
+  StyleAtlas.game({
+    container: "#atlas-game",
+    rounds: 10,
+    families: [
+      { key: "pum", name: "Premium Utilitarian Minimalism",
+        why: "白色基底，伪装的操作系统窗口，1px 发丝边，粉彩标签，文档感。", variants: [V.pum] },
+      { key: "lux", name: "Editorial Luxury",
+        why: "奶油色纸张，巨大衬线字，颗粒感，鼠尾草绿与浓缩咖啡色，留白即奢华。", variants: [V.lux] },
+      { key: "soft", name: "Soft Structuralism",
+        why: "清冷的银灰空气感，巨大的粗体怪诞体，白色卡片浮在极度弥散的阴影上。", variants: [V.soft] },
+      { key: "pristine", name: "Pristine Light",
+        why: "暖色纸张，锐利的近黑无衬线字，用发丝分隔线代替卡片。", variants: [V.pristine] },
+      { key: "quiet", name: "Quiet Premium Neutral",
+        why: "石色与灰褐基底，刻意降低的对比度，宽字距大写字母。", variants: [V.quiet] },
+      { key: "glass", name: "Ethereal Glass",
+        why: "OLED 黑，暗色光球，磨砂卡片配一圈明亮的折射边。", variants: [V.glass] },
+      { key: "dark", name: "Deep Dark Mode",
+        why: "石墨色而非黑色，实心带边框卡片，一个克制的强调色，没有模糊。", variants: [V.dark] },
+      { key: "hacker", name: "Dark Tech / Hacker",
+        why: "绿字配黑底，只用等宽字体，终端提示符和光标。", variants: [V.hacker] },
+      { key: "telemetry", name: "Tactical Telemetry",
+        why: "琥珀荧光 HUD，ASCII 角括号，坐标，表格化读数。", variants: [V.telemetry] },
+      { key: "studio", name: "Bold Studio Solid",
+        why: "一整块满铺的高饱和色，锐利的文字，只留一个亮色给 CTA。", variants: [V.studio] }
+    ]
+  });
+</script>
+</body>
+</html>
