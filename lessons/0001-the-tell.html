@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 01: The Tell</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<!-- Inter, loaded ONLY so the slop mockup can commit the Inter tell for real -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/course.css">
+<style>
+  /* =========================================================================
+     Mockup styles — scoped hard to #slop-mock / #good-mock so they never leak
+     into the lesson chrome (and course.css never leaks into them). Everything
+     each mock needs is set explicitly.
+     ========================================================================= */
+
+  .mock-frame { font-size: 13px; }
+  #slop-mock, #good-mock { display: block; }
+
+  /* ---------- SLOP: Inter, purple, centered, cliché ---------- */
+  #slop-mock {
+    font-family: "Inter", sans-serif;
+    color: #0b0b0f;
+    background: #ffffff;
+    line-height: 1.4;
+  }
+  #slop-mock .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; border-bottom: 1px solid #eee;
+  }
+  #slop-mock .brand { font-weight: 800; font-size: 17px; letter-spacing: -0.02em; }
+  #slop-mock .brand .g { color: #7c3aed; }
+  #slop-mock .navlinks { display: flex; gap: 16px; font-size: 12px; color: #444; }
+  #slop-mock .navlinks span::before {
+    content: "● "; color: #22c55e; font-size: 9px; vertical-align: middle;
+  }
+  #slop-mock .nav .cta {
+    background: linear-gradient(90deg,#7c3aed,#4f46e5); color: #fff;
+    padding: 7px 14px; border-radius: 999px; font-size: 12px; font-weight: 600;
+    box-shadow: 0 0 18px rgba(124,58,237,0.55);
+  }
+  #slop-mock .hero {
+    position: relative; text-align: center; padding: 44px 24px 30px;
+    background:
+      radial-gradient(60% 80% at 30% 10%, rgba(124,58,237,0.55), transparent 60%),
+      radial-gradient(50% 70% at 80% 20%, rgba(59,130,246,0.5), transparent 60%),
+      #05050a;
+    color: #fff; overflow: hidden;
+  }
+  #slop-mock .eyebrow-pill {
+    display: inline-block; font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #c4b5fd;
+    border: 1px solid rgba(196,181,253,0.4); border-radius: 999px;
+    padding: 3px 10px; margin-bottom: 16px;
+  }
+  #slop-mock h1 {
+    font-size: 30px; line-height: 1.08; font-weight: 800; letter-spacing: -0.03em;
+    margin: 0 auto 12px; max-width: 15ch;
+    background: linear-gradient(90deg,#fff,#c4b5fd);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  #slop-mock .sub { font-size: 13px; color: #b9b9c9; max-width: 34ch; margin: 0 auto 18px; }
+  #slop-mock .hero .cta {
+    display: inline-block; background: linear-gradient(90deg,#7c3aed,#4f46e5);
+    color: #fff; padding: 10px 20px; border-radius: 999px; font-weight: 600;
+    font-size: 13px; box-shadow: 0 0 26px rgba(124,58,237,0.6);
+  }
+  #slop-mock .typechip {
+    position: absolute; top: 12px; right: 12px;
+    font-size: 10px; color: #cbd5e1; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; padding: 4px 8px;
+  }
+  #slop-mock .typechip b { font-size: 15px; font-weight: 800; }
+  #slop-mock .fakescreen {
+    margin: 22px auto 6px; max-width: 300px; text-align: left;
+    background: #0d0d16; border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; overflow: hidden; font-family: ui-monospace, monospace;
+  }
+  #slop-mock .fakescreen .bar {
+    display: flex; gap: 5px; padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  #slop-mock .fakescreen .bar i { width: 8px; height: 8px; border-radius: 999px; display: block; }
+  #slop-mock .fakescreen .body { padding: 10px 12px; font-size: 10px; color: #7dd3fc; }
+  #slop-mock .fakescreen .body .ln { color: #94a3b8; }
+  #slop-mock .fakescreen .body .ok { color: #4ade80; }
+  #slop-mock .scrollcue {
+    text-align: center; color: #a5a5c0; font-size: 11px; letter-spacing: 0.1em;
+    padding: 8px 0 2px;
+  }
+  #slop-mock .features { padding: 28px 20px; text-align: center; }
+  #slop-mock .sec-eyebrow {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #7c3aed; margin-bottom: 12px; font-weight: 600;
+  }
+  #slop-mock .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+  #slop-mock .cards .c {
+    border: 1px solid #ececf2; border-radius: 12px; padding: 16px 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06); background: #fff;
+  }
+  #slop-mock .cards .c .ic {
+    width: 30px; height: 30px; border-radius: 8px; margin: 0 auto 10px;
+    background: linear-gradient(135deg,#7c3aed,#4f46e5);
+  }
+  #slop-mock .cards .c h4 { font-size: 13px; margin: 0 0 5px; font-weight: 700; }
+  #slop-mock .cards .c p { font-size: 11px; color: #666; margin: 0; }
+  #slop-mock .stat { padding: 22px; text-align: center; background: #faf5ff; }
+  #slop-mock .stat .big {
+    font-size: 40px; font-weight: 800; letter-spacing: -0.03em;
+    background: linear-gradient(90deg,#7c3aed,#3b82f6);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  #slop-mock .stat .lbl { font-size: 11px; color: #777; }
+  #slop-mock .quote { padding: 26px 24px; text-align: center; }
+  #slop-mock .quote p { font-size: 14px; font-style: italic; max-width: 34ch; margin: 0 auto 12px; }
+  #slop-mock .quote .who { display: flex; gap: 8px; align-items: center; justify-content: center; }
+  #slop-mock .quote .av {
+    width: 26px; height: 26px; border-radius: 999px; background: #ddd;
+    display: grid; place-items: center; color: #999; font-size: 12px;
+  }
+  #slop-mock .quote .nm { font-size: 12px; font-weight: 600; }
+  #slop-mock .foot {
+    background: #000000; color: #888; padding: 20px; text-align: center; font-size: 11px;
+  }
+
+  /* ---------- GOOD: Cabinet Grotesk / Satoshi, warm neutral, one accent, asymmetric ---------- */
+  #good-mock {
+    --g-bg: #FBFAF6; --g-ink: #1C1A16; --g-soft: #575049;
+    --g-line: rgba(28,26,22,0.13); --g-acc: #CC3A22; --g-surf: #fff;
+    font-family: "Satoshi", system-ui, sans-serif;
+    color: var(--g-ink); background: var(--g-bg); line-height: 1.5;
+  }
+  #good-mock .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; border-bottom: 1px solid var(--g-line);
+  }
+  #good-mock .brand {
+    font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
+    font-size: 16px; letter-spacing: -0.01em;
+  }
+  #good-mock .navlinks { display: flex; gap: 16px; font-size: 12px; color: var(--g-soft); }
+  #good-mock .nav .cta {
+    background: var(--g-ink); color: var(--g-bg); padding: 7px 14px;
+    border-radius: 6px; font-size: 12px; font-weight: 500;
+  }
+  #good-mock .hero {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 20px;
+    align-items: center; padding: 40px 24px; background: var(--g-bg);
+  }
+  #good-mock .hero .eyebrow2 {
+    font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--g-acc); margin-bottom: 12px;
+  }
+  #good-mock h1 {
+    font-family: "Cabinet Grotesk", sans-serif; font-weight: 800;
+    font-size: 30px; line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 12px;
+  }
+  #good-mock .sub { font-size: 13px; color: var(--g-soft); max-width: 32ch; margin: 0 0 18px; }
+  #good-mock .hero .cta {
+    display: inline-block; background: var(--g-acc); color: #fff;
+    padding: 10px 18px; border-radius: 6px; font-weight: 500; font-size: 13px;
+  }
+  #good-mock .shot {
+    border-radius: 10px; overflow: hidden; border: 1px solid var(--g-line);
+    aspect-ratio: 4/3; background: #ded9cf center/cover no-repeat;
+    background-image: url("https://picsum.photos/seed/code-review-ui/440/330");
+  }
+  #good-mock .features { padding: 30px 24px; }
+  #good-mock .sec-eyebrow {
+    font-family: ui-monospace, monospace; font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--g-soft); margin-bottom: 14px;
+  }
+  #good-mock .zig { display: grid; gap: 14px; }
+  #good-mock .zig .row {
+    display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start;
+    padding-bottom: 14px; border-bottom: 1px solid var(--g-line);
+  }
+  #good-mock .zig .row:last-child { border-bottom: none; }
+  #good-mock .zig .n {
+    font-family: ui-monospace, monospace; font-size: 12px; color: var(--g-acc);
+    border: 1px solid var(--g-line); border-radius: 999px; width: 34px; height: 34px;
+    display: grid; place-items: center;
+  }
+  #good-mock .zig h4 { font-family: "Cabinet Grotesk"; font-size: 14px; margin: 4px 0 4px; }
+  #good-mock .zig p { font-size: 12px; color: var(--g-soft); margin: 0; }
+  #good-mock .stat {
+    padding: 26px 24px; display: flex; gap: 16px; align-items: baseline;
+    border-top: 1px solid var(--g-line); border-bottom: 1px solid var(--g-line);
+  }
+  #good-mock .stat .big {
+    font-family: "Cabinet Grotesk"; font-size: 40px; font-weight: 800;
+    letter-spacing: -0.02em; color: var(--g-ink);
+  }
+  #good-mock .stat .lbl { font-size: 12px; color: var(--g-soft); max-width: 26ch; }
+  #good-mock .quote { padding: 30px 24px; }
+  #good-mock .quote p {
+    font-family: "Cabinet Grotesk"; font-size: 17px; line-height: 1.3;
+    max-width: 30ch; margin: 0 0 14px; font-weight: 500;
+  }
+  #good-mock .quote .who { display: flex; gap: 10px; align-items: center; }
+  #good-mock .quote .av {
+    width: 30px; height: 30px; border-radius: 8px; background: #ded9cf center/cover;
+    background-image: url("https://picsum.photos/seed/reviewer-portrait/60/60");
+  }
+  #good-mock .quote .nm { font-size: 12px; font-weight: 700; }
+  #good-mock .quote .rl { font-size: 11px; color: var(--g-soft); }
+  #good-mock .foot {
+    background: var(--g-ink); color: #b8b1a6; padding: 22px 24px; font-size: 11px;
+    display: flex; justify-content: space-between;
+  }
+
+  @media (max-width: 520px) {
+    #good-mock .hero { grid-template-columns: 1fr; }
+    #slop-mock .cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>Module A: Seeing</span><span class="sep">/</span>
+      <span>Lesson 01</span><span class="sep">/</span>
+      <span>~12 min</span>
+    </p>
+    <h1>The Tell: what AI slop actually looks like</h1>
+    <div class="win">
+      <span class="tag">Your one win</span>
+      <p style="margin:0">By the end you can look at a generated landing page and
+        <strong>name five specific tells</strong>. Those are the exact signatures that make a
+        design read as machine-made rather than designed.</p>
+    </div>
+  </header>
+
+  <section class="prose">
+    <p class="lead">A <em>tell</em>, borrowed from poker, is an involuntary signal that gives you
+      away. AI-generated interfaces have tells: not "bad taste" in the abstract, but a small set of
+      concrete, repeatable defaults the model reaches for when it tries to look designed. Taste
+      starts with being able to <em>see</em> them. You cannot fix, or direct a tool away from, a
+      pattern you cannot name.</p>
+
+    <div class="note note--teach">
+      <p class="eyebrow">Who this is for</p>
+      <p style="margin:0">This is lesson 1 of a 16-lesson course to make you fluent in design
+        vocabulary, so you can steer AI tools (and your own hands) toward work that does not look
+        generic. No design background needed. Full syllabus in the
+        <a href="../README.md">README</a>.</p>
+    </div>
+
+    <h2>The same brief, built twice</h2>
+    <p>Below is one brief (<strong>a landing page for an AI code-review tool</strong>) rendered
+      two ways. The left panel is what a model produces on autopilot. The right panel is the same
+      content obeying the taste rules. They use different fonts, colors, layouts, and copy on
+      purpose.</p>
+    <p><strong>The five numbered pins on the left are already open.</strong> Click any pin to see
+      what the tell is, why it reads as generated, how the right panel fixes it, and where the rule
+      lives in the skill corpus. Read all five before scrolling to the hunt.</p>
+  </section>
+
+  <div class="wide" style="margin-top:28px">
+    <div class="compare">
+      <!-- ============ SLOP PANEL ============ -->
+      <div class="panel">
+        <div class="panel-label panel-label--bad"><span class="dot"></span> Autopilot / generated</div>
+        <div class="mock-frame">
+          <div id="slop-mock">
+            <div class="nav">
+              <div class="brand" data-tell="slop-brand">Ne<span class="g">x</span>us</div>
+              <div class="navlinks"><span>Product</span><span>Pricing</span><span>Docs</span></div>
+              <div class="navlinks" style="margin:0">
+                <span data-tell="deco-dots" style="border:1px solid #e5e5ee;border-radius:999px;padding:2px 8px;color:#16a34a">Live</span>
+              </div>
+              <div class="cta">Get started</div>
+            </div>
+            <div class="hero" data-tell="lila-gradient">
+              <span class="typechip" data-tell="inter-font"><b>Aa</b> Inter</span>
+              <div class="eyebrow-pill" data-tell="version-label">✦ Early access · v2.0 beta</div>
+              <h1 data-tell="centered-hero">Elevate your entire code workflow</h1>
+              <p class="sub" data-tell="em-dash">The AI copilot that reviews every pull request —
+                automatically, in seconds.</p>
+              <div class="cta" data-tell="filler-verb">Unleash your workflow</div>
+              <div class="fakescreen" data-tell="fake-screenshot">
+                <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+                <div class="body">
+                  <div class="ln">$ nexus review --pr 482</div>
+                  <div>Analyzing 14 files…</div>
+                  <div class="ok">✓ 0 blocking issues</div>
+                  <div class="ok">✓ ready to merge</div>
+                </div>
+              </div>
+              <div class="scrollcue" data-tell="scroll-cue">↓ Scroll to explore</div>
+            </div>
+            <div class="features">
+              <div class="sec-eyebrow" data-tell="eyebrow-spam">00 / How it works</div>
+              <div class="cards" data-tell="three-cards">
+                <div class="c"><div class="ic"></div><h4>Fast</h4><p>Reviews land in seconds, not hours.</p></div>
+                <div class="c"><div class="ic"></div><h4>Smart</h4><p>Understands your whole codebase.</p></div>
+                <div class="c"><div class="ic"></div><h4>Secure</h4><p>Your code never leaves your cloud.</p></div>
+              </div>
+            </div>
+            <div class="stat">
+              <div class="big" data-tell="fake-number">99.99%</div>
+              <div class="lbl">review accuracy</div>
+            </div>
+            <div class="quote">
+              <p>"Nexus completely transformed how our team ships code."</p>
+              <div class="who" data-tell="jane-doe">
+                <div class="av">SC</div>
+                <div class="nm">Sarah Chen, Developer</div>
+              </div>
+            </div>
+            <div class="foot" data-tell="pure-black">© 2026 Nexus. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ GOOD PANEL ============ -->
+      <div class="panel">
+        <div class="panel-label panel-label--good"><span class="dot"></span> Designed / corrected</div>
+        <div class="mock-frame">
+          <div id="good-mock">
+            <div class="nav">
+              <div class="brand">Reviewline</div>
+              <div class="navlinks"><span>How it works</span><span>Pricing</span><span>Docs</span></div>
+              <div class="cta">Start a review</div>
+            </div>
+            <div class="hero">
+              <div>
+                <div class="eyebrow2">Code review, on every pull request</div>
+                <h1>Catch the bug before your teammate does.</h1>
+                <p class="sub">Reviewline reads each pull request against your codebase and leaves
+                  inline comments in about a minute.</p>
+                <div class="cta">Start a review</div>
+              </div>
+              <div class="shot" role="img" aria-label="Screenshot of an inline code-review comment"></div>
+            </div>
+            <div class="features">
+              <div class="sec-eyebrow">What it does</div>
+              <div class="zig">
+                <div class="row"><div class="n">01</div><div><h4>Reads the whole diff in context</h4><p>It pulls in the files your change touches, not just the patch, so its comments track real intent.</p></div></div>
+                <div class="row"><div class="n">02</div><div><h4>Comments inline, like a teammate</h4><p>Findings arrive as review comments on the exact lines, with a suggested fix you can accept.</p></div></div>
+                <div class="row"><div class="n">03</div><div><h4>Runs in your own cloud</h4><p>Self-hosted by default. Source never leaves infrastructure you control.</p></div></div>
+              </div>
+            </div>
+            <div class="stat">
+              <div class="big">1m 40s</div>
+              <div class="lbl">median time from opened pull request to first review comment, across beta teams</div>
+            </div>
+            <div class="quote">
+              <p>"It flags the boring mistakes so our humans argue about the interesting ones."</p>
+              <div class="who">
+                <div class="av" role="img" aria-label="Portrait of Priya Nadkarni"></div>
+                <div>
+                  <div class="nm">Priya Nadkarni</div>
+                  <div class="rl">Staff Engineer, Halyard Logistics</div>
+                </div>
+              </div>
+            </div>
+            <div class="foot"><span>© 2026 Reviewline</span><span>Privacy · Terms</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ============ THE HUNT ============ -->
+  <section class="prose">
+    <h2>Now hunt the hidden ten</h2>
+    <p>The five pins you read were the loud, visual tells. But <strong>ten more tells are hiding in
+      the left panel</strong>: in the brand name, the copy, the labels, the numbers, and the footer.
+      They're the quiet ones, and they're where most generated pages actually give themselves away.</p>
+    <p><strong>Click anything in the left panel you suspect is a tell.</strong> A hit turns green and
+      names itself; a miss just says "no tell here." Try to find all ten before you hit
+      <em>Reveal remaining</em>.</p>
+  </section>
+
+  <div class="hunt-bar wide">
+    <span class="score" id="hunt-score">Hidden tells found: <b>0</b> / 10</span>
+    <span class="hint">Look past the pretty parts. Read the words, the names, the numbers.</span>
+    <button class="btn btn--ghost" id="reveal-all">Reveal remaining</button>
+  </div>
+
+  <section class="prose" style="margin-top:40px">
+    <h2>The five you should be able to name from memory</h2>
+    <p>Fluency is retrieving without looking. Here are the five loud tells again as a bare list. Cover the reasons and see if you can say why each one reads as generated:</p>
+    <ol>
+      <li><strong>Inter, everywhere.</strong> The default typeface of AI design. Character-neutral,
+        so it makes everything feel templated.</li>
+      <li><strong>The purple/blue gradient glow.</strong> The single most common AI fingerprint.
+        The corpus calls avoiding it <em>the Lila rule</em>.</li>
+      <li><strong>Centered headline over a dark mesh.</strong> The one hero composition the model
+        always reaches for first.</li>
+      <li><strong>Three equal feature cards.</strong> The generic feature row. Icon, bold word,
+        one sentence, times three.</li>
+      <li><strong>The em-dash as a flourish.</strong> The model's signature punctuation crutch, banned outright in the corpus.</li>
+    </ol>
+    <p>If you can name those five cold, you've hit today's win. The full taxonomy (every tell in this lesson plus the ones coming in later lessons) lives on your printable cheat sheet.</p>
+  </section>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../reference/ai-tells.html">
+      <div>
+        <p class="eyebrow">Reference · keep this</p>
+        <h3>The AI-Tells cheat sheet</h3>
+        <p>Every tell as a tiny visual swatch, grouped by category. Prints on one page.</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <div class="card">
+      <p class="eyebrow">Primary source · read this</p>
+      <h3>design-taste-frontend §9: “AI Tells (Forbidden Patterns)”</h3>
+      <p>The most-trusted source on this topic in your corpus. Open
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/design-taste-frontend/SKILL.md">the skill</a> and read section 9,
+        especially §9.F (production-test tells) and §9.G (the em-dash ban).</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Your teacher</p>
+      <h3>Ask follow-up questions</h3>
+      <p>I'm teaching this in the session, not just handing you a file. Confused by a tell, disagree
+        with one, or want to test a page you've seen in the wild? Ask.</p>
+    </div>
+
+    <a class="card next-link" href="./0002-the-three-dials.html">
+      <div>
+        <p class="eyebrow">Next lesson</p>
+        <h3>02: The Three Dials</h3>
+        <p>Once you can spot slop, you need to describe intent. VARIANCE, MOTION, DENSITY.</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../assets/compare.js"></script>
+<script>
+  var REGISTRY = {
+    /* ---- 5 shown (taught up front) ---- */
+    "inter-font": { n:1, mode:"shown",
+      title:"Inter, everywhere",
+      rule:"Inter is the character-neutral default the model reaches for. It isn't ugly; it's invisible, which makes every AI page feel like the same template.",
+      fix:"The right panel uses Cabinet Grotesk for display and Satoshi for text, faces with an actual voice.",
+      source:"design-taste-frontend §4.1 · §9.B" },
+    "lila-gradient": { n:2, mode:"shown",
+      title:"The AI purple/blue gradient glow",
+      rule:"Purple-to-blue mesh with a neon button glow is the single most recognizable AI fingerprint. The corpus names avoiding it 'the Lila rule'.",
+      fix:"The right panel uses a warm neutral base with exactly one flat accent (vermilion) and no glow.",
+      source:"design-taste-frontend §4.2 (the Lila rule) · §9.A" },
+    "centered-hero": { n:3, mode:"shown",
+      title:"Centered headline over a dark mesh",
+      rule:"A centered H1 floating over a dark gradient is the default hero the model always tries first. It signals 'no compositional decision was made.'",
+      fix:"The right panel uses an asymmetric split: text left, a real product image right.",
+      source:"design-taste-frontend §0.D · §4.3 (anti-center bias)" },
+    "three-cards": { n:4, mode:"shown",
+      title:"Three equal feature cards",
+      rule:"Icon + bold word + one sentence, three across, is the most generic feature layout there is. Bordered, shadowed, identical.",
+      fix:"The right panel uses an asymmetric numbered list with hairline dividers: rhythm, not repetition.",
+      source:"design-taste-frontend §9.C · §4.7" },
+    "em-dash": { n:5, mode:"shown",
+      title:"The em-dash as a flourish",
+      rule:"The em-dash is the model's signature punctuation crutch and the #1 typographic tell in production tests. The corpus bans it outright: zero, anywhere.",
+      fix:"The right panel restructures the sentence with a period. No em-dashes on the page.",
+      source:"design-taste-frontend §9.G (the em-dash ban)" },
+
+    /* ---- 10 hunt (hidden) ---- */
+    "slop-brand": { n:6, mode:"hunt",
+      title:"Startup-slop brand name",
+      rule:"'Nexus' (like Acme, Apex, Flow, Cloudly) is a generic invented name with a token-colored letter. It sounds like every other AI demo.",
+      fix:"The right panel is 'Reviewline', a plain, sayable name that describes the product.",
+      source:"design-taste-frontend §9.D · v1 §7" },
+    "deco-dots": { n:7, mode:"hunt",
+      title:"Decorative status dots",
+      rule:"A colored ● before nav items or a 'Live' badge, used for decoration rather than real state, is a Tell. Dots should mean something.",
+      fix:"The right panel drops the dot entirely: no fake liveness indicator.",
+      source:"design-taste-frontend §9.F (decorative status dots)" },
+    "version-label": { n:8, mode:"hunt",
+      title:"Version label in the hero",
+      rule:"'v2.0 BETA', 'EARLY ACCESS', 'INVITE-ONLY PREVIEW' as a hero eyebrow is banned by default. It's status theater, not a value proposition.",
+      fix:"The right panel's eyebrow states what the product does instead.",
+      source:"design-taste-frontend §9.F (version labels in hero)" },
+    "filler-verb": { n:9, mode:"hunt",
+      title:"Filler-verb copy",
+      rule:"'Unleash', 'Elevate', 'Seamless', 'Next-Gen' are AI copywriting clichés that say nothing. Here 'Unleash your workflow' is the CTA: pure filler.",
+      fix:"The right panel's CTA is the concrete action: 'Start a review.'",
+      source:"design-taste-frontend §9.D · §4.9 (copy self-audit)" },
+    "eyebrow-spam": { n:10, mode:"hunt",
+      title:"Section-number eyebrow",
+      rule:"'00 / How it works', enumerating sections with numbers over every header, is a templated rhythm tell. Max one eyebrow per three sections, and never numbered.",
+      fix:"The right panel labels the section in plain words, once.",
+      source:"design-taste-frontend §4.7 (eyebrow restraint) · §9.F" },
+    "fake-number": { n:11, mode:"hunt",
+      title:"Fake-perfect statistic",
+      rule:"'99.99% accuracy' is an invented, suspiciously round metric with no source. Fake precision the brand can't back up reads as hallucinated.",
+      fix:"The right panel uses a real, messy, sourced number ('1m 40s median … across beta teams').",
+      source:"design-taste-frontend §9.D · §4.9 (fake-precise numbers)" },
+    "jane-doe": { n:12, mode:"hunt",
+      title:"The Jane Doe testimonial",
+      rule:"'Sarah Chen, Developer', a generic name with a vague role and no company, is the classic placeholder testimonial. Attribution with no specificity.",
+      fix:"The right panel names a specific person, real-sounding role, and company.",
+      source:"design-taste-frontend §9.D (the Jane Doe effect)" },
+    "fake-screenshot": { n:13, mode:"hunt",
+      title:"Div-based fake screenshot",
+      rule:"A 'product preview' built from styled divs (fake terminal, fake traffic-light window, fake log lines) is the #1 LLM design Tell. It's decoration pretending to be a product.",
+      fix:"The right panel uses a real image placeholder for an actual screenshot.",
+      source:"design-taste-frontend §4.8 · §9.E (no div-based fake screenshots)" },
+    "scroll-cue": { n:14, mode:"hunt",
+      title:"Scroll cue",
+      rule:"'↓ Scroll to explore' is banned. If the user is looking at the hero, they already know how to scroll. It's filler that fills space.",
+      fix:"The right panel has no scroll cue: the content pulls you down on its own.",
+      source:"design-taste-frontend §9.F (scroll cues are banned)" },
+    "pure-black": { n:15, mode:"hunt",
+      title:"Pure black (#000000)",
+      rule:"A #000000 footer (or text) kills depth and looks digital-default. Real design uses off-black (zinc-950, warm charcoal), never pure black.",
+      fix:"The right panel's footer is a warm off-black that sits in the same palette family.",
+      source:"design-taste-frontend §9.A · §8.B (no pure #000)" }
+  };
+
+  TellHunt.mount("#slop-mock", REGISTRY, {
+    scoreSelector: "#hunt-score",
+    revealSelector: "#reveal-all"
+  });
+</script>
+</body>
+</html>

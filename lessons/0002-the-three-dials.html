@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 02: The Three Dials</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>Module A: Seeing</span><span class="sep">/</span>
+      <span>Lesson 02</span><span class="sep">/</span>
+      <span>~13 min</span>
+    </p>
+    <h1>The Three Dials: Variance, Motion, Density</h1>
+    <div class="win">
+      <span class="tag">Your one win</span>
+      <p style="margin:0">By the end you can read any page as a triple like
+        <strong>7 / 6 / 4</strong> and say what each number means. Spotting slop was Lesson 01.
+        This is how you describe <em>intent</em>.</p>
+    </div>
+  </header>
+
+  <!-- ===== spaced recall from Lesson 01 ===== -->
+  <section style="margin-bottom:44px">
+    <div id="recall"></div>
+  </section>
+
+  <section class="prose">
+    <p class="lead">Designers do not argue about "make it nicer." They argue about specific,
+      independent axes. This course uses three, borrowed straight from your skill corpus. Every
+      page you will ever build sits somewhere on all three at once.</p>
+    <p>The three dials are <strong>independent</strong>: a page can be wildly asymmetric yet
+      perfectly still, or dead-symmetric yet buzzing with motion. Learning to move them separately
+      in your head is most of what "having an eye" means.</p>
+  </section>
+
+  <!-- ===== the live simulator (show, don't tell) ===== -->
+  <section class="wide" style="margin:28px 0 8px">
+    <p class="eyebrow" style="text-align:center;margin-bottom:16px">Move the dials. Watch the same page change.</p>
+    <div class="dial-lab">
+      <div id="dial-stage"></div>
+      <div>
+        <div id="dial-controls" class="dial-controls">
+          <div class="dial-row"><span>Variance</span>
+            <input type="range" min="1" max="10" value="8" data-dial="variance" aria-label="Variance">
+            <span data-out="variance">8</span></div>
+          <div class="dial-row"><span>Motion</span>
+            <input type="range" min="1" max="10" value="6" data-dial="motion" aria-label="Motion">
+            <span data-out="motion">6</span></div>
+          <div class="dial-row"><span>Density</span>
+            <input type="range" min="1" max="10" value="4" data-dial="density" aria-label="Density">
+            <span data-out="density">4</span></div>
+        </div>
+        <div id="dial-presets" class="dial-presets">
+          <button class="btn btn--ghost" data-preset="7,6,4">SaaS landing</button>
+          <button class="btn btn--ghost" data-preset="9,8,3">Agency</button>
+          <button class="btn btn--ghost" data-preset="7,6,3">Premium consumer</button>
+          <button class="btn btn--ghost" data-preset="6,4,3">Editorial</button>
+          <button class="btn btn--ghost" data-preset="3,2,5">Public sector</button>
+        </div>
+        <button class="btn" id="dial-replay" style="margin-top:12px">Replay entrance</button>
+        <div id="dial-readout" class="d-readout"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>What each dial actually controls</h2>
+    <p>Drag each slider to its extremes and watch which parts of the page respond. That mapping is
+      the whole lesson.</p>
+
+    <h3>Variance — symmetry to chaos</h3>
+    <p>At <strong>low variance</strong> everything is centered and mirror-balanced. In the
+      <strong>middle</strong> the hero splits and text left-aligns. At <strong>high variance</strong>
+      the grid breaks: unequal columns, offset blocks, large empty zones. Most AI slop sits at low
+      variance without meaning to, which is why Lesson 01's centered hero felt so default.</p>
+
+    <h3>Motion — static to cinematic</h3>
+    <p><strong>Low</strong> is still: hover states only. The <strong>middle</strong> adds transitions
+      and a gentle entrance fade (hit "Replay entrance"). <strong>High</strong> adds continuous,
+      choreographed motion, and the corpus's rule kicks in: motion must be <em>motivated</em>, and it
+      must respect <code>prefers-reduced-motion</code>. This page does: the infinite float only runs
+      at high motion, and turns off entirely if your system asks for reduced motion.</p>
+
+    <h3>Density — art gallery to cockpit</h3>
+    <p><strong>Low</strong> density is airy: huge whitespace, big type, generous cards.
+      <strong>High</strong> density is a cockpit: tight padding, cards collapse into 1px divider
+      rows, and numbers switch to a monospace font so columns of data line up. Watch the feature row
+      transform as you push density past 7.</p>
+
+    <div class="note note--teach">
+      <p class="eyebrow">The baseline</p>
+      <p style="margin:0">The corpus ships a default of <strong>8 / 6 / 4</strong> — confident
+        variance, moderate motion, fairly airy. It is a starting point, not a law. The
+        <em>design read</em> (next lesson) is what moves you off the baseline.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ===== the game (do) ===== -->
+  <section class="prose">
+    <h2>Read the dials yourself</h2>
+    <p>Five pages, each rendered at fixed settings. For each, read the layout, motion, and spacing,
+      then enter your best guess for all three dials (1-10). You score a hit for any dial within
+      <strong>+/-1</strong> of the real value. Aim to feel the bands (low / mid / high) more than
+      the exact number.</p>
+  </section>
+
+  <div class="wide" id="dial-game" style="margin-top:20px"></div>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../reference/dials.html">
+      <div>
+        <p class="eyebrow">Reference · keep this</p>
+        <h3>The Dials cheat sheet</h3>
+        <p>Band definitions and the preset table (SaaS 7/6/4, agency 9/8/3, public sector 3/2/5…).</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <div class="card">
+      <p class="eyebrow">Primary source · read this</p>
+      <h3>design-taste-frontend §1 — “The Three Dials”</h3>
+      <p>Read section 1 (dial inference and presets) and section 7 (the exact band definitions) in
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/design-taste-frontend/SKILL.md">the skill</a>.</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Your teacher</p>
+      <h3>Ask follow-up questions</h3>
+      <p>Want to test a real site's dials, or unsure why a preset sits where it does? Bring it to the
+        session and we'll read it together.</p>
+    </div>
+
+    <a class="card next-link" href="./0003-the-design-read.html">
+      <div>
+        <p class="eyebrow">Next lesson</p>
+        <h3>03 — The Design Read</h3>
+        <p>The dials describe a page. The design read decides where to set them: the audience picks
+          the aesthetic.</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../assets/quiz.js"></script>
+<script src="../assets/dials.js"></script>
+<script>
+  Quiz.mount("#recall", [
+    { q: "What is the AI purple/blue gradient rule called?",
+      options: ["The Lila rule", "The Neon rule", "The Mesh rule", "The Halo rule"],
+      answer: 0,
+      why: "Lila is German for purple. Avoid the purple/blue glow as a default." },
+    { q: "A centered headline over a dark mesh signals what?",
+      options: ["No composition chosen", "Bold composition chosen", "A premium brand choice", "An accessibility feature"],
+      answer: 0,
+      why: "It is the model's default hero; it shows no compositional decision was made." },
+    { q: "In the corpus, the em-dash character is treated how?",
+      options: ["Banned everywhere, always", "Allowed inside body text", "Fine inside short headings", "Reserved for attribution"],
+      answer: 0,
+      why: "Zero em-dashes anywhere. Use a period, comma, colon, or parentheses instead." }
+  ]);
+
+  DialSim.mount({
+    stage: "#dial-stage",
+    controls: "#dial-controls",
+    presets: "#dial-presets",
+    readout: "#dial-readout",
+    replay: "#dial-replay"
+  });
+
+  DialSim.guessGame({ container: "#dial-game" });
+</script>
+</body>
+</html>

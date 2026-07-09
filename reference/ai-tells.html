@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference: AI Tells Cheat Sheet</title>
+<link rel="stylesheet" href="../assets/course.css">
+<style>
+  /* compact reference layout — grows across lessons 0001, 0012, 0013, 0015 */
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight:800; font-size: 2rem;
+    letter-spacing:-0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 14px;
+  }
+  .tells { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .tell {
+    display: grid; grid-template-columns: 78px 1fr; gap: 12px;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 12px 14px; background: var(--surface); break-inside: avoid;
+  }
+  .tell .swatch {
+    width: 78px; height: 62px; border-radius: var(--radius-sm);
+    overflow: hidden; display: grid; place-items: center; font-size: 11px;
+    border: 1px solid var(--line-soft);
+  }
+  .tell h3 { font-family: var(--font-display); font-size: 14px; margin: 0 0 3px; }
+  .tell p { margin: 0; font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; }
+  .tell .src { font-family: var(--font-mono); font-size: 10px; color: var(--ink-faint);
+    margin-top: 5px; letter-spacing: 0.04em; }
+  .fix { color: var(--good); }
+
+  /* swatch demos (show, don't tell — each tell gets a tiny visual) */
+  .sw-inter   { font-family:"Inter",sans-serif; background:#fff; color:#0b0b0f; font-weight:800; }
+  .sw-lila    { background: radial-gradient(120% 120% at 30% 10%, #7c3aed, #3b82f6 60%, #05050a); color:#fff; }
+  .sw-center  { background:#0b0b13; color:#fff; text-align:center; font-size:9px; padding:6px;
+                display:flex; align-items:center; justify-content:center; }
+  .sw-cards   { display:flex; gap:3px; background:#fff; padding:6px; }
+  .sw-cards i { flex:1; height:100%; border:1px solid #e2e2ea; border-radius:3px; }
+  .sw-dash    { background:#fff; color:#7c3aed; font-family:var(--font-mono); font-weight:700; font-size:16px; }
+  .sw-brand   { background:#fff; color:#0b0b0f; font-weight:800; font-size:13px; }
+  .sw-brand b { color:#7c3aed; }
+  .sw-dot     { background:#fff; color:#16a34a; font-size:9px; }
+  .sw-ver     { background:#0b0b13; color:#c4b5fd; font-size:8px; text-align:center; padding:4px;
+                display:flex; align-items:center; }
+  .sw-filler  { background:#fff; color:#7c3aed; font-style:italic; font-size:11px; font-weight:600; }
+  .sw-num     { background:#faf5ff; color:#7c3aed; font-weight:800; font-size:15px; }
+  .sw-fake    { background:#0d0d16; color:#4ade80; font-family:var(--font-mono); font-size:8px;
+                text-align:left; padding:6px; align-items:flex-start; }
+  .sw-scroll  { background:#0b0b13; color:#a5a5c0; font-size:9px; }
+  .sw-black   { background:#000; color:#888; font-size:9px; }
+  .sw-emdash  { background:#fff; color:#0b0b0f; font-size:20px; font-weight:700; }
+  .sw-mono    { font-family: var(--font-mono); font-size:9px; letter-spacing:0.1em; color:var(--ink-soft); }
+
+  @media print { .tells { grid-template-columns: repeat(2,1fr); } .btn { display:none; } }
+  @media (max-width: 700px) { .tells { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste · Reference · print me</p>
+    <h1>The AI-Tells Cheat Sheet</h1>
+    <p>The concrete signatures that make an interface read as generated. This sheet grows across the
+      course; the fifteen below come from Lesson 01. Source shorthand: <code>DTF</code> =
+      <code>design-taste-frontend/SKILL.md</code>.</p>
+  </div>
+
+  <!-- VISUAL & CSS -->
+  <section class="cat">
+    <h2>Visual &amp; CSS</h2>
+    <div class="tells">
+      <div class="tell"><div class="swatch sw-lila">glow</div>
+        <div><h3>AI purple/blue gradient</h3>
+        <p>Violet-to-blue mesh + neon button glow. The single most recognizable AI fingerprint.
+        <span class="fix">Fix: warm neutral base, one flat accent, no glow.</span></p>
+        <div class="src">DTF §4.2 (the Lila rule) · §9.A</div></div></div>
+
+      <div class="tell"><div class="swatch sw-black">#000000</div>
+        <div><h3>Pure black</h3>
+        <p>#000 backgrounds or text kill depth and read as digital-default.
+        <span class="fix">Fix: off-black (zinc-950 / warm charcoal).</span></p>
+        <div class="src">DTF §9.A · §8.B</div></div></div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section class="cat">
+    <h2>Typography</h2>
+    <div class="tells">
+      <div class="tell"><div class="swatch sw-inter">Aa</div>
+        <div><h3>Inter everywhere</h3>
+        <p>The character-neutral default. Not ugly, just invisible, so every page feels templated.
+        <span class="fix">Fix: a display face with a voice (Cabinet Grotesk, Satoshi…).</span></p>
+        <div class="src">DTF §4.1 · §9.B</div></div></div>
+
+      <div class="tell"><div class="swatch sw-emdash">—</div>
+        <div><h3>The em-dash flourish</h3>
+        <p>The model's signature punctuation crutch. Banned outright: zero anywhere on the page.
+        <span class="fix">Fix: period, comma, colon, or parentheses.</span></p>
+        <div class="src">DTF §9.G</div></div></div>
+    </div>
+  </section>
+
+  <!-- LAYOUT -->
+  <section class="cat">
+    <h2>Layout</h2>
+    <div class="tells">
+      <div class="tell"><div class="swatch sw-center">centered<br>H1</div>
+        <div><h3>Centered hero over dark mesh</h3>
+        <p>The default hero the model always tries first. Signals no composition was chosen.
+        <span class="fix">Fix: asymmetric split, text one side, asset the other.</span></p>
+        <div class="src">DTF §0.D · §4.3</div></div></div>
+
+      <div class="tell"><div class="swatch sw-cards"><i></i><i></i><i></i></div>
+        <div><h3>Three equal feature cards</h3>
+        <p>Icon + bold word + one sentence, three across, bordered and shadowed.
+        <span class="fix">Fix: asymmetric list, zigzag, or varied bento with rhythm.</span></p>
+        <div class="src">DTF §9.C · §4.7</div></div></div>
+
+      <div class="tell"><div class="swatch sw-mono">00 / INDEX</div>
+        <div><h3>Section-number eyebrow</h3>
+        <p>Numbered labels over every header ('00 / How it works'). Templated rhythm.
+        <span class="fix">Fix: max 1 eyebrow per 3 sections; name it in plain words.</span></p>
+        <div class="src">DTF §4.7 · §9.F</div></div></div>
+
+      <div class="tell"><div class="swatch sw-fake">$ run<br>✓ ok<br>✓ merge</div>
+        <div><h3>Div-based fake screenshot</h3>
+        <p>Fake terminal / dashboard / traffic-light window built from styled divs. The #1 Tell.
+        <span class="fix">Fix: a real screenshot, generated image, or none.</span></p>
+        <div class="src">DTF §4.8 · §9.E</div></div></div>
+    </div>
+  </section>
+
+  <!-- CONTENT & COPY -->
+  <section class="cat">
+    <h2>Content &amp; Copy</h2>
+    <div class="tells">
+      <div class="tell"><div class="swatch sw-brand">Ne<b>x</b>us</div>
+        <div><h3>Startup-slop brand name</h3>
+        <p>Nexus, Acme, Apex, Cloudly: generic invented names, often with a token-colored letter.
+        <span class="fix">Fix: a plain, sayable, descriptive name.</span></p>
+        <div class="src">DTF §9.D</div></div></div>
+
+      <div class="tell"><div class="swatch sw-filler">Unleash</div>
+        <div><h3>Filler-verb copy</h3>
+        <p>Elevate, Unleash, Seamless, Next-Gen: clichés that say nothing.
+        <span class="fix">Fix: the concrete action ('Start a review').</span></p>
+        <div class="src">DTF §9.D · §4.9</div></div></div>
+
+      <div class="tell"><div class="swatch sw-num">99.99%</div>
+        <div><h3>Fake-perfect statistic</h3>
+        <p>Suspiciously round invented metrics with no source read as hallucinated.
+        <span class="fix">Fix: real, messy, sourced numbers, or none.</span></p>
+        <div class="src">DTF §9.D · §4.9</div></div></div>
+
+      <div class="tell"><div class="swatch"><span style="font-size:10px;color:var(--ink-soft)">Sarah Chen<br>Developer</span></div>
+        <div><h3>The Jane Doe testimonial</h3>
+        <p>Generic name + vague role + no company. Attribution with zero specificity.
+        <span class="fix">Fix: real name, specific role, real company.</span></p>
+        <div class="src">DTF §9.D</div></div></div>
+
+      <div class="tell"><div class="swatch sw-ver">✦ v2.0 BETA</div>
+        <div><h3>Version label in the hero</h3>
+        <p>'EARLY ACCESS', 'INVITE-ONLY PREVIEW' as an eyebrow. Status theater, not value.
+        <span class="fix">Fix: an eyebrow that states what the product does.</span></p>
+        <div class="src">DTF §9.F</div></div></div>
+
+      <div class="tell"><div class="swatch sw-scroll">↓ Scroll</div>
+        <div><h3>Scroll cue</h3>
+        <p>'↓ Scroll to explore.' The user is on the hero; they know how to scroll.
+        <span class="fix">Fix: delete it. Let content pull the eye down.</span></p>
+        <div class="src">DTF §9.F</div></div></div>
+
+      <div class="tell"><div class="swatch sw-dot">● Live</div>
+        <div><h3>Decorative status dots</h3>
+        <p>Colored ● before nav items or a fake 'Live' badge, used as decoration not real state.
+        <span class="fix">Fix: drop it, or make the dot mean something.</span></p>
+        <div class="src">DTF §9.F</div></div></div>
+    </div>
+  </section>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../lessons/0001-the-tell.html">
+      <div><p class="eyebrow">Back to</p><h3>Lesson 01: The Tell</h3>
+      <p>Replay the hunt, or move on to Lesson 02.</p></div>
+      <span class="arrow">→</span>
+    </a>
+    <button class="btn" onclick="window.print()">Print this sheet</button>
+  </div>
+</main>
+</body>
+</html>
