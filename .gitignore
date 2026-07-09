@@ -8,3 +8,14 @@ Thumbs.db
 # tooling
 .claude/
 node_modules/
+
+# ---- PRIVATE: teach-skill workspace, never publish ----
+# This repo is also the private authoring workspace. These files stay local.
+MISSION.md
+NOTES.md
+COURSE.md
+RESOURCES.md
+PUBLIC-REDBOOK.md
+learning-records/
+.agents/
+skills-lock.json
