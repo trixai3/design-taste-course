@@ -105,6 +105,37 @@ wide-tracked uppercase wordmarks, near-square corners. Restraint as the brand. S
 _Avoid_: 低对比要检查正文仍过 WCAG AA
 _Source_: imagegen-frontend-web §2 (Theme Paradigm 4)
 
+**Ethereal Glass · 空灵玻璃**:
+Deepest OLED black substrate with dim colored orbs (emerald, blue) as a radial mesh, and frosted
+cards with a bright refraction rim. Smells like Linear, Vercel, AI startups.
+最深的 OLED 黑基底、暗色光球（翡翠绿、蓝）构成的径向网格、加上带明亮折射边的磨砂卡片。闻起来像 Linear、Vercel、AI 创业公司。
+_Source_: high-end-visual-design §3.A.1
+
+**Deep Dark Mode · 深灰暗色模式**:
+Graphite / zinc substrate (never pure black), solid bordered cards, one restrained accent glow, no
+blur. The workhorse product dark mode. Smells like GitHub dark, Raycast.
+石墨/锌灰基底（绝非纯黑）、实心带边卡片、一个克制的强调色微光、无模糊。最常用的产品暗色模式。闻起来像 GitHub 暗色、Raycast。
+_Source_: imagegen-frontend-web §2 (Theme Paradigm 2)
+
+**Dark Tech / Hacker · 黑客终端风**:
+Near-black green-tinted substrate, monospace only, neon green accent, terminal motifs (prompt,
+cursor, command output). You type here. Smells like devtools and CLIs.
+近黑带绿的基底、纯等宽字体、霓虹绿强调色、终端元素（提示符、光标、命令输出）。你在这里"敲命令"。闻起来像开发者工具和 CLI。
+_Source_: DTF §2.B
+
+**Tactical Telemetry · 战术遥测风**:
+Deep black, amber phosphor monospace with faint glow, ASCII framing (corner brackets, crosshairs),
+coordinate and status readouts. You monitor here. Smells like aerospace HUDs, mission control.
+深黑底、带微光的琥珀荧光等宽字、ASCII 框架（角括号、准星）、坐标与状态读数。你在这里"监看"。闻起来像航空 HUD、任务控制台。
+_Avoid_: 与 Dark Tech 混淆（一个"敲"，一个"看"）
+_Source_: industrial-brutalist-ui §2.2
+
+**Bold Studio Solid · 大胆纯色块**:
+One saturated color field edge to edge (royal blue, oxblood, forest, vermilion, emerald), crisp
+high-contrast type, a single bright pop reserved for the CTA. The only bold family that is not dark.
+一整块满铺的高饱和色（宝蓝、牛血红、森绿、朱红、翡翠），锐利的高对比文字，只留一个亮色给 CTA。唯一不走暗色的"大胆"族。
+_Source_: imagegen-frontend-web §2 (Theme Paradigm 3)
+
 ---
 
 ## Typography · 排版
@@ -172,6 +203,37 @@ The purple/blue gradient with a neon button glow is the single most recognizable
 it by default. Fix: warm neutral base + one flat accent, no glow.
 紫蓝渐变加霓虹按钮辉光，是最容易被认出的 AI 指纹；默认要避免。改法：暖中性底色 + 一个平涂强调色，不发光。
 _Source_: DTF §4.2 · §9.A
+
+**OLED black · OLED 纯黑（近黑）**:
+The deepest near-black (around #050505) used as a substrate so colored orbs and glows read cleanly.
+Still not pure #000000: even at maximum darkness, true black kills depth.
+最深的近黑（约 #050505），做基底让彩色光球和辉光更干净地显现。但仍不是纯 #000000：再暗也不用纯黑，否则会压掉层次。
+_Source_: high-end-visual-design §3.A.1
+
+**Glassmorphism / frosted glass · 玻璃拟态 / 磨砂玻璃**:
+A frosted, semi-transparent surface that blurs what is behind it. Done right it needs three parts:
+backdrop blur, a 1px light inner border, and a bright inner highlight. Blur alone is the common fail.
+一种磨砂、半透明、能模糊其后内容的表面。做对需要三件套：背景模糊 + 1px 亮色内边框 + 明亮的内高光。只有模糊是最常见的翻车。
+_Source_: DTF §2.B · §5
+
+**Backdrop blur · 背景模糊**:
+The `backdrop-filter: blur()` that blurs whatever sits behind a translucent element. The base
+ingredient of glass, but not sufficient on its own.
+`backdrop-filter: blur()`，用来模糊半透明元素背后的内容。玻璃效果的基础原料，但单靠它不够。
+
+**Refraction rim / edge · 折射边（亮边）**:
+The 1px light inner border plus inner highlight (`inset 0 1px 0 rgba(255,255,255,.2)`) that makes
+light appear to bend at a glass edge. This lit rim, not the blur, is what sells real glass.
+1px 亮色内边框加内高光（`inset 0 1px 0 rgba(255,255,255,.2)`），让光看起来在玻璃边缘发生弯折。真正"卖出"玻璃感的是这条亮边，而非模糊。
+_Source_: DTF §5
+
+**Liquid glass · 液态玻璃**:
+Apple's frosted-glass material, documented for Apple platforms only. There is no official web
+`liquid-glass.css`; any web version is an approximation to be labeled as one, with a solid fallback
+for `prefers-reduced-transparency`.
+苹果的磨砂玻璃材质，仅面向苹果平台。网页上没有官方 `liquid-glass.css`；任何网页实现都是近似，应如实标注，并为 `prefers-reduced-transparency` 提供纯色回退。
+_Avoid_: 把网页近似说成"官方 liquid glass"
+_Source_: DTF §2.B
 
 **Neon glow · 霓虹辉光** ⚑ tell:
 An outer glow (box-shadow) around buttons/cards. Reads as cheap. Fix: inner borders or subtle tinted

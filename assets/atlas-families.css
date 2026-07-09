@@ -1,0 +1,138 @@
+/* ==========================================================================
+   atlas-families.css: the named style families rendered as live specimens.
+   Shared by the Style Atlas lessons (0004 light, 0005 dark & bold) and their
+   game swatches, so a family is defined ONCE and reused everywhere.
+
+   Every .f-* block is a SPECIMEN: it deliberately leaves the course palette
+   (like Lesson 03's three audiences). Fixed brand hexes are correct here.
+   Fonts: light families use free Fontshare stand-ins for the licensed faces
+   the corpus names; dark/bold families reuse the course display + mono.
+   ========================================================================== */
+
+@import url("https://api.fontshare.com/v2/css?f[]=sentient@400,500,700&f[]=zodiak@400,700,900&f[]=switzer@400,500,600&f[]=general-sans@400,500,600&display=swap");
+
+/* shared: a second game-variant is just a fresh layout in the same tokens */
+.gv { min-height: 180px; }
+
+/* ============================================================
+   LIGHT FAMILIES (Lesson 04)
+   ============================================================ */
+
+/* --- 1 · Premium Utilitarian Minimalism (Notion-like) --- */
+.f-pum { font-family: "Switzer", system-ui, sans-serif; background: #F7F6F3; color: #2F3437; padding: 18px; }
+.f-pum .os { background: #FFFFFF; border: 1px solid #EAEAEA; border-radius: 8px; overflow: hidden; }
+.f-pum .os-bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid #EAEAEA; }
+.f-pum .os-bar i { width: 9px; height: 9px; border-radius: 999px; background: #E3E2DE; }
+.f-pum .os-body { padding: 18px 22px 20px; }
+.f-pum h4 { font-family: "Sentient", Georgia, serif; font-weight: 500; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 6px; }
+.f-pum .sub { font-size: 13.5px; color: #787774; margin: 0 0 14px; line-height: 1.55; }
+.f-pum .tags { display: flex; gap: 6px; margin-bottom: 14px; }
+.f-pum .tag-y { background: #FBF3DB; color: #956400; }
+.f-pum .tag-b { background: #E1F3FE; color: #1F6C9F; }
+.f-pum .tags span { font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 999px; padding: 3px 9px; font-weight: 600; }
+.f-pum .row { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #EAEAEA; padding: 9px 0; font-size: 13px; }
+.f-pum .row kbd { font-family: ui-monospace, monospace; font-size: 11px; border: 1px solid #EAEAEA; border-radius: 4px; background: #F7F6F3; padding: 2px 6px; color: #787774; }
+.f-pum .cta { display: inline-block; background: #111111; color: #FFFFFF; font-size: 13px; font-weight: 500; border-radius: 5px; padding: 8px 14px; margin-top: 14px; }
+
+/* --- 2 · Editorial Luxury (Kinfolk-like) --- */
+.f-lux { font-family: "Switzer", system-ui, sans-serif; background: #FDFBF7; color: #2A2118; padding: 34px 30px 30px; position: relative; overflow: hidden; }
+.f-lux::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.f-lux .meta { font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A8171; margin: 0 0 16px; }
+.f-lux h4 { font-family: "Zodiak", Georgia, serif; font-weight: 700; font-size: 34px; letter-spacing: -0.03em; line-height: 1.02; margin: 0 0 14px; max-width: 15ch; }
+.f-lux .sub { font-size: 14px; color: #6B6254; max-width: 38ch; margin: 0 0 20px; line-height: 1.7; }
+.f-lux .sage { display: inline-block; border-bottom: 1px solid #8A957E; color: #2A2118; font-size: 13px; letter-spacing: 0.06em; padding-bottom: 3px; }
+.f-lux .folio { position: absolute; right: 28px; bottom: 22px; font-family: "Zodiak", serif; font-size: 13px; color: #8A8171; font-style: italic; }
+
+/* --- 3 · Soft Structuralism (Apple-Health-like) --- */
+.f-soft { font-family: "Cabinet Grotesk", system-ui, sans-serif; background: #F3F4F6; color: #17181B; padding: 26px; }
+.f-soft h4 { font-weight: 800; font-size: 30px; letter-spacing: -0.03em; line-height: 1.0; margin: 0 0 16px; }
+.f-soft .cards { display: flex; gap: 14px; }
+.f-soft .card-f { background: #FFFFFF; border-radius: 18px; padding: 16px 18px; flex: 1;
+  box-shadow: 0 18px 50px -12px rgba(23, 24, 27, 0.10), 0 4px 14px rgba(23, 24, 27, 0.03); }
+.f-soft .k { font-family: "Satoshi", sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9A9CA3; margin: 0 0 6px; }
+.f-soft .big { font-weight: 800; font-size: 26px; letter-spacing: -0.02em; margin: 0; }
+.f-soft .big small { font-size: 13px; color: #9A9CA3; font-weight: 500; }
+.f-soft .cta { display: inline-block; background: #17181B; color: #fff; font-family: "Satoshi", sans-serif; font-weight: 700; font-size: 13px; border-radius: 999px; padding: 9px 18px; margin-top: 18px; }
+
+/* --- 4 · Pristine Light (print-confidence) --- */
+.f-pristine { font-family: "General Sans", system-ui, sans-serif; background: #FAF7F2; color: #191713; padding: 26px 28px; }
+.f-pristine .top { display: flex; justify-content: space-between; border-bottom: 1px solid #191713; padding-bottom: 10px; margin-bottom: 18px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.f-pristine h4 { font-weight: 600; font-size: 27px; letter-spacing: -0.025em; line-height: 1.05; margin: 0 0 18px; max-width: 18ch; }
+.f-pristine .ix { border-top: 1px solid rgba(25,23,19,0.18); display: flex; gap: 14px; padding: 9px 0; font-size: 13px; align-items: baseline; }
+.f-pristine .ix i { font-style: normal; font-size: 11px; color: #97907F; font-variant-numeric: tabular-nums; }
+.f-pristine .cta { display: inline-block; background: #191713; color: #FAF7F2; font-size: 13px; font-weight: 500; padding: 9px 16px; margin-top: 16px; border-radius: 2px; }
+
+/* --- 5 · Quiet Premium Neutral (Aesop-like) --- */
+.f-quiet { font-family: "General Sans", system-ui, sans-serif; background: #E9E4DB; color: #57503F; padding: 28px; }
+.f-quiet .wordmark { font-size: 15px; font-weight: 500; letter-spacing: 0.34em; text-transform: uppercase; color: #4A443B; margin: 0 0 20px; }
+.f-quiet .panel-q { background: #F1EDE6; border-radius: 3px; padding: 20px 22px; }
+.f-quiet h4 { font-weight: 400; font-size: 21px; letter-spacing: 0.01em; line-height: 1.3; color: #4A443B; margin: 0 0 10px; max-width: 24ch; }
+.f-quiet .sub { font-size: 13px; color: #8B8371; line-height: 1.7; margin: 0 0 18px; max-width: 40ch; }
+.f-quiet .cta { display: inline-block; border: 1px solid #A69C8A; color: #57503F; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; padding: 9px 18px; border-radius: 2px; }
+.f-quiet .swatches { display: flex; gap: 8px; margin-top: 18px; }
+.f-quiet .swatches i { width: 26px; height: 26px; border-radius: 2px; }
+
+/* ============================================================
+   DARK & BOLD FAMILIES (Lesson 05)
+   ============================================================ */
+
+/* --- 6 · Ethereal Glass (OLED black + mesh + frosted refraction) --- */
+.f-glass { font-family: "Cabinet Grotesk", system-ui, sans-serif; background: #050505; color: #fff; padding: 30px; position: relative; overflow: hidden;
+  background-image: radial-gradient(40% 55% at 18% 22%, rgba(29,158,117,0.28), transparent 70%),
+                    radial-gradient(45% 50% at 88% 78%, rgba(56,116,180,0.24), transparent 72%); }
+.f-glass .glass {
+  position: relative; background: rgba(255,255,255,0.06);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.14); border-radius: 18px; padding: 22px 24px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 20px 50px -20px rgba(0,0,0,0.6); }
+.f-glass .eb { font-family: ui-monospace, monospace; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #6EE7B7; margin: 0 0 10px; }
+.f-glass h4 { font-weight: 800; font-size: 27px; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 10px; }
+.f-glass .sub { font-size: 13.5px; color: rgba(255,255,255,0.62); line-height: 1.6; margin: 0 0 18px; max-width: 34ch; }
+.f-glass .cta { display: inline-block; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-size: 13px; font-weight: 500; border-radius: 999px; padding: 9px 18px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25); }
+@media (prefers-reduced-transparency: reduce) {
+  .f-glass .glass { background: #14171C; -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+/* --- 7 · Deep Dark Mode (graphite product dark, one restrained glow) --- */
+.f-dark { font-family: "Cabinet Grotesk", system-ui, sans-serif; background: #0E0E11; color: #E6E6EA; padding: 28px; }
+.f-dark .eb { font-family: ui-monospace, monospace; font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: #7C8698; margin: 0 0 12px; }
+.f-dark h4 { font-weight: 800; font-size: 27px; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 16px; }
+.f-dark .cards { display: flex; gap: 12px; margin-bottom: 18px; }
+.f-dark .card-d { flex: 1; background: #17171C; border: 1px solid #26262E; border-radius: 12px; padding: 14px 16px; }
+.f-dark .card-d .k { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #7C8698; margin: 0 0 6px; }
+.f-dark .card-d .v { font-weight: 800; font-size: 21px; margin: 0; }
+.f-dark .card-d .v em { font-style: normal; color: #34D399; }
+.f-dark .cta { display: inline-block; background: #E6E6EA; color: #0E0E11; font-weight: 700; font-size: 13px; border-radius: 8px; padding: 9px 16px; }
+
+/* --- 8 · Dark Tech / Hacker (terminal, mono, neon) --- */
+.f-hacker { font-family: ui-monospace, "JetBrains Mono", monospace; background: #0A0F0A; color: #C7F9CC; padding: 24px; }
+.f-hacker .term { border: 1px solid #1C3A24; border-radius: 6px; overflow: hidden; background: #060A06; }
+.f-hacker .term-bar { display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-bottom: 1px solid #1C3A24; font-size: 11px; color: #5FA56B; }
+.f-hacker .term-bar i { width: 8px; height: 8px; border-radius: 999px; background: #1C3A24; }
+.f-hacker .term-body { padding: 14px 16px; font-size: 13px; line-height: 1.75; }
+.f-hacker .p { color: #4ADE80; }
+.f-hacker .dim { color: #4E7A57; }
+.f-hacker .cur { color: #0A0F0A; background: #4ADE80; padding: 0 3px; }
+.f-hacker .cta { display: inline-block; margin-top: 14px; border: 1px solid #4ADE80; color: #4ADE80; font-size: 12px; padding: 7px 14px; }
+
+/* --- 9 · Tactical Telemetry (HUD, amber phosphor, ASCII framing) --- */
+.f-telemetry { font-family: ui-monospace, "JetBrains Mono", monospace; background: #06080A; color: #FFB000; padding: 24px; }
+.f-telemetry .hud { border: 1px solid #4A3A12; padding: 16px; position: relative; }
+.f-telemetry .hud::before, .f-telemetry .hud::after { content: ""; position: absolute; width: 10px; height: 10px; border: 2px solid #FFB000; }
+.f-telemetry .hud::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.f-telemetry .hud::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+.f-telemetry .rowline { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: 0.08em; color: #B37D14; border-bottom: 1px dashed #322611; padding: 5px 0; }
+.f-telemetry .rowline b { color: #FFC94D; font-weight: 400; }
+.f-telemetry h4 { font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; margin: 12px 0; font-weight: 400; color: #FFD37A; }
+.f-telemetry .stat { font-size: 30px; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; margin: 0; text-shadow: 0 0 8px rgba(255,176,0,0.45); }
+.f-telemetry .cta { display: inline-block; margin-top: 14px; border: 1px solid #FFB000; color: #FFB000; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 7px 14px; }
+
+/* --- 10 · Bold Studio Solid (saturated color field, crisp UI) --- */
+.f-studio { font-family: "Cabinet Grotesk", system-ui, sans-serif; background: #1E2FA8; color: #EAF0FF; padding: 30px; }
+.f-studio .eb { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #B9C6FF; margin: 0 0 12px; }
+.f-studio h4 { font-weight: 800; font-size: 34px; letter-spacing: -0.02em; line-height: 0.98; margin: 0 0 14px; max-width: 15ch; }
+.f-studio .sub { font-size: 14px; color: #C4CFFF; line-height: 1.6; max-width: 34ch; margin: 0 0 20px; }
+.f-studio .cta { display: inline-block; background: #FFE45E; color: #16205F; font-weight: 700; font-size: 14px; border-radius: 4px; padding: 11px 20px; }
+.f-studio .cta.ghost { background: transparent; border: 1.5px solid #8497FF; color: #EAF0FF; margin-left: 8px; }

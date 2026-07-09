@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 05: Style Atlas II, the Dark and Bold Families</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="../assets/course.css">
+<!-- Style-family specimens live in a shared stylesheet (also used by Lesson 04). -->
+<link rel="stylesheet" href="../assets/atlas-families.css">
+<style>
+  /* glass A/B: the same frosted card done right vs done wrong, on one mesh */
+  .glass-ab { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+  .glass-scene { background: #050505; border-radius: var(--radius); padding: 30px 24px; position: relative; overflow: hidden;
+    background-image: radial-gradient(45% 60% at 20% 20%, rgba(29,158,117,0.30), transparent 70%),
+                      radial-gradient(48% 55% at 85% 82%, rgba(56,116,180,0.28), transparent 72%); }
+  .glass-scene .cap { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: rgba(255,255,255,0.62); margin: 14px 2px 0; }
+  .g-card { border-radius: 16px; padding: 20px 22px; color: #fff; }
+  .g-card .eb { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: #6EE7B7; margin: 0 0 8px; }
+  .g-card h5 { font-family: var(--font-display); font-weight: 800; font-size: 20px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .g-card p { font-size: 12.5px; color: rgba(255,255,255,0.6); margin: 0; }
+  /* RIGHT: blur + inner border + inner highlight = edge refraction */
+  .g-right { background: rgba(255,255,255,0.06); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.16); box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), 0 20px 50px -22px rgba(0,0,0,0.7); }
+  /* WRONG: blur only. no edge, no highlight. reads as muddy grey. */
+  .g-wrong { background: rgba(255,255,255,0.06); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border: none; box-shadow: none; }
+  @media (prefers-reduced-transparency: reduce) {
+    .g-right { background: #14171C; -webkit-backdrop-filter: none; backdrop-filter: none; }
+    .g-wrong { background: #101216; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  }
+  @media (max-width: 860px) { .glass-ab { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>Module B: Naming</span><span class="sep">/</span>
+      <span>Lesson 05</span><span class="sep">/</span>
+      <span>~16 min</span>
+    </p>
+    <h1>Style Atlas II: the Dark and Bold Families</h1>
+    <div class="win">
+      <span class="tag">Your one win</span>
+      <p style="margin:0">Five more families on sight: <strong>Ethereal Glass, Deep Dark Mode,
+        Dark Tech, Tactical Telemetry, Bold Studio Solid</strong>. Plus the one that everyone fakes:
+        you will see glassmorphism done <strong>right</strong> next to the same card done
+        <strong>wrong</strong>, and know the difference in the edge.</p>
+    </div>
+  </header>
+
+  <!-- ===== spaced recall from Lessons 01-04 ===== -->
+  <section style="margin-bottom:44px">
+    <div id="recall"></div>
+  </section>
+
+  <section class="prose">
+    <p class="lead">Lesson 04 covered the light families, which mostly differ by <em>substrate</em>.
+      Dark families differ by something else: <strong>how they use black</strong>. Pure OLED black
+      with glowing orbs is a different family from graphite product-dark, which is different again
+      from a green-on-black terminal. Same darkness, three intents.</p>
+    <p>Same setup as before: one fictional product, the daily planner <strong>Meridian</strong>,
+      rendered in each family so every difference is the family, not the content. Read each panel
+      with the three questions: substrate, hierarchy carrier, edge signature.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE ATLAS (dark & bold) ================= -->
+  <section class="wide">
+    <p class="eyebrow" style="text-align:center;margin-bottom:18px">Five more families. Scroll slowly.</p>
+
+    <!-- 6 · Ethereal Glass -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-glass">
+        <div class="glass">
+          <p class="eb">Meridian AI</p>
+          <h4>Plan your day with a little help.</h4>
+          <p class="sub">A calm planner with an AI that drafts your schedule, then gets out of the way.</p>
+          <a class="cta" href="#atlas-game" onclick="return false">Start planning</a>
+        </div>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">06</span>Ethereal Glass</p>
+        <p class="atlas-smell">Smells like: <b>AI startups, Linear, Vercel, Arc</b>. Deepest OLED black, dim colored orbs behind frosted cards with a bright refraction edge.</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#050505"></span>#050505 OLED</span>
+          <span class="atlas-chip"><span class="sw" style="background:#1D9E75"></span>dim emerald orb</span>
+          <span class="atlas-chip"><span class="sw" style="background:#3874B4"></span>dim blue orb</span>
+          <span class="atlas-chip atlas-chip--txt">backdrop-blur + white/14 hairline</span>
+          <span class="atlas-chip atlas-chip--txt">inner highlight = refraction</span>
+          <span class="atlas-chip atlas-chip--txt">wide geometric grotesk</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 · Deep Dark Mode -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-dark">
+        <p class="eb">Meridian &middot; Today</p>
+        <h4>Everything for today, in the dark.</h4>
+        <div class="cards">
+          <div class="card-d"><p class="k">Focus left</p><p class="v">2h 40m</p></div>
+          <div class="card-d"><p class="k">Done</p><p class="v">9 <em>of 12</em></p></div>
+          <div class="card-d"><p class="k">Next</p><p class="v">11:00</p></div>
+        </div>
+        <a class="cta" href="#atlas-game" onclick="return false">Open planner</a>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">07</span>Deep Dark Mode</p>
+        <p class="atlas-smell">Smells like: <b>GitHub dark, Raycast, most product dark modes</b>. Graphite, not black. Solid bordered cards, one restrained accent glow, no frost.</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#0E0E11"></span>#0E0E11 graphite</span>
+          <span class="atlas-chip"><span class="sw" style="background:#17171C"></span>#17171C card</span>
+          <span class="atlas-chip"><span class="sw" style="background:#26262E"></span>1px #26262E</span>
+          <span class="atlas-chip"><span class="sw" style="background:#34D399"></span>one accent, sparing</span>
+          <span class="atlas-chip atlas-chip--txt">radius 12px, no blur</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 · Dark Tech / Hacker -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-hacker">
+        <div class="term">
+          <div class="term-bar"><i></i><i></i><i></i><span>meridian &middot; zsh</span></div>
+          <div class="term-body">
+            <div><span class="dim">$</span> <span class="p">meridian</span> plan today</div>
+            <div class="dim">&nbsp;&nbsp;parsing 6 tasks... ok</div>
+            <div class="dim">&nbsp;&nbsp;3 scheduled, 3 deferred</div>
+            <div><span class="dim">$</span> <span class="cur">&nbsp;</span></div>
+          </div>
+        </div>
+        <a class="cta" href="#atlas-game" onclick="return false">[ run meridian ]</a>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">08</span>Dark Tech / Hacker</p>
+        <p class="atlas-smell">Smells like: <b>devtools, CLIs, security products</b>. Green-on-black, monospace everything, terminal prompts and cursors, neon accent.</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#0A0F0A"></span>#0A0F0A</span>
+          <span class="atlas-chip"><span class="sw" style="background:#4ADE80"></span>neon green</span>
+          <span class="atlas-chip atlas-chip--txt">monospace only</span>
+          <span class="atlas-chip atlas-chip--txt">terminal motifs, prompt + cursor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 · Tactical Telemetry -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-telemetry">
+        <div class="hud">
+          <div class="rowline"><span>SYS: MERIDIAN</span><b>NOMINAL</b></div>
+          <div class="rowline"><span>LAT 40.71</span><span>LON -74.00</span></div>
+          <h4>Day Load</h4>
+          <p class="stat">72<span style="font-size:14px">%</span></p>
+          <div class="rowline"><span>TASKS 09/12</span><b>ON TRACK</b></div>
+          <a class="cta" href="#atlas-game" onclick="return false">&gt; engage</a>
+        </div>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">09</span>Tactical Telemetry</p>
+        <p class="atlas-smell">Smells like: <b>aerospace HUDs, trading terminals, mission control</b>. Amber phosphor, ASCII corner brackets, coordinates, tabular readouts, glow.</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#06080A"></span>#06080A</span>
+          <span class="atlas-chip"><span class="sw" style="background:#FFB000"></span>amber phosphor</span>
+          <span class="atlas-chip atlas-chip--txt">HUD framing, crosshair ticks</span>
+          <span class="atlas-chip atlas-chip--txt">tabular data, uppercase labels</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 · Bold Studio Solid -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-studio">
+        <p class="eb">Meridian</p>
+        <h4>Own your morning.</h4>
+        <p class="sub">One loud, confident planner. No dark corners, no soft grays, just the plan.</p>
+        <span class="cta">Start free</span>
+        <span class="cta ghost">See a demo</span>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">10</span>Bold Studio Solid</p>
+        <p class="atlas-smell">Smells like: <b>Gumroad, Linktree, bold DTC brands</b>. One saturated color field edge to edge, crisp high-contrast type, a single bright pop for the CTA.</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#1E2FA8"></span>#1E2FA8 field</span>
+          <span class="atlas-chip"><span class="sw" style="background:#FFE45E"></span>bright pop CTA</span>
+          <span class="atlas-chip"><span class="sw" style="background:#EAF0FF"></span>near-white type</span>
+          <span class="atlas-chip atlas-chip--txt">heavy grotesk, crisp contrast</span>
+          <span class="atlas-chip atlas-chip--txt">oxblood / royal / forest / emerald</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= GLASS: RIGHT vs WRONG ================= -->
+  <section class="prose">
+    <h2>The one everyone fakes: glassmorphism</h2>
+    <p>"Frosted glass" is the most-attempted and most-botched dark effect. The failure is always the
+      same: people reach for <code>backdrop-filter: blur()</code> and stop there. Blur alone has no
+      edge, so the card reads as a flat grey smudge. Real glass has a <strong>lit rim</strong>: a
+      1px inner border plus a bright inner highlight, so light appears to bend at the edge. That
+      rim is the whole illusion.</p>
+  </section>
+
+  <section class="wide" style="margin-top:8px">
+    <div class="glass-ab">
+      <div class="glass-scene">
+        <div class="g-card g-right">
+          <p class="eb">Right</p>
+          <h5>Refraction edge</h5>
+          <p>Blur + 1px white/16 border + inner highlight. The rim catches light; the card feels like a pane.</p>
+        </div>
+        <p class="cap">blur + hairline border + inset highlight</p>
+      </div>
+      <div class="glass-scene">
+        <div class="g-card g-wrong">
+          <p class="eb" style="color:#F0997B">Wrong</p>
+          <h5>Blur only</h5>
+          <p>No border, no highlight. Same blur, but the edges dissolve and it reads as a muddy grey box.</p>
+        </div>
+        <p class="cap">blur only, no edge treatment</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <div class="note note--teach">
+      <p class="eyebrow">Why "liquid glass" is a claim to check</p>
+      <p style="margin:0">Apple documents Liquid Glass for its own platforms. On the web there is
+        <strong>no official <code>liquid-glass.css</code></strong>: every web version is an
+        approximation with <code>backdrop-filter</code> and layered borders. So when a brief or a
+        tool says "use Apple's liquid glass", the honest move is to build the approximation and
+        label it as one, and to ship a solid-fill fallback for
+        <code>prefers-reduced-transparency</code>. Glass that ignores that setting is inaccessible.</p>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>Telling the dark families apart</h2>
+    <ul>
+      <li><strong>Ethereal Glass vs Deep Dark Mode:</strong> both dark, but Glass lives on pure OLED black with colored orbs and <em>frosted</em> cards. Deep Dark is graphite with <em>solid</em> bordered cards and no blur. If you can see through a card, it is Glass.</li>
+      <li><strong>Dark Tech vs Tactical Telemetry:</strong> both mono and neon-on-black. Dark Tech is a <em>terminal</em> (prompt, cursor, command you type). Telemetry is an <em>instrument</em> (readouts, coordinates, status you monitor). Hacker types; telemetry watches.</li>
+      <li><strong>Bold Studio Solid vs everyone:</strong> it is the only one that is not dark. A single saturated color fills the whole field. If the background is a confident color instead of black or white, you are in Studio Solid.</li>
+    </ul>
+    <div class="note">
+      <p class="eyebrow">A quiet warning about black</p>
+      <p style="margin:0">Ethereal Glass uses near-OLED <code>#050505</code>, not pure
+        <code>#000000</code>. Even at maximum darkness the families avoid true black, because pure
+        black kills depth and reads as a digital default. Darkness is a color choice, not the
+        absence of one.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= INTERLEAVED GAME (all 10) ================= -->
+  <section class="prose">
+    <h2>Flash recognition, all ten families</h2>
+    <p>This game mixes the five light families from Lesson 04 with the five dark and bold ones from
+      today. Mixing them is the point: <strong>interleaving</strong> is harder than blocking by
+      family, and that difficulty is exactly what makes the names stick. Ten swatches, name each.</p>
+  </section>
+  <div class="wide" id="atlas-game" style="margin-top:20px;max-width:760px;margin-inline:auto"></div>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../reference/style-atlas.html">
+      <div>
+        <p class="eyebrow">Reference &middot; keep this</p>
+        <h3>The Style Atlas, now complete</h3>
+        <p>All ten families with tokens and when-to-use, light and dark in one printable sheet.</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <div class="card">
+      <p class="eyebrow">Primary source &middot; read this</p>
+      <h3>high-end-visual-design &sect;3, the Variance Engine</h3>
+      <p>The vibe and texture archetypes, including Ethereal Glass. Read
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/soft-skill/SKILL.md">the skill</a>
+        (upstream folder <code>soft-skill</code>, installed locally as <code>high-end-visual-design</code>).
+        For glass done right, see
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">design-taste-frontend &sect;2.B and &sect;5</a>;
+        for telemetry, industrial-brutalist-ui &sect;2.2 (the Lesson 06 preview).</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Your teacher</p>
+      <h3>Ask follow-up questions</h3>
+      <p>Want to try real glass code, or unsure whether a site is Deep Dark or Ethereal Glass? Bring
+        it to the session and we will read it together.</p>
+    </div>
+
+    <a class="card next-link" href="./0006-the-two-brutalisms.html">
+      <div>
+        <p class="eyebrow">Next lesson</p>
+        <h3>06 &mdash; The Two Brutalisms</h3>
+        <p>A style deep-dive: how one family splits into Swiss Industrial Print and Tactical
+          Telemetry, and why you never mix the two.</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../assets/quiz.js"></script>
+<script src="../assets/atlas.js"></script>
+<script>
+  /* ---- recall from Lessons 01-04 ---- */
+  Quiz.mount("#recall", [
+    { q: "What is the first question when reading a style family?",
+      options: ["What is the substrate", "What is the font size", "What is the grid gap", "What is the framework"],
+      answer: 0,
+      why: "Substrate (the background surface) is the fastest tell. It splits most families instantly." },
+    { q: "Which family smells like Notion or Linear docs?",
+      options: ["Premium Utilitarian Minimalism", "Editorial Luxury", "Quiet Premium Neutral", "Soft Structuralism"],
+      answer: 0,
+      why: "PUM: white substrate, 1px hairlines, pastel tags, a document pretending to be an app." },
+    { q: "The AI purple and blue gradient glow is called what?",
+      options: ["The Lila rule", "The Aurora rule", "The Neon rule", "The Mesh rule"],
+      answer: 0,
+      why: "Lila is German for purple. It is the single most recognizable AI fingerprint." }
+  ]);
+
+  /* ---- interleaved flash-recognition across all 10 families ---- */
+  var V = {
+    /* light (Lesson 04 families) */
+    pum: '<div class="f-pum"><div class="os"><div class="os-bar"><i></i><i></i><i></i></div><div class="os-body"><h4>Notes that file themselves</h4><p class="sub">Every capture lands in the right project page.</p><div class="tags"><span class="tag-y">Inbox</span><span class="tag-b">Projects</span></div><div class="row"><span>Quick capture</span><kbd>&#8984;&nbsp;N</kbd></div><a class="cta">Try it</a></div></div></div>',
+    lux: '<div class="f-lux"><p class="meta">Field Notes &middot; Spring</p><h4>Mornings, kept.</h4><p class="sub">Notes on slow planning, from people who plan for a living.</p><a class="sage">Read the essay</a><span class="folio">p. 3</span></div>',
+    soft: '<div class="f-soft"><h4>Your week,<br>at a glance.</h4><div class="cards"><div class="card-f"><p class="k">Deep work</p><p class="big">11h 20m</p></div><div class="card-f"><p class="k">Meetings</p><p class="big">4h <small>total</small></p></div></div><a class="cta">See trends</a></div>',
+    pristine: '<div class="f-pristine"><div class="top"><span>Meridian</span><span>Method</span></div><h4>Three moves, every morning.</h4><div class="ix"><i>01</i><span>Empty your head onto one page.</span></div><div class="ix"><i>02</i><span>Circle the three that matter.</span></div><div class="ix"><i>03</i><span>Schedule those, ignore the rest.</span></div><a class="cta">Start today</a></div>',
+    quiet: '<div class="f-quiet"><p class="wordmark">Meridian</p><div class="panel-q"><h4>Daily planning, quietly done.</h4><p class="sub">A calm surface that expects you to think, then gets out of the way.</p><a class="cta">Discover</a></div></div>',
+    /* dark & bold (Lesson 05 families) */
+    glass: '<div class="f-glass"><div class="glass"><p class="eb">Meridian AI</p><h4>Your schedule, drafted.</h4><p class="sub">The AI blocks your day; you approve it in one tap.</p><a class="cta">Start planning</a></div></div>',
+    dark: '<div class="f-dark"><p class="eb">Meridian &middot; Today</p><h4>Today, in the dark.</h4><div class="cards"><div class="card-d"><p class="k">Focus</p><p class="v">2h 40m</p></div><div class="card-d"><p class="k">Done</p><p class="v">9 <em>/12</em></p></div></div><a class="cta">Open planner</a></div>',
+    hacker: '<div class="f-hacker"><div class="term"><div class="term-bar"><i></i><i></i><i></i><span>meridian &middot; zsh</span></div><div class="term-body"><div><span class="dim">$</span> <span class="p">meridian</span> plan today</div><div class="dim">&nbsp;&nbsp;3 scheduled, 3 deferred</div><div><span class="dim">$</span> <span class="cur">&nbsp;</span></div></div></div><a class="cta">[ run ]</a></div>',
+    telemetry: '<div class="f-telemetry"><div class="hud"><div class="rowline"><span>SYS: MERIDIAN</span><b>NOMINAL</b></div><h4>Day Load</h4><p class="stat">72<span style="font-size:14px">%</span></p><div class="rowline"><span>TASKS 09/12</span><b>ON TRACK</b></div><a class="cta">&gt; engage</a></div></div>',
+    studio: '<div class="f-studio"><p class="eb">Meridian</p><h4>Own your morning.</h4><p class="sub">One loud, confident planner. No soft grays, just the plan.</p><span class="cta">Start free</span></div>'
+  };
+
+  StyleAtlas.game({
+    container: "#atlas-game",
+    rounds: 10,
+    families: [
+      { key: "pum", name: "Premium Utilitarian Minimalism",
+        why: "White substrate, faux-OS chrome, 1px hairlines, pastel tags, document feel.", variants: [V.pum] },
+      { key: "lux", name: "Editorial Luxury",
+        why: "Cream paper, massive serif, grain, sage and espresso, whitespace as luxury.", variants: [V.lux] },
+      { key: "soft", name: "Soft Structuralism",
+        why: "Cool silver air, huge bold grotesk, white cards on ultra-diffuse shadows.", variants: [V.soft] },
+      { key: "pristine", name: "Pristine Light",
+        why: "Warm paper, sharp near-black sans, hairline rules instead of cards.", variants: [V.pristine] },
+      { key: "quiet", name: "Quiet Premium Neutral",
+        why: "Stone and taupe substrate, low contrast on purpose, wide-tracked caps.", variants: [V.quiet] },
+      { key: "glass", name: "Ethereal Glass",
+        why: "OLED black, dim colored orbs, frosted cards with a bright refraction rim.", variants: [V.glass] },
+      { key: "dark", name: "Deep Dark Mode",
+        why: "Graphite not black, solid bordered cards, one restrained accent, no blur.", variants: [V.dark] },
+      { key: "hacker", name: "Dark Tech / Hacker",
+        why: "Green-on-black, monospace only, terminal prompt and cursor.", variants: [V.hacker] },
+      { key: "telemetry", name: "Tactical Telemetry",
+        why: "Amber phosphor HUD, ASCII brackets, coordinates, tabular readouts.", variants: [V.telemetry] },
+      { key: "studio", name: "Bold Studio Solid",
+        why: "One saturated color field edge to edge, crisp type, a single bright CTA.", variants: [V.studio] }
+    ]
+  });
+</script>
+</body>
+</html>
