@@ -26,6 +26,41 @@ The overall cheap, machine-made impression a page gives when many tells stack up
 
 ---
 
+## Method · The Design Read · 方法：设计判读
+
+**Design read · 设计判读**:
+The one sentence said before touching anything: "Reading this as: [page kind] for [audience], with a
+[vibe] language, leaning toward [foundation]." It moves you off autopilot.
+动手之前先说的那一句话：“把它读作：给[某人群]的[某种页面]，用[某种气质]的语言，倾向于[某个基座]。”它让你不再默认套路。
+_Source_: DTF §0
+
+**Brief inference · 读需求（读懂房间）**:
+Inferring what the user actually wants from the brief and its signals (page kind, vibe words,
+references, audience) before generating.
+在动手前，从需求和它的信号（页面类型、气质词、参考、受众）里推断用户真正想要什么。
+_Source_: DTF §0
+
+**Audience · 受众**:
+Who scans the page and what they need. The part of the read that actually sets the dials. Trust-first
+buyers, design-conscious consumers, and the general public each want different designs.
+谁会看这个页面、他们需要什么。判读里真正决定“旋钮”的那一环。求稳的采购、懂设计的消费者、普通大众，各要不同的设计。
+
+**Vibe words · 气质词**:
+The two or three adjectives that name the feel: trust-first, premium editorial, playful, brutalist,
+accessibility-first.
+用来命名感觉的两三个形容词：求稳、高级编辑感、俏皮、粗野、无障碍优先。
+
+**Design system vs aesthetic family · 设计系统 vs 美学家族**:
+A design system is an official, installable package with real tokens (Carbon, GOV.UK Frontend,
+Fluent). An aesthetic family is a look with no official package (glassmorphism, editorial, brutalist),
+built with native CSS and named honestly.
+设计系统是官方、可安装、有真实 token 的包（Carbon、GOV.UK Frontend、Fluent）。美学家族是没有官方包的风格
+（玻璃拟态、编辑感、粗野），用原生 CSS 实现，并诚实标注。
+_Avoid_: 把美学趋势（bento、玻璃拟态）当成官方系统
+_Source_: DTF §2
+
+---
+
 ## Typography · 排版
 
 **Inter** (a typeface · 一款字体):
