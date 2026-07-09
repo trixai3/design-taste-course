@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>参考卡：风格图鉴</title>
+<link rel="stylesheet" href="../../assets/course.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 16px;
+  }
+  .fam {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--surface); padding: 18px 20px; margin-bottom: 18px;
+    break-inside: avoid;
+  }
+  .fam h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; margin: 0 0 2px; }
+  .fam .smell { font-size: 13.5px; color: var(--ink-soft); margin: 0 0 12px; }
+  .fam .strip { display: flex; height: 26px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--line); margin-bottom: 12px; }
+  .fam .strip i { flex: 1; }
+  .fam dl { margin: 0; display: grid; grid-template-columns: 120px 1fr; gap: 5px 14px; font-size: 14px; }
+  .fam dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); padding-top: 2px; }
+  .fam dd { margin: 0; }
+  .fam dd code { font-family: var(--font-mono); font-size: 0.85em; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+  .fam .src { margin-top: 10px; font-size: 13px; color: var(--ink-soft); }
+  .fam .src a { color: var(--accent-ink); }
+  .todo { border: 1px dashed var(--line); border-radius: var(--radius); padding: 14px 18px; color: var(--ink-faint); font-size: 14px; }
+  @media (max-width: 640px) { .fam dl { grid-template-columns: 1fr; gap: 2px; } .fam dt { margin-top: 8px; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste &middot; 参考卡 &middot; 打印我</p>
+    <h1>风格图鉴 · The Style Atlas</h1>
+    <p>可以拿去指挥 AI 的、有名字的风格家族。读一个家族只问三个问题：substrate（基底）、
+      hierarchy（层级载体）、edge signature（边缘签名）。这里十个家族：五个亮色（第 04 课）、
+      五个暗色与大胆（第 05 课）。两种 Brutalism 在第 06 课单独深挖。</p>
+  </div>
+
+  <section class="cat">
+    <h2>亮色家族（第 04 课）</h2>
+
+    <div class="fam">
+      <h3>01 &middot; Premium Utilitarian Minimalism</h3>
+      <p class="smell">闻起来像：Notion、Craft、Linear docs。一份伪装成应用的文档。</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#FFFFFF"></i><i style="background:#F7F6F3"></i><i style="background:#EAEAEA"></i><i style="background:#FBF3DB"></i><i style="background:#E1F3FE"></i><i style="background:#2F3437"></i>
+      </div>
+      <dl>
+        <dt>基底</dt><dd>纯白 <code>#FFFFFF</code> 或暖骨白 <code>#F7F6F3</code></dd>
+        <dt>层级</dt><dd>编辑感衬线大标题（Lyon、Newsreader）配干净无衬线（SF Pro、Geist、Switzer）</dd>
+        <dt>边缘</dt><dd>精确 <code>1px solid #EAEAEA</code>；圆角 4-12px；阴影近乎为零（&lt; 0.05 不透明度）</dd>
+        <dt>招牌</dt><dd>伪 OS 窗口外壳、<code>&lt;kbd&gt;</code> 按键、洗淡的粉彩标签、墨色文字 <code>#2F3437</code>、灰 <code>#787774</code></dd>
+        <dt>何时用</dt><dd>生产力工具、文档型产品、需要读起来可信而安静的 SaaS</dd>
+      </dl>
+      <p class="src">定义见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/minimalist-skill/SKILL.md">minimalist-ui</a>（上游：<code>minimalist-skill</code>）</p>
+    </div>
+
+    <div class="fam">
+      <h3>02 &middot; Editorial Luxury</h3>
+      <p class="smell">闻起来像：Kinfolk 杂志、精品酒店、高端地产、创意代理。</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#FDFBF7"></i><i style="background:#EFE9DD"></i><i style="background:#8A957E"></i><i style="background:#6B6254"></i><i style="background:#2A2118"></i>
+      </div>
+      <dl>
+        <dt>基底</dt><dd>暖奶油 <code>#FDFBF7</code>，叠一层很淡的噪点 / 胶片颗粒（约 3-5% 不透明度）</dd>
+        <dt>层级</dt><dd>巨大的高对比可变衬线标题，紧字距、紧行高</dd>
+        <dt>边缘</dt><dd>几乎没有：用分隔线和留白，不用盒子</dd>
+        <dt>招牌</dt><dd>鼠尾草绿或浓缩咖啡色点缀，元信息用小号宽字距大写，把留白当作产品本身</dd>
+        <dt>何时用</dt><dd>生活方式、地产、印刷相邻的品牌，凡是“考究”胜过“高效”的场景</dd>
+      </dl>
+      <p class="src">定义见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/soft-skill/SKILL.md">high-end-visual-design &sect;3.A.2</a>（上游：<code>soft-skill</code>）</p>
+    </div>
+
+    <div class="fam">
+      <h3>03 &middot; Soft Structuralism</h3>
+      <p class="smell">闻起来像：Apple 健康、高端消费养生、精修作品集。</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#F3F4F6"></i><i style="background:#FFFFFF"></i><i style="background:#E5E7EB"></i><i style="background:#9A9CA3"></i><i style="background:#17181B"></i>
+      </div>
+      <dl>
+        <dt>基底</dt><dd>银灰 <code>#F3F4F6</code> 或纯白；冷、通透</dd>
+        <dt>层级</dt><dd>巨大的粗体怪诞体（800 字重、紧字距）</dd>
+        <dt>边缘</dt><dd>无边框。白色组件浮在极度弥散的环境阴影上；圆角 16-20px</dd>
+        <dt>招牌</dt><dd>带大数字的数据卡、胶囊 CTA、一切都在呼吸</dd>
+        <dt>何时用</dt><dd>消费级健康、个人指标、面向大众的亲和高端产品</dd>
+      </dl>
+      <p class="src">定义见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/soft-skill/SKILL.md">high-end-visual-design &sect;3.A.3</a>（上游：<code>soft-skill</code>）</p>
+    </div>
+
+    <div class="fam">
+      <h3>04 &middot; Pristine Light</h3>
+      <p class="smell">闻起来像：高质量印刷品、Stripe 的编辑页面、自信的文档。</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#FAF7F2"></i><i style="background:#F0EBE2"></i><i style="background:#97907F"></i><i style="background:#191713"></i>
+      </div>
+      <dl>
+        <dt>基底</dt><dd>米白纸感 <code>#FAF7F2</code>，不玩纹理花招</dd>
+        <dt>层级</dt><dd>锐利的近黑无衬线，字号层级强烈；带编号的索引行</dd>
+        <dt>边缘</dt><dd>用发丝分隔线代替卡片；圆角约 0-2px；无阴影</dd>
+        <dt>招牌</dt><dd>读起来像排得很好的书页：编辑式自信，零装饰</dd>
+        <dt>何时用</dt><dd>内容优先的页面、方法论、宣言、想显得诚实的定价页</dd>
+      </dl>
+      <p class="src">定义见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/imagegen-frontend-web/SKILL.md">imagegen-frontend-web &sect;2, Theme Paradigm 1</a></p>
+    </div>
+
+    <div class="fam">
+      <h3>05 &middot; Quiet Premium Neutral</h3>
+      <p class="smell">闻起来像：Aesop、高端护肤、精品水疗、克制的奢侈品。</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#E9E4DB"></i><i style="background:#F1EDE6"></i><i style="background:#DBD3C6"></i><i style="background:#A69C8A"></i><i style="background:#57503F"></i>
+      </div>
+      <dl>
+        <dt>基底</dt><dd>骨白、沙、灰褐、石：<code>#E9E4DB</code> 家族，绝不用纯白</dd>
+        <dt>层级</dt><dd>细到常规字重、宽字距的大写标识、小字号</dd>
+        <dt>边缘</dt><dd>近直角（圆角 2-3px），CTA 用一条单色细边</dd>
+        <dt>招牌</dt><dd>刻意压低对比度；克制本身就是品牌</dd>
+        <dt>何时用</dt><dd>喊叫会掉价的高端货；注意低对比的无障碍代价，检查正文仍达标</dd>
+      </dl>
+      <p class="src">定义见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/imagegen-frontend-web/SKILL.md">imagegen-frontend-web &sect;2, Theme Paradigm 4</a></p>
+    </div>
+  </section>
+
+  <section class="cat">
+    <h2>暗色与大胆家族（第 05 课）</h2>
+
+    <div class="fam">
+      <h3>06 &middot; Ethereal Glass</h3>
+      <p class="smell">闻起来像：AI 创业公司、Linear、Vercel、Arc、暗色 SaaS。</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#050505"></i><i style="background:#1D9E75"></i><i style="background:#3874B4"></i><i style="background:#2A2E35"></i><i style="background:#FFFFFF"></i>
+      </div>
+      <dl>
+        <dt>基底</dt><dd>最深的 OLED 黑 <code>#050505</code>，暗色光球（翡翠绿、蓝）构成径向网格</dd>
+        <dt>层级</dt><dd>宽的几何怪诞体，近白色压在黑上</dd>
+        <dt>边缘</dt><dd>磨砂卡片：<code>backdrop-filter: blur()</code> + 1px white/14 边框 + 内高光（<code>inset 0 1px 0 rgba(255,255,255,.2)</code>）构成折射亮边；圆角 16px</dd>
+        <dt>招牌</dt><dd>卡片能看穿。为 <code>prefers-reduced-transparency</code> 提供纯色回退</dd>
+        <dt>何时用</dt><dd>AI 与开发者工具、高端科技、苹果相邻的产品发布</dd>
+      </dl>
+      <p class="src">定义见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/soft-skill/SKILL.md">high-end-visual-design &sect;3.A.1</a>；玻璃亮边见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">design-taste-frontend &sect;5</a></p>
+    </div>
+
+    <div class="fam">
+      <h3>07 &middot; Deep Dark Mode</h3>
+      <p class="smell">闻起来像：GitHub 暗色、Raycast、Vercel 仪表盘，多数产品暗色模式。</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#0E0E11"></i><i style="background:#17171C"></i><i style="background:#26262E"></i><i style="background:#34D399"></i><i style="background:#E6E6EA"></i>
+      </div>
+      <dl>
+        <dt>基底</dt><dd>石墨 / 锌灰 <code>#0E0E11</code>，刻意不用纯黑</dd>
+        <dt>层级</dt><dd>粗体怪诞体、锌白文字；一个克制、少量使用的强调色</dd>
+        <dt>边缘</dt><dd>实心卡片 <code>#17171C</code> 配 1px <code>#26262E</code> 边框；圆角 12px；无模糊、无磨砂</dd>
+        <dt>招牌</dt><dd>主力产品暗色模式。有理由时才用优雅的微光</dd>
+        <dt>何时用</dt><dd>仪表盘、开发者产品，任何需要平静、可读暗色界面的场景</dd>
+      </dl>
+      <p class="src">定义见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/imagegen-frontend-web/SKILL.md">imagegen-frontend-web &sect;2, Theme Paradigm 2</a></p>
+    </div>
+
+    <div class="fam">
+      <h3>08 &middot; Dark Tech / Hacker</h3>
+      <p class="smell">闻起来像：开发者工具、CLI、安全产品、终端优先的品牌。</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#0A0F0A"></i><i style="background:#060A06"></i><i style="background:#1C3A24"></i><i style="background:#4ADE80"></i><i style="background:#C7F9CC"></i>
+      </div>
+      <dl>
+        <dt>基底</dt><dd>近黑、微微带绿 <code>#0A0F0A</code></dd>
+        <dt>层级</dt><dd>纯等宽字体；霓虹绿 <code>#4ADE80</code> 强调色</dd>
+        <dt>边缘</dt><dd>终端窗口外壳、细的暗绿边框、方块化</dd>
+        <dt>招牌</dt><dd>终端元素：你敲的提示符、闪烁光标、命令输出。你在这里<em>敲</em></dd>
+        <dt>何时用</dt><dd>开发者工具、CLI、安全，任何想要工程师可信度的场景</dd>
+      </dl>
+      <p class="src">定义见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">design-taste-frontend &sect;2.B（dark tech / hacker）</a></p>
+    </div>
+
+    <div class="fam">
+      <h3>09 &middot; Tactical Telemetry</h3>
+      <p class="smell">闻起来像：航空 HUD、交易终端、任务控制台、科幻界面。</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#06080A"></i><i style="background:#322611"></i><i style="background:#B37D14"></i><i style="background:#FFB000"></i><i style="background:#FFD37A"></i>
+      </div>
+      <dl>
+        <dt>基底</dt><dd>深黑 <code>#06080A</code></dd>
+        <dt>层级</dt><dd>等宽字体、带微光的琥珀荧光 <code>#FFB000</code>；表格数字</dd>
+        <dt>边缘</dt><dd>ASCII 框架：角括号、准星刻度、虚线分隔</dd>
+        <dt>招牌</dt><dd>仪表读数：坐标、状态块、高密度数据。你在这里<em>监看</em></dd>
+        <dt>何时用</dt><dd>数据密集的监控、运维，任何想要任务控制台质感的场景</dd>
+      </dl>
+      <p class="src">定义见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/brutalist-skill/SKILL.md">industrial-brutalist-ui &sect;2.2</a>（第 06 课深挖）</p>
+    </div>
+
+    <div class="fam">
+      <h3>10 &middot; Bold Studio Solid</h3>
+      <p class="smell">闻起来像：Gumroad、Linktree、大胆的 DTC 与创作者品牌。</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#1E2FA8"></i><i style="background:#6E1423"></i><i style="background:#14532D"></i><i style="background:#FFE45E"></i><i style="background:#EAF0FF"></i>
+      </div>
+      <dl>
+        <dt>基底</dt><dd>一整块满铺的高饱和色：宝蓝、牛血红、森绿、朱红或翡翠绿</dd>
+        <dt>层级</dt><dd>厚重怪诞体，压在色块上的锐利高对比近白文字</dd>
+        <dt>边缘</dt><dd>锐利，圆角 4px；只留一个亮的对比色（如黄色）给 CTA</dd>
+        <dt>招牌</dt><dd>唯一不走暗色的大胆家族。用一个下定决心的颜色表达自信</dd>
+        <dt>何时用</dt><dd>创作者工具、DTC、发布，任何品牌想显得响亮而笃定的场景</dd>
+      </dl>
+      <p class="src">定义见 <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/imagegen-frontend-web/SKILL.md">imagegen-frontend-web &sect;2, Theme Paradigm 3</a></p>
+    </div>
+  </section>
+
+  <section class="cat">
+    <h2>区分那些像的</h2>
+    <div class="fam">
+      <dl>
+        <dt>PUM vs Pristine</dt><dd>PUM 是应用（外壳、kbd 按键、带边框的块、粉彩标签）。Pristine 是页面（分隔线、无容器、印刷质感）。</dd>
+        <dt>Pristine vs Luxury</dt><dd>都在纸色上。Luxury 以巨大衬线和留白领衔；Pristine 以锐利无衬线和清晰领衔。</dd>
+        <dt>Quiet vs 其余</dt><dd>背景变成石色或沙色、对比刻意压低：你就在 Quiet Neutral。</dd>
+        <dt>Glass vs Deep Dark</dt><dd>Glass 是磨砂（卡片能看穿）压在带光球的 OLED 黑上。Deep Dark 是实心石墨卡片，无模糊。</dd>
+        <dt>Hacker vs Telemetry</dt><dd>都是黑底霓虹等宽。Hacker 是你敲命令的终端；Telemetry 是你监看的仪表。</dd>
+        <dt>Studio vs 全部</dt><dd>只有 Studio Solid 彻底抛开黑与白，换一整块笃定的高饱和色。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="cat">
+    <h2>第 06 课将补上</h2>
+    <p class="todo">两种 Brutalism：Swiss Industrial Print vs Tactical Telemetry，以及为什么绝不能混用
+      这两种下定决心的模式。</p>
+  </section>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../lessons/0005-style-atlas-ii.html">
+      <div><p class="eyebrow">返回</p><h3>第 05 课 &mdash; 风格图鉴 II</h3>
+      <p>反复玩十家族交错游戏，直到名字脱口而出。</p></div>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <button class="btn" onclick="window.print()">打印这张卡</button>
+  </div>
+</main>
+</body>
+</html>

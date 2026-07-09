@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>参考卡：设计判读</title>
+<link rel="stylesheet" href="../../assets/course.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 16px;
+  }
+  .formula {
+    font-family: var(--font-mono); font-size: 15px; line-height: 1.7;
+    background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 18px; max-width: var(--measure);
+  }
+  .formula .slot { color: var(--accent-ink); font-weight: 700; }
+  .parts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: var(--measure); }
+  .part { border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px; background: var(--surface); }
+  .part h3 { font-family: var(--font-display); font-size: 15px; margin: 0 0 4px; }
+  .part p { margin: 0; font-size: 13px; color: var(--ink-soft); }
+  table.map { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  table.map th, table.map td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.map th { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); }
+  table.map td.sys { font-family: var(--font-mono); color: var(--accent-ink); white-space: nowrap; }
+  .tablewrap { overflow-x: auto; }
+  @media (max-width: 640px) { .parts { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste · 参考卡 · 打印我</p>
+    <h1>设计判读 · The Design Read</h1>
+    <p>动手之前先说的那一句话。是受众决定美学，而不是你的口味。
+      来源：<code>design-taste-frontend §0, §2</code>。</p>
+  </div>
+
+  <section class="cat">
+    <h2>那句公式</h2>
+    <div class="formula">
+      把它读作：给 <span class="slot">[某人群 audience]</span> 的 <span class="slot">[某种页面 page kind]</span>，<br>
+      用 <span class="slot">[某种气质 vibe]</span> 的语言，<br>
+      倾向于 <span class="slot">[某个基座 foundation]</span>。
+    </div>
+  </section>
+
+  <section class="cat">
+    <h2>四个部分</h2>
+    <div class="parts">
+      <div class="part"><h3>1 · 页面类型 Page kind</h3><p>落地页、作品集、服务页、编辑页、仪表盘。定下基本规则。</p></div>
+      <div class="part"><h3>2 · 受众 Audience</h3><p>谁会扫这个页、他们需要什么。这才是真正决定旋钮的一环。</p></div>
+      <div class="part"><h3>3 · 气质 Vibe</h3><p>两三个词：求稳、高级编辑感、俏皮、粗野、无障碍优先。</p></div>
+      <div class="part"><h3>4 · 基座 Foundation</h3><p>需求需要时就用真实的设计系统，否则用一个诚实的美学家族加一款有名字的字体。</p></div>
+    </div>
+  </section>
+
+  <section class="cat">
+    <h2>需求 → 基座对照表</h2>
+    <div class="tablewrap">
+    <table class="map">
+      <thead><tr><th>如果需求读起来像……</th><th>就用</th><th>为什么</th></tr></thead>
+      <tbody>
+        <tr><td>企业级 SaaS、仪表盘、微软味</td><td class="sys">Fluent UI</td><td>官方微软 token，无障碍已就绪。</td></tr>
+        <tr><td>IBM 式 B2B 分析、数据密集</td><td class="sys">Carbon</td><td>成熟的数据密度范式。</td></tr>
+        <tr><td>谷歌味、Material 风格产品</td><td class="sys">Material 3</td><td>官方、可主题化。</td></tr>
+        <tr><td>GitHub 式开发者工具 / 社区</td><td class="sys">Primer</td><td>GitHub 官方系统。</td></tr>
+        <tr><td>英国公共部门服务</td><td class="sys">GOV.UK Frontend</td><td>法规上被预期。</td></tr>
+        <tr><td>美国公共部门 / 求稳</td><td class="sys">USWDS</td><td>同上，用于美国政府。</td></tr>
+        <tr><td>现代 SaaS 且组件你自己拥有</td><td class="sys">shadcn/ui</td><td>代码归你；永远别直接发默认态。</td></tr>
+        <tr><td>独立 / 小团队 AI 营销</td><td class="sys">Tailwind v4</td><td>独立构建的默认选择。</td></tr>
+        <tr><td>代理、编辑、粗野、高端</td><td class="sys">native CSS</td><td>没有官方包。用一款有名字的字体去建，并诚实标注。</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="max-width:var(--measure);color:var(--ink-soft);font-size:14px;margin-top:14px">
+      诚实原则：如果需求匹配到某个真实系统，就装官方包。不要手搓它的 CSS，也不要把某个美学趋势
+      （glassmorphism、bento）说成官方系统。</p>
+  </section>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../lessons/0003-the-design-read.html">
+      <div><p class="eyebrow">返回</p><h3>第 03 课 — 设计判读</h3>
+      <p>再看一遍三受众对比，或者去第 04 课。</p></div>
+      <span class="arrow">→</span>
+    </a>
+    <button class="btn" onclick="window.print()">打印这张卡</button>
+  </div>
+</main>
+</body>
+</html>
