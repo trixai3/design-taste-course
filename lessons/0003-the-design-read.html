@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 03: The Design Read</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/course.css">
+<style>
+  /* three scoped mini-mocks: SAME product, three audiences */
+  .dr-frame { min-height: 260px; }
+  .drm { padding: 18px 18px 20px; height: 100%; }
+  .drm .brand { font-weight: 700; margin-bottom: 14px; font-size: 14px; }
+  .drm h4 { margin: 0 0 8px; }
+  .drm p { margin: 0 0 14px; }
+  .drm .cta { display: inline-block; font-weight: 600; cursor: default; }
+
+  /* 1 — B2B procurement: Inter, cool gray, conservative blue, symmetric, denser */
+  #dr-b2b { font-family: "Inter", sans-serif; background: #f8fafc; color: #0f172a; text-align: center; }
+  #dr-b2b .brand { color: #0f172a; letter-spacing: -0.01em; }
+  #dr-b2b h4 { font-family: "Inter"; font-weight: 700; font-size: 20px; line-height: 1.15; letter-spacing: -0.01em; }
+  #dr-b2b p { font-size: 12.5px; color: #475569; max-width: 30ch; margin-inline: auto; }
+  #dr-b2b .cta { background: #1e40af; color: #fff; padding: 9px 16px; border-radius: 6px; font-size: 12.5px; }
+  #dr-b2b .trust { margin-top: 14px; font-size: 10.5px; letter-spacing: 0.08em; color: #64748b; font-family: ui-monospace, monospace; }
+
+  /* 2 — Design-conscious consumer: Cabinet/Satoshi, warm, one bold accent, airy, asymmetric */
+  #dr-consumer { font-family: "Satoshi", system-ui, sans-serif; background: #FBFAF6; color: #1C1A16; text-align: left; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+  #dr-consumer .brand { font-family: "Cabinet Grotesk"; font-weight: 800; }
+  #dr-consumer h4 { font-family: "Cabinet Grotesk"; font-weight: 800; font-size: 25px; line-height: 1.02; letter-spacing: -0.02em; }
+  #dr-consumer p { font-size: 13px; color: #575049; max-width: 26ch; }
+  #dr-consumer .cta { background: #12674A; color: #fff; padding: 10px 20px; border-radius: 999px; font-size: 13px; }
+
+  /* 3 — Public sector: high contrast, system font, GOV.UK, symmetric, static */
+  #dr-gov { font-family: "Inter", Arial, sans-serif; background: #ffffff; color: #0b0c0c; text-align: left; border-top: 8px solid #0b0c0c; }
+  #dr-gov .brand { color: #0b0c0c; font-weight: 700; border-bottom: 2px solid #0b0c0c; padding-bottom: 8px; }
+  #dr-gov h4 { font-family: "Inter", Arial; font-weight: 700; font-size: 22px; line-height: 1.1; }
+  #dr-gov p { font-size: 13px; color: #0b0c0c; max-width: 30ch; }
+  #dr-gov .cta { background: #00703c; color: #fff; padding: 11px 16px; border-radius: 0; font-size: 14px; box-shadow: 0 2px 0 #002d18; }
+  #dr-gov a.link { color: #1d70b8; font-size: 12px; text-decoration: underline; }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>Module A: Seeing</span><span class="sep">/</span>
+      <span>Lesson 03</span><span class="sep">/</span>
+      <span>~12 min</span>
+    </p>
+    <h1>The Design Read: the audience picks the aesthetic</h1>
+    <div class="win">
+      <span class="tag">Your one win</span>
+      <p style="margin:0">By the end you can write a one-line <strong>design read</strong> for any
+        brief: <em>"Reading this as: X for Y, with a Z language, leaning toward W."</em> It is the
+        single sentence a good designer says before touching anything.</p>
+    </div>
+  </header>
+
+  <section style="margin-bottom:44px"><div id="recall"></div></section>
+
+  <section class="prose">
+    <p class="lead">Lesson 01 taught you to see slop. Lesson 02 gave you the dials to describe a
+      page. But what decides where you set those dials? Not your mood, and not your favorite style.
+      The <strong>audience</strong> does.</p>
+    <p>Before any pixels, a designer reads the room and says one sentence out loud: who is this for,
+      what should it feel like, and what foundation fits. Get that sentence right and every later
+      choice, font, color, motion, layout, follows from it. Get it wrong and no amount of polish
+      saves the page.</p>
+  </section>
+
+  <!-- SHOW: one product, three audiences -->
+  <section class="wide" style="margin:28px 0 8px">
+    <p class="eyebrow" style="text-align:center;margin-bottom:6px">One product. Three audiences. Three different right answers.</p>
+    <p class="prose" style="text-align:center;margin:0 auto 20px;color:var(--ink-soft)">
+      Same expense-tracking agent, <strong>Ledgerly</strong>. Read each design read, then see how it
+      forces different fonts, dials, and foundations.</p>
+
+    <div class="dr-grid">
+      <!-- B2B -->
+      <div class="dr-col">
+        <div class="dr-read">Reading this as: <b>B2B SaaS landing</b> for finance &amp; procurement
+          buyers, with a <b>trust-first</b> language, leaning toward <b>Carbon / Fluent</b> (a real
+          design system).</div>
+        <div class="dr-frame"><div class="drm" id="dr-b2b">
+          <div class="brand">Ledgerly</div>
+          <h4>Close the books 5 days faster.</h4>
+          <p>Automated expense controls, approvals, and audit trails for finance teams.</p>
+          <span class="cta">Book a demo</span>
+          <div class="trust">SOC 2 · SSO / SAML · ERP SYNC</div>
+        </div></div>
+        <div class="dr-anno">
+          <div><span class="k">Font</span> Inter (neutral, trusted)</div>
+          <div><span class="k">Dials</span> 3 / 2 / 5 (symmetric, static, denser)</div>
+          <div><span class="k">Foundation</span> Carbon or Fluent (official system)</div>
+        </div>
+      </div>
+
+      <!-- Consumer -->
+      <div class="dr-col">
+        <div class="dr-read">Reading this as: <b>consumer product landing</b> for design-conscious
+          users, with a <b>premium editorial</b> language, leaning toward <b>native CSS + Cabinet
+          Grotesk</b>.</div>
+        <div class="dr-frame"><div class="drm" id="dr-consumer">
+          <div class="brand">Ledgerly</div>
+          <h4>Your money, finally readable.</h4>
+          <p>It sorts every expense and tells you where it went, in plain language.</p>
+          <span class="cta">Start free</span>
+        </div></div>
+        <div class="dr-anno">
+          <div><span class="k">Font</span> Cabinet Grotesk + Satoshi</div>
+          <div><span class="k">Dials</span> 7 / 6 / 3 (asymmetric, fluid, airy)</div>
+          <div><span class="k">Foundation</span> native CSS, one bold accent</div>
+        </div>
+      </div>
+
+      <!-- Gov -->
+      <div class="dr-col">
+        <div class="dr-read">Reading this as: <b>public-sector service page</b> for the general
+          public, with an <b>accessibility-first</b> language, leaning toward <b>GOV.UK
+          Frontend</b>.</div>
+        <div class="dr-frame"><div class="drm" id="dr-gov">
+          <div class="brand">Ledgerly · Expenses service</div>
+          <h4>Report your expenses online.</h4>
+          <p>Use this service to submit and track work expenses.</p>
+          <span class="cta">Start now →</span>
+          <div style="margin-top:12px"><a class="link" href="#">Read the guidance first</a></div>
+        </div></div>
+        <div class="dr-anno">
+          <div><span class="k">Font</span> System / GDS Transport</div>
+          <div><span class="k">Dials</span> 2 / 2 / 5 (rigid, static, plain)</div>
+          <div><span class="k">Foundation</span> GOV.UK Frontend (mandated)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>The four parts of a design read</h2>
+    <p>Every read names the same four things. Keep them in this order and it becomes automatic:</p>
+    <ol>
+      <li><strong>Page kind.</strong> Landing, portfolio, service page, editorial, dashboard.</li>
+      <li><strong>Audience.</strong> Who scans this and what they need. This is the part that
+        actually sets the dials.</li>
+      <li><strong>Vibe language.</strong> Two or three words: trust-first, premium editorial,
+        playful, brutalist, accessibility-first.</li>
+      <li><strong>Foundation.</strong> A real design system (Carbon, GOV.UK, Fluent) when the brief
+        calls for one, or an honest aesthetic family (native CSS + a named typeface).</li>
+    </ol>
+    <div class="note note--teach">
+      <p class="eyebrow">The trap this avoids</p>
+      <p style="margin:0">Most weak AI output jumps straight to a default aesthetic (purple gradient,
+        centered hero) because no read was written. The read is what moves you off autopilot. It is
+        the first line of <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">design-taste-frontend §0</a>.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- DO: write the read -->
+  <section class="prose">
+    <h2>Write the read yourself</h2>
+    <p>Three briefs below. For each, write one design read in the format
+      <em>"Reading this as: [page kind] for [audience], with a [vibe] language, leaning toward
+      [foundation]."</em> Then reveal a model answer and compare on the four parts. There is no single
+      right wording; check whether you named the same audience and foundation.</p>
+  </section>
+
+  <div class="column" id="read-exercise" style="margin-top:20px"></div>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../reference/design-read.html">
+      <div>
+        <p class="eyebrow">Reference · keep this</p>
+        <h3>The Design Read template</h3>
+        <p>The one-line format, the four parts, and the brief to design-system map.</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <div class="card">
+      <p class="eyebrow">Primary source · read this</p>
+      <h3>design-taste-frontend §0 — “Brief Inference”</h3>
+      <p>Read section 0 (read the room) and section 2 (brief to design-system map) in
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">the skill</a>.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">Your teacher</p>
+      <h3>Ask follow-up questions</h3>
+      <p>Bring a real brief you are working on and we will write its design read together in the
+        session.</p>
+    </div>
+    <a class="card next-link" href="./0004-style-atlas-i.html">
+      <div>
+        <p class="eyebrow">Next lesson</p>
+        <h3>04 — Style Atlas I</h3>
+        <p>Now that the read points at a "vibe language", you need names for those styles. The
+          light-mode families.</p>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../assets/quiz.js"></script>
+<script src="../assets/reveal.js"></script>
+<script>
+  Quiz.mount("#recall", [
+    { q: "The three dials in this course are:",
+      options: ["Variance, Motion, Density", "Color, Spacing, Font", "Grid, Flex, Layout", "Shadow, Radius, Border"],
+      answer: 0,
+      why: "Variance (symmetry to chaos), Motion, Density (airy to packed). From Lesson 02." },
+    { q: "Which one is an AI tell, not good practice?",
+      options: ["A glowing purple gradient", "A single warm accent", "An asymmetric split hero", "An off-black text color"],
+      answer: 0,
+      why: "The purple/blue glow is the Lila rule. The other three are good design." },
+    { q: "A public-sector service page should read as:",
+      options: ["Low variance, low motion", "High variance, high motion", "High motion, high density", "Loud accent, big scale"],
+      answer: 0,
+      why: "Trust-first: symmetric and near-static. That was the 3 / 2 / 5 preset in Lesson 02." }
+  ]);
+
+  Reveal.mount("#read-exercise", [
+    {
+      prompt: "Brief: a portfolio site for a freelance motion designer who wants Awwwards-style agency work.",
+      placeholder: "Reading this as: ...",
+      answer:
+        '<div class="ra-lead">Reading this as: a designer portfolio for creative directors and agencies, with an experimental / kinetic language, leaning toward native CSS + GSAP with expressive display type.</div>' +
+        '<dl>' +
+        '<dt>Page kind</dt><dd>Portfolio (creative / studio).</dd>' +
+        '<dt>Audience</dt><dd>Art directors and agencies hiring for craft. They reward risk.</dd>' +
+        '<dt>Vibe</dt><dd>Experimental, kinetic, Awwwards-leaning.</dd>' +
+        '<dt>Foundation</dt><dd>Native CSS + GSAP, custom type. No design system. Dials ~9 / 8 / 3.</dd>' +
+        '</dl>'
+    },
+    {
+      prompt: "Brief: a landing page for a new AI note-taking app aimed at students, meant to feel playful and friendly.",
+      placeholder: "Reading this as: ...",
+      answer:
+        '<div class="ra-lead">Reading this as: a consumer SaaS landing for students, with a playful, friendly language, leaning toward Tailwind + a rounded bold sans, with moderate motion.</div>' +
+        '<dl>' +
+        '<dt>Page kind</dt><dd>Consumer SaaS landing.</dd>' +
+        '<dt>Audience</dt><dd>Students. Price-sensitive, mobile-first, want approachable not corporate.</dd>' +
+        '<dt>Vibe</dt><dd>Playful, friendly, warm.</dd>' +
+        '<dt>Foundation</dt><dd>Tailwind + a rounded bold sans, one cheerful accent. Dials ~7 / 7 / 4.</dd>' +
+        '</dl>'
+    },
+    {
+      prompt: "Brief: a website for a city government's new online parking-permit service.",
+      placeholder: "Reading this as: ...",
+      answer:
+        '<div class="ra-lead">Reading this as: a public-sector service page for residents, with a trust-first, accessibility-first language, leaning toward USWDS or GOV.UK Frontend.</div>' +
+        '<dl>' +
+        '<dt>Page kind</dt><dd>Public-sector service / transaction page.</dd>' +
+        '<dt>Audience</dt><dd>The general public, every device and ability. Clarity beats style.</dd>' +
+        '<dt>Vibe</dt><dd>Trust-first, plain, accessible.</dd>' +
+        '<dt>Foundation</dt><dd>USWDS or GOV.UK Frontend (expected, near-mandated). Dials ~3 / 2 / 5.</dd>' +
+        '</dl>'
+    }
+  ]);
+</script>
+</body>
+</html>

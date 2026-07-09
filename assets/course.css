@@ -419,7 +419,7 @@ hr.rule { border: none; border-top: 1px solid var(--line); margin: 56px auto; ma
 .dstage .d-hasset {
   border-radius: var(--radius-sm); border: 1px solid var(--line-soft);
   min-height: calc(120px * var(--fs)); background: #ded9cf center/cover no-repeat;
-  background-image: url("https://picsum.photos/seed/dial-review-ui/440/320");
+  background-image: url("https://picsum.photos/id/0/440/320");
 }
 .dstage .d-feat { display: grid; gap: var(--gap); padding: var(--pad); border-top: 1px solid var(--line-soft); }
 .dstage .d-item { background: var(--bg); border: 1px solid var(--line-soft); border-radius: var(--radius-sm); padding: calc(14px * var(--fs)); }
@@ -494,10 +494,59 @@ hr.rule { border: none; border-top: 1px solid var(--line); margin: 56px auto; ma
 .game-line[data-hit="false"] { color: var(--accent-ink); }
 .game-note { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
 
+/* ============================================================
+   Reveal exercise (assets/reveal.js) — write your attempt, then
+   compare against a model answer.
+   ============================================================ */
+.reveal-item {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface); padding: 18px 20px; margin-bottom: 16px;
+}
+.reveal-brief { font-size: 15px; margin: 0 0 12px; }
+.reveal-brief b { font-family: var(--font-display); }
+.reveal-ta {
+  width: 100%; min-height: 62px; resize: vertical;
+  font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+  color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+.reveal-ta:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.reveal-btnrow { margin-top: 10px; }
+.reveal-answer {
+  margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line);
+  display: none;
+}
+.reveal-answer[data-open="true"] { display: block; }
+.reveal-answer .ra-lead {
+  font-family: var(--font-display); font-size: 15px; font-weight: 700;
+  background: var(--good-wash); border-left: 3px solid var(--good);
+  padding: 10px 14px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 0 0 12px;
+}
+.reveal-answer dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; }
+.reveal-answer dt {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink-faint); padding-top: 2px;
+}
+.reveal-answer dd { margin: 0; font-size: 14.5px; }
+
+/* ---- design-read comparison (Lesson 03 show) ---- */
+.dr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: start; }
+.dr-col .dr-read {
+  font-family: var(--font-mono); font-size: 12px; line-height: 1.5;
+  color: var(--ink); background: var(--surface-2);
+  border-radius: var(--radius-sm); padding: 10px 12px; margin-bottom: 10px; min-height: 76px;
+}
+.dr-col .dr-read b { color: var(--accent-ink); }
+.dr-anno { margin-top: 10px; font-size: 12.5px; color: var(--ink-soft); display: grid; gap: 3px; }
+.dr-anno .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; }
+.dr-frame { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+
 @media (max-width: 860px) {
   .dial-lab { grid-template-columns: 1fr; }
   .game-round { grid-template-columns: 1fr; }
   .quiz-opts { grid-template-columns: 1fr; }
+  .dr-grid { grid-template-columns: 1fr; }
   body { font-size: 17px; }
   .compare { grid-template-columns: 1fr; }
   .tell-callout { left: 20px; right: 20px; width: auto; }

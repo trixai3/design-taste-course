@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference: The Design Read</title>
+<link rel="stylesheet" href="../assets/course.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 16px;
+  }
+  .formula {
+    font-family: var(--font-mono); font-size: 15px; line-height: 1.7;
+    background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 18px; max-width: var(--measure);
+  }
+  .formula .slot { color: var(--accent-ink); font-weight: 700; }
+  .parts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: var(--measure); }
+  .part { border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px; background: var(--surface); }
+  .part h3 { font-family: var(--font-display); font-size: 15px; margin: 0 0 4px; }
+  .part p { margin: 0; font-size: 13px; color: var(--ink-soft); }
+  table.map { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  table.map th, table.map td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.map th { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); }
+  table.map td.sys { font-family: var(--font-mono); color: var(--accent-ink); white-space: nowrap; }
+  .tablewrap { overflow-x: auto; }
+  @media (max-width: 640px) { .parts { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste · Reference · print me</p>
+    <h1>The Design Read</h1>
+    <p>The one sentence to say before touching anything. The audience picks the aesthetic, not your
+      taste. Source: <code>design-taste-frontend §0, §2</code>.</p>
+  </div>
+
+  <section class="cat">
+    <h2>The formula</h2>
+    <div class="formula">
+      Reading this as: <span class="slot">[page kind]</span> for <span class="slot">[audience]</span>,<br>
+      with a <span class="slot">[vibe]</span> language,<br>
+      leaning toward <span class="slot">[foundation]</span>.
+    </div>
+  </section>
+
+  <section class="cat">
+    <h2>The four parts</h2>
+    <div class="parts">
+      <div class="part"><h3>1 · Page kind</h3><p>Landing, portfolio, service page, editorial, dashboard. Sets the ground rules.</p></div>
+      <div class="part"><h3>2 · Audience</h3><p>Who scans this and what they need. This is what actually sets the dials.</p></div>
+      <div class="part"><h3>3 · Vibe</h3><p>Two or three words: trust-first, premium editorial, playful, brutalist, accessibility-first.</p></div>
+      <div class="part"><h3>4 · Foundation</h3><p>A real design system when the brief calls for one, or an honest aesthetic family with a named typeface.</p></div>
+    </div>
+  </section>
+
+  <section class="cat">
+    <h2>Brief → foundation map</h2>
+    <div class="tablewrap">
+    <table class="map">
+      <thead><tr><th>If the brief reads as…</th><th>Reach for</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Enterprise SaaS, dashboards, Microsoft-ish</td><td class="sys">Fluent UI</td><td>Official Microsoft tokens, accessibility done.</td></tr>
+        <tr><td>IBM-style B2B analytics, data density</td><td class="sys">Carbon</td><td>Mature data-density patterns.</td></tr>
+        <tr><td>Google-ish, Material-flavored product</td><td class="sys">Material 3</td><td>Official, theme-able.</td></tr>
+        <tr><td>GitHub-style devtool / community</td><td class="sys">Primer</td><td>Official GitHub system.</td></tr>
+        <tr><td>UK public-sector service</td><td class="sys">GOV.UK Frontend</td><td>Legally / regulatorily expected.</td></tr>
+        <tr><td>US public-sector / trust-first</td><td class="sys">USWDS</td><td>Same, for US gov.</td></tr>
+        <tr><td>Modern SaaS you own the components</td><td class="sys">shadcn/ui</td><td>You own the code; never ship default state.</td></tr>
+        <tr><td>Indie / small-team AI marketing</td><td class="sys">Tailwind v4</td><td>Default for indie builds.</td></tr>
+        <tr><td>Agency, editorial, brutalist, premium</td><td class="sys">native CSS</td><td>No official package. Build with a named typeface, honestly labeled.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="max-width:var(--measure);color:var(--ink-soft);font-size:14px;margin-top:14px">
+      Honesty rule: if the brief matches a real system, install the official package. Do not recreate
+      its CSS by hand, and do not call an aesthetic trend (glassmorphism, bento) an official system.</p>
+  </section>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../lessons/0003-the-design-read.html">
+      <div><p class="eyebrow">Back to</p><h3>Lesson 03 — The Design Read</h3>
+      <p>Replay the three-audience comparison, or move on to Lesson 04.</p></div>
+      <span class="arrow">→</span>
+    </a>
+    <button class="btn" onclick="window.print()">Print this sheet</button>
+  </div>
+</main>
+</body>
+</html>
