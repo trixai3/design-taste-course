@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference: The Style Atlas</title>
+<link rel="stylesheet" href="../assets/course.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 16px;
+  }
+  .fam {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--surface); padding: 18px 20px; margin-bottom: 18px;
+    break-inside: avoid;
+  }
+  .fam h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; margin: 0 0 2px; }
+  .fam .smell { font-size: 13.5px; color: var(--ink-soft); margin: 0 0 12px; }
+  .fam .strip { display: flex; height: 26px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--line); margin-bottom: 12px; }
+  .fam .strip i { flex: 1; }
+  .fam dl { margin: 0; display: grid; grid-template-columns: 120px 1fr; gap: 5px 14px; font-size: 14px; }
+  .fam dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); padding-top: 2px; }
+  .fam dd { margin: 0; }
+  .fam dd code { font-family: var(--font-mono); font-size: 0.85em; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+  .fam .src { margin-top: 10px; font-size: 13px; color: var(--ink-soft); }
+  .fam .src a { color: var(--accent-ink); }
+  .todo { border: 1px dashed var(--line); border-radius: var(--radius); padding: 14px 18px; color: var(--ink-faint); font-size: 14px; }
+  @media (max-width: 640px) { .fam dl { grid-template-columns: 1fr; gap: 2px; } .fam dt { margin-top: 8px; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste &middot; Reference &middot; print me</p>
+    <h1>The Style Atlas</h1>
+    <p>Named style families you can point an AI at. Read a family in three questions: substrate,
+      hierarchy carrier, edge signature. Light families from Lesson 04; dark and bold families
+      arrive with Lessons 05-06.</p>
+  </div>
+
+  <section class="cat">
+    <h2>Light-mode families (Lesson 04)</h2>
+
+    <div class="fam">
+      <h3>01 &middot; Premium Utilitarian Minimalism</h3>
+      <p class="smell">Smells like: Notion, Craft, Linear docs. A document pretending to be an app.</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#FFFFFF"></i><i style="background:#F7F6F3"></i><i style="background:#EAEAEA"></i><i style="background:#FBF3DB"></i><i style="background:#E1F3FE"></i><i style="background:#2F3437"></i>
+      </div>
+      <dl>
+        <dt>Substrate</dt><dd>Pure white <code>#FFFFFF</code> or warm bone <code>#F7F6F3</code></dd>
+        <dt>Hierarchy</dt><dd>Editorial serif display (Lyon, Newsreader) over a clean sans (SF Pro, Geist, Switzer)</dd>
+        <dt>Edges</dt><dd>Exactly <code>1px solid #EAEAEA</code>; radius 4-12px; shadows near zero (&lt; 0.05 opacity)</dd>
+        <dt>Signature</dt><dd>Faux-OS window chrome, <code>&lt;kbd&gt;</code> keys, washed-out pastel tags, ink text <code>#2F3437</code>, gray <code>#787774</code></dd>
+        <dt>Use when</dt><dd>Productivity tools, docs-like products, calm SaaS that must read as trustworthy and quiet</dd>
+      </dl>
+      <p class="src">Defined by <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/minimalist-skill/SKILL.md">minimalist-ui</a> (upstream: <code>minimalist-skill</code>)</p>
+    </div>
+
+    <div class="fam">
+      <h3>02 &middot; Editorial Luxury</h3>
+      <p class="smell">Smells like: Kinfolk magazine, boutique hotels, high-end real estate, agencies.</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#FDFBF7"></i><i style="background:#EFE9DD"></i><i style="background:#8A957E"></i><i style="background:#6B6254"></i><i style="background:#2A2118"></i>
+      </div>
+      <dl>
+        <dt>Substrate</dt><dd>Warm cream <code>#FDFBF7</code> with a subtle noise/film-grain overlay (~3-5% opacity)</dd>
+        <dt>Hierarchy</dt><dd>Massive high-contrast variable serif headings, tight tracking and line-height</dd>
+        <dt>Edges</dt><dd>Barely any: rules and whitespace, not boxes</dd>
+        <dt>Signature</dt><dd>Muted sage or espresso accents, small tracked caps for meta text, whitespace treated as the product</dd>
+        <dt>Use when</dt><dd>Lifestyle, real estate, print-adjacent brands, anywhere "considered" beats "efficient"</dd>
+      </dl>
+      <p class="src">Defined by <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/soft-skill/SKILL.md">high-end-visual-design &sect;3.A.2</a> (upstream: <code>soft-skill</code>)</p>
+    </div>
+
+    <div class="fam">
+      <h3>03 &middot; Soft Structuralism</h3>
+      <p class="smell">Smells like: Apple Health, premium consumer wellness, polished portfolios.</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#F3F4F6"></i><i style="background:#FFFFFF"></i><i style="background:#E5E7EB"></i><i style="background:#9A9CA3"></i><i style="background:#17181B"></i>
+      </div>
+      <dl>
+        <dt>Substrate</dt><dd>Silver-grey <code>#F3F4F6</code> or plain white; cool, airy</dd>
+        <dt>Hierarchy</dt><dd>Massive bold grotesk (800 weight, tight tracking)</dd>
+        <dt>Edges</dt><dd>No borders. White components float on ultra-diffuse ambient shadows; radius 16-20px</dd>
+        <dt>Signature</dt><dd>Stat cards with big numerals, pill CTAs, everything breathing</dd>
+        <dt>Use when</dt><dd>Consumer health, personal metrics, friendly-premium products for a broad audience</dd>
+      </dl>
+      <p class="src">Defined by <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/soft-skill/SKILL.md">high-end-visual-design &sect;3.A.3</a> (upstream: <code>soft-skill</code>)</p>
+    </div>
+
+    <div class="fam">
+      <h3>04 &middot; Pristine Light</h3>
+      <p class="smell">Smells like: quality print, Stripe's editorial pages, confident documentation.</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#FAF7F2"></i><i style="background:#F0EBE2"></i><i style="background:#97907F"></i><i style="background:#191713"></i>
+      </div>
+      <dl>
+        <dt>Substrate</dt><dd>Off-white paper <code>#FAF7F2</code>, no texture tricks</dd>
+        <dt>Hierarchy</dt><dd>Sharp near-black sans with a strong size scale; numbered index rows</dd>
+        <dt>Edges</dt><dd>Hairline rules instead of cards; radius ~0-2px; no shadows</dd>
+        <dt>Signature</dt><dd>Reads like a well-set book page: editorial confidence, zero ornament</dd>
+        <dt>Use when</dt><dd>Content-first pages, methods, manifestos, pricing that wants to feel honest</dd>
+      </dl>
+      <p class="src">Defined by <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/imagegen-frontend-web/SKILL.md">imagegen-frontend-web &sect;2, Theme Paradigm 1</a></p>
+    </div>
+
+    <div class="fam">
+      <h3>05 &middot; Quiet Premium Neutral</h3>
+      <p class="smell">Smells like: Aesop, premium skincare, boutique spas, restrained luxury goods.</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#E9E4DB"></i><i style="background:#F1EDE6"></i><i style="background:#DBD3C6"></i><i style="background:#A69C8A"></i><i style="background:#57503F"></i>
+      </div>
+      <dl>
+        <dt>Substrate</dt><dd>Bone, sand, taupe, stone: <code>#E9E4DB</code> family, never white</dd>
+        <dt>Hierarchy</dt><dd>Light-to-regular weights, wide-tracked uppercase wordmarks, small sizes</dd>
+        <dt>Edges</dt><dd>Near-square (radius 2-3px), thin single-color borders on CTAs</dd>
+        <dt>Signature</dt><dd>Contrast lowered on purpose; the restraint is the brand</dd>
+        <dt>Use when</dt><dd>Premium goods where shouting would cheapen; note the a11y cost of low contrast, check body text still passes</dd>
+      </dl>
+      <p class="src">Defined by <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/imagegen-frontend-web/SKILL.md">imagegen-frontend-web &sect;2, Theme Paradigm 4</a></p>
+    </div>
+  </section>
+
+  <section class="cat">
+    <h2>Telling the lookalikes apart</h2>
+    <div class="fam">
+      <dl>
+        <dt>PUM vs Pristine</dt><dd>PUM is an app (chrome, kbd keys, bordered blocks, pastel tags). Pristine is a page (rules, no containers, print energy).</dd>
+        <dt>Pristine vs Luxury</dt><dd>Both on paper tones. Luxury leads with a massive serif and whitespace; Pristine leads with a sharp sans and clarity.</dd>
+        <dt>Quiet vs the rest</dt><dd>Background turns stone or sand and contrast drops on purpose: you are in Quiet Neutral.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="cat">
+    <h2>Coming with Lessons 05-06</h2>
+    <p class="todo">Ethereal Glass &middot; Deep Dark Mode &middot; Dark Tech / Hacker &middot; Tactical
+      Telemetry &middot; Bold Studio Solid &middot; the two Brutalisms. This sheet grows with the module.</p>
+  </section>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../lessons/0004-style-atlas-i.html">
+      <div><p class="eyebrow">Back to</p><h3>Lesson 04 &mdash; Style Atlas I</h3>
+      <p>Replay the flash-recognition game until the names come without thinking.</p></div>
+      <span class="arrow">&rarr;</span>
+    </a>
+    <button class="btn" onclick="window.print()">Print this sheet</button>
+  </div>
+</main>
+</body>
+</html>

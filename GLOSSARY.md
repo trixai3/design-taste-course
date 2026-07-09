@@ -61,6 +61,52 @@ _Source_: DTF §2
 
 ---
 
+## Style families · 风格族 (Lesson 04+)
+
+**Style family · 风格族**:
+A named, repeatable look defined by its substrate, hierarchy carrier, and edge signature. Naming a
+family compresses ten design decisions into three words, which is what makes AI steerable.
+一种有名字、可复用的外观，由基底、层级载体、边缘签名共同定义。说出族名等于一次性压缩了十个设计决定，这正是能"指挥" AI 的原因。
+
+**Substrate · 基底（底面）**:
+The background surface a design sits on: pure white, warm bone, cream, silver-grey, stone. The first
+question when reading a family.
+设计所处的背景表面：纯白、暖骨白、奶油色、银灰、石灰。判读风格族时要问的第一个问题。
+
+**Premium Utilitarian Minimalism (PUM) · 高级实用极简**:
+White or warm-bone substrate, 1px hairline borders (#EAEAEA), serif display over a clean sans, muted
+pastel tags, shadows near zero. A document pretending to be an app. Smells like Notion.
+白或暖骨白基底、1px 发丝边框（#EAEAEA）、衬线大标题配干净无衬线正文、灰粉彩标签、几乎无阴影。像"伪装成应用的文档"。闻起来像 Notion。
+_Source_: minimalist-ui (upstream `minimalist-skill`)
+
+**Editorial Luxury · 编辑奢华风**:
+Warm cream substrate with film grain, massive high-contrast serif headings, sage/espresso accents,
+whitespace treated as the product. Smells like Kinfolk magazine or high-end real estate.
+带胶片颗粒的暖奶油基底、巨大的高对比衬线标题、鼠尾草绿/浓缩咖啡色点缀、把留白当作产品本身。闻起来像 Kinfolk 杂志或高端地产。
+_Source_: high-end-visual-design §3.A.2
+
+**Soft Structuralism · 软结构主义**:
+Silver-grey or white substrate, massive bold grotesk type, borderless white components floating on
+ultra-diffuse shadows, radius 16-20px. Smells like Apple Health.
+银灰或纯白基底、粗重的怪诞体大字、无边框白色组件浮在极度弥散的阴影上、圆角 16-20px。闻起来像 Apple 健康。
+_Source_: high-end-visual-design §3.A.3
+
+**Pristine Light · 素净纸感**:
+Off-white paper substrate, sharp near-black sans with strong hierarchy, hairline rules instead of
+cards, radius ~0, no shadows. Reads like a well-set book page. Smells like quality print or Stripe's
+editorial pages.
+米白纸感基底、锐利近黑的无衬线字加强烈层级、用发丝分隔线代替卡片、圆角约 0、无阴影。读起来像排得很好的书页。闻起来像高质量印刷品或 Stripe 的编辑页面。
+_Source_: imagegen-frontend-web §2 (Theme Paradigm 1)
+
+**Quiet Premium Neutral · 静奢中性**:
+Bone/sand/taupe/stone substrate (never white), deliberately lowered contrast, light weights,
+wide-tracked uppercase wordmarks, near-square corners. Restraint as the brand. Smells like Aesop.
+骨白/沙色/灰褐/石色基底（绝不用纯白）、刻意压低的对比度、细字重、宽字距全大写标识、近直角。克制即品牌。闻起来像 Aesop。
+_Avoid_: 低对比要检查正文仍过 WCAG AA
+_Source_: imagegen-frontend-web §2 (Theme Paradigm 4)
+
+---
+
 ## Typography · 排版
 
 **Inter** (a typeface · 一款字体):
@@ -131,6 +177,17 @@ _Source_: DTF §4.2 · §9.A
 An outer glow (box-shadow) around buttons/cards. Reads as cheap. Fix: inner borders or subtle tinted
 shadows instead.
 按钮/卡片外面的一圈发光（box-shadow）。显得廉价。改法：改用内边框或淡淡的带色阴影。
+
+**Monochrome palette · 单色调色板**:
+A palette built from one hue family only (usually a warm or cool gray ramp), with color reserved for
+meaning. The backbone of PUM and Pristine Light.
+只用一个色相家族（通常是一条暖灰或冷灰梯度）构成的调色板，颜色只留给有含义的地方。是 PUM 和 Pristine Light 的骨架。
+
+**Muted pastel · 灰粉彩（低饱和粉彩）**:
+A heavily desaturated, washed-out tint (pale yellow #FBF3DB, pale blue #E1F3FE) used for tags, code
+backgrounds, and small accents. Loud pastels break the family; muted ones define it.
+高度去饱和、洗过似的浅色（浅黄 #FBF3DB、浅蓝 #E1F3FE），用于标签、代码底色、小点缀。鲜艳的粉彩会破坏风格族，灰粉彩才是它的定义。
+_Source_: minimalist-ui §4
 
 **Pure black ban · 纯黑禁用** ⚑ tell:
 Using #000000 for backgrounds or text kills depth and looks digital-default. Use off-black (zinc-950,

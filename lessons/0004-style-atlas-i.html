@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 04: Style Atlas I, the Light Families</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="../assets/course.css">
+<!-- Extra faces for the family panels only. Stand-ins for licensed fonts the
+     corpus names (Lyon, Newsreader, SF Pro): Sentient and Zodiak play the
+     serifs, Switzer and General Sans play the clean sans roles. -->
+<style>
+@import url("https://api.fontshare.com/v2/css?f[]=sentient@400,500,700&f[]=zodiak@400,700,900&f[]=switzer@400,500,600&f[]=general-sans@400,500,600&display=swap");
+
+/* ============================================================
+   The five light-mode families. Each family is a class so the
+   SHOW panels and the game swatches share one definition.
+   These panels intentionally leave the course palette: they are
+   specimens, like Lesson 03's three audiences.
+   ============================================================ */
+
+/* --- 1 · Premium Utilitarian Minimalism (Notion-like) --- */
+.f-pum { font-family: "Switzer", system-ui, sans-serif; background: #F7F6F3; color: #2F3437; padding: 18px; }
+.f-pum .os { background: #FFFFFF; border: 1px solid #EAEAEA; border-radius: 8px; overflow: hidden; }
+.f-pum .os-bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid #EAEAEA; }
+.f-pum .os-bar i { width: 9px; height: 9px; border-radius: 999px; background: #E3E2DE; }
+.f-pum .os-body { padding: 18px 22px 20px; }
+.f-pum h4 { font-family: "Sentient", Georgia, serif; font-weight: 500; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 6px; }
+.f-pum .sub { font-size: 13.5px; color: #787774; margin: 0 0 14px; line-height: 1.55; }
+.f-pum .tags { display: flex; gap: 6px; margin-bottom: 14px; }
+.f-pum .tag-y { background: #FBF3DB; color: #956400; }
+.f-pum .tag-b { background: #E1F3FE; color: #1F6C9F; }
+.f-pum .tags span { font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 999px; padding: 3px 9px; font-weight: 600; }
+.f-pum .row { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #EAEAEA; padding: 9px 0; font-size: 13px; }
+.f-pum .row kbd { font-family: ui-monospace, monospace; font-size: 11px; border: 1px solid #EAEAEA; border-radius: 4px; background: #F7F6F3; padding: 2px 6px; color: #787774; }
+.f-pum .cta { display: inline-block; background: #111111; color: #FFFFFF; font-size: 13px; font-weight: 500; border-radius: 5px; padding: 8px 14px; margin-top: 14px; }
+
+/* --- 2 · Editorial Luxury (Kinfolk-like) --- */
+.f-lux { font-family: "Switzer", system-ui, sans-serif; background: #FDFBF7; color: #2A2118; padding: 34px 30px 30px; position: relative; overflow: hidden; }
+.f-lux::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.f-lux .meta { font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: #8A8171; margin: 0 0 16px; }
+.f-lux h4 { font-family: "Zodiak", Georgia, serif; font-weight: 700; font-size: 34px; letter-spacing: -0.03em; line-height: 1.02; margin: 0 0 14px; max-width: 15ch; }
+.f-lux .sub { font-size: 14px; color: #6B6254; max-width: 38ch; margin: 0 0 20px; line-height: 1.7; }
+.f-lux .sage { display: inline-block; border-bottom: 1px solid #8A957E; color: #2A2118; font-size: 13px; letter-spacing: 0.06em; padding-bottom: 3px; }
+.f-lux .folio { position: absolute; right: 28px; bottom: 22px; font-family: "Zodiak", serif; font-size: 13px; color: #8A8171; font-style: italic; }
+
+/* --- 3 · Soft Structuralism (Apple-Health-like) --- */
+.f-soft { font-family: "Cabinet Grotesk", system-ui, sans-serif; background: #F3F4F6; color: #17181B; padding: 26px; }
+.f-soft h4 { font-weight: 800; font-size: 30px; letter-spacing: -0.03em; line-height: 1.0; margin: 0 0 16px; }
+.f-soft .cards { display: flex; gap: 14px; }
+.f-soft .card-f { background: #FFFFFF; border-radius: 18px; padding: 16px 18px; flex: 1;
+  box-shadow: 0 18px 50px -12px rgba(23, 24, 27, 0.10), 0 4px 14px rgba(23, 24, 27, 0.03); }
+.f-soft .k { font-family: "Satoshi", sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9A9CA3; margin: 0 0 6px; }
+.f-soft .big { font-weight: 800; font-size: 26px; letter-spacing: -0.02em; margin: 0; }
+.f-soft .big small { font-size: 13px; color: #9A9CA3; font-weight: 500; }
+.f-soft .cta { display: inline-block; background: #17181B; color: #fff; font-family: "Satoshi", sans-serif; font-weight: 700; font-size: 13px; border-radius: 999px; padding: 9px 18px; margin-top: 18px; }
+
+/* --- 4 · Pristine Light (print-confidence) --- */
+.f-pristine { font-family: "General Sans", system-ui, sans-serif; background: #FAF7F2; color: #191713; padding: 26px 28px; }
+.f-pristine .top { display: flex; justify-content: space-between; border-bottom: 1px solid #191713; padding-bottom: 10px; margin-bottom: 18px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.f-pristine h4 { font-weight: 600; font-size: 27px; letter-spacing: -0.025em; line-height: 1.05; margin: 0 0 18px; max-width: 18ch; }
+.f-pristine .ix { border-top: 1px solid rgba(25,23,19,0.18); display: flex; gap: 14px; padding: 9px 0; font-size: 13px; align-items: baseline; }
+.f-pristine .ix i { font-style: normal; font-size: 11px; color: #97907F; font-variant-numeric: tabular-nums; }
+.f-pristine .cta { display: inline-block; background: #191713; color: #FAF7F2; font-size: 13px; font-weight: 500; padding: 9px 16px; margin-top: 16px; border-radius: 2px; }
+
+/* --- 5 · Quiet Premium Neutral (Aesop-like) --- */
+.f-quiet { font-family: "General Sans", system-ui, sans-serif; background: #E9E4DB; color: #57503F; padding: 28px; }
+.f-quiet .wordmark { font-size: 15px; font-weight: 500; letter-spacing: 0.34em; text-transform: uppercase; color: #4A443B; margin: 0 0 20px; }
+.f-quiet .panel-q { background: #F1EDE6; border-radius: 3px; padding: 20px 22px; }
+.f-quiet h4 { font-weight: 400; font-size: 21px; letter-spacing: 0.01em; line-height: 1.3; color: #4A443B; margin: 0 0 10px; max-width: 24ch; }
+.f-quiet .sub { font-size: 13px; color: #8B8371; line-height: 1.7; margin: 0 0 18px; max-width: 40ch; }
+.f-quiet .cta { display: inline-block; border: 1px solid #A69C8A; color: #57503F; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; padding: 9px 18px; border-radius: 2px; }
+.f-quiet .swatches { display: flex; gap: 8px; margin-top: 18px; }
+.f-quiet .swatches i { width: 26px; height: 26px; border-radius: 2px; }
+
+/* game swatch variants share the classes above; variant-B layouts */
+.gv { min-height: 180px; }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>Module B: Naming</span><span class="sep">/</span>
+      <span>Lesson 04</span><span class="sep">/</span>
+      <span>~15 min</span>
+    </p>
+    <h1>Style Atlas I: the Light-Mode Families</h1>
+    <div class="win">
+      <span class="tag">Your one win</span>
+      <p style="margin:0">By the end you can look at a light interface and name its family on
+        sight: <strong>Premium Utilitarian Minimalism, Editorial Luxury, Soft Structuralism,
+        Pristine Light, Quiet Premium Neutral</strong>. Names are steering power: you cannot ask an
+        AI for what you cannot name.</p>
+    </div>
+  </header>
+
+  <!-- ===== spaced recall from Lessons 01-03 ===== -->
+  <section style="margin-bottom:44px">
+    <div id="recall"></div>
+  </section>
+
+  <section class="prose">
+    <p class="lead">Module A taught you to <em>see</em>: tells, dials, the design read. Module B
+      gives the things you see their names. This matters because a vibe word in your design read
+      ("premium", "calm", "editorial") is only useful if it points at a specific, buildable style.</p>
+    <p>Below are five light-mode families that cover most of the tasteful light web. All five come
+      straight from your skill corpus. Each panel renders the <strong>same fictional product</strong>,
+      a daily planner called <strong>Meridian</strong>, so every difference you see is the family, not
+      the content. Under each panel: its token strip (the palette, type, radius and shadow signature)
+      and what it "smells like" in the wild.</p>
+    <div class="note note--teach">
+      <p class="eyebrow">How to read a family</p>
+      <p style="margin:0">Three questions, in order: what is the <strong>substrate</strong> (the
+        background surface: white, cream, silver, stone)? What carries the <strong>hierarchy</strong>
+        (serif display, bold grotesk, hairline rules)? What is the <strong>edge signature</strong>
+        (1px borders, floating shadows, or nothing)? Answer those and the name usually falls out.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE ATLAS ================= -->
+  <section class="wide">
+    <p class="eyebrow" style="text-align:center;margin-bottom:18px">One product, five families. Scroll slowly.</p>
+
+    <!-- 1 · PUM -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-pum">
+        <div class="os">
+          <div class="os-bar"><i></i><i></i><i></i></div>
+          <div class="os-body">
+            <h4>Your day, structured.</h4>
+            <p class="sub">Meridian is a planner that reads like a document: capture, plan, review, all in one quiet page.</p>
+            <div class="tags"><span class="tag-y">Today</span><span class="tag-b">Weekly review</span></div>
+            <div class="row"><span>Open today's plan</span><kbd>&#8984;&nbsp;T</kbd></div>
+            <div class="row"><span>Jump to any note</span><kbd>&#8984;&nbsp;K</kbd></div>
+            <a class="cta" href="#atlas-game" onclick="return false">Start planning</a>
+          </div>
+        </div>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">01</span>Premium Utilitarian Minimalism</p>
+        <p class="atlas-smell">Smells like: <b>Notion, Craft, Linear docs</b>. A document pretending to be an app. Faux-OS chrome, keyboard keys, washed-out pastel tags.</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</span>
+          <span class="atlas-chip"><span class="sw" style="background:#F7F6F3"></span>#F7F6F3</span>
+          <span class="atlas-chip"><span class="sw" style="background:#2F3437"></span>#2F3437</span>
+          <span class="atlas-chip"><span class="sw" style="background:#EAEAEA"></span>1px #EAEAEA</span>
+          <span class="atlas-chip"><span class="sw" style="background:#FBF3DB"></span>pastel tags</span>
+          <span class="atlas-chip atlas-chip--txt">serif display + clean sans</span>
+          <span class="atlas-chip atlas-chip--txt">radius 4-12px</span>
+          <span class="atlas-chip atlas-chip--txt">shadows ~none</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 · Editorial Luxury -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-lux">
+        <p class="meta">Meridian &middot; Journal No. 4</p>
+        <h4>The day, considered.</h4>
+        <p class="sub">A planner for deliberate mornings: one page of intention before the noise begins, printed type at a reading pace.</p>
+        <a class="sage" href="#atlas-game" onclick="return false">Begin the ritual</a>
+        <span class="folio">p. 12</span>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">02</span>Editorial Luxury</p>
+        <p class="atlas-smell">Smells like: <b>Kinfolk magazine, boutique hotels, high-end real estate</b>. Cream paper, a big high-contrast serif, film grain, sage and espresso.</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#FDFBF7"></span>#FDFBF7</span>
+          <span class="atlas-chip"><span class="sw" style="background:#2A2118"></span>#2A2118</span>
+          <span class="atlas-chip"><span class="sw" style="background:#8A957E"></span>muted sage</span>
+          <span class="atlas-chip atlas-chip--txt">variable serif, massive</span>
+          <span class="atlas-chip atlas-chip--txt">grain overlay ~4%</span>
+          <span class="atlas-chip atlas-chip--txt">whitespace as luxury</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 · Soft Structuralism -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-soft">
+        <h4>Plan less.<br>Live more.</h4>
+        <div class="cards">
+          <div class="card-f"><p class="k">Focus today</p><p class="big">2h 40m</p></div>
+          <div class="card-f"><p class="k">Tasks done</p><p class="big">9 <small>of 12</small></p></div>
+        </div>
+        <a class="cta" href="#atlas-game" onclick="return false">Open Meridian</a>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">03</span>Soft Structuralism</p>
+        <p class="atlas-smell">Smells like: <b>Apple Health, premium consumer apps</b>. Silver-grey air, massive bold grotesk, white components floating on impossibly soft shadows.</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#F3F4F6"></span>#F3F4F6</span>
+          <span class="atlas-chip"><span class="sw" style="background:#FFFFFF"></span>#FFFFFF</span>
+          <span class="atlas-chip"><span class="sw" style="background:#17181B"></span>#17181B</span>
+          <span class="atlas-chip atlas-chip--txt">bold grotesk, huge</span>
+          <span class="atlas-chip atlas-chip--txt">radius 16-20px</span>
+          <span class="atlas-chip atlas-chip--txt">ultra-diffuse shadows</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 · Pristine Light -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-pristine">
+        <div class="top"><span>Meridian</span><span>Daily planner</span></div>
+        <h4>A planner set like a good book page.</h4>
+        <div class="ix"><i>01</i><span>Capture everything, sort nothing before nine.</span></div>
+        <div class="ix"><i>02</i><span>Plan the day in three moves, not thirty.</span></div>
+        <div class="ix"><i>03</i><span>Review in five minutes, close the page.</span></div>
+        <a class="cta" href="#atlas-game" onclick="return false">Read the method</a>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">04</span>Pristine Light</p>
+        <p class="atlas-smell">Smells like: <b>quality print, Stripe's editorial pages</b>. Warm paper, sharp near-black sans, hairline rules instead of cards, total typographic confidence.</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#FAF7F2"></span>#FAF7F2</span>
+          <span class="atlas-chip"><span class="sw" style="background:#191713"></span>#191713</span>
+          <span class="atlas-chip atlas-chip--txt">crisp grotesk, strong hierarchy</span>
+          <span class="atlas-chip atlas-chip--txt">hairline rules, no cards</span>
+          <span class="atlas-chip atlas-chip--txt">radius ~0-2px</span>
+          <span class="atlas-chip atlas-chip--txt">no shadows</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 · Quiet Premium Neutral -->
+    <div class="atlas-panel">
+      <div class="atlas-stage f-quiet">
+        <p class="wordmark">Meridian</p>
+        <div class="panel-q">
+          <h4>Daily planning, quietly done.</h4>
+          <p class="sub">No streaks, no confetti, no red badges. A calm surface that expects you to think, then gets out of the way.</p>
+          <a class="cta" href="#atlas-game" onclick="return false">Discover</a>
+          <div class="swatches" aria-hidden="true">
+            <i style="background:#DBD3C6"></i><i style="background:#C9BFAE"></i><i style="background:#A69C8A"></i><i style="background:#8B8371"></i>
+          </div>
+        </div>
+      </div>
+      <div class="atlas-meta">
+        <p class="atlas-name"><span class="n">05</span>Quiet Premium Neutral</p>
+        <p class="atlas-smell">Smells like: <b>Aesop, premium skincare, boutique spas</b>. Bone, sand, taupe, stone. Deliberately low contrast, wide-tracked caps, restraint as the brand.</p>
+        <div class="atlas-tokens">
+          <span class="atlas-chip"><span class="sw" style="background:#E9E4DB"></span>#E9E4DB</span>
+          <span class="atlas-chip"><span class="sw" style="background:#F1EDE6"></span>#F1EDE6</span>
+          <span class="atlas-chip"><span class="sw" style="background:#4A443B"></span>#4A443B</span>
+          <span class="atlas-chip"><span class="sw" style="background:#A69C8A"></span>taupe accents</span>
+          <span class="atlas-chip atlas-chip--txt">light weights, tracked caps</span>
+          <span class="atlas-chip atlas-chip--txt">muted contrast, on purpose</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="max-width:var(--measure);margin:0 auto;font-size:13.5px;color:var(--ink-faint)">
+      Font honesty: the corpus names licensed faces (Lyon, Newsreader, SF Pro). These panels render
+      free Fontshare stand-ins (Sentient, Zodiak, Switzer, General Sans) in the same roles.</p>
+  </section>
+
+  <section class="prose">
+    <h2>Telling the lookalikes apart</h2>
+    <p>Three of these are easy to confuse. The discriminators:</p>
+    <ul>
+      <li><strong>PUM vs Pristine Light:</strong> PUM is an <em>app</em> (window chrome, keyboard keys, 1px bordered blocks, pastel tags). Pristine Light is a <em>page</em> (hairline rules, no containers, print energy).</li>
+      <li><strong>Pristine Light vs Editorial Luxury:</strong> both live on paper tones, but Luxury leads with a massive serif and treats whitespace as the product. Pristine leads with a sharp sans and treats <em>clarity</em> as the product.</li>
+      <li><strong>Quiet Premium Neutral vs everyone:</strong> the moment the background stops being white-or-cream and becomes stone or sand, and the contrast drops on purpose, you are in Quiet Neutral.</li>
+    </ul>
+    <div class="note">
+      <p class="eyebrow">Why this vocabulary pays</p>
+      <p style="margin:0">"Make it minimal" gets you the AI default. "Premium Utilitarian
+        Minimalism: white substrate, 1px hairline borders, serif display over a clean sans, pastel
+        tags, shadows near zero" gets you Notion. The family name compresses ten decisions into
+        three words.</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE GAME ================= -->
+  <section class="prose">
+    <h2>Flash recognition</h2>
+    <p>Ten unlabeled swatches, some in layouts you have not seen above. Name the family. The
+      compositions change; the substrate, type, and edge signatures do not. That is what
+      recognition means.</p>
+  </section>
+  <div class="wide" id="atlas-game" style="margin-top:20px;max-width:760px;margin-inline:auto"></div>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../reference/style-atlas.html">
+      <div>
+        <p class="eyebrow">Reference &middot; keep this</p>
+        <h3>The Style Atlas</h3>
+        <p>All five families with tokens and when-to-use. It grows through Lessons 05 and 06 until
+          it covers the dark and bold families too.</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <div class="card">
+      <p class="eyebrow">Primary source &middot; read this</p>
+      <h3>minimalist-ui, the PUM protocol</h3>
+      <p>The complete Premium Utilitarian Minimalism spec: banned defaults, the warm monochrome
+        palette, pastel accents, and component rules. Read
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/minimalist-skill/SKILL.md">the skill</a>
+        (upstream folder <code>minimalist-skill</code>, installed locally as <code>minimalist-ui</code>).
+        The other four families live in
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/soft-skill/SKILL.md">high-end-visual-design &sect;3.A</a>
+        and <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/imagegen-frontend-web/SKILL.md">imagegen-frontend-web &sect;2</a>.</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Your teacher</p>
+      <h3>Ask follow-up questions</h3>
+      <p>Found a real site and want its family named? Unsure whether something is Pristine Light or
+        just plain? Bring it to the session and we will read it together.</p>
+    </div>
+
+    <a class="card next-link" href="./0005-style-atlas-ii.html">
+      <div>
+        <p class="eyebrow">Next lesson</p>
+        <h3>05 &mdash; Style Atlas II</h3>
+        <p>The dark and bold families: Ethereal Glass, Deep Dark Mode, Dark Tech, Tactical
+          Telemetry, Bold Studio Solid. Plus glassmorphism done right vs done wrong.</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../assets/quiz.js"></script>
+<script src="../assets/atlas.js"></script>
+<script>
+  /* ---- recall from Lessons 01-03 ---- */
+  Quiz.mount("#recall", [
+    { q: "In the design read, what picks the aesthetic?",
+      options: ["The audience", "Your own taste", "The tech stack", "The trend cycle"],
+      answer: 0,
+      why: "Lesson 03's core rule: the audience picks the aesthetic, not your taste." },
+    { q: "An agency / creative landing preset is closest to which dials?",
+      options: ["9 / 8 / 3", "3 / 2 / 5", "7 / 6 / 4", "6 / 4 / 3"],
+      answer: 0,
+      why: "High variance, high motion, airy density. 3/2/5 is public sector, 7/6/4 is SaaS." },
+    { q: "Which font is discouraged as a default sans in the corpus?",
+      options: ["Inter", "Geist", "Satoshi", "Outfit"],
+      answer: 0,
+      why: "Inter is the LLM reflex. Allowed only when the brief wants neutral/standard or public sector." }
+  ]);
+
+  /* ---- flash-recognition game ----
+     Variant A reuses each family's panel composition; variant B is a fresh
+     layout in the same tokens, so you learn the family, not the screenshot. */
+  var V = {
+    pumA: '<div class="f-pum"><div class="os"><div class="os-bar"><i></i><i></i><i></i></div><div class="os-body"><h4>Notes that file themselves</h4><p class="sub">Every capture lands in the right project page.</p><div class="tags"><span class="tag-y">Inbox</span><span class="tag-b">Projects</span></div><div class="row"><span>Quick capture</span><kbd>&#8984;&nbsp;N</kbd></div><a class="cta">Try it</a></div></div></div>',
+    pumB: '<div class="f-pum gv"><div class="os"><div class="os-bar"><i></i><i></i><i></i></div><div class="os-body"><div class="tags"><span class="tag-b">Changelog</span></div><h4>What shipped this week</h4><div class="row"><span>Faster weekly review</span><kbd>v2.4</kbd></div><div class="row"><span>Calendar sync fixes</span><kbd>v2.3</kbd></div><div class="row"><span>New capture hotkey</span><kbd>v2.2</kbd></div></div></div></div>',
+    luxA: '<div class="f-lux"><p class="meta">Field Notes &middot; Spring</p><h4>Mornings, kept.</h4><p class="sub">Notes on slow planning, from people who plan for a living.</p><a class="sage">Read the essay</a><span class="folio">p. 3</span></div>',
+    luxB: '<div class="f-lux gv"><p class="meta">The Collection</p><h4>Paper, leather, and one good pen.</h4><p class="sub">Objects chosen to make the morning page feel like a ceremony.</p><a class="sage">View the objects</a><span class="folio">II</span></div>',
+    softA: '<div class="f-soft"><h4>Your week,<br>at a glance.</h4><div class="cards"><div class="card-f"><p class="k">Deep work</p><p class="big">11h 20m</p></div><div class="card-f"><p class="k">Meetings</p><p class="big">4h <small>total</small></p></div></div><a class="cta">See trends</a></div>',
+    softB: '<div class="f-soft gv"><div class="cards"><div class="card-f"><p class="k">Streak</p><p class="big">14 <small>days</small></p></div><div class="card-f"><p class="k">Reviews</p><p class="big">96% <small>done</small></p></div><div class="card-f"><p class="k">Mood</p><p class="big">Calm</p></div></div><a class="cta">Keep going</a></div>',
+    prisA: '<div class="f-pristine"><div class="top"><span>Meridian</span><span>Method</span></div><h4>Three moves, every morning.</h4><div class="ix"><i>01</i><span>Empty your head onto one page.</span></div><div class="ix"><i>02</i><span>Circle the three that matter.</span></div><div class="ix"><i>03</i><span>Schedule those, ignore the rest.</span></div><a class="cta">Start today</a></div>',
+    prisB: '<div class="f-pristine gv"><div class="top"><span>Pricing</span><span>Two plans</span></div><h4>Pay for the planner, not the confetti.</h4><div class="ix"><i>A</i><span>Personal: every feature, one person, four dollars.</span></div><div class="ix"><i>B</i><span>Teams: shared reviews, priority help, nine dollars.</span></div><a class="cta">Choose a plan</a></div>',
+    quietA: '<div class="f-quiet"><p class="wordmark">Meridian</p><div class="panel-q"><h4>Daily planning, quietly done.</h4><p class="sub">A calm surface that expects you to think, then gets out of the way.</p><a class="cta">Discover</a></div></div>',
+    quietB: '<div class="f-quiet gv"><p class="wordmark">The Ritual</p><div class="panel-q"><h4>Evening review, in four unhurried minutes.</h4><p class="sub">Close the day the way you opened it: deliberately.</p><a class="cta">Learn the ritual</a><div class="swatches"><i style="background:#DBD3C6"></i><i style="background:#C9BFAE"></i><i style="background:#A69C8A"></i></div></div></div>'
+  };
+
+  StyleAtlas.game({
+    container: "#atlas-game",
+    rounds: 10,
+    families: [
+      { key: "pum", name: "Premium Utilitarian Minimalism",
+        why: "White substrate, faux-OS chrome, 1px #EAEAEA borders, pastel tags, serif-over-sans document feel.",
+        variants: [V.pumA, V.pumB] },
+      { key: "lux", name: "Editorial Luxury",
+        why: "Cream paper, massive high-contrast serif, grain, sage and espresso, whitespace as luxury.",
+        variants: [V.luxA, V.luxB] },
+      { key: "soft", name: "Soft Structuralism",
+        why: "Cool silver air, huge bold grotesk, white cards floating on ultra-diffuse shadows.",
+        variants: [V.softA, V.softB] },
+      { key: "pristine", name: "Pristine Light",
+        why: "Warm paper, sharp near-black sans, hairline rules instead of cards, print confidence.",
+        variants: [V.prisA, V.prisB] },
+      { key: "quiet", name: "Quiet Premium Neutral",
+        why: "Stone and taupe substrate, low contrast on purpose, light weights, wide-tracked caps.",
+        variants: [V.quietA, V.quietB] }
+    ]
+  });
+</script>
+</body>
+</html>

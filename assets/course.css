@@ -542,11 +542,77 @@ hr.rule { border: none; border-top: 1px solid var(--line); margin: 56px auto; ma
 .dr-anno .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; }
 .dr-frame { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
 
+/* ============================================================
+   Style Atlas (lessons 0004-0006 + assets/atlas.js)
+   .atlas-panel = one family: live stage + name/smell/token strip.
+   ============================================================ */
+.atlas-panel {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; margin-bottom: 26px; background: var(--surface);
+}
+.atlas-stage { min-height: 190px; }
+.atlas-meta { padding: 14px 18px 16px; border-top: 1px solid var(--line); }
+.atlas-name {
+  font-family: var(--font-display); font-weight: 800; font-size: 17px; margin: 0 0 2px;
+}
+.atlas-name .n { font-family: var(--font-mono); font-weight: 500; font-size: 12px; color: var(--accent-ink); margin-right: 8px; }
+.atlas-smell { font-size: 13.5px; color: var(--ink-soft); margin: 0 0 10px; }
+.atlas-smell b { color: var(--ink); font-weight: 600; }
+.atlas-tokens { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.atlas-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 11px; color: var(--ink-soft);
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 3px 8px 3px 4px; background: var(--bg);
+}
+.atlas-chip .sw {
+  width: 14px; height: 14px; border-radius: 4px; display: inline-block;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+.atlas-chip--txt { padding-left: 8px; }
+
+/* ---- flash-recognition game (assets/atlas.js) ---- */
+.atlas-game {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface); padding: 18px 20px;
+}
+.atlas-game-head { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); margin-bottom: 12px; }
+.atlas-game-head b { color: var(--ink); }
+.atlas-game-score { float: right; }
+.atlas-game-frame { border: 1px solid var(--line); border-radius: var(--radius-sm); overflow: hidden; }
+.atlas-game-frame:empty { display: none; }
+.atlas-game-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+.atlas-game-opts:empty { display: none; }
+.atlas-game-opt { text-align: left; font-size: 14px; }
+.atlas-game-opt.is-right { border-color: var(--good); color: var(--good); }
+.atlas-game-opt.is-wrong { border-color: var(--accent); color: var(--accent-ink); }
+.atlas-game-opt:disabled { cursor: default; }
+.atlas-game-feed { margin-top: 12px; }
+.atlas-game-feed:empty { display: none; }
+.atlas-game-verdict {
+  font-size: 14.5px; padding: 10px 14px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 12px;
+}
+.atlas-game-verdict.ok { background: var(--good-wash); border-left: 3px solid var(--good); }
+.atlas-game-verdict.no { background: var(--accent-wash); border-left: 3px solid var(--accent); }
+.atlas-game-verdict .why { color: var(--ink-soft); }
+.atlas-game-final {
+  font-family: var(--font-display); font-weight: 800; font-size: 34px; margin: 0 0 10px;
+}
+.atlas-game-result ul { list-style: none; margin: 0 0 12px; padding: 0; }
+.atlas-game-result li {
+  display: flex; justify-content: space-between; gap: 12px;
+  font-size: 14px; padding: 6px 0; border-bottom: 1px dashed var(--line);
+}
+.atlas-game-result li b { font-family: var(--font-mono); font-weight: 500; }
+.atlas-game-tip { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; }
+
 @media (max-width: 860px) {
   .dial-lab { grid-template-columns: 1fr; }
   .game-round { grid-template-columns: 1fr; }
   .quiz-opts { grid-template-columns: 1fr; }
   .dr-grid { grid-template-columns: 1fr; }
+  .atlas-game-opts { grid-template-columns: 1fr; }
   body { font-size: 17px; }
   .compare { grid-template-columns: 1fr; }
   .tell-callout { left: 20px; right: 20px; width: auto; }
