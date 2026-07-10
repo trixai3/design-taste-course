@@ -40,8 +40,8 @@
     <p class="eyebrow">Design Taste &middot; Reference &middot; print me</p>
     <h1>The Style Atlas</h1>
     <p>Named style families you can point an AI at. Read a family in three questions: substrate,
-      hierarchy carrier, edge signature. Ten families here: five light (Lesson 04), five dark and
-      bold (Lesson 05). The two Brutalisms get their own deep-dive in Lesson 06.</p>
+      hierarchy carrier, edge signature. Ten families across Lessons 04-05, plus the two committed
+      Brutalist modes from Lesson 06 below.</p>
   </div>
 
   <section class="cat">
@@ -227,15 +227,49 @@
   </section>
 
   <section class="cat">
-    <h2>Coming with Lesson 06</h2>
-    <p class="todo">The Two Brutalisms: Swiss Industrial Print vs Tactical Telemetry, and why you
-      never mix committed modes.</p>
+    <h2>The two Brutalisms (Lesson 06)</h2>
+    <p style="max-width:var(--measure);color:var(--ink-soft);font-size:14px;margin:0 0 16px">
+      One family, two committed modes that share only their red. Pick one per project and commit
+      every layer to it; mixing the two reads as a costume. (Tactical Telemetry is the same family
+      you met as #09, seen here as Brutalism's dark mode.)</p>
+
+    <div class="fam">
+      <h3>11 &middot; Swiss Industrial Print</h3>
+      <p class="smell">Smells like: 1960s Swiss corporate identity, machinery blueprints, brutalist editorial.</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#F4F4F0"></i><i style="background:#EAE8E3"></i><i style="background:#0A0A0A"></i><i style="background:#E61919"></i>
+      </div>
+      <dl>
+        <dt>Substrate</dt><dd>Unbleached documentation paper <code>#F4F4F0</code> / <code>#EAE8E3</code>; carbon ink <code>#0A0A0A</code></dd>
+        <dt>Hierarchy</dt><dd>Macro-type: heavy neo-grotesque (Archivo Black, Neue Haas), <code>clamp()</code> scale, uppercase, tracking -0.03 to -0.06em, leading 0.85-0.95</dd>
+        <dt>Edges</dt><dd>Visible blueprint grid, 1-2px solid dividers spanning full width, radius 0</dd>
+        <dt>Signature</dt><dd>Oversized viewport-bleeding numerals framed by negative space; hazard red <code>#E61919</code> as the only accent, used for structural rules and strikes</dd>
+        <dt>Use when</dt><dd>Data-heavy editorial, portfolios, anything that wants declassified-blueprint authority</dd>
+      </dl>
+      <p class="src">Defined by <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/brutalist-skill/SKILL.md">industrial-brutalist-ui &sect;2.1</a> (upstream: <code>brutalist-skill</code>)</p>
+    </div>
+
+    <div class="fam">
+      <h3>12 &middot; Tactical Telemetry</h3>
+      <p class="smell">Smells like: classified military terminals, mainframes, aerospace HUDs.</p>
+      <div class="strip" aria-hidden="true">
+        <i style="background:#0A0A0A"></i><i style="background:#121212"></i><i style="background:#EAEAEA"></i><i style="background:#E61919"></i><i style="background:#4AF626"></i>
+      </div>
+      <dl>
+        <dt>Substrate</dt><dd>Deactivated-CRT black <code>#0A0A0A</code> / <code>#121212</code>, never pure <code>#000</code></dd>
+        <dt>Hierarchy</dt><dd>Micro-type: monospace only (JetBrains Mono, IBM Plex Mono), uppercase, tracking 0.05-0.1em, small fixed sizes</dd>
+        <dt>Edges</dt><dd>ASCII framing (<code>[ ... ]</code>, <code>&gt;&gt;&gt;</code>), crosshairs at intersections, 1px dividers, radius 0</dd>
+        <dt>Signature</dt><dd>Scanlines plus phosphor <code>#EAEAEA</code> text; hazard red accent; terminal green <code>#4AF626</code> for exactly one element, never body text</dd>
+        <dt>Use when</dt><dd>Dense monitoring and telemetry, ops dashboards, sci-fi and mission-control feel</dd>
+      </dl>
+      <p class="src">Defined by <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/brutalist-skill/SKILL.md">industrial-brutalist-ui &sect;2.2</a> (upstream: <code>brutalist-skill</code>)</p>
+    </div>
   </section>
 
   <div class="endmatter">
-    <a class="card next-link" href="../lessons/0005-style-atlas-ii.html">
-      <div><p class="eyebrow">Back to</p><h3>Lesson 05 &mdash; Style Atlas II</h3>
-      <p>Replay the ten-family interleaved game until the names come without thinking.</p></div>
+    <a class="card next-link" href="../lessons/0006-the-two-brutalisms.html">
+      <div><p class="eyebrow">Back to</p><h3>Lesson 06 &mdash; The Two Brutalisms</h3>
+      <p>Replay the sort game, or hover the two renders to re-read their commitments.</p></div>
       <span class="arrow">&rarr;</span>
     </a>
     <button class="btn" onclick="window.print()">Print this sheet</button>

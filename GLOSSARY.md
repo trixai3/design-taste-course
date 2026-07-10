@@ -136,9 +136,40 @@ high-contrast type, a single bright pop reserved for the CTA. The only bold fami
 一整块满铺的高饱和色（宝蓝、牛血红、森绿、朱红、翡翠），锐利的高对比文字，只留一个亮色给 CTA。唯一不走暗色的"大胆"族。
 _Source_: imagegen-frontend-web §2 (Theme Paradigm 3)
 
+**Brutalism · 粗野主义**:
+A raw, mechanical style family that rejects consumer-UI polish (no gradients, no soft shadows, no
+rounded corners). It splits into two committed modes that share only hazard red: Swiss Industrial
+Print (light) and Tactical Telemetry (dark). Pick one and commit every layer; mixing reads as a costume.
+一种原始、机械的风格族，拒绝消费级 UI 的精致（无渐变、无柔阴影、无圆角）。它分成两个只共用警示红的
+"下定决心"模式：Swiss Industrial Print（亮）与 Tactical Telemetry（暗）。选一个并让每一层都服从它，混用会显得像"戏服"。
+_Source_: industrial-brutalist-ui §2
+
+**Swiss Industrial Print · 瑞士工业印刷风**:
+Brutalism's light mode. Unbleached paper substrate, heavy neo-grotesque macro-type at clamp scale,
+visible blueprint grid, oversized viewport-bleeding numerals, hazard red as the only accent.
+粗野主义的亮色模式。未漂白纸质基底、超大号的厚重新怪诞体、可见的蓝图网格、溢出视口的巨大数字、警示红作唯一强调色。
+_Source_: industrial-brutalist-ui §2.1
+
 ---
 
 ## Typography · 排版
+
+**Macro-typography · 宏观排版（结构性大字）**:
+Type used as structure: massive uppercase headlines at `clamp()` scale, tight negative tracking,
+compressed leading, so glyphs form solid architectural blocks. The Swiss Industrial Print backbone.
+把字当结构用：`clamp()` 级的超大全大写标题、紧的负字距、压缩行高，让字形拼成坚实的建筑块。Swiss Industrial Print 的骨架。
+_Source_: industrial-brutalist-ui §3.1
+
+**Micro-typography · 微观排版（数据小字）**:
+Small fixed-size monospace for all metadata, IDs, and coordinates: uppercase, generously tracked to
+mimic a terminal matrix. The Tactical Telemetry backbone.
+用于所有元信息、编号、坐标的小号定宽等宽字：全大写、宽字距，模仿终端矩阵。Tactical Telemetry 的骨架。
+_Source_: industrial-brutalist-ui §3.2
+
+**Neo-grotesque · 新怪诞体**:
+The heavy, neutral sans-serif lineage (Neue Haas Grotesk, Archivo Black, Inter Black) used for
+macro-type. "Grotesque" is the old name for early sans-serifs, not a value judgment.
+厚重、中性的无衬线谱系（Neue Haas Grotesk、Archivo Black、Inter Black），用于宏观大字。"Grotesque（怪诞体）"是早期无衬线的旧称，不是贬义。
 
 **Inter** (a typeface · 一款字体):
 A clean, neutral, open-source UI sans-serif. Excellent, but so ubiquitous and personality-free that
@@ -197,6 +228,24 @@ The difference (usually light vs dark) that makes text legible and elements sepa
 A smooth blend between colors; a mesh gradient blends several color blobs. Overused as a hero
 background by AI.
 颜色之间的平滑过渡；网格渐变是多个色块的混合。被 AI 过度用作英雄区背景。
+
+**Hazard red · 警示红**:
+Aviation/alert red (#E61919 / #FF2A2A), the single accent in both Brutalist modes. Used for
+structural rules and strikes (Swiss) or alert markers (Telemetry), never as decoration.
+航空/警示红（#E61919 / #FF2A2A），两个 Brutalist 模式共用的唯一强调色。用于结构分隔线、删除线（Swiss）或告警标记（Telemetry），绝不作装饰。
+_Source_: industrial-brutalist-ui §4
+
+**Scanline · 扫描线**:
+Faint horizontal lines laid over a dark UI (a `repeating-linear-gradient`) to fake a CRT electron
+sweep. The Tactical Telemetry texture.
+铺在暗色界面上的一层淡淡水平线（`repeating-linear-gradient`），模拟 CRT 电子束扫描。Tactical Telemetry 的质感。
+_Source_: industrial-brutalist-ui §7
+
+**Halftone / dithering · 半调 / 抖动**:
+Turning continuous tone into a dot-matrix (halftone) or 1-bit pattern (dithering) to degrade digital
+perfection and read as printed or low-bit hardware. A brutalist texture, used sparingly.
+把连续色调变成点阵（半调）或 1-bit 图案（抖动），去掉数字的完美感，读起来像印刷品或低位硬件。粗野主义的质感，克制使用。
+_Source_: industrial-brutalist-ui §7
 
 **The Lila rule · 紫光禁令** ⚑ tell:
 The purple/blue gradient with a neon button glow is the single most recognizable AI fingerprint; avoid
@@ -264,6 +313,12 @@ _Source_: DTF §9.A · §8.B
 **Composition · 构图**:
 How elements are placed, sized, and arranged in the frame: what goes where, how big, with how much space.
 画面中元素如何摆放、多大、如何排列：什么放哪、多大、留多少空间。
+
+**Blueprint grid · 蓝图网格**:
+A strict, visible grid where elements are anchored to tracks and separated by solid 1-2px rules
+instead of soft padding. The Swiss Industrial Print layout; corners stay at exactly 90 degrees.
+一套严格、可见的网格：元素锚定在轨道上，用 1-2px 实线分隔，而不是柔和留白。Swiss Industrial Print 的布局；所有角保持 90 度直角。
+_Source_: industrial-brutalist-ui §5
 
 **Compositional decision · 构图决策**:
 A deliberate choice about placement, size, or arrangement. AI slop often "shows no compositional

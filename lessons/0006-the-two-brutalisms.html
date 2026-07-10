@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 06: The Two Brutalisms</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../assets/course.css">
+<style>
+/* Specimen fonts for the two brutalist modes (the corpus names these exact
+   faces): Archivo Black for macro-type, JetBrains Mono for micro/telemetry. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+.bru-two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+.bru-frame { min-width: 0; }
+.bru-label {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft);
+}
+.bru-label .dot { width: 10px; height: 10px; }
+.bru-label .dot.swiss { background: #E61919; }
+.bru-label .dot.tele { background: #4AF626; }
+.bru [data-spec] { cursor: help; }
+.bru [data-spec]:focus-visible { outline: 2px solid #E61919; outline-offset: 2px; }
+
+/* readout under each render */
+.spec-readout {
+  display: block; margin-top: 8px; padding: 9px 12px;
+  font-family: var(--font-mono); font-size: 12px; line-height: 1.4;
+  color: var(--ink-soft); background: var(--surface-2);
+  border: 1px solid var(--line); border-radius: var(--radius-sm); min-height: 38px;
+}
+.spec-readout.lit { color: var(--ink); border-color: var(--accent); }
+
+/* ---------- Swiss Industrial Print ---------- */
+.bru-swiss { background: #F4F4F0; color: #0A0A0A; font-family: "JetBrains Mono", monospace; border: 2px solid #0A0A0A; }
+.bru-swiss .bru-top { display: flex; justify-content: space-between; gap: 10px; border-bottom: 2px solid #0A0A0A; padding: 8px 12px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+.bru-swiss .red { color: #E61919; }
+.bru-swiss .bru-title { font-family: "Archivo Black", system-ui, sans-serif; text-transform: uppercase; font-size: clamp(2.1rem, 7vw, 3.6rem); line-height: 0.86; letter-spacing: -0.045em; padding: 18px 12px 14px; margin: 0; }
+.bru-swiss .bru-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: baseline; border-top: 2px solid #0A0A0A; padding: 12px; }
+.bru-swiss .bru-n { font-family: "Archivo Black", system-ui, sans-serif; font-size: 26px; line-height: 1; }
+.bru-swiss .bru-name { font-family: "Archivo Black", system-ui, sans-serif; text-transform: uppercase; font-size: 15px; letter-spacing: -0.02em; align-self: center; }
+.bru-swiss .bru-meta { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a6a66; text-align: right; }
+.bru-swiss .bru-foot { border-top: 3px solid #E61919; padding: 8px 12px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; display: flex; justify-content: space-between; gap: 10px; }
+
+/* ---------- Tactical Telemetry ---------- */
+.bru-tele { background: #0A0A0A; color: #EAEAEA; font-family: "JetBrains Mono", monospace; border: 1px solid #2a2a2a; position: relative; overflow: hidden; }
+.bru-tele::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.30) 2px, rgba(0,0,0,0.30) 4px); }
+.bru-tele > * { position: relative; z-index: 1; }
+.bru-tele .bru-top { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px solid #2a2a2a; padding: 8px 12px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a8a8a; }
+.bru-tele .ascii { color: #E61919; }
+.bru-tele .bru-title { text-transform: uppercase; font-size: 14px; letter-spacing: 0.16em; padding: 14px 12px 8px; margin: 0; color: #EAEAEA; }
+.bru-tele .bru-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; border-top: 1px solid #1c1c1c; padding: 9px 12px; font-size: 12px; letter-spacing: 0.04em; }
+.bru-tele .bru-n { color: #E61919; }
+.bru-tele .bru-meta { color: #8a8a8a; text-align: right; }
+.bru-tele .status { color: #4AF626; }
+.bru-tele .bru-foot { border-top: 1px solid #2a2a2a; padding: 8px 12px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a8a8a; display: flex; justify-content: space-between; gap: 10px; }
+
+/* the "mixed is broken" mini specimen */
+.bru-mixed { background: #F4F4F0; color: #0A0A0A; border: 2px solid #0A0A0A; padding: 16px; position: relative; overflow: hidden; font-family: "JetBrains Mono", monospace; }
+.bru-mixed::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px); }
+.bru-mixed h4 { font-family: "Archivo Black", system-ui, sans-serif; text-transform: uppercase; font-size: 22px; letter-spacing: -0.03em; margin: 0 0 6px; position: relative; }
+.bru-mixed .g { color: #2f8f1e; }
+.bru-mixed p { position: relative; margin: 0; font-size: 12px; }
+
+@media (max-width: 860px) { .bru-two { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>Module B: Naming</span><span class="sep">/</span>
+      <span>Lesson 06</span><span class="sep">/</span>
+      <span>~16 min</span>
+    </p>
+    <h1>The Two Brutalisms</h1>
+    <div class="win">
+      <span class="tag">Your one win</span>
+      <p style="margin:0">By the end you can tell <strong>Swiss Industrial Print</strong> from
+        <strong>Tactical Telemetry</strong> on sight, name what each one commits to (font, tracking,
+        color, geometry, texture), and say why mixing them breaks. A style is a system of
+        commitments, not a mood you sprinkle on.</p>
+    </div>
+  </header>
+
+  <!-- ===== spaced recall from Lessons 01-05 ===== -->
+  <section style="margin-bottom:44px">
+    <div id="recall"></div>
+  </section>
+
+  <section class="prose">
+    <p class="lead">"Brutalism" is one named family, but it splits into two committed modes that
+      share almost nothing on the surface. One is a bright Swiss print blueprint. The other is a
+      dark military terminal. Same lineage, opposite substrate. Learning to name both, and to see
+      that each is a full <em>system</em>, is the point of this lesson.</p>
+    <p>The deeper idea carries past brutalism: a style is not a vibe you reach for, it is a set of
+      decisions that all have to agree. Font, letter-spacing, color, geometry, texture: commit them
+      together and the page reads as designed. Pick and choose across two modes and it reads as a
+      costume.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE SHOW ================= -->
+  <section class="wide">
+    <p class="eyebrow" style="text-align:center;margin-bottom:8px">Same project index, two committed modes.</p>
+    <p style="text-align:center;color:var(--ink-soft);font-size:14px;max-width:60ch;margin:0 auto 18px">
+      Hover or tap any part of either render to read the exact commitment behind it: the font, the
+      tracking, the hex.</p>
+
+    <div class="bru-two">
+      <!-- Swiss Industrial Print -->
+      <div class="bru-frame">
+        <p class="bru-label"><span class="dot swiss"></span>Swiss Industrial Print</p>
+        <div class="bru bru-swiss">
+          <div class="bru-top" data-spec="Substrate #F4F4F0 unbleached paper · carbon ink #0A0A0A · 2px borders · radius 0">
+            <span>Studio Field / Index</span><span class="red">REV 2.6</span>
+          </div>
+          <h3 class="bru-title" data-spec="Macro-type · Archivo Black · uppercase · tracking -0.045em · leading 0.86">Selected<br>Works</h3>
+          <div class="bru-row">
+            <span class="bru-n" data-spec="Oversized numeral · Archivo Black 26px · #0A0A0A">01</span>
+            <span class="bru-name">Cargo Terminal</span>
+            <span class="bru-meta" data-spec="Micro-type · JetBrains Mono · uppercase · tracking 0.08em · 10px">2024 / Identity</span>
+          </div>
+          <div class="bru-row">
+            <span class="bru-n">02</span>
+            <span class="bru-name">Freight Atlas</span>
+            <span class="bru-meta">2023 / Web</span>
+          </div>
+          <div class="bru-row">
+            <span class="bru-n">03</span>
+            <span class="bru-name">Dock Systems</span>
+            <span class="bru-meta">2023 / Print</span>
+          </div>
+          <div class="bru-foot" data-spec="Hazard red #E61919 · the ONLY accent · used as a 3px structural rule">
+            <span>Unit / D-01</span><span class="red">/// Active</span>
+          </div>
+        </div>
+        <output class="spec-readout">Hover or tap any part to read its spec.</output>
+      </div>
+
+      <!-- Tactical Telemetry -->
+      <div class="bru-frame">
+        <p class="bru-label"><span class="dot tele"></span>Tactical Telemetry</p>
+        <div class="bru bru-tele">
+          <div class="bru-top" data-spec="Substrate #0A0A0A deactivated CRT (never #000) · scanline overlay">
+            <span class="ascii">[ DELIVERY SYSTEMS ]</span><span>REV 2.6</span>
+          </div>
+          <h3 class="bru-title" data-spec="Micro-type only · JetBrains Mono · uppercase · tracking 0.16em">&gt;&gt;&gt; SELECTED WORKS</h3>
+          <div class="bru-row">
+            <span class="bru-n" data-spec="Hazard red #E61919 · same red, same alert role">01</span>
+            <span data-spec="Phosphor text #EAEAEA on near-black · JetBrains Mono 12px">Cargo Terminal</span>
+            <span class="bru-meta">2024 / ID</span>
+          </div>
+          <div class="bru-row">
+            <span class="bru-n">02</span>
+            <span>Freight Atlas</span>
+            <span class="bru-meta">2023 / WEB</span>
+          </div>
+          <div class="bru-row">
+            <span class="bru-n">03</span>
+            <span>Dock Systems</span>
+            <span class="bru-meta">2023 / PRT</span>
+          </div>
+          <div class="bru-foot">
+            <span>UNIT / D-01</span><span class="status" data-spec="Terminal green #4AF626 · exactly ONE element, never body text">&#43; ONLINE</span>
+          </div>
+        </div>
+        <output class="spec-readout">Hover or tap any part to read its spec.</output>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>The commitments, laid side by side</h2>
+    <p>Notice that only <strong>one</strong> thing is shared: hazard red <code>#E61919</code> as the
+      single accent. Everything else is an opposite decision. That is what "a system of commitments"
+      means, and why a style has a name.</p>
+    <div class="note note--teach">
+      <p class="eyebrow">Swiss Industrial Print vs Tactical Telemetry</p>
+      <p style="margin:0"><strong>Substrate:</strong> unbleached paper <code>#F4F4F0</code> vs
+        deactivated-CRT black <code>#0A0A0A</code>. <strong>Type:</strong> huge Archivo Black
+        (macro-type) vs mono-only JetBrains Mono (micro-type). <strong>Texture:</strong> visible
+        blueprint grid vs scanline glow. <strong>Framing:</strong> oversized numerals vs ASCII
+        brackets and <code>&gt;&gt;&gt;</code>. Both: radius 0, uppercase, one red.</p>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>Why you never mix them</h2>
+    <p>Take one commitment from each and the system collapses. Here is newsprint paper wearing
+      phosphor scanlines and a terminal-green word. Neither mode is now legible as itself:</p>
+  </section>
+
+  <section class="column" style="margin-top:6px">
+    <div class="bru-mixed">
+      <h4>Cargo <span class="g">Terminal</span></h4>
+      <p>Paper substrate, CRT scanlines, and terminal green all at once. It reads as a costume, not a
+        blueprint and not a HUD. The eye cannot tell which world it is in.</p>
+    </div>
+    <p style="color:var(--ink-soft);font-size:14px;margin-top:12px">The fix is never "tone it down".
+      It is "pick one mode and commit every layer to it". Committed and plain beats mixed and busy.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE DO ================= -->
+  <section class="prose">
+    <h2>Sort the details</h2>
+    <p>Ten concrete details, one at a time. For each, decide which committed mode it belongs to.
+      The trap is the shared red: everything else is a clean tell once you know the system.</p>
+  </section>
+  <div class="wide" id="sort-game" style="margin-top:20px;max-width:640px;margin-inline:auto"></div>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../reference/style-atlas.html">
+      <div>
+        <p class="eyebrow">Reference &middot; keep this</p>
+        <h3>The Style Atlas, both modes added</h3>
+        <p>Swiss Industrial Print and Tactical Telemetry now sit in the atlas with their token
+          strips and when-to-use.</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <div class="card">
+      <p class="eyebrow">Primary source &middot; read this</p>
+      <h3>industrial-brutalist-ui, the whole file</h3>
+      <p>The richest single-style spec in the corpus: the two archetypes, macro vs micro typography,
+        the color system, the blueprint grid, and the analog-degradation effects (halftone,
+        scanlines, dithering). Read
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/brutalist-skill/SKILL.md">the skill</a>
+        (upstream folder <code>brutalist-skill</code>, installed locally as
+        <code>industrial-brutalist-ui</code>).</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Your teacher</p>
+      <h3>Ask follow-up questions</h3>
+      <p>Want to try a real brutalist page, or unsure whether something is committed or just noisy?
+        Bring it to the session and we will read it together.</p>
+    </div>
+
+    <a class="card next-link" href="./0007-pattern-glossary-i.html">
+      <div>
+        <p class="eyebrow">Next lesson</p>
+        <h3>07 &mdash; Pattern Glossary I</h3>
+        <p>From styles to patterns: the names for heroes, grids, and layouts, so you can point at a
+          structure and call it by its name.</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../assets/quiz.js"></script>
+<script src="../assets/sort.js"></script>
+<script>
+  /* ---- recall from Lessons 01-05 ---- */
+  Quiz.mount("#recall", [
+    { q: "Frosted cards you can see through, on OLED black. Which family?",
+      options: ["Ethereal Glass", "Deep Dark Mode", "Dark Tech / Hacker", "Tactical Telemetry"],
+      answer: 0,
+      why: "Ethereal Glass: OLED black, dim orbs, frosted cards with a refraction rim. Deep Dark is solid, no blur." },
+    { q: "In the design read, what actually sets the dials?",
+      options: ["The audience", "Your own taste", "The framework", "The trend cycle"],
+      answer: 0,
+      why: "The audience picks the aesthetic. Your taste and the tech stack come after." },
+    { q: "Which dial runs from art gallery to cockpit?",
+      options: ["Density", "Variance", "Motion", "Contrast"],
+      answer: 0,
+      why: "Density: low is airy and huge-type, high is tight cockpit data. Variance is symmetry to chaos." }
+  ]);
+
+  /* ---- sort the details into their committed mode ---- */
+  SortGame.mount("#sort-game", {
+    left:  { key: "swiss",     label: "Swiss Industrial Print" },
+    right: { key: "telemetry", label: "Tactical Telemetry" },
+    items: [
+      { spec: "A huge uppercase headline with letter-spacing -0.05em", mode: "swiss",
+        why: "Macro-type packs glyphs into solid blocks with tight negative tracking." },
+      { spec: "Background #0A0A0A under a CRT scanline overlay", mode: "telemetry",
+        why: "Deactivated-CRT black plus scanlines is the terminal substrate." },
+      { spec: "Archivo Black set at clamp(4rem, 10vw, 15rem)", mode: "swiss",
+        why: "Viewport-bleeding neo-grotesque at massive scale is the Swiss move." },
+      { spec: "ASCII framing like [ DELIVERY SYSTEMS ] and >>>", mode: "telemetry",
+        why: "ASCII brackets and directional arrows are terminal syntax decoration." },
+      { spec: "Substrate #F4F4F0, unbleached documentation paper", mode: "swiss",
+        why: "Matte off-white print stock is the Swiss light substrate." },
+      { spec: "A single status readout in terminal green #4AF626", mode: "telemetry",
+        why: "Terminal green is allowed for exactly one element, never as body text." },
+      { spec: "Oversized numerals that bleed off the viewport edge", mode: "swiss",
+        why: "Giant structural numerals framed by negative space are pure Swiss print." },
+      { spec: "Phosphor text #EAEAEA on near-black, monospace only", mode: "telemetry",
+        why: "White phosphor on a dark CRT, all mono, is the telemetry text system." },
+      { spec: "Compressed leading of 0.9 on stacked monolithic headings", mode: "swiss",
+        why: "Compressed leading makes macro-type read as architectural blocks." },
+      { spec: "Crosshair + marks at grid intersections over dense tabular rows", mode: "telemetry",
+        why: "Crosshairs and high-density tabular data are HUD instrumentation." }
+    ]
+  });
+
+  /* ---- hover / tap to read a specimen's commitment ---- */
+  document.querySelectorAll(".bru-frame").forEach(function (frame) {
+    var out = frame.querySelector(".spec-readout");
+    if (!out) return;
+    var def = out.textContent;
+    frame.querySelectorAll("[data-spec]").forEach(function (node) {
+      if (!node.hasAttribute("tabindex")) node.setAttribute("tabindex", "0");
+      function show() { out.textContent = node.getAttribute("data-spec"); out.classList.add("lit"); }
+      function clear() { out.textContent = def; out.classList.remove("lit"); }
+      node.addEventListener("mouseenter", show);
+      node.addEventListener("mouseleave", clear);
+      node.addEventListener("focus", show);
+      node.addEventListener("blur", clear);
+      node.addEventListener("click", show);
+    });
+  });
+</script>
+</body>
+</html>

@@ -607,12 +607,45 @@ hr.rule { border: none; border-top: 1px solid var(--line); margin: 56px auto; ma
 .atlas-game-result li b { font-family: var(--font-mono); font-weight: 500; }
 .atlas-game-tip { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; }
 
+/* ---- two-bucket classify game (assets/sort.js) ---- */
+.sort-game { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 18px 20px; }
+.sort-head { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); margin-bottom: 12px; }
+.sort-head b { color: var(--ink); }
+.sort-score { float: right; }
+.sort-card {
+  border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg);
+  padding: 26px 18px 18px; font-family: var(--font-mono); font-size: 15.5px; color: var(--ink);
+  min-height: 62px; display: flex; align-items: center; position: relative;
+}
+.sort-tag {
+  position: absolute; top: 8px; left: 14px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.sort-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.sort-opt { text-align: center; font-size: 14px; }
+.sort-opt.is-right { border-color: var(--good); color: var(--good); }
+.sort-opt.is-wrong { border-color: var(--accent); color: var(--accent-ink); }
+.sort-opt:disabled { cursor: default; }
+.sort-feed { margin-top: 12px; }
+.sort-feed:empty { display: none; }
+.sort-verdict { font-size: 14.5px; padding: 10px 14px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-bottom: 12px; }
+.sort-verdict.ok { background: var(--good-wash); border-left: 3px solid var(--good); }
+.sort-verdict.no { background: var(--accent-wash); border-left: 3px solid var(--accent); }
+.sort-verdict .why { color: var(--ink-soft); }
+.sort-final { font-family: var(--font-display); font-weight: 800; font-size: 34px; margin: 0 0 10px; }
+.sort-result ul { list-style: none; margin: 0 0 12px; padding: 0; }
+.sort-result li { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.sort-result li b { font-family: var(--font-mono); font-weight: 500; }
+.sort-tip { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; }
+
 @media (max-width: 860px) {
   .dial-lab { grid-template-columns: 1fr; }
   .game-round { grid-template-columns: 1fr; }
   .quiz-opts { grid-template-columns: 1fr; }
   .dr-grid { grid-template-columns: 1fr; }
   .atlas-game-opts { grid-template-columns: 1fr; }
+  .sort-btns { grid-template-columns: 1fr; }
   body { font-size: 17px; }
   .compare { grid-template-columns: 1fr; }
   .tell-callout { left: 20px; right: 20px; width: auto; }
