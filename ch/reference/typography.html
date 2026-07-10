@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>参考卡：排版工艺</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Inter:ital,wght@0,400;0,600;0,700;1,600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/course.css">
+<link rel="stylesheet" href="../../assets/typography.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 20px;
+  }
+  .cat > .cat-note { max-width: var(--measure); color: var(--ink-soft); font-size: 14.5px; margin: -8px 0 20px; }
+  .rules { max-width: var(--measure); margin: 22px 0 0; padding: 0; list-style: none; }
+  .rules li { font-size: 14.5px; padding: 8px 0; border-top: 1px dashed var(--line); }
+  .rules li b { font-family: var(--font-display); }
+  /* category definition list */
+  .deflist { max-width: var(--measure); margin: 0; }
+  .deflist div { padding: 10px 0; border-top: 1px dashed var(--line); }
+  .deflist dt { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
+  .deflist dd { margin: 3px 0 0; font-size: 14px; color: var(--ink-soft); }
+  /* pairing table */
+  .pairs { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  .pairs th, .pairs td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .pairs th { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-faint); }
+  .pairs .role { color: var(--ink-soft); }
+  .pairs .good { color: var(--good); font-weight: 600; }
+  .pairs .bad { color: var(--accent-ink); font-weight: 600; }
+  .backlink { margin-top: 40px; }
+  @media print { .voices { grid-template-columns: repeat(3, 1fr); } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste &middot; 参考卡 &middot; 打印我</p>
+    <h1>排版工艺 · The Typography Sheet</h1>
+    <p>字体词汇、带声音说明的命名花名册、一张搭配对照表，以及这些纪律。来自第 09 课。先靠字形认出一款字体，
+      再用类别和名字把它叫出来。</p>
+  </div>
+
+  <!-- ===================== CATEGORIES ===================== -->
+  <section class="cat">
+    <h2>类别 &middot; 一眼分类任何字体</h2>
+    <dl class="deflist">
+      <div><dt>Grotesque</dt><dd>早期无衬线体，带点工业感和个性（Geist、Cabinet Grotesk）。略不规整，比
+        neo-grotesque 更暖。</dd></div>
+      <div><dt>Neo-grotesque</dt><dd>更精炼、中性的后裔字体（Inter、Helvetica）。均匀、安静，被设计成
+        「隐形」。安全的正文基线。</dd></div>
+      <div><dt>Geometric grotesk</dt><dd>由近乎圆形和直线构建（Satoshi、Futura 谱系）。友好、现代，带一点
+        暖意。</dd></div>
+      <div><dt>Display face</dt><dd>为「被看见」而生，不是为小尺寸「被读」而生（Anton、放大的 Cabinet
+        Grotesk）。个性和紧字距都受欢迎；不能用作正文。</dd></div>
+      <div><dt>Editorial / display serif</dt><dd>粗细对比强烈、带文学声音的衬线体（Instrument Serif、
+        Fraunces）。在长文和奢侈品场景里是赚来的；当作默认就是一处痕迹。</dd></div>
+      <div><dt>Monospace</dt><dd>每个字形宽度相同（JetBrains Mono、Geist Mono）。读起来像代码、数据、技术
+        感。适合搭配自己的字族或一款相配的无衬线体。</dd></div>
+    </dl>
+  </section>
+
+  <!-- ===================== ROSTER ===================== -->
+  <section class="cat">
+    <h2>花名册 &middot; 六种声音</h2>
+    <p class="cat-note">每一款都是同一个词，所以变化的只有声音。</p>
+    <div class="voices">
+      <div class="voice">
+        <p class="spec f-inter">Taste</p>
+        <p class="cat" style="margin:0">Neo-grotesque</p>
+        <p class="face f-inter">Inter</p>
+        <p class="vibe">默认的嗡鸣：称职、中性、隐形。你刻意保留的那条基线。</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-geist">Taste</p>
+        <p class="cat" style="margin:0">Grotesque</p>
+        <p class="face f-geist">Geist</p>
+        <p class="vibe">工程感、匀称。开发者工具式的现代，精准，带点冷。</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-satoshi">Taste</p>
+        <p class="cat" style="margin:0">Geometric grotesk</p>
+        <p class="face f-satoshi">Satoshi</p>
+        <p class="vibe">圆润、友好。带创业公司的暖意自信，却不软弱。</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-cabinet">Taste</p>
+        <p class="cat" style="margin:0">Display grotesk</p>
+        <p class="face f-cabinet">Cabinet Grotesk</p>
+        <p class="vibe">有个性，带点古怪。一个有主见的标题字体；用在正文尺寸上会腻。</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-anton">Taste</p>
+        <p class="cat" style="margin:0">Compressed display</p>
+        <p class="face f-anton">Anton</p>
+        <p class="vibe">响亮的海报与时尚气场，全是冲击力。绝不能用作正文。</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-instrument">Taste</p>
+        <p class="cat" style="margin:0">Editorial serif</p>
+        <p class="face f-instrument">Instrument Serif</p>
+        <p class="vibe">优雅、文学感。在编辑场景里是赚来的；也是 AI 默认会用的衬线体，脱离语境就是一处
+          痕迹。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PAIRINGS ===================== -->
+  <section class="cat">
+    <h2>搭配 &middot; 一个声音加一款主力字体</h2>
+    <p class="cat-note">让每个角色都有来自同一个世界的独立声音。绝不让一款字体身兼两职，也绝不让两个抢注意力
+      的字体互相打架。</p>
+    <table class="pairs">
+      <thead><tr><th>需求</th><th>展示 / 标题</th><th>正文 / 辅助</th><th>判定</th></tr></thead>
+      <tbody>
+        <tr><td class="role">开发者工具</td><td>Geist</td><td>Geist Mono</td><td class="good">成立</td></tr>
+        <tr><td class="role">友好型 SaaS</td><td>Satoshi</td><td>JetBrains Mono / Inter</td><td class="good">成立</td></tr>
+        <tr><td class="role">营销网站</td><td>Cabinet Grotesk</td><td>Inter</td><td class="good">成立</td></tr>
+        <tr><td class="role">编辑 / 长文</td><td>Instrument Serif</td><td>Inter</td><td class="good">成立（衬线体赚到了）</td></tr>
+        <tr><td class="role">任意</td><td>Anton</td><td>Instrument Serif</td><td class="bad">冲突：两个抢戏的字体</td></tr>
+        <tr><td class="role">任意</td><td>Anton</td><td>Anton</td><td class="bad">一款展示字体身兼两职</td></tr>
+        <tr><td class="role">任意</td><td>Geist Mono</td><td>Geist Mono</td><td class="bad">等宽字体当正文</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== DISCIPLINES ===================== -->
+  <section class="cat">
+    <h2>纪律 &middot; 让文字保持调准的规则</h2>
+    <ul class="rules">
+      <li><b>展示字体对正文字体。</b>展示字体是被「看」的（标题）：个性受欢迎，字距可以收紧，行距接近 1.0。
+        正文字体是被「读」的（段落）：安静的主力字体，正常字距，行距约 1.5。一款展示字体出现在 15px 的段落
+        里，就是一处痕迹。</li>
+      <li><b>紧字距只在大号文字上才站得住脚。</b>紧的字距适合大号展示字；用在正文上会把字母挤在一起，损害
+        可读性。</li>
+      <li><b>行距与字号相反。</b>小号正文想要更大的行高（约 1.5）；大号展示字想要更小的行高（约 1.0）。</li>
+      <li><b>用同一字族的斜体来强调。</b>绝不要把一个衬线词注入无衬线标题；两种声音读起来像是个错误，而不是
+        强调。</li>
+      <li><b>给斜体留出空间。</b>行盒过紧再加 <code>overflow:hidden</code>，会把斜体的下伸部切掉。用行距加
+        一点内边距来修，而不是缩小字号。</li>
+      <li><b>衬线规则。</b>衬线体要靠真正具有编辑性的内容来赚取，而不是当作通往「高级感」的捷径。Instrument
+        Serif 和 Fraunces 被禁作默认，因为每一份 AI 稿件都会伸手去拿它们，所以它们现在传达的是相反的
+        信号。</li>
+      <li><b>列中的数字用等宽数字。</b>用等宽（tabular）数字，让数字在表格、价格、仪表盘中对齐。</li>
+    </ul>
+  </section>
+
+  <div class="backlink">
+    <a class="btn btn--ghost" href="../lessons/0009-typography.html">&larr; 返回第 09 课</a>
+  </div>
+</main>
+</body>
+</html>

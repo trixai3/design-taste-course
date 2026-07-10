@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 09 课：排版</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Inter:ital,wght@0,400;0,600;0,700;1,600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/course.css">
+<link rel="stylesheet" href="../../assets/typography.css">
+<style>
+  /* lesson-local: display-vs-body two-column note */
+  .disc { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 6px; }
+  .disc .card { margin: 0; }
+  .disc h3 { margin: 0 0 6px; font-size: 1rem; }
+  .btn-sm { font-size: 11px; padding: 5px 12px; }
+  @media (max-width: 560px) { .disc, .two-up { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>模块 C：工艺</span><span class="sep">/</span>
+      <span>第 09 课</span><span class="sep">/</span>
+      <span>约 15 分钟</span>
+    </p>
+    <h1>排版：分量最重的一项决定</h1>
+    <div class="win">
+      <span class="tag">你的一个小胜利</span>
+      <p style="margin:0">读完这节课，你能一眼说出一款字体的<strong>类别和声音</strong>，让<strong>展示字体和正文
+        字体</strong>各安其位，并说清衬线规则：衬线体什么时候是「赚来的」，以及为什么 Instrument Serif 和
+        Fraunces 被「禁作默认」。字体，是所有人读到第一个字之前，最先读到的东西。</p>
+    </div>
+  </header>
+
+  <!-- ===== spaced recall from Lessons 06-08 ===== -->
+  <section style="margin-bottom:44px">
+    <div id="recall"></div>
+  </section>
+
+  <section class="prose">
+    <p class="lead">什么都不改，只换字体，整个页面就换了一副心思。在读者读懂第一个字之前，字形早已说出了廉价还是
+      讲究、技术还是文学、喧闹还是安静。</p>
+    <p>所以目标不是「挑一款好看的字体」，而是听出一款字体正在用的那个声音，知道哪种声音属于标题、哪种属于正文，
+      并且不再反射性地伸手去拿工具默认给你的那一款。</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= SHOW 1: fonts have voices ================= -->
+  <section class="wide">
+    <p class="eyebrow" style="margin-bottom:4px">字体各有声音</p>
+    <h2 class="prose" style="margin:0 auto 4px">一个词，六种面孔</h2>
+    <p style="color:var(--ink-soft);font-size:15px;max-width:62ch;margin:0 0 22px">
+      同一个词，用六款字体排出来。变的只有字形，但每一款抵达时带着不同的语气。读一读每款下面的类别和气质说明，
+      直到你能在叫出名字之前先听出它的声音。</p>
+
+    <div class="voices">
+      <div class="voice">
+        <p class="spec f-inter">Taste</p>
+        <p class="cat">Neo-grotesque</p>
+        <p class="face f-inter">Inter</p>
+        <p class="vibe">默认的嗡鸣。到处都是它，所以读出来的只有「称职」，再没别的。你会刻意偏离的那条中性
+          基线。</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-geist">Taste</p>
+        <p class="cat">Grotesque</p>
+        <p class="face f-geist">Geist</p>
+        <p class="vibe">工程感、匀称。开发者工具式的现代，却不张扬。精准，带点冷。</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-satoshi">Taste</p>
+        <p class="cat">Geometric grotesk</p>
+        <p class="face f-satoshi">Satoshi</p>
+        <p class="vibe">圆润、友好。带着创业公司的暖意自信。亲和，但不软弱。</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-cabinet">Taste</p>
+        <p class="cat">Display grotesk</p>
+        <p class="face f-cabinet">Cabinet Grotesk</p>
+        <p class="vibe">有个性，带点古怪。一个有主见的标题字体。放大很棒，缩小容易腻。</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-anton">Taste</p>
+        <p class="cat">Compressed display</p>
+        <p class="face f-anton">Anton</p>
+        <p class="vibe">响亮。海报与时尚的冲击力，全是气势。绝不能用作正文，一次都不行。</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-instrument">Taste</p>
+        <p class="cat">Editorial serif</p>
+        <p class="face f-instrument">Instrument Serif</p>
+        <p class="vibe">优雅、文学感。同时也是每个 AI 都会伸手去拿的那款衬线体，所以它现在读起来像是「想装
+          高级」。在编辑类场景里是赚来的，当作默认就是一处痕迹。</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= SHOW 2: tracking & leading ================= -->
+  <section class="prose">
+    <h2>亲手调一调字距与行距</h2>
+    <p>有两个旋钮决定文字读起来是「调过」还是「默认」：<strong>字距</strong>（tracking，字母之间的间距）和
+      <strong>行距</strong>（leading，行与行之间的间距）。拖一拖它们，注意每一个在哪里有用、在哪里会伤到
+      可读性。</p>
+  </section>
+  <section class="wide" style="max-width:640px">
+    <div class="tl-stage" data-tl>
+      <h3 class="tl-headline" id="tl-h" style="--tr:-0.03em;--ld:1.04">Tighten the display,<br>breathe the body.</h3>
+      <div class="tl-controls">
+        <label>字距 <span class="val" data-tl-out="tr">-0.03em</span>
+          <input type="range" data-tl-set="tr" min="-6" max="12" value="-3"></label>
+        <label>行距 <span class="val" data-tl-out="ld">1.04</span>
+          <input type="range" data-tl-set="ld" min="90" max="180" value="104"></label>
+      </div>
+    </div>
+    <p class="tl-note">紧字距只有在<strong>大号展示字</strong>上才站得住脚；用在正文上会把字母挤在一起，拖慢
+      阅读。行距是镜像的情况：<strong>正文想要更大</strong>（约 1.5），展示字想要更小（接近 1.0）。把两个都
+      推到极端，看着它崩掉。</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= SHOW 3: italic clipping bug ================= -->
+  <section class="prose">
+    <h2>斜体下伸部裁切</h2>
+    <p>一个你会不断遇到的真实 bug：一个斜体标题放进行高很紧、又带 <code>overflow: hidden</code> 的盒子里。
+      倾斜的下伸部（<em>g</em>、<em>y</em>、<em>p</em> 的尾巴）就会被齐齐切掉。修法不是缩小字号，而是留出
+      空间：足够的行距，加一点内边距。</p>
+  </section>
+  <section class="wide">
+    <div class="two-up">
+      <figure class="bad">
+        <div class="clip bad"><span class="word">typography</span></div>
+        <figcaption><span class="verdict">错 &middot; 下伸部被切掉</span><br>
+          固定的行盒加上 <code>overflow:hidden</code>，把斜体 <em>y</em>、<em>p</em>、<em>g</em> 的尾巴都切
+          掉了。</figcaption>
+      </figure>
+      <figure class="ok">
+        <div class="clip ok"><span class="word">typography</span></div>
+        <figcaption><span class="verdict">对 &middot; 给尾巴留出空间</span><br>
+          行距接近 1.3，再加一点底部内边距，下伸部就能完整地留在盒子里。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= SHOW 4: emphasis rule ================= -->
+  <section class="prose">
+    <h2>如何强调单独一个词</h2>
+    <p>当你想让标题里的某个词跳出来，就靠<strong>同一字族的斜体</strong>。不要为了显得特别，把一个衬线词硬塞
+      进无衬线标题里：两种声音相撞，读起来像是个错误，而不是强调。</p>
+  </section>
+  <section class="wide">
+    <div class="two-up">
+      <figure class="ok">
+        <div class="emph ok"><p class="h">Make the <em>important</em> word lean, not louder.</p></div>
+        <figcaption><span class="verdict">对 &middot; 同一字族，斜体</span><br>
+          只有一个声音。斜体添加了重音，却没有引入第二款字体。</figcaption>
+      </figure>
+      <figure class="bad">
+        <div class="emph bad"><p class="h">Make the <span class="serif">important</span> word lean, not louder.</p></div>
+        <figcaption><span class="verdict">错 &middot; 一个衬线词撞坏了无衬线</span><br>
+          一个格格不入的衬线词被硬塞进无衬线标题。两个声音同时响起，眼睛读出来的是「坏了」。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>展示字体与正文字体，以及衬线规则</h2>
+    <div class="disc">
+      <div class="card">
+        <h3>展示字体（Display）</h3>
+        <p>大，是用来「看」而不是「读」的：标题、英雄区。个性受欢迎，字距可以收紧，行距接近 1.0。Cabinet
+          Grotesk 和 Anton 住在这里。一款展示字体出现在 15px 的正文段落里，就是一处痕迹。</p>
+      </div>
+      <div class="card">
+        <h3>正文字体（Body）</h3>
+        <p>小，是真正被「读」的：段落、界面。想要的是一款安静的主力字体，正常字距，行距约 1.5。Inter、Geist、
+          Satoshi 住在这里。这里，克制读起来就是品质。</p>
+      </div>
+    </div>
+    <p style="margin-top:16px"><strong>衬线规则。</strong>衬线体只有在内容真正具有编辑性时才是「赚来的」：
+      长文写作、文学或奢侈品牌、杂志式的声音。它<em>不是</em>通往「高级感」的捷径。Instrument Serif 和
+      Fraunces 被禁作默认，正是因为每一份 AI 稿件都会伸手去拿它们来假装精致，所以它们现在传达的是相反的
+      信号。要么赚到这个衬线体，要么就用 grotesk。</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE DO ================= -->
+  <section class="prose">
+    <h2>叫出字体的名字</h2>
+    <p>先认字：读字形，叫出字体的名字。测试词每次都一样，所以只有声音在说话。</p>
+  </section>
+  <section style="margin:18px 0 30px">
+    <div id="face-quiz"></div>
+  </section>
+
+  <section class="prose">
+    <h2>挑出搭配</h2>
+    <p>然后是判断力：好的搭配让每个角色都有独立的声音，却仍属于同一个世界。差的搭配要么彼此冲突，要么一款字体
+      硬扛两个角色。</p>
+  </section>
+  <div class="wide" id="pair-game" style="max-width:560px;margin:20px auto 0"></div>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../reference/typography.html">
+      <div>
+        <p class="eyebrow">参考资料 &middot; 留着它</p>
+        <h3>排版参考卡</h3>
+        <p>字体类别、带气质说明的命名花名册、搭配对照表，以及展示字体/正文字体和衬线规则的纪律，都在这一页
+          里。</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <div class="card">
+      <p class="eyebrow">主要来源 &middot; 读这个</p>
+      <h3>Butterick's Practical Typography</h3>
+      <p>这本免费、有态度的排版实战指南真的读得下去：
+        <a href="https://practicaltypography.com/">practicaltypography.com</a>。搭配 design-taste-frontend
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">第 4.1 节</a>
+        一起读，获取完整花名册和被禁默认项。</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">你的老师</p>
+      <h3>随时追问</h3>
+      <p>指着任意一个网站问「这个标题字体是什么类别？」或者「这个衬线体赚到了吗？」，我们会一起读字形，直到叫出
+        声音的名字变成本能反应。</p>
+    </div>
+
+    <a class="card next-link" href="./0010-color.html">
+      <div>
+        <p class="eyebrow">下一课</p>
+        <h3>10 &mdash; 颜色</h3>
+        <p>中性色做活儿，一个强调色拿荣耀。配色家族、单一强调色锁定，以及被禁的「米色加黄铜」高级感默认项。</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../../assets/quiz.js"></script>
+<script src="../../assets/name-game.js"></script>
+<script src="../../assets/typography.js"></script>
+<script>
+  /* ---- recall from Lessons 06-08 ---- */
+  Quiz.mount("#recall", [
+    { q: "Swiss Industrial Print 和 Tactical Telemetry 同宗同源，共用一个警示红，但绝不能混用。是什么把它们分开的？",
+      options: ["基底（substrate）：明亮新闻纸对比 CRT 黑", "强调色", "字体类别", "动效预算"],
+      answer: 0,
+      why: "两种 Brutalism：同样的结构骨架和共用的警示红，相反的基底。你只能选一个坚持到底，绝不把两者混在一起。" },
+    { q: "文字堆叠在一侧，另一侧是单独一份图像资源，中间留着宽绰的留白。是哪一种英雄区范式？",
+      options: ["Asymmetric Split", "Editorial Manifesto", "Media Mask", "Scroll-Pinned"],
+      answer: 0,
+      why: "Asymmetric Split：主力英雄区。Editorial Manifesto 是超大字号且没有图像资源；Media Mask 把文字镂空压在满幅图像上。" },
+    { q: "一段页面装饰永远漂移、晃动，不承载任何信息。判定是什么？",
+      options: ["没有动机：动效必须有动机", "没事，这样能让页面显得有生命力", "是个不错的跑马灯", "正确的减弱动效回退"],
+      answer: 0,
+      why: "动效必须有动机。只起装饰作用的运动会白白拉扯视线却没有回报，让一个严肃页面显得廉价。" }
+  ]);
+
+  /* ---- font recognition: read the letterforms, name the face ---- */
+  Quiz.mount("#face-quiz", [
+    { q: '<span class="qspec f-anton">Hamburg</span><br>这是哪款字体？',
+      options: ["Anton", "Cabinet Grotesk", "Satoshi", "Geist"],
+      answer: 0,
+      why: "Anton：极致压缩，粗重且均匀的笔画。一款纯粹的展示字体，辨识度极高，绝不能用作正文。" },
+    { q: '<span class="qspec f-instrument">Hamburg</span><br>这是哪款字体？',
+      options: ["Instrument Serif", "Cabinet Grotesk", "Geist", "Satoshi"],
+      answer: 0,
+      why: "Instrument Serif：粗细对比强烈的笔画和精致的衬线。编辑感强、优雅，也是 AI 默认会伸手去拿的那款衬线体。" },
+    { q: '<span class="qspec f-geist">Hamburg</span><br>这是哪一款 grotesk？',
+      options: ["Geist", "Satoshi", "Cabinet Grotesk", "Inter"],
+      answer: 0,
+      why: "Geist：均匀、工程感的笔画，带一点冷峻的技术感。Satoshi 更圆润温暖；Cabinet 更古怪；Inter 更中性。" }
+  ]);
+
+  /* ---- pick the pairing, both directions ---- */
+  NameGame.mount("#pair-game", {
+    rounds: [
+      { kind: "name", prompt: "选出符合这份需求的搭配。", stim: "开发者工具产品",
+        options: [
+          { a: '<span class="f-geist">Geist</span> + <span class="f-geistmono">Geist Mono</span>', ok: true },
+          { a: '<span class="f-anton">Anton</span> + <span class="f-instrument">Instrument Serif</span>' },
+          { a: '<span class="f-instrument">Instrument Serif</span> + <span class="f-instrument">Instrument Serif</span>' },
+          { a: '<span class="f-anton">Anton</span> + <span class="f-anton">Anton</span>' }
+        ],
+        why: "一个字族配上与之相配的等宽字体（Geist + Geist Mono），比例和声音一致，非常适合代码密集的界面。其余选项要么彼此冲突，要么让一款展示字体包揽所有角色。" },
+
+      { kind: "name", prompt: "选出符合这份需求的搭配。", stim: "简洁的营销网站",
+        options: [
+          { a: '<span class="f-cabinet">Cabinet Grotesk</span> + <span class="f-inter">Inter</span>', ok: true },
+          { a: '<span class="f-anton">Anton</span> + <span class="f-anton">Anton</span>' },
+          { a: '<span class="f-geistmono">Geist Mono</span> + <span class="f-geistmono">Geist Mono</span>' },
+          { a: '<span class="f-instrument">Instrument Serif</span> + <span class="f-anton">Anton</span>' }
+        ],
+        why: "一款有个性的展示字体用于标题（Cabinet Grotesk），配上一款安静中性的正文字体（Inter）：声音不同，却属于同一个世界。等宽字体不是正文字体，一款展示字体也没法同时扛两个角色。" },
+
+      { kind: "name", prompt: "这里有一组搭配是坏的。选出它。", stim: "找出冲突",
+        options: [
+          { a: '<span class="f-anton">Anton</span> + <span class="f-instrument">Instrument Serif</span>', ok: true },
+          { a: '<span class="f-satoshi">Satoshi</span> + <span class="f-jbmono">JetBrains Mono</span>' },
+          { a: '<span class="f-geist">Geist</span> + <span class="f-geistmono">Geist Mono</span>' },
+          { a: '<span class="f-cabinet">Cabinet Grotesk</span> + <span class="f-inter">Inter</span>' }
+        ],
+        why: "一款响亮的压缩海报字体和一款精致的编辑体衬线字体，是两个都想抢注意力的标题选手互相打架，没有什么能舒服地读下去。其余选项都是一个声音搭配一款主力字体。" }
+    ]
+  });
+
+  /* ---- wire the tracking / leading sliders ---- */
+  Typo.mount(document);
+</script>
+</body>
+</html>
