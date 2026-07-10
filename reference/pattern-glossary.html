@@ -6,7 +6,9 @@
 <title>Reference: The Pattern Glossary</title>
 <link rel="stylesheet" href="../assets/course.css">
 <link rel="stylesheet" href="../assets/pattern-thumbs.css">
+<link rel="stylesheet" href="../assets/motion-demos.css">
 <style>
+  .cat .mdemo-note { max-width: var(--measure); color: var(--ink-faint); font-size: 13px; margin: 14px 0 0; }
   .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
   .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
   .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
@@ -32,7 +34,7 @@
     <h1>The Pattern Glossary</h1>
     <p>Layout patterns you can point an AI at by name. Read each as a silhouette: dark bars are
       headlines, thin bars are body text, the hatched panel is an asset, the red block is a CTA.
-      Heroes, grids, and composition anchors from Lesson 07. Motion patterns arrive in Lesson 08.</p>
+      Heroes, grids, and composition anchors from Lesson 07; motion behaviours from Lesson 08.</p>
   </div>
 
   <!-- ===================== HERO PARADIGMS ===================== -->
@@ -178,12 +180,76 @@
     </div>
   </section>
 
-  <div class="todo">Motion patterns (sticky-stack, scroll hijack, scrub, stagger, marquee, spring)
-    get added to this glossary in Lesson 08.</div>
+  <!-- ===================== MOTION BEHAVIOURS ===================== -->
+  <section class="cat" id="motion">
+    <h2>Motion behaviours &middot; how a page moves over time</h2>
+    <p class="cat-note">You cannot screenshot motion, so each is live: hover the magnetic button, scroll
+      inside the sticky-stack and pin/scrub frames. On paper, or with reduced motion on, every one
+      rests into a legible static state.</p>
+    <div class="pat-wall">
+      <div class="pat-item">
+        <div class="mdemo"><div class="stagger"><span class="bar"></span><span class="bar s"></span><span class="bar"></span><span class="bar s"></span></div></div>
+        <p class="pat-name"><span class="n">M1</span>Staggered Reveal</p>
+        <p class="pat-desc">Elements enter one after another on a small delay, drawing the eye down in
+          reading order. The most useful entrance.</p>
+      </div>
+      <div class="pat-item">
+        <div class="mdemo">
+          <div class="stackscroll"><div class="card"><span class="bar"></span></div><div class="card"><span class="bar"></span></div><div class="card"><span class="bar"></span></div><div class="card"><span class="bar"></span></div><div class="tail"></div></div>
+          <span class="hint">scroll &darr;</span>
+        </div>
+        <p class="pat-name"><span class="n">M2</span>Sticky-Stack</p>
+        <p class="pat-desc">Cards pin at the top and pile up as you scroll, each holding under the last.
+          A list becomes a deck.</p>
+      </div>
+      <div class="pat-item">
+        <div class="mdemo">
+          <div class="scrub"><div class="pin"><span class="knob"></span><span class="meter"><i></i></span></div><div class="spacer"></div></div>
+          <span class="hint">scroll &darr;</span>
+        </div>
+        <p class="pat-name"><span class="n">M3</span>Pin / Scrub</p>
+        <p class="pat-desc">An element pins while scroll position drives its state: it rotates, fills, or
+          plays through frames. Scroll becomes a scrubber.</p>
+      </div>
+      <div class="pat-item">
+        <div class="mdemo"><div class="marquee"><div class="track">
+          <span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">NO SLOP</span>
+          <span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">NO SLOP</span>
+        </div></div></div>
+        <p class="pat-name"><span class="n">M4</span>Marquee</p>
+        <p class="pat-desc">A continuous horizontal scroll of text or logos. High energy. Hard cap: one
+          per page.</p>
+      </div>
+      <div class="pat-item">
+        <div class="mdemo magnet"><span class="mbtn">HOVER ME</span></div>
+        <p class="pat-name"><span class="n">M5</span>Magnetic Button</p>
+        <p class="pat-desc">A control drifts toward the cursor, then springs back. A micro-interaction
+          that makes a target feel reachable.</p>
+      </div>
+      <div class="pat-item">
+        <div class="mdemo"><div class="ease">
+          <div class="lane"><span class="dot lin"></span><span class="tag">linear</span></div>
+          <div class="lane"><span class="dot spr"></span><span class="tag">spring</span></div>
+        </div></div>
+        <p class="pat-name"><span class="n">M6</span>Spring vs Linear</p>
+        <p class="pat-desc">Easing: linear holds one flat speed; spring accelerates, overshoots, settles.
+          Spring reads physical, linear reads robotic.</p>
+      </div>
+    </div>
+    <ul class="rules">
+      <li><b>Motion must be motivated.</b> Every movement should carry meaning, direct attention, or
+        show a relationship. Decoration that only wobbles is noise, and noise reads as cheap.</li>
+      <li><b>It must degrade.</b> Honor <code>prefers-reduced-motion</code>: the page still reads with
+        no information carried by movement alone, and nothing is left mid-fade.</li>
+      <li><b>One marquee per page.</b> Two is a fairground.</li>
+    </ul>
+  </section>
 
   <div class="backlink">
-    <a class="btn btn--ghost" href="../lessons/0007-pattern-glossary-i.html">&larr; Back to Lesson 07</a>
+    <a class="btn btn--ghost" href="../lessons/0008-pattern-glossary-ii.html">&larr; Back to Lesson 08</a>
   </div>
 </main>
+<script src="../assets/motion.js"></script>
+<script>Motion.mount(document);</script>
 </body>
 </html>

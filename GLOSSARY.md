@@ -420,6 +420,58 @@ one. Overrunning the budget is the templated-rhythm tell.
 标题上方那种小号加宽大写标签的配额：每三个区块最多一个，英雄区算一个。超支就是"模板化节奏"的破绽。
 _Source_: DTF §4.7 · §9.F
 
+### Motion names · 动效名 (Lesson 08)
+
+Motion is how a page behaves over time, the one layer you cannot screenshot. Name it by watching.
+
+**Staggered reveal · 错峰入场**:
+Elements enter one after another on a small delay, not all at once, drawing the eye down in reading
+order. The most useful entrance.
+元素依次、带小延迟地入场，而非同时出现，引导视线按阅读顺序下移。最实用的入场方式。
+_Source_: DTF §5
+
+**Sticky-stack · 粘性堆叠**:
+Cards pin at the top and pile up as you scroll, each holding under the last. Turns a plain list into a
+deck you move through.
+卡片在顶部固定、随滚动层层堆叠，每张压在上一张之下。把普通列表变成可翻阅的一叠。
+_Source_: DTF §5
+
+**Pin / scrub · 固定 / 擦洗**:
+An element pins in place while scroll position drives its state: it rotates, fills, or plays through
+frames. Scroll becomes a scrubber.
+元素固定不动，由滚动位置驱动其状态：旋转、填充或逐帧播放。滚动变成了进度擦洗条。
+_Source_: DTF §5
+
+**Marquee · 跑马灯**:
+A continuous horizontal scroll of text or logos. High energy, editorial. **Hard cap: one per page.**
+Two marquees is a fairground.
+文字或标志的连续横向滚动。高能量、编辑感。硬上限：每页一个。两个跑马灯就成了游乐场。
+_Source_: DTF §5
+
+**Magnetic button · 磁吸按钮**:
+A control drifts toward the cursor as it approaches, then springs back. A micro-interaction that makes
+a target feel alive and reachable.
+控件在光标靠近时向其漂移，随后弹回。让目标显得有生命、可触及的微交互。
+_Source_: DTF §5
+
+**Spring vs linear · 弹性 vs 线性** (easing · 缓动):
+The easing of a move. **Linear** holds one flat machine speed; **spring** accelerates, overshoots, and
+settles. Spring reads as physical, linear reads as robotic.
+一段运动的缓动。线性保持一种平直的机械速度；弹性则加速、过冲、再回稳。弹性显得有物理感，线性显得机械。
+_Source_: DTF §5
+
+**Motivated motion · 有动机的动效**:
+The rule that kills most AI motion: every movement should carry meaning, direct attention, or show a
+relationship. Decoration that only wobbles is noise, and noise reads as cheap.
+砍掉多数 AI 动效的规则：每一处运动都应承载意义、引导注意或表明关系。只会晃动的装饰就是噪声，噪声显得廉价。
+_Source_: DTF §5
+
+**Reduced motion · 减弱动效** (`prefers-reduced-motion`):
+Some people get motion sick and their browser says so. Good motion has a resting state to fall back to:
+the page still reads, nothing is mid-fade, no information was carried by movement alone.
+有些人会晕动，浏览器会通过该设置表明。好的动效要有可回落的静止态：页面依然可读、没有停在半透明中、没有仅靠运动传达的信息。
+_Source_: DTF §5
+
 ---
 
 ## Content, Copy & Data · 内容、文案与数据

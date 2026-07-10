@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 08: Pattern Glossary II</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../assets/pattern-thumbs.css">
+<link rel="stylesheet" href="../assets/motion-demos.css">
+<style>
+  /* lesson-local: the motion wall reuses .pat-wall spacing but its own aspect */
+  .motiv-two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 10px; }
+  .motiv-two figure { margin: 0; }
+  .motiv-two .mdemo { justify-content: flex-start; padding: 16px; }
+  .motiv-two figcaption { margin-top: 8px; font-size: 13.5px; }
+  .motiv-two .verdict { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+  .motiv-two .bad .verdict { color: var(--accent-ink); }
+  .motiv-two .ok .verdict { color: var(--good); }
+  /* the easing centerpiece controls */
+  .ease-controls { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 14px; }
+  .switch { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; color: var(--ink-soft); }
+  .rm-panel { display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); margin-top: 14px; }
+  .rm-panel .state { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-faint); }
+  .btn-sm { font-size: 11px; padding: 5px 12px; margin-left: 6px; }
+  @media (max-width: 560px) { .motiv-two { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>Module B: Naming</span><span class="sep">/</span>
+      <span>Lesson 08</span><span class="sep">/</span>
+      <span>~15 min</span>
+    </p>
+    <h1>Pattern Glossary II: motion names</h1>
+    <div class="win">
+      <span class="tag">Your one win</span>
+      <p style="margin:0">By the end you can watch a page <strong>behave</strong> and name the motion:
+        staggered reveal, sticky-stack, pin/scrub, marquee, magnetic button, spring versus linear. Plus
+        the two rules that separate real motion from AI motion: motion must be <strong>motivated</strong>,
+        and it must <strong>degrade</strong> when someone asks for less of it.</p>
+    </div>
+  </header>
+
+  <!-- ===== spaced recall from Lessons 05-07 ===== -->
+  <section style="margin-bottom:44px">
+    <div id="recall"></div>
+  </section>
+
+  <section class="prose">
+    <p class="lead">Style is what a page is made of. Layout is how it is arranged. Motion is how it
+      behaves over time, and it is the one layer you cannot screenshot. You name it by watching.</p>
+    <p>Every demo below is live and looping. Two of them (sticky-stack and pin/scrub) ask you to
+      scroll inside the frame; the magnetic button wants your cursor. Drive them. A motion pattern is a
+      behaviour, and you only really hold the word once you have felt the thing move.</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE SHOW: the six behaviours ================= -->
+  <section class="wide">
+    <p class="eyebrow" style="margin-bottom:4px">Six motion behaviours</p>
+    <h2 class="prose" style="margin:0 auto 4px">The vocabulary of movement</h2>
+    <p style="color:var(--ink-soft);font-size:15px;max-width:62ch;margin:0 0 22px">
+      These are the moves a good site actually uses. Name the one you want and you can ask an AI for
+      that behaviour instead of accepting a page that either sits dead still or fades everything in at
+      once.</p>
+
+    <div class="pat-wall">
+      <div class="pat-item">
+        <div class="mdemo">
+          <div class="stagger"><span class="bar"></span><span class="bar s"></span><span class="bar"></span><span class="bar s"></span></div>
+        </div>
+        <p class="pat-name"><span class="n">M1</span>Staggered Reveal</p>
+        <p class="pat-desc">Elements enter one after another on a small delay, not all at once. Draws the
+          eye down in reading order. The single most useful entrance.</p>
+      </div>
+
+      <div class="pat-item">
+        <div class="mdemo">
+          <div class="stackscroll">
+            <div class="card"><span class="bar"></span></div>
+            <div class="card"><span class="bar"></span></div>
+            <div class="card"><span class="bar"></span></div>
+            <div class="card"><span class="bar"></span></div>
+            <div class="tail"></div>
+          </div>
+          <span class="hint">scroll &darr;</span>
+        </div>
+        <p class="pat-name"><span class="n">M2</span>Sticky-Stack</p>
+        <p class="pat-desc">Cards pin at the top and pile up as you scroll, each holding under the last.
+          Turns a plain list into a deck you move through.</p>
+      </div>
+
+      <div class="pat-item">
+        <div class="mdemo">
+          <div class="scrub">
+            <div class="pin"><span class="knob"></span><span class="meter"><i></i></span></div><div class="spacer"></div>
+          </div>
+          <span class="hint">scroll &darr;</span>
+        </div>
+        <p class="pat-name"><span class="n">M3</span>Pin / Scrub</p>
+        <p class="pat-desc">An element pins in place while scroll position drives its state: it rotates,
+          fills, or plays through frames. Scroll becomes a scrubber.</p>
+      </div>
+
+      <div class="pat-item">
+        <div class="mdemo">
+          <div class="marquee"><div class="track">
+            <span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">NO SLOP</span>
+            <span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">NO SLOP</span>
+          </div></div>
+        </div>
+        <p class="pat-name"><span class="n">M4</span>Marquee</p>
+        <p class="pat-desc">A continuous horizontal scroll of text or logos. High energy, editorial. Hard
+          cap: <strong>one per page</strong>. Two marquees is a fairground.</p>
+      </div>
+
+      <div class="pat-item">
+        <div class="mdemo magnet">
+          <span class="mbtn">HOVER ME</span>
+        </div>
+        <p class="pat-name"><span class="n">M5</span>Magnetic Button</p>
+        <p class="pat-desc">A control drifts toward the cursor as it approaches, then springs back. A
+          micro-interaction that makes a target feel alive and reachable.</p>
+      </div>
+
+      <div class="pat-item">
+        <div class="mdemo">
+          <div class="ease">
+            <div class="lane"><span class="dot lin"></span><span class="tag">linear</span></div>
+            <div class="lane"><span class="dot spr"></span><span class="tag">spring</span></div>
+          </div>
+        </div>
+        <p class="pat-name"><span class="n">M6</span>Spring vs Linear</p>
+        <p class="pat-desc">The <em>easing</em>: linear moves at one machine-flat speed; spring
+          accelerates, overshoots, settles. Spring reads as physical, linear reads as robotic.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE SHOW: easing you can drive ================= -->
+  <section class="prose">
+    <h2>Feel the easing</h2>
+    <p>Easing is the difference between motion that feels designed and motion that feels like a
+      progress bar. Play the runner, then flip it to spring: same distance, same duration, completely
+      different character. The overshoot is the whole tell.</p>
+  </section>
+  <section class="wide" style="max-width:560px">
+    <div class="ease-play" data-ease-play data-play="#ease-go" data-ease-switch="#ease-spring">
+      <div class="rail"><span class="runner"></span></div>
+    </div>
+    <div class="ease-controls">
+      <button class="btn" id="ease-go" type="button">Play &rarr;</button>
+      <label class="switch"><input type="checkbox" id="ease-spring"> spring easing</label>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE SHOW: motion must be motivated ================= -->
+  <section class="prose">
+    <h2>Motion must be motivated</h2>
+    <p>The rule that kills most AI motion: every movement should carry meaning, direct attention, or
+      show a relationship. Decoration that just wobbles is noise, and noise is the fastest way to make
+      a serious page feel cheap. Same content, two treatments.</p>
+  </section>
+  <section class="wide">
+    <div class="motiv-two">
+      <figure class="bad">
+        <div class="mdemo"><div class="motiv deco">
+          <span class="bar"></span><span class="bar s"></span><span class="bar"></span><span class="bar s"></span>
+        </div></div>
+        <figcaption><span class="verdict">Decorative &middot; says nothing</span><br>
+          Everything drifts forever for no reason. Your eye is pulled around with no payoff. Motion as
+          garnish.</figcaption>
+      </figure>
+      <figure class="ok">
+        <div class="mdemo"><div class="motiv comm" id="motiv-comm">
+          <span class="bar"></span><span class="bar s"></span><span class="bar"></span><span class="bar s"></span>
+        </div></div>
+        <figcaption><span class="verdict">Communicative &middot; carries order</span><br>
+          The same reveal, but it lands in reading order and then stops. The motion tells you where to
+          look first. <button class="btn btn-sm" data-replay="#motiv-comm" type="button">Replay</button></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE SHOW: reduced motion ================= -->
+  <section class="prose">
+    <h2>And it must degrade</h2>
+    <p>Some people get motion sick, and their browser says so with <code>prefers-reduced-motion</code>.
+      Good motion has a resting state to fall back to: the page still reads, nothing is mid-fade, no
+      information was carried by movement alone. Flip the switch and watch every demo above settle into
+      the layout a reduced-motion visitor sees. If a demo went blank, it was built wrong.</p>
+  </section>
+  <section class="wide">
+    <div class="rm-panel">
+      <label class="switch"><input type="checkbox" id="rm-toggle"
+        data-rm-toggle="#rm-region" data-rm-label="#rm-state"> simulate reduced motion</label>
+      <span class="state" id="rm-state">reduced motion: off</span>
+    </div>
+    <div id="rm-region" style="margin-top:18px">
+      <div class="pat-wall">
+        <div class="pat-item">
+          <div class="mdemo"><div class="stagger"><span class="bar"></span><span class="bar s"></span><span class="bar"></span><span class="bar s"></span></div></div>
+          <p class="pat-name"><span class="n">M1</span>Staggered Reveal</p>
+        </div>
+        <div class="pat-item">
+          <div class="mdemo"><div class="marquee"><div class="track">
+            <span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">NO SLOP</span>
+            <span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">NO SLOP</span>
+          </div></div></div>
+          <p class="pat-name"><span class="n">M4</span>Marquee</p>
+        </div>
+        <div class="pat-item">
+          <div class="mdemo"><div class="ease">
+            <div class="lane"><span class="dot lin"></span><span class="tag">linear</span></div>
+            <div class="lane"><span class="dot spr"></span><span class="tag">spring</span></div>
+          </div></div>
+          <p class="pat-name"><span class="n">M6</span>Spring vs Linear</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE DO ================= -->
+  <section class="prose">
+    <h2>Watch and name</h2>
+    <p>Now the test. Some rounds show you a behaviour and ask its name; one asks you to judge whether a
+      motion is motivated or just decoration. Watch each one move before you answer.</p>
+  </section>
+  <div class="wide" id="name-game" style="max-width:560px;margin:20px auto 0"></div>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../reference/pattern-glossary.html#motion">
+      <div>
+        <p class="eyebrow">Reference &middot; keep this</p>
+        <h3>The Pattern Glossary &middot; motion</h3>
+        <p>The six behaviours plus the two rules, added as a live motion section to the glossary you
+          started in Lesson 07.</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <div class="card">
+      <p class="eyebrow">Primary source &middot; read this</p>
+      <h3>design-taste-frontend, Section 5</h3>
+      <p>Motion &amp; micro-interaction: the scroll and easing vocabulary, and why motion must be
+        motivated. Read
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">the skill</a>
+        (upstream folder <code>taste-skill</code>, installed locally as
+        <code>design-taste-frontend</code>).</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Your teacher</p>
+      <h3>Ask follow-up questions</h3>
+      <p>Point at any real site that feels alive and ask "what motion is this?" or "is that stagger
+        motivated?" and we will name the behaviour together until you can call it on sight.</p>
+    </div>
+
+    <a class="card next-link" href="./0009-typography.html">
+      <div>
+        <p class="eyebrow">Next lesson</p>
+        <h3>09 &mdash; Typography</h3>
+        <p>Into Module C and the craft axes. Fonts have voices: display versus body discipline, and the
+          one question that decides when a serif is earned.</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../assets/quiz.js"></script>
+<script src="../assets/name-game.js"></script>
+<script src="../assets/motion.js"></script>
+<script>
+  /* ---- recall from Lessons 05-07 ---- */
+  Quiz.mount("#recall", [
+    { q: "A bento grid with a blank tile in the middle to balance it. What is the verdict?",
+      options: ["Broken: the cell-count rule says cells equal content", "Fine, it balances the grid", "Good use of whitespace", "A motion problem"],
+      answer: 0,
+      why: "The cell-count rule: a bento has exactly as many cells as you have content. A blank tile means it was sized before the content existed." },
+    { q: "You want the hero where huge type fills the frame with no asset, and a centered layout is earned. Which paradigm?",
+      options: ["Editorial Manifesto", "Asymmetric Split", "Media Mask", "Scroll-Pinned"],
+      answer: 0,
+      why: "Editorial Manifesto: the message is the design, so it is the one hero where centering is right." },
+    { q: "The alternating image-left / text-right layout runs three sections in a row. What is the call?",
+      options: ["Break it by the third: the zigzag cap", "Fine, consistency is good", "Add a fourth to balance", "Switch to dark mode"],
+      answer: 0,
+      why: "The zigzag cap: alternating rows are readable but banal past two. Break the run with a full-width section or a bento." }
+  ]);
+
+  /* ---- watch and name ---- */
+  NameGame.mount("#name-game", {
+    rounds: [
+      { kind: "visual", prompt: "Name this motion.",
+        stim: '<div class="mdemo"><div class="stagger"><span class="bar"></span><span class="bar s"></span><span class="bar"></span><span class="bar s"></span></div></div>',
+        options: [ { a: "Staggered Reveal", ok: true }, { a: "Sticky-Stack" }, { a: "Marquee" }, { a: "Pin / Scrub" } ],
+        why: "Elements entering one after another on a small delay, drawing the eye down in order. Not all at once, that would just be a fade." },
+
+      { kind: "visual", prompt: "Name this motion.",
+        stim: '<div class="mdemo"><div class="marquee"><div class="track"><span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">NO SLOP</span><span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">NO SLOP</span></div></div></div>',
+        options: [ { a: "Marquee", ok: true }, { a: "Staggered Reveal" }, { a: "Magnetic Button" }, { a: "Spring easing" } ],
+        why: "A continuous horizontal scroll of text. High energy, and capped at one per page. Two marquees is a fairground." },
+
+      { kind: "visual", prompt: "The two dots travel the same distance in the same time. Name the difference.",
+        stim: '<div class="mdemo"><div class="ease"><div class="lane"><span class="dot lin"></span><span class="tag">A</span></div><div class="lane"><span class="dot spr"></span><span class="tag">B</span></div></div></div>',
+        options: [ { a: "A is linear, B is spring", ok: true }, { a: "A is spring, B is linear" }, { a: "Both are linear" }, { a: "Both are spring" } ],
+        why: "The spring dot accelerates and overshoots before settling; the linear dot holds one flat speed. Overshoot is the tell." },
+
+      { kind: "name", prompt: "Pick the Sticky-Stack (scroll inside it).",
+        stim: "Sticky-Stack",
+        options: [
+          { a: '<div class="mdemo"><div class="stackscroll"><div class="card"><span class="bar"></span></div><div class="card"><span class="bar"></span></div><div class="card"><span class="bar"></span></div><div class="card"><span class="bar"></span></div><div class="tail"></div></div><span class="hint">scroll &darr;</span></div>', ok: true },
+          { a: '<div class="mdemo"><div class="stagger"><span class="bar"></span><span class="bar s"></span><span class="bar"></span><span class="bar s"></span></div></div>' },
+          { a: '<div class="mdemo"><div class="marquee"><div class="track"><span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span></div></div></div>' },
+          { a: '<div class="mdemo magnet"><span class="mbtn">HOVER</span></div>' }
+        ],
+        why: "Cards that pin at the top and pile up as you scroll. The others are a staggered reveal, a marquee, and a magnetic button." },
+
+      { kind: "name", prompt: "Pick the Pin / Scrub (scroll drives its state).",
+        stim: "Pin / Scrub",
+        options: [
+          { a: '<div class="mdemo"><div class="scrub"><div class="pin"><span class="knob"></span><span class="meter"><i></i></span></div><div class="spacer"></div></div><span class="hint">scroll &darr;</span></div>', ok: true },
+          { a: '<div class="mdemo"><div class="stagger"><span class="bar"></span><span class="bar s"></span><span class="bar"></span><span class="bar s"></span></div></div>' },
+          { a: '<div class="mdemo magnet"><span class="mbtn">HOVER</span></div>' },
+          { a: '<div class="mdemo"><div class="ease"><div class="lane"><span class="dot lin"></span></div><div class="lane"><span class="dot spr"></span></div></div></div>' }
+        ],
+        why: "An element pins while scroll position drives its state: it rotates and fills as you go. Scroll becomes a scrubber." },
+
+      { kind: "visual", prompt: "This decoration wobbles forever and carries no information. What is the verdict?",
+        stim: '<div class="mdemo"><div class="motiv deco"><span class="bar"></span><span class="bar s"></span><span class="bar"></span><span class="bar s"></span></div></div>',
+        options: [ { a: "Unmotivated: motion as garnish", ok: true }, { a: "Motivated: it guides the eye" }, { a: "Good use of a marquee" }, { a: "Correct reduced-motion fallback" } ],
+        why: "Motion must be motivated. Movement that only decorates pulls the eye with no payoff and makes a serious page feel cheap." }
+    ]
+  });
+
+  /* ---- wire the interactive demos ---- */
+  Motion.mount(document);
+</script>
+</body>
+</html>

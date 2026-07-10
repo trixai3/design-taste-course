@@ -9,14 +9,14 @@ Status: ✅ live · ⏳ in progress.
 ## Module A — Seeing (calibrate the eye)
 - ✅ **01 · The Tell** — spot and name the concrete signatures of AI-generated design.
 - ✅ **02 · The Three Dials** — describe any page as Variance / Motion / Density (a triple like 7/6/4).
-- ⏳ **03 · The Design Read** — the audience picks the aesthetic; write a one-line read for any brief.
+- ✅ **03 · The Design Read** — the audience picks the aesthetic; write a one-line read for any brief.
 
 ## Module B — Naming (style families & pattern vocabulary)
-- ⏳ **04 · Style Atlas I** — the light-mode families (minimalism, editorial luxury, soft structuralism…).
-- ⏳ **05 · Style Atlas II** — the dark & bold families (glassmorphism, dark tech, tactical telemetry…).
-- ⏳ **06 · The Two Brutalisms** — how one style splits into two committed modes you never mix.
-- ⏳ **07 · Pattern Glossary I** — hero, bento, masonry, composition anchors: layout names on sight.
-- ⏳ **08 · Pattern Glossary II** — motion vocabulary: sticky-stack, scrub, stagger, marquee, spring.
+- ✅ **04 · Style Atlas I** — the light-mode families (minimalism, editorial luxury, soft structuralism…).
+- ✅ **05 · Style Atlas II** — the dark & bold families (glassmorphism, dark tech, tactical telemetry…).
+- ✅ **06 · The Two Brutalisms** — how one style splits into two committed modes you never mix.
+- ✅ **07 · Pattern Glossary I** — hero, bento, masonry, composition anchors: layout names on sight.
+- ✅ **08 · Pattern Glossary II** — motion vocabulary: sticky-stack, scrub, stagger, marquee, spring.
 
 ## Module C — Craft (best practice per axis)
 - ⏳ **09 · Typography** — fonts have voices; display vs body discipline; when a serif is earned.

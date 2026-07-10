@@ -1,0 +1,164 @@
+/* ==========================================================================
+   motion-demos.css — LIVE motion specimens for Lesson 08 + the reference.
+
+   You cannot screenshot motion. Each .mdemo is a small frame that actually
+   animates, so you name a behaviour by watching it. Every demo has a legible
+   RESTING state so it still reads when frozen: under real
+   prefers-reduced-motion, or when the in-page "reduced motion" switch puts
+   .rm-sim on an ancestor. That degradation IS the lesson.
+
+   Base frame: .mdemo (4:3). Six behaviours: .stagger .stackscroll .scrub
+   .marquee .magnet .ease. Bars echo pattern-thumbs (dark = headline, faint =
+   body, vermilion chip = CTA) so the two glossaries read as one system.
+   ========================================================================== */
+
+.mdemo {
+  position: relative; box-sizing: border-box;
+  aspect-ratio: 4 / 3; width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  overflow: hidden; color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+}
+.mdemo * { box-sizing: border-box; }
+
+/* shared primitives — same vocabulary as the static thumbnails, but moving */
+.mdemo .bar  { background: var(--ink); border-radius: 1px; height: 8px; width: 60%; }
+.mdemo .bar.s{ height: 5px; width: 44%; background: var(--ink-faint); opacity: .7; }
+.mdemo .chip { background: var(--accent); border-radius: 3px; height: 14px; width: 34px; }
+/* a small "scroll inside me" hint for the two scroll-driven demos */
+.mdemo .hint {
+  position: absolute; right: 8px; bottom: 6px; z-index: 3;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: .06em;
+  color: var(--ink-faint); text-transform: uppercase; pointer-events: none;
+}
+
+/* ---- M1 · Staggered Reveal --------------------------------------------- */
+.stagger { display: flex; flex-direction: column; gap: 9px; width: 62%; }
+.stagger .bar { opacity: 0; animation: mRise 2.9s cubic-bezier(.2,.7,.2,1) infinite; }
+.stagger .bar:nth-child(1){ animation-delay: 0s; }
+.stagger .bar:nth-child(2){ animation-delay: .13s; }
+.stagger .bar:nth-child(3){ animation-delay: .26s; }
+.stagger .bar:nth-child(4){ animation-delay: .39s; }
+@keyframes mRise {
+  0%          { opacity: 0; transform: translateY(10px); }
+  16%, 72%    { opacity: 1; transform: none; }
+  90%, 100%   { opacity: 0; transform: translateY(10px); }
+}
+
+/* ---- M2 · Sticky-Stack (scroll inside the frame) ----------------------- */
+.stackscroll { position: absolute; inset: 0; overflow: auto; padding: 14px; }
+.stackscroll .card {
+  position: sticky; height: 34px; margin-bottom: 12px;
+  border: 1px solid var(--line); border-radius: 6px; background: var(--surface);
+  box-shadow: var(--shadow);
+  display: flex; align-items: center; gap: 8px; padding: 0 10px;
+}
+.stackscroll .card:nth-child(1){ top: 12px; }
+.stackscroll .card:nth-child(2){ top: 20px; }
+.stackscroll .card:nth-child(3){ top: 28px; }
+.stackscroll .card:nth-child(4){ top: 36px; }
+.stackscroll .card .bar { width: 56%; height: 7px; }
+.stackscroll .tail { height: 90px; }   /* room to scroll so the stack forms */
+
+/* ---- M3 · Pin / Scrub (scroll drives a value, JS sets --p 0..1) -------- */
+.scrub { position: absolute; inset: 0; overflow: auto; }
+.scrub .pin {
+  position: sticky; top: 0; height: 100%;   /* 100% of the frame, so it stays in view */
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+}
+.scrub .spacer { height: 190%; }   /* room below the pin so there is something to scroll */
+.scrub .knob {
+  width: 46px; height: 46px; border-radius: 8px; background: var(--accent);
+  transform: rotate(calc(var(--p, 0) * 180deg)) scale(calc(.7 + var(--p, 0) * .5));
+}
+.scrub .meter { width: 60%; height: 5px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+.scrub .meter > i { display: block; height: 100%; background: var(--ink); width: calc(var(--p, 0) * 100%); }
+
+/* ---- M4 · Marquee (one per page, max) ---------------------------------- */
+.marquee { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); overflow: hidden; }
+.marquee .track {
+  display: inline-flex; gap: 20px; white-space: nowrap; padding-left: 20px;
+  animation: mMarq 7s linear infinite; will-change: transform;
+}
+.marquee .chip { display: inline-block; width: auto; padding: 0 12px; height: 20px; line-height: 20px;
+  color: #fff; font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; }
+@keyframes mMarq { to { transform: translateX(-50%); } }
+
+/* ---- M5 · Magnetic Button (JS tracks the pointer, easing snaps back) ---- */
+.magnet { cursor: pointer; }
+.magnet .mbtn {
+  padding: 10px 18px; border-radius: 999px; border: 1px solid var(--accent);
+  background: var(--accent); color: #fff;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  transform: translate(var(--mx, 0), var(--my, 0));
+  transition: transform .28s cubic-bezier(.2,.9,.3,1.5);
+}
+
+/* ---- M6 · Spring vs Linear --------------------------------------------- */
+.ease { display: flex; flex-direction: column; gap: 15px; width: 74%; }
+.ease .lane { position: relative; height: 16px; }
+.ease .lane::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+  background: var(--line); transform: translateY(-.5px);
+}
+.ease .dot { position: absolute; top: 0; width: 16px; height: 16px; border-radius: 50%; }
+.ease .dot.lin { background: var(--ink-faint); animation: mSlide 2.6s linear infinite; }
+.ease .dot.spr { background: var(--accent);    animation: mSlide 2.6s cubic-bezier(.5,1.75,.4,.9) infinite; }
+.ease .tag { position: absolute; right: 0; top: -3px; font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: .06em; color: var(--ink-faint); text-transform: uppercase; }
+@keyframes mSlide { 0%,8% { left: 0; } 50%,58% { left: calc(100% - 16px); } 100% { left: 0; } }
+
+/* ==========================================================================
+   The spring-vs-linear TOGGLE centerpiece (its own element, not the wall)
+   ========================================================================== */
+.ease-play { position: relative; }
+.ease-play .rail {
+  position: relative; height: 44px; border-radius: 999px; background: var(--surface-2);
+  border: 1px solid var(--line); overflow: hidden;
+}
+.ease-play .runner {
+  position: absolute; top: 6px; left: 6px; width: 32px; height: 32px; border-radius: 50%;
+  background: var(--accent);
+  transition: transform 1s var(--ease-k, linear);
+}
+.ease-play.go .runner { transform: translateX(var(--runend, 0)); }
+.ease-play.is-spring { --ease-k: cubic-bezier(.5,1.7,.4,.9); }
+
+/* ==========================================================================
+   Motivated vs decorative — same section, two motions
+   ========================================================================== */
+.motiv { display: flex; flex-direction: column; gap: 9px; }
+.motiv .bar { background: var(--ink); border-radius: 1px; height: 9px; width: 70%; }
+.motiv .bar.s { height: 6px; width: 52%; background: var(--ink-faint); opacity: .7; }
+/* decorative: everything wobbles forever, meaning nothing */
+.motiv.deco .bar { animation: mWobble 2.2s ease-in-out infinite; transform-origin: left; }
+.motiv.deco .bar:nth-child(2){ animation-delay: .3s; }
+.motiv.deco .bar:nth-child(3){ animation-delay: .6s; }
+.motiv.deco .bar:nth-child(4){ animation-delay: .9s; }
+@keyframes mWobble { 0%,100% { transform: none; } 50% { transform: translateX(6px) scaleX(1.03); } }
+/* communicative: on replay, reveals in reading order, then rests */
+.motiv.comm .bar { opacity: 0; }
+.motiv.comm.run .bar { animation: mRise2 .6s cubic-bezier(.2,.7,.2,1) forwards; }
+.motiv.comm.run .bar:nth-child(1){ animation-delay: 0s; }
+.motiv.comm.run .bar:nth-child(2){ animation-delay: .12s; }
+.motiv.comm.run .bar:nth-child(3){ animation-delay: .24s; }
+.motiv.comm.run .bar:nth-child(4){ animation-delay: .36s; }
+@keyframes mRise2 { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: none; } }
+
+/* ==========================================================================
+   RESTING STATES — the whole point of the reduced-motion rule.
+   Two triggers, one result: a clean static layout, nothing mid-fade.
+   ========================================================================== */
+.rm-sim .mdemo *, .rm-sim .ease-play .runner { animation: none !important; transition: none !important; }
+.rm-sim .stagger .bar,
+.rm-sim .motiv.comm .bar        { opacity: 1 !important; transform: none !important; }
+.rm-sim .motiv.deco .bar        { transform: none !important; }
+.rm-sim .marquee .track         { animation: none !important; transform: none !important; }
+.rm-sim .ease .dot              { left: 0 !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stagger .bar, .motiv.comm .bar { opacity: 1; transform: none; }
+  .marquee .track { transform: none; }
+  .ease .dot { left: 0; }
+}
