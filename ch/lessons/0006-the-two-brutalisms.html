@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 06 课：两种 Brutalism</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../../assets/course.css">
+<style>
+/* Specimen fonts for the two brutalist modes (the corpus names these exact
+   faces): Archivo Black for macro-type, JetBrains Mono for micro/telemetry. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+.bru-two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+.bru-frame { min-width: 0; }
+.bru-label {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft);
+}
+.bru-label .dot { width: 10px; height: 10px; }
+.bru-label .dot.swiss { background: #E61919; }
+.bru-label .dot.tele { background: #4AF626; }
+.bru [data-spec] { cursor: help; }
+.bru [data-spec]:focus-visible { outline: 2px solid #E61919; outline-offset: 2px; }
+
+/* readout under each render */
+.spec-readout {
+  display: block; margin-top: 8px; padding: 9px 12px;
+  font-family: var(--font-mono); font-size: 12px; line-height: 1.4;
+  color: var(--ink-soft); background: var(--surface-2);
+  border: 1px solid var(--line); border-radius: var(--radius-sm); min-height: 38px;
+}
+.spec-readout.lit { color: var(--ink); border-color: var(--accent); }
+
+/* ---------- Swiss Industrial Print ---------- */
+.bru-swiss { background: #F4F4F0; color: #0A0A0A; font-family: "JetBrains Mono", monospace; border: 2px solid #0A0A0A; }
+.bru-swiss .bru-top { display: flex; justify-content: space-between; gap: 10px; border-bottom: 2px solid #0A0A0A; padding: 8px 12px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; }
+.bru-swiss .red { color: #E61919; }
+.bru-swiss .bru-title { font-family: "Archivo Black", system-ui, sans-serif; text-transform: uppercase; font-size: clamp(2.1rem, 7vw, 3.6rem); line-height: 0.86; letter-spacing: -0.045em; padding: 18px 12px 14px; margin: 0; }
+.bru-swiss .bru-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: baseline; border-top: 2px solid #0A0A0A; padding: 12px; }
+.bru-swiss .bru-n { font-family: "Archivo Black", system-ui, sans-serif; font-size: 26px; line-height: 1; }
+.bru-swiss .bru-name { font-family: "Archivo Black", system-ui, sans-serif; text-transform: uppercase; font-size: 15px; letter-spacing: -0.02em; align-self: center; }
+.bru-swiss .bru-meta { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #6a6a66; text-align: right; }
+.bru-swiss .bru-foot { border-top: 3px solid #E61919; padding: 8px 12px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; display: flex; justify-content: space-between; gap: 10px; }
+
+/* ---------- Tactical Telemetry ---------- */
+.bru-tele { background: #0A0A0A; color: #EAEAEA; font-family: "JetBrains Mono", monospace; border: 1px solid #2a2a2a; position: relative; overflow: hidden; }
+.bru-tele::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 3;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.30) 2px, rgba(0,0,0,0.30) 4px); }
+.bru-tele > * { position: relative; z-index: 1; }
+.bru-tele .bru-top { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px solid #2a2a2a; padding: 8px 12px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a8a8a; }
+.bru-tele .ascii { color: #E61919; }
+.bru-tele .bru-title { text-transform: uppercase; font-size: 14px; letter-spacing: 0.16em; padding: 14px 12px 8px; margin: 0; color: #EAEAEA; }
+.bru-tele .bru-row { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; border-top: 1px solid #1c1c1c; padding: 9px 12px; font-size: 12px; letter-spacing: 0.04em; }
+.bru-tele .bru-n { color: #E61919; }
+.bru-tele .bru-meta { color: #8a8a8a; text-align: right; }
+.bru-tele .status { color: #4AF626; }
+.bru-tele .bru-foot { border-top: 1px solid #2a2a2a; padding: 8px 12px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: #8a8a8a; display: flex; justify-content: space-between; gap: 10px; }
+
+/* the "mixed is broken" mini specimen */
+.bru-mixed { background: #F4F4F0; color: #0A0A0A; border: 2px solid #0A0A0A; padding: 16px; position: relative; overflow: hidden; font-family: "JetBrains Mono", monospace; }
+.bru-mixed::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.12) 2px, rgba(0,0,0,0.12) 4px); }
+.bru-mixed h4 { font-family: "Archivo Black", system-ui, sans-serif; text-transform: uppercase; font-size: 22px; letter-spacing: -0.03em; margin: 0 0 6px; position: relative; }
+.bru-mixed .g { color: #2f8f1e; }
+.bru-mixed p { position: relative; margin: 0; font-size: 12px; }
+
+@media (max-width: 860px) { .bru-two { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>模块 B：命名</span><span class="sep">/</span>
+      <span>第 06 课</span><span class="sep">/</span>
+      <span>约 16 分钟</span>
+    </p>
+    <h1>两种 Brutalism</h1>
+    <div class="win">
+      <span class="tag">你的一个小胜利</span>
+      <p style="margin:0">读完这节课，你能一眼分清 <strong>Swiss Industrial Print（瑞士工业印刷风）</strong>和 <strong>Tactical Telemetry（战术遥测风）</strong>，说出每一种模式在字体、字距、颜色、几何、质感上分别下了什么承诺，并说清楚为什么把两者混在一起就会崩掉。风格是一套互相咬合的承诺系统，不是随手撒一点的情绪。</p>
+    </div>
+  </header>
+
+  <!-- ===== spaced recall from Lessons 01-05 ===== -->
+  <section style="margin-bottom:44px">
+    <div id="recall"></div>
+  </section>
+
+  <section class="prose">
+    <p class="lead">「Brutalism（粗野主义）」是一个统一命名的风格家族，但它分裂成两种在表面上几乎毫无共同点的下定决心模式。一种是明亮的瑞士印刷蓝图，另一种是暗色的军用终端。同一血统，相反的基底（substrate）。学会叫出这两者的名字，并且看清每一种都是一整套完整的<em>系统</em>，就是这节课的重点。</p>
+    <p>这个更深的道理不止适用于 Brutalism：风格不是你随手抓来的一种情绪，而是一组必须互相一致的决定。字体、字距、颜色、几何、质感：把它们一起下定决心，页面就会读起来像被设计过；在两种模式之间挑挑拣拣，就会读起来像穿了一身戏服。</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE SHOW ================= -->
+  <section class="wide">
+    <p class="eyebrow" style="text-align:center;margin-bottom:8px">同一个项目索引，两种下定决心的模式。</p>
+    <p style="text-align:center;color:var(--ink-soft);font-size:14px;max-width:60ch;margin:0 auto 18px">
+      把鼠标悬停在任意一个渲染图的任何部分上（或点按），读出它背后精确的承诺：字体、字距、十六进制色值。</p>
+
+    <div class="bru-two">
+      <!-- Swiss Industrial Print -->
+      <div class="bru-frame">
+        <p class="bru-label"><span class="dot swiss"></span>Swiss Industrial Print</p>
+        <div class="bru bru-swiss">
+          <div class="bru-top" data-spec="基底 #F4F4F0 未漂白纸张 · 碳黑墨 #0A0A0A · 2px 边框 · 圆角 0">
+            <span>Studio Field / Index</span><span class="red">REV 2.6</span>
+          </div>
+          <h3 class="bru-title" data-spec="宏观大字 · Archivo Black · 全大写 · tracking -0.045em · leading 0.86">Selected<br>Works</h3>
+          <div class="bru-row">
+            <span class="bru-n" data-spec="超大数字 · Archivo Black 26px · #0A0A0A">01</span>
+            <span class="bru-name">Cargo Terminal</span>
+            <span class="bru-meta" data-spec="微观小字 · JetBrains Mono · 全大写 · tracking 0.08em · 10px">2024 / Identity</span>
+          </div>
+          <div class="bru-row">
+            <span class="bru-n">02</span>
+            <span class="bru-name">Freight Atlas</span>
+            <span class="bru-meta">2023 / Web</span>
+          </div>
+          <div class="bru-row">
+            <span class="bru-n">03</span>
+            <span class="bru-name">Dock Systems</span>
+            <span class="bru-meta">2023 / Print</span>
+          </div>
+          <div class="bru-foot" data-spec="警示红 #E61919 · 唯一的强调色 · 用作 3px 结构分隔线">
+            <span>Unit / D-01</span><span class="red">/// Active</span>
+          </div>
+        </div>
+        <output class="spec-readout">把鼠标悬停或点按任意部分以读取其规格。</output>
+      </div>
+
+      <!-- Tactical Telemetry -->
+      <div class="bru-frame">
+        <p class="bru-label"><span class="dot tele"></span>Tactical Telemetry</p>
+        <div class="bru bru-tele">
+          <div class="bru-top" data-spec="基底 #0A0A0A 已关闭的 CRT（绝不用 #000）· 扫描线叠加">
+            <span class="ascii">[ DELIVERY SYSTEMS ]</span><span>REV 2.6</span>
+          </div>
+          <h3 class="bru-title" data-spec="仅微观小字 · JetBrains Mono · 全大写 · tracking 0.16em">&gt;&gt;&gt; SELECTED WORKS</h3>
+          <div class="bru-row">
+            <span class="bru-n" data-spec="警示红 #E61919 · 同一种红，同样的警示角色">01</span>
+            <span data-spec="磷光文字 #EAEAEA 压在近黑底上 · JetBrains Mono 12px">Cargo Terminal</span>
+            <span class="bru-meta">2024 / ID</span>
+          </div>
+          <div class="bru-row">
+            <span class="bru-n">02</span>
+            <span>Freight Atlas</span>
+            <span class="bru-meta">2023 / WEB</span>
+          </div>
+          <div class="bru-row">
+            <span class="bru-n">03</span>
+            <span>Dock Systems</span>
+            <span class="bru-meta">2023 / PRT</span>
+          </div>
+          <div class="bru-foot">
+            <span>UNIT / D-01</span><span class="status" data-spec="终端绿 #4AF626 · 只用在恰好一个元素上，绝不用于正文">&#43; ONLINE</span>
+          </div>
+        </div>
+        <output class="spec-readout">把鼠标悬停或点按任意部分以读取其规格。</output>
+      </div>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>把两套承诺并排放</h2>
+    <p>注意只有<strong>一件事</strong>是共享的：警示红 <code>#E61919</code> 作为唯一的强调色。其余的一切都是相反的决定。这就是「一套承诺系统」的含义，也是风格之所以有名字的原因。</p>
+    <div class="note note--teach">
+      <p class="eyebrow">Swiss Industrial Print vs Tactical Telemetry</p>
+      <p style="margin:0"><strong>基底（substrate）：</strong>未漂白纸张 <code>#F4F4F0</code> 对比已关闭的 CRT 黑 <code>#0A0A0A</code>。<strong>字体：</strong>巨大的 Archivo Black（宏观大字）对比纯等宽的 JetBrains Mono（微观小字）。<strong>质感：</strong>可见的蓝图网格对比扫描线辉光。<strong>取景：</strong>超大数字对比 ASCII 括号与 <code>&gt;&gt;&gt;</code>。两者共有：圆角 0、全大写、一个红色。</p>
+    </div>
+  </section>
+
+  <section class="prose">
+    <h2>为什么绝不能把它们混在一起</h2>
+    <p>从每一边各拿一条承诺出来，系统就会崩掉。下面这个新闻纸质感的底子，却披着磷光扫描线和一个终端绿的词。现在两种模式都认不出自己了：</p>
+  </section>
+
+  <section class="column" style="margin-top:6px">
+    <div class="bru-mixed">
+      <h4>Cargo <span class="g">Terminal</span></h4>
+      <p>纸质基底、CRT 扫描线、终端绿同时出现。它读起来像一身戏服，既不是蓝图，也不是 HUD。眼睛分不清自己身处哪个世界。</p>
+    </div>
+    <p style="color:var(--ink-soft);font-size:14px;margin-top:12px">修法从来不是「调淡一点」，而是「选一种模式，让每一层都服从它」。下定决心而朴素，胜过混杂而繁忙。</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE DO ================= -->
+  <section class="prose">
+    <h2>给这些细节分类</h2>
+    <p>十个具体的细节，逐一出现。每一个都要判断它属于哪一种下定决心的模式。陷阱是那个共享的红色：其余的一切一旦你懂了这套系统，就都是干净利落的辨认信号（tell）。</p>
+  </section>
+  <div class="wide" id="sort-game" style="margin-top:20px;max-width:640px;margin-inline:auto"></div>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../reference/style-atlas.html">
+      <div>
+        <p class="eyebrow">参考资料 &middot; 留着它</p>
+        <h3>风格图鉴，两种模式已加入</h3>
+        <p>Swiss Industrial Print 和 Tactical Telemetry 现已收录进图鉴，带着各自的 token 色条和使用场景。</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <div class="card">
+      <p class="eyebrow">主要来源 &middot; 读这个</p>
+      <h3>industrial-brutalist-ui，整份文件</h3>
+      <p>语料库里最丰富的单一风格规格文档：两种原型、宏观对微观排版、配色系统、蓝图网格，以及模拟降质效果（半调、扫描线、抖动）。阅读
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/brutalist-skill/SKILL.md">技能文件</a>
+        （上游文件夹是 <code>brutalist-skill</code>，本地安装名是 <code>industrial-brutalist-ui</code>）。</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">你的老师</p>
+      <h3>随时追问</h3>
+      <p>想试试一个真正的 brutalist 页面，还是拿不准某个东西是下定决心还是只是杂乱？带来对话里，我们一起读。</p>
+    </div>
+
+    <a class="card next-link" href="./0007-pattern-glossary-i.html">
+      <div>
+        <p class="eyebrow">下一课</p>
+        <h3>07 &mdash; 套路词典 I</h3>
+        <p>从风格走向套路：hero 区、网格、版面结构的名字，让你能指着一个结构叫出它的名字。</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../../assets/quiz.js"></script>
+<script src="../../assets/sort.js"></script>
+<script>
+  /* ---- recall from Lessons 01-05 ---- */
+  Quiz.mount("#recall", [
+    { q: "压在 OLED 黑上、能看透的磨砂卡片。这是哪个家族？",
+      options: ["Ethereal Glass", "Deep Dark Mode", "Dark Tech / Hacker", "Tactical Telemetry"],
+      answer: 0,
+      why: "Ethereal Glass：OLED 黑、暗色光球、带折射边的磨砂卡片。Deep Dark 是实心的，没有模糊。" },
+    { q: "在设计判读里，真正决定旋钮的是什么？",
+      options: ["受众", "你自己的品味", "框架", "潮流周期"],
+      answer: 0,
+      why: "受众决定美学。你的品味和技术栈都排在其后。" },
+    { q: "哪个旋钮的范围是从美术馆到座舱？",
+      options: ["Density", "Variance", "Motion", "Contrast"],
+      answer: 0,
+      why: "Density（密度）：低值是通透的大字排版，高值是紧凑的座舱数据。Variance（变化度）指的是从对称到混乱。" }
+  ]);
+
+  /* ---- sort the details into their committed mode ---- */
+  SortGame.mount("#sort-game", {
+    left:  { key: "swiss",     label: "Swiss Industrial Print" },
+    right: { key: "telemetry", label: "Tactical Telemetry" },
+    items: [
+      { spec: "一个巨大的全大写标题，字距 letter-spacing -0.05em", mode: "swiss",
+        why: "宏观大字（macro-type）用紧的负字距，把字形挤压成坚实的色块。" },
+      { spec: "背景 #0A0A0A，叠加一层 CRT 扫描线", mode: "telemetry",
+        why: "已关闭的 CRT 黑加扫描线，就是终端的基底（substrate）。" },
+      { spec: "Archivo Black，字号设为 clamp(4rem, 10vw, 15rem)", mode: "swiss",
+        why: "溢出视口的巨型新怪诞体（neo-grotesque），是 Swiss 的招牌动作。" },
+      { spec: "ASCII 框架，比如 [ DELIVERY SYSTEMS ] 和 &gt;&gt;&gt;", mode: "telemetry",
+        why: "ASCII 括号和方向箭头，是终端语法式的装饰。" },
+      { spec: "基底 #F4F4F0，未漂白的文档纸", mode: "swiss",
+        why: "哑光米白印刷纸，是 Swiss 的亮色基底（substrate）。" },
+      { spec: "一个单独的状态读数，用终端绿 #4AF626", mode: "telemetry",
+        why: "终端绿只允许用在恰好一个元素上，绝不能用作正文。" },
+      { spec: "溢出视口边缘的超大数字", mode: "swiss",
+        why: "被留白框住的巨型结构性数字，是纯正的 Swiss 印刷手法。" },
+      { spec: "磷光文字 #EAEAEA 压在近黑底上，纯等宽字体", mode: "telemetry",
+        why: "暗色 CRT 上的白色磷光，全用等宽字体，就是遥测的文字系统。" },
+      { spec: "堆叠的巨石感标题，行高压缩到 0.9", mode: "swiss",
+        why: "压缩的行高让宏观大字读起来像建筑体块。" },
+      { spec: "网格交点处的十字准星标记，压在密集的表格行上", mode: "telemetry",
+        why: "十字准星加高密度表格数据，是 HUD 仪表的语言。" }
+    ]
+  });
+
+  /* ---- hover / tap to read a specimen's commitment ---- */
+  document.querySelectorAll(".bru-frame").forEach(function (frame) {
+    var out = frame.querySelector(".spec-readout");
+    if (!out) return;
+    var def = out.textContent;
+    frame.querySelectorAll("[data-spec]").forEach(function (node) {
+      if (!node.hasAttribute("tabindex")) node.setAttribute("tabindex", "0");
+      function show() { out.textContent = node.getAttribute("data-spec"); out.classList.add("lit"); }
+      function clear() { out.textContent = def; out.classList.remove("lit"); }
+      node.addEventListener("mouseenter", show);
+      node.addEventListener("mouseleave", clear);
+      node.addEventListener("focus", show);
+      node.addEventListener("blur", clear);
+      node.addEventListener("click", show);
+    });
+  });
+</script>
+</body>
+</html>

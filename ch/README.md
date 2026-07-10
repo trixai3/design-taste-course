@@ -32,8 +32,9 @@ python3 -m http.server 4599
 | 03 | [设计判读 · The Design Read](lessons/0003-the-design-read.html) | 动手前先说那一句话：是受众决定美学，不是你的口味。 |
 | 04 | [风格图鉴 I · Style Atlas I](lessons/0004-style-atlas-i.html) | 一眼认出五个亮色家族并叫出名字。 |
 | 05 | [风格图鉴 II · Style Atlas II](lessons/0005-style-atlas-ii.html) | 再认出五个暗色与大胆家族，并分清「做对」与「做砸」的玻璃拟态。 |
+| 06 | [两种 Brutalism · The Two Brutalisms](lessons/0006-the-two-brutalisms.html) | 分清 Swiss Industrial Print 与 Tactical Telemetry，并说清为什么绝不能混用。 |
 
-（第 06 课起仍在建设中。）
+（第 07 课起仍在建设中。）
 
 ## 参考卡（可打印）
 
