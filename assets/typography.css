@@ -1,0 +1,79 @@
+/* ==========================================================================
+   typography.css — type specimens & live type demos for Lesson 09 + reference.
+
+   The typefaces are @imported by the lesson/reference <head> (Google + the
+   Fontshare faces course.css already loads). This file only styles the
+   specimens and the four demos. One roster, named as utility classes so the
+   quiz and pairing game can reuse them.
+   ========================================================================== */
+
+/* ---- the roster (font utility classes) --------------------------------- */
+.f-inter      { font-family: "Inter", system-ui, sans-serif; }
+.f-geist      { font-family: "Geist", system-ui, sans-serif; }
+.f-satoshi    { font-family: "Satoshi", system-ui, sans-serif; }
+.f-cabinet    { font-family: "Cabinet Grotesk", system-ui, sans-serif; }
+.f-anton      { font-family: "Anton", Impact, sans-serif; }
+.f-instrument { font-family: "Instrument Serif", Georgia, serif; }
+.f-jbmono     { font-family: "JetBrains Mono", ui-monospace, monospace; }
+.f-geistmono  { font-family: "Geist Mono", ui-monospace, monospace; }
+
+/* ---- Show 1 · fonts have voices ---------------------------------------- */
+.voices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.voice {
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--surface); padding: 22px 18px 16px;
+}
+.voice .spec { font-size: 40px; line-height: 1; color: var(--ink); margin: 0 0 16px; }
+.voice .cat  { font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-faint); }
+.voice .face { font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; color: var(--accent-ink); margin: 2px 0 0; }
+.voice .vibe { font-size: 13.5px; color: var(--ink-soft); margin: 6px 0 0; }
+@media (max-width: 640px) { .voices { grid-template-columns: 1fr 1fr; } }
+
+/* ---- Show 2 · tracking & leading you can drag -------------------------- */
+.tl-stage {
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--surface); padding: 30px 26px 24px;
+}
+.tl-headline {
+  font-family: "Cabinet Grotesk", system-ui, sans-serif; font-weight: 800;
+  font-size: clamp(28px, 5.2vw, 52px); color: var(--ink); margin: 0;
+  letter-spacing: var(--tr, 0em); line-height: var(--ld, 1.05);
+}
+.tl-controls { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 22px; }
+.tl-controls label {
+  display: flex; flex-direction: column; gap: 7px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.tl-controls .val { color: var(--accent-ink); }
+.tl-controls input[type="range"] { width: 210px; accent-color: var(--accent); }
+.tl-note { max-width: var(--measure); color: var(--ink-soft); font-size: 14px; margin: 16px 0 0; }
+
+/* ---- Show 3 · the italic-descender clipping bug ------------------------ */
+.two-up { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.two-up figure { margin: 0; }
+.two-up figcaption { margin-top: 8px; font-size: 13.5px; color: var(--ink-soft); }
+.two-up .verdict { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.two-up .bad .verdict { color: var(--accent-ink); }
+.two-up .ok  .verdict { color: var(--good); }
+.clip {
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--surface); padding: 22px 20px;
+}
+.clip .word { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 46px; color: var(--ink); }
+/* wrong: a tight fixed line-box with overflow hidden shears the italic descenders */
+.clip.bad .word { display: block; overflow: hidden; height: 42px; line-height: 42px; }
+/* right: room for the descender (leading + a touch of padding) */
+.clip.ok  .word { display: block; line-height: 1.28; padding-bottom: .1em; }
+
+/* ---- Show 4 · the emphasis rule ---------------------------------------- */
+.emph {
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--surface); padding: 24px 22px;
+}
+.emph .h { font-family: "Inter", system-ui, sans-serif; font-weight: 700; font-size: 27px; line-height: 1.25; color: var(--ink); margin: 0; }
+.emph.ok  .h em     { font-style: italic; }                                        /* same family, italic */
+.emph.bad .h .serif { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; }  /* alien serif jammed in */
+
+/* ---- shared: a specimen glyph inside a quiz question ------------------- */
+.qspec { display: inline-block; font-size: 40px; line-height: 1; vertical-align: -0.28em; margin-right: 12px; color: var(--ink); }

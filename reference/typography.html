@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference: The Typography Sheet</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Inter:ital,wght@0,400;0,600;0,700;1,600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../assets/typography.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 20px;
+  }
+  .cat > .cat-note { max-width: var(--measure); color: var(--ink-soft); font-size: 14.5px; margin: -8px 0 20px; }
+  .rules { max-width: var(--measure); margin: 22px 0 0; padding: 0; list-style: none; }
+  .rules li { font-size: 14.5px; padding: 8px 0; border-top: 1px dashed var(--line); }
+  .rules li b { font-family: var(--font-display); }
+  /* category definition list */
+  .deflist { max-width: var(--measure); margin: 0; }
+  .deflist div { padding: 10px 0; border-top: 1px dashed var(--line); }
+  .deflist dt { font-family: var(--font-display); font-weight: 700; font-size: 15px; }
+  .deflist dd { margin: 3px 0 0; font-size: 14px; color: var(--ink-soft); }
+  /* pairing table */
+  .pairs { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  .pairs th, .pairs td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .pairs th { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-faint); }
+  .pairs .role { color: var(--ink-soft); }
+  .pairs .good { color: var(--good); font-weight: 600; }
+  .pairs .bad { color: var(--accent-ink); font-weight: 600; }
+  .backlink { margin-top: 40px; }
+  @media print { .voices { grid-template-columns: repeat(3, 1fr); } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste &middot; Reference &middot; print me</p>
+    <h1>The Typography Sheet</h1>
+    <p>The font vocabulary, a named roster with voices, a pairing table, and the disciplines. From
+      Lesson 09. Read a face by its letterforms, then call for it by category and name.</p>
+  </div>
+
+  <!-- ===================== CATEGORIES ===================== -->
+  <section class="cat">
+    <h2>Categories &middot; how to sort any face on sight</h2>
+    <dl class="deflist">
+      <div><dt>Grotesque</dt><dd>Early sans, a little industrial and characterful (Geist, Cabinet
+        Grotesk). Slightly irregular, warmer than neo-grotesque.</dd></div>
+      <div><dt>Neo-grotesque</dt><dd>The refined, neutral descendants (Inter, Helvetica). Even and
+        quiet, engineered to disappear. The safe body baseline.</dd></div>
+      <div><dt>Geometric grotesk</dt><dd>Built from near-circles and straight lines (Satoshi, Futura
+        lineage). Friendly, modern, a touch warmer.</dd></div>
+      <div><dt>Display face</dt><dd>Made to be seen big, not read small (Anton, Cabinet Grotesk at
+        size). Character and tight tracking welcome; unusable as body.</dd></div>
+      <div><dt>Editorial / display serif</dt><dd>High-contrast serifs with a literary voice (Instrument
+        Serif, Fraunces). Earned in long-form and luxury; a tell as a default.</dd></div>
+      <div><dt>Monospace</dt><dd>Every glyph the same width (JetBrains Mono, Geist Mono). Reads as code,
+        data, technical. Pairs with its own family or a matching sans.</dd></div>
+    </dl>
+  </section>
+
+  <!-- ===================== ROSTER ===================== -->
+  <section class="cat">
+    <h2>The roster &middot; six voices</h2>
+    <p class="cat-note">The same word in each, so only the voice varies.</p>
+    <div class="voices">
+      <div class="voice">
+        <p class="spec f-inter">Taste</p>
+        <p class="cat" style="margin:0">Neo-grotesque</p>
+        <p class="face f-inter">Inter</p>
+        <p class="vibe">The default hum: competent, neutral, invisible. The baseline you leave on purpose.</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-geist">Taste</p>
+        <p class="cat" style="margin:0">Grotesque</p>
+        <p class="face f-geist">Geist</p>
+        <p class="vibe">Engineered and even. Developer-tools modern, precise, a little cool.</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-satoshi">Taste</p>
+        <p class="cat" style="margin:0">Geometric grotesk</p>
+        <p class="face f-satoshi">Satoshi</p>
+        <p class="vibe">Rounded and friendly. Warm startup confidence without going soft.</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-cabinet">Taste</p>
+        <p class="cat" style="margin:0">Display grotesk</p>
+        <p class="face f-cabinet">Cabinet Grotesk</p>
+        <p class="vibe">Characterful, faintly quirky. A headline with an opinion; tiring at body size.</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-anton">Taste</p>
+        <p class="cat" style="margin:0">Compressed display</p>
+        <p class="face f-anton">Anton</p>
+        <p class="vibe">Loud poster and fashion energy, all impact. Never body text.</p>
+      </div>
+      <div class="voice">
+        <p class="spec f-instrument">Taste</p>
+        <p class="cat" style="margin:0">Editorial serif</p>
+        <p class="face f-instrument">Instrument Serif</p>
+        <p class="vibe">Elegant and literary. Earned in editorial; the serif AI defaults to, so a tell out of context.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PAIRINGS ===================== -->
+  <section class="cat">
+    <h2>Pairings &middot; a voice plus a workhorse</h2>
+    <p class="cat-note">Give each role a distinct voice from the same world. Never one face for two
+      jobs, never two attention-grabbers fighting.</p>
+    <table class="pairs">
+      <thead><tr><th>Brief</th><th>Display / heading</th><th>Body / support</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td class="role">Developer tools</td><td>Geist</td><td>Geist Mono</td><td class="good">Works</td></tr>
+        <tr><td class="role">Friendly SaaS</td><td>Satoshi</td><td>JetBrains Mono / Inter</td><td class="good">Works</td></tr>
+        <tr><td class="role">Marketing site</td><td>Cabinet Grotesk</td><td>Inter</td><td class="good">Works</td></tr>
+        <tr><td class="role">Editorial / long-form</td><td>Instrument Serif</td><td>Inter</td><td class="good">Works (serif earned)</td></tr>
+        <tr><td class="role">Any</td><td>Anton</td><td>Instrument Serif</td><td class="bad">Clash: two grabbers</td></tr>
+        <tr><td class="role">Any</td><td>Anton</td><td>Anton</td><td class="bad">One display, both roles</td></tr>
+        <tr><td class="role">Any</td><td>Geist Mono</td><td>Geist Mono</td><td class="bad">Mono as body</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== DISCIPLINES ===================== -->
+  <section class="cat">
+    <h2>Disciplines &middot; the rules that keep type tuned</h2>
+    <ul class="rules">
+      <li><b>Display vs body.</b> Display is seen (headings): character welcome, tracking can be tight,
+        leading near 1.0. Body is read (paragraphs): calm workhorse, normal tracking, leading around
+        1.5. A display face at 15px in a paragraph is a tell.</li>
+      <li><b>Tracking earns its place on big type only.</b> Tight letter-spacing suits large display; on
+        body it closes the letters up and hurts reading.</li>
+      <li><b>Leading runs opposite to size.</b> Small body text wants more line-height (~1.5); large
+        display wants less (~1.0).</li>
+      <li><b>Emphasize with the same family's italic.</b> Never inject a serif word into a sans headline;
+        two voices read as a mistake, not emphasis.</li>
+      <li><b>Give italics room.</b> A tight line-box with <code>overflow:hidden</code> shears italic
+        descenders. Fix with leading and a little padding, not a smaller size.</li>
+      <li><b>The serif rule.</b> A serif is earned by genuinely editorial content, not used as a shortcut
+        to "premium". Instrument Serif and Fraunces are banned as defaults because every AI mock reaches
+        for them, so they now signal the opposite.</li>
+      <li><b>Tabular figures for numbers in columns.</b> Use tabular (monospaced) figures so digits align
+        in tables, prices, and dashboards.</li>
+    </ul>
+  </section>
+
+  <div class="backlink">
+    <a class="btn btn--ghost" href="../lessons/0009-typography.html">&larr; Back to Lesson 09</a>
+  </div>
+</main>
+</body>
+</html>

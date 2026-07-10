@@ -197,6 +197,51 @@ in the corpus (zero, anywhere). Fix: period, comma, colon, or parentheses.
 把破折号（—）当风格化停顿来用。模型标志性的标点拐杖；语料库彻底禁用（任何地方都不许）。改法：句号、逗号、冒号或括号。
 _Source_: DTF §9.G
 
+### Type craft · 排版工艺 (Lesson 09)
+
+**Tracking · 字距**:
+The space between letters. Tight (negative) tracking earns its place on big display type; on body text
+it closes the letters up and hurts reading.
+字母之间的间距。紧的（负的）字距在大号展示字上才成立；用在正文上会把字挤在一起、降低可读性。
+_Source_: DTF §4.1
+
+**Leading · 行距**:
+The space between lines (line-height). Runs opposite to size: small body text wants more (around 1.5),
+large display wants less (near 1.0).
+行与行之间的间距（line-height）。与字号相反：小号正文需要更大（约 1.5），大号展示字需要更小（接近 1.0）。
+_Source_: DTF §4.1
+
+**Descender · 下伸部**:
+The part of a glyph below the baseline (the tails on g, y, p). A tight line-box with `overflow:hidden`
+shears them off, especially in italics. Fix with leading and a little padding, not a smaller font.
+字形基线以下的部分（g、y、p 的尾巴）。行盒过紧加 `overflow:hidden` 会把它们切掉，斜体尤其明显。用行距加一点内边距来修，而不是缩小字号。
+_Source_: DTF §4.1
+
+**Tabular figures · 等宽数字**:
+Digits that all share one width so numbers align in columns. Use them for tables, prices, and
+dashboards; proportional figures make columns ragged.
+所有数字共用同一宽度、便于在列中对齐的数字。用于表格、价格、仪表盘；比例数字会让数列参差不齐。
+_Source_: DTF §4.1
+
+**Pairing · 字体搭配**:
+Choosing two typefaces that give each role a distinct voice from the same world (Geist + Geist Mono,
+Cabinet Grotesk + Inter). Failure modes: two attention-grabbers clashing, or one face doing both jobs.
+挑选两款字体，让每个角色都有来自同一世界的独立声音（Geist + Geist Mono、Cabinet Grotesk + Inter）。失败模式：两个抢眼的字体互相打架，或一款字体硬扛两个角色。
+_Source_: DTF §4.1
+
+**Type scale · 字号阶梯**:
+The set of sizes on a page, stepped by a consistent ratio rather than picked at random, so heading and
+body sizes feel related.
+一个页面上用到的字号集合，按一致的比例递进而不是随手乱选，让标题和正文的字号彼此相关。
+_Source_: DTF §4.1
+
+**The serif rule · 衬线规则**:
+A serif is earned by genuinely editorial content (long-form, literary, luxury), not used as a shortcut
+to "premium". Instrument Serif and Fraunces are banned as defaults because every AI mock reaches for
+them to fake sophistication, so out of context they now signal the opposite.
+衬线字体要靠真正的编辑性内容来"赚取"（长文、文学、奢侈品），而不是当作通往"高级感"的捷径。Instrument Serif 和 Fraunces 被禁作默认，因为每个 AI 稿件都拿它们来假装精致，脱离语境反而暴露相反的信号。
+_Source_: DTF §4.1
+
 ---
 
 ## Color · 颜色

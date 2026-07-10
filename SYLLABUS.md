@@ -19,7 +19,7 @@ Status: ✅ live · ⏳ in progress.
 - ✅ **08 · Pattern Glossary II** — motion vocabulary: sticky-stack, scrub, stagger, marquee, spring.
 
 ## Module C — Craft (best practice per axis)
-- ⏳ **09 · Typography** — fonts have voices; display vs body discipline; when a serif is earned.
+- ✅ **09 · Typography** — fonts have voices; display vs body discipline; when a serif is earned.
 - ⏳ **10 · Color** — neutrals do the work, one accent gets the glory; the palettes to avoid.
 - ⏳ **11 · Space & Surface** — why expensive sites feel expensive (whitespace, radius, shadow, grain).
 - ⏳ **12 · Copy is Design** — the words that make a page read as generated.
