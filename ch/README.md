@@ -33,8 +33,9 @@ python3 -m http.server 4599
 | 04 | [风格图鉴 I · Style Atlas I](lessons/0004-style-atlas-i.html) | 一眼认出五个亮色家族并叫出名字。 |
 | 05 | [风格图鉴 II · Style Atlas II](lessons/0005-style-atlas-ii.html) | 再认出五个暗色与大胆家族，并分清「做对」与「做砸」的玻璃拟态。 |
 | 06 | [两种 Brutalism · The Two Brutalisms](lessons/0006-the-two-brutalisms.html) | 分清 Swiss Industrial Print 与 Tactical Telemetry，并说清为什么绝不能混用。 |
+| 07 | [Pattern Glossary I · 套路词典 I](lessons/0007-pattern-glossary-i.html) | 一眼叫出布局套路的名字：六种 hero 范式、grid 家族（bento / masonry / 分屏 / zigzag）、十个 composition anchor。 |
 
-（第 07 课起仍在建设中。）
+（第 08 课起仍在建设中。）
 
 ## 参考卡（可打印）
 
@@ -44,6 +45,7 @@ python3 -m http.server 4599
 - [三个旋钮](reference/dials.html)
 - [设计判读](reference/design-read.html)
 - [风格图鉴](reference/style-atlas.html)
+- [套路词典 · Pattern Glossary](reference/pattern-glossary.html)
 
 术语对照见仓库根部的双语词汇表 [`../GLOSSARY.md`](../GLOSSARY.md)（英文 · 中文）。
 
