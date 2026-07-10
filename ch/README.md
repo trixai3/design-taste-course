@@ -34,8 +34,9 @@ python3 -m http.server 4599
 | 05 | [风格图鉴 II · Style Atlas II](lessons/0005-style-atlas-ii.html) | 再认出五个暗色与大胆家族，并分清「做对」与「做砸」的玻璃拟态。 |
 | 06 | [两种 Brutalism · The Two Brutalisms](lessons/0006-the-two-brutalisms.html) | 分清 Swiss Industrial Print 与 Tactical Telemetry，并说清为什么绝不能混用。 |
 | 07 | [Pattern Glossary I · 套路词典 I](lessons/0007-pattern-glossary-i.html) | 一眼叫出布局套路的名字：六种 hero 范式、grid 家族（bento / masonry / 分屏 / zigzag）、十个 composition anchor。 |
+| 08 | [Pattern Glossary II · 套路词典 II](lessons/0008-pattern-glossary-ii.html) | 看着页面的行为叫出动效的名字：错峰入场、粘性堆叠、固定/擦洗、跑马灯、磁吸按钮、弹性对线性，外加动效必须有动机、必须能降级这两条规则。 |
 
-（第 08 课起仍在建设中。）
+（第 09 课起仍在建设中。）
 
 ## 参考卡（可打印）
 

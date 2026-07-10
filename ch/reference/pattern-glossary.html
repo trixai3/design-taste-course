@@ -6,7 +6,9 @@
 <title>参考卡：套路词典</title>
 <link rel="stylesheet" href="../../assets/course.css">
 <link rel="stylesheet" href="../../assets/pattern-thumbs.css">
+<link rel="stylesheet" href="../../assets/motion-demos.css">
 <style>
+  .cat .mdemo-note { max-width: var(--measure); color: var(--ink-faint); font-size: 13px; margin: 14px 0 0; }
   .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
   .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
   .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
@@ -30,7 +32,7 @@
   <div class="ref-head">
     <p class="eyebrow">Design Taste &middot; 参考卡 &middot; 打印我</p>
     <h1>套路词典 · The Pattern Glossary</h1>
-    <p>可以拿去指挥 AI 的、有名字的版面套路。把每一种都读成一个剪影：深色条是标题，细条是正文，网格纹面板是素材，红色块是 CTA。英雄区、网格、构图锚点来自第 07 课。动效套路会在第 08 课加入。</p>
+    <p>可以拿去指挥 AI 的、有名字的版面套路。把每一种都读成一个剪影：深色条是标题，细条是正文，网格纹面板是素材，红色块是 CTA。英雄区、网格、构图锚点来自第 07 课；动效套路来自第 08 课。</p>
   </div>
 
   <!-- ===================== HERO PARADIGMS ===================== -->
@@ -162,11 +164,71 @@
     </div>
   </section>
 
-  <div class="todo">动效套路（sticky-stack、scroll hijack、scrub、stagger、marquee、spring）会在第 08 课加入这份词典。</div>
+  <!-- ===================== MOTION BEHAVIOURS ===================== -->
+  <section class="cat" id="motion">
+    <h2>动效行为 &middot; 页面如何随时间运动</h2>
+    <p class="cat-note">动效没法截图，所以每一个都是实时的：把光标移到磁吸按钮上，在 sticky-stack 和 pin/scrub
+      两个框里滚动。打印出来，或者打开减弱动效，每一个都会安定进一个可读的静止态。</p>
+    <div class="pat-wall">
+      <div class="pat-item">
+        <div class="mdemo"><div class="stagger"><span class="bar"></span><span class="bar s"></span><span class="bar"></span><span class="bar s"></span></div></div>
+        <p class="pat-name"><span class="n">M1</span>Staggered Reveal</p>
+        <p class="pat-desc">元素依次、带小延迟地入场（错峰入场），引导视线按阅读顺序往下走。最实用的入场方式。</p>
+      </div>
+      <div class="pat-item">
+        <div class="mdemo">
+          <div class="stackscroll"><div class="card"><span class="bar"></span></div><div class="card"><span class="bar"></span></div><div class="card"><span class="bar"></span></div><div class="card"><span class="bar"></span></div><div class="tail"></div></div>
+          <span class="hint">滚动 &darr;</span>
+        </div>
+        <p class="pat-name"><span class="n">M2</span>Sticky-Stack</p>
+        <p class="pat-desc">卡片在顶部固定，随滚动层层堆叠（粘性堆叠），每张压在上一张之下。列表变成了一叠卡片。</p>
+      </div>
+      <div class="pat-item">
+        <div class="mdemo">
+          <div class="scrub"><div class="pin"><span class="knob"></span><span class="meter"><i></i></span></div><div class="spacer"></div></div>
+          <span class="hint">滚动 &darr;</span>
+        </div>
+        <p class="pat-name"><span class="n">M3</span>Pin / Scrub</p>
+        <p class="pat-desc">元素固定不动，由滚动位置驱动它的状态（固定 / 擦洗）：旋转、填充，或逐帧播放。滚动
+          变成了进度擦洗条。</p>
+      </div>
+      <div class="pat-item">
+        <div class="mdemo"><div class="marquee"><div class="track">
+          <span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">NO SLOP</span>
+          <span class="chip">SHIP FAST</span><span class="chip">STAY WEIRD</span><span class="chip">NO SLOP</span>
+        </div></div></div>
+        <p class="pat-name"><span class="n">M4</span>Marquee</p>
+        <p class="pat-desc">文字或标志的连续横向滚动（跑马灯）。高能量。硬上限：每页一个。</p>
+      </div>
+      <div class="pat-item">
+        <div class="mdemo magnet"><span class="mbtn">HOVER ME</span></div>
+        <p class="pat-name"><span class="n">M5</span>Magnetic Button</p>
+        <p class="pat-desc">控件向靠近的光标漂移（磁吸按钮），随后弹回。让目标显得可触及的微交互。</p>
+      </div>
+      <div class="pat-item">
+        <div class="mdemo"><div class="ease">
+          <div class="lane"><span class="dot lin"></span><span class="tag">linear</span></div>
+          <div class="lane"><span class="dot spr"></span><span class="tag">spring</span></div>
+        </div></div>
+        <p class="pat-name"><span class="n">M6</span>Spring vs Linear</p>
+        <p class="pat-desc">缓动（弹性对线性）：线性保持一种平直的速度；弹性会加速、过冲、再回稳。弹性显得有
+          物理感，线性显得机械。</p>
+      </div>
+    </div>
+    <ul class="rules">
+      <li><b>动效必须有动机。</b>每一次运动都应该承载意义、引导注意力，或者表明一种关系。只会晃动的装饰是噪声，
+        噪声显得廉价。</li>
+      <li><b>它必须能降级。</b>尊重 <code>prefers-reduced-motion</code>：页面依然可读，没有仅靠运动传达的信息，
+        也没有停在半途的淡入淡出。</li>
+      <li><b>每页一个跑马灯。</b>两个就成了游乐场。</li>
+    </ul>
+  </section>
 
   <div class="backlink">
-    <a class="btn btn--ghost" href="../lessons/0007-pattern-glossary-i.html">&larr; 返回第 07 课</a>
+    <a class="btn btn--ghost" href="../lessons/0008-pattern-glossary-ii.html">&larr; 返回第 08 课</a>
   </div>
 </main>
+<script src="../../assets/motion.js"></script>
+<script>Motion.mount(document);</script>
 </body>
 </html>
