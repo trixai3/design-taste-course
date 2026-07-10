@@ -54,11 +54,19 @@
     all(root, ".scrub").forEach(wireScrub);
     all(root, ".magnet").forEach(wireMagnet);
 
-    /* [data-replay="#sel"] — replay a communicative reveal on click */
+    /* [data-replay="#sel"] — replay a reveal on click. The target rests VISIBLE,
+       so it is never blank; a click hides then re-reveals, then we drop .run so
+       it settles back to rest. No auto-play: an entrance that plays while the tab
+       is not ticking would freeze on its hidden first frame. */
     all(root, "[data-replay]").forEach(function (btn) {
       var target = root.querySelector(btn.getAttribute("data-replay"));
+      if (!target) return;
+      var bars = target.querySelectorAll(".bar");
+      var last = bars[bars.length - 1];
+      target.addEventListener("animationend", function (e) {
+        if (e.target === last) target.classList.remove("run");
+      });
       btn.addEventListener("click", function () { restart(target); });
-      restart(target);   /* play once on load so it is not blank */
     });
 
     /* the spring-vs-linear centerpiece: a Play button + an easing switch */
