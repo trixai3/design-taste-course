@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference: The Pattern Glossary</title>
+<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../assets/pattern-thumbs.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 20px;
+  }
+  .cat > .cat-note { max-width: var(--measure); color: var(--ink-soft); font-size: 14.5px; margin: -8px 0 20px; }
+  .rules { max-width: var(--measure); margin: 22px 0 0; padding: 0; list-style: none; }
+  .rules li { font-size: 14.5px; padding: 8px 0; border-top: 1px dashed var(--line); }
+  .rules li b { font-family: var(--font-display); }
+  .todo { border: 1px dashed var(--line); border-radius: var(--radius); padding: 14px 18px; color: var(--ink-faint); font-size: 14px; margin-top: 24px; }
+  .backlink { margin-top: 40px; }
+  @media print { .pat-wall { grid-template-columns: repeat(3, 1fr); } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste &middot; Reference &middot; print me</p>
+    <h1>The Pattern Glossary</h1>
+    <p>Layout patterns you can point an AI at by name. Read each as a silhouette: dark bars are
+      headlines, thin bars are body text, the hatched panel is an asset, the red block is a CTA.
+      Heroes, grids, and composition anchors from Lesson 07. Motion patterns arrive in Lesson 08.</p>
+  </div>
+
+  <!-- ===================== HERO PARADIGMS ===================== -->
+  <section class="cat">
+    <h2>Hero paradigms &middot; the shape of the first screen</h2>
+    <div class="pat-wall">
+      <div class="pat-item">
+        <div class="pat hero-split">
+          <span class="col" style="display:flex;flex-direction:column;gap:6px">
+            <span class="e"></span><span class="h"></span><span class="h s"></span><span class="t"></span><span class="c"></span>
+          </span>
+          <span class="a"></span>
+        </div>
+        <p class="pat-name"><span class="n">H1</span>Asymmetric Split</p>
+        <p class="pat-desc">Text one side, asset the other, generous whitespace. The workhorse hero for
+          SaaS and premium consumer.</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat hero-manifesto"><span class="h a1"></span><span class="h a2"></span><span class="h a3"></span></div>
+        <p class="pat-name"><span class="n">H2</span>Editorial Manifesto</p>
+        <p class="pat-desc">Huge type, no asset, almost a poster. The one time a centered hero is
+          earned: launches and editorial.</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat hero-mask"><span class="a"></span><span class="word">FORM</span></div>
+        <p class="pat-name"><span class="n">H3</span>Video / Media Mask</p>
+        <p class="pat-desc">Type cut out as a mask over a video or image. Cinematic and heavy; needs a
+          real asset behind it.</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat hero-kinetic"><span class="k k1">type</span><span class="k k2">MOVES</span><span class="k k3">type</span><span class="tick"></span></div>
+        <p class="pat-name"><span class="n">H4</span>Kinetic-Type</p>
+        <p class="pat-desc">Animated typography is the primary visual. The words perform; empty without
+          real motion behind it.</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat hero-curtain"><span class="panel top"></span><span class="panel bot"></span><span class="seam"><span class="h"></span><span class="t"></span></span></div>
+        <p class="pat-name"><span class="n">H5</span>Curtain-Reveal</p>
+        <p class="pat-desc">The hero parts on scroll like a curtain. A scroll-driven entrance, not a
+          static layout.</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat hero-pinned"><span class="behind"><span class="t"></span><span class="t"></span><span class="a"></span><span class="t"></span></span><span class="card"><span class="h"></span><span class="t"></span><span class="pin"></span></span></div>
+        <p class="pat-name"><span class="n">H6</span>Scroll-Pinned</p>
+        <p class="pat-desc">The hero stays pinned while the content scrolls past behind it. Holds one
+          message while the story moves.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LAYOUT & GRIDS ===================== -->
+  <section class="cat">
+    <h2>Layout &amp; grid families &middot; how the middle is arranged</h2>
+    <div class="pat-wall two">
+      <div class="pat-item">
+        <div class="pat bento bento-right"><span class="cell big img"></span><span class="cell"></span><span class="cell img"></span><span class="cell wcell"></span></div>
+        <p class="pat-name"><span class="n">L1</span>Bento Grid</p>
+        <p class="pat-desc">Asymmetric tiles of mixed sizes (Apple Control Center). Rhythm, not six
+          identical cards.</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat masonry">
+          <span class="col"><span class="tile" style="height:38px"></span><span class="tile" style="height:22px"></span></span>
+          <span class="col"><span class="tile" style="height:22px"></span><span class="tile" style="height:40px"></span></span>
+          <span class="col"><span class="tile" style="height:30px"></span><span class="tile" style="height:26px"></span></span>
+        </div>
+        <p class="pat-name"><span class="n">L2</span>Masonry Layout</p>
+        <p class="pat-desc">Staggered grid, no fixed row height. Tiles pack by height. Bento aligns to a
+          grid; masonry does not.</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat splitscroll"><span class="half l"><span class="arw">&uarr;</span></span><span class="half r"><span class="arw">&darr;</span></span></div>
+        <p class="pat-name"><span class="n">L3</span>Split-Screen Scroll</p>
+        <p class="pat-desc">Two halves moving in opposite directions on scroll. One holds while the
+          other advances, or they counter-scroll.</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat zigzag">
+          <div class="row"><span class="a"></span><span class="side"><span class="h h2"></span><span class="t"></span></span></div>
+          <div class="row flip"><span class="a"></span><span class="side"><span class="h h2"></span><span class="t"></span></span></div>
+          <div class="row bad"><span class="a"></span><span class="side"><span class="h h2"></span><span class="t"></span></span></div>
+        </div>
+        <p class="pat-name"><span class="n">L4</span>Zigzag (alternating)</p>
+        <p class="pat-desc">Image-left/text-right, then flipped. Capped at two in a row: the third
+          (flagged) is a pre-flight fail.</p>
+      </div>
+    </div>
+    <ul class="rules">
+      <li><b>Bento cell-count rule.</b> A bento has exactly as many cells as you have content for.
+        An empty tile in the middle or at the end means the grid was planned wrong. Reshape it; never
+        paste a blank to balance the grid.</li>
+      <li><b>Zigzag alternation cap.</b> Two alternating image-and-text rows is fine. The third in a
+        row is banal. Break the run with a full-width section, a bento, or a vertical stack.</li>
+    </ul>
+  </section>
+
+  <!-- ===================== COMPOSITION ANCHORS ===================== -->
+  <section class="cat">
+    <h2>Composition anchors &middot; where the text sits in a section</h2>
+    <p class="cat-note">Inside one section, the text block can anchor in ten places. Reflex puts it
+      left-of-image every time. Vary the anchor and use at least three across a page.</p>
+    <div class="anc-wall">
+      <div class="pat-item">
+        <div class="pat anc"><span class="blk center"><span class="h"></span><span class="t"></span></span></div>
+        <p class="anc-cap"><b>1.</b> Centered statement</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat anc"><span class="blk tl"><span class="h"></span><span class="t"></span></span><span class="blk br"><span class="t"></span><span class="t"></span></span></div>
+        <p class="anc-cap"><b>2.</b> Top-left lead, support bottom-right</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat anc"><span class="a full"></span><span class="blk bl on"><span class="h"></span><span class="t"></span></span></div>
+        <p class="anc-cap"><b>3.</b> Bottom-left text over image</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat anc"><span class="blk brc"><span class="h"></span><span class="c"></span></span></div>
+        <p class="anc-cap"><b>4.</b> Bottom-right CTA cluster</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat anc"><span class="rvis"></span><span class="blk ltcap"><span class="h"></span><span class="t"></span></span></div>
+        <p class="anc-cap"><b>5.</b> Left-third caption, right visual</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat anc"><span class="lvis"></span><span class="blk rtcap"><span class="h"></span><span class="t"></span></span></div>
+        <p class="anc-cap"><b>6.</b> Right-third caption, left visual</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat anc"><span class="a full"></span><span class="blk low on"><span class="h"></span><span class="t"></span></span></div>
+        <p class="anc-cap"><b>7.</b> Centered low, text in lower band</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat anc"><span class="blk offset"><span class="h"></span><span class="t"></span></span></div>
+        <p class="anc-cap"><b>8.</b> Off-grid editorial offset</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat anc"><span class="blk center"><span class="e" style="margin:0 auto"></span><span class="h"></span><span class="t"></span><span class="c" style="width:44%;margin:2px auto 0"></span></span></div>
+        <p class="anc-cap"><b>9.</b> Stacked center, ultra-minimal</p>
+      </div>
+      <div class="pat-item">
+        <div class="pat anc"><span class="a full"></span><span class="blk safe on"><span class="h"></span><span class="t"></span></span></div>
+        <p class="anc-cap"><b>10.</b> Image-as-canvas, text in a safe area</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="todo">Motion patterns (sticky-stack, scroll hijack, scrub, stagger, marquee, spring)
+    get added to this glossary in Lesson 08.</div>
+
+  <div class="backlink">
+    <a class="btn btn--ghost" href="../lessons/0007-pattern-glossary-i.html">&larr; Back to Lesson 07</a>
+  </div>
+</main>
+</body>
+</html>

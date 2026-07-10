@@ -369,6 +369,57 @@ Templated rhythm. Rule: max one eyebrow per three sections, and never numbered.
 给眉标加编号（`00 / How it works`），或每个区块都顶一个眉标。模板化节奏。规则：每三个区块最多一个眉标，且绝不编号。
 _Source_: DTF §4.7 · §9.F
 
+### Pattern names · 套路名 (Lesson 07)
+
+Layout patterns you can call for by name. Read each as a **silhouette · 剪影**: strip a page to its
+bars and panels, and if you can name the shape in grayscale, you can name it on any real page.
+
+**Hero paradigm · 英雄区范式**:
+The shape of the first screen. Six named forms: **Asymmetric Split** (text one side, asset the other),
+**Editorial Manifesto** (huge type, no asset, the one earned centered hero), **Video / Media Mask**
+(type cut out over a full-bleed asset), **Kinetic-Type** (animated type is the visual), **Curtain-Reveal**
+(the hero parts on scroll), **Scroll-Pinned** (the hero stays fixed while content scrolls behind).
+第一屏的形态。六种命名范式：Asymmetric Split（一侧文字、一侧图像）、Editorial Manifesto（超大字、无图，唯一"值得"居中的英雄区）、Video / Media Mask（文字镂空在满幅图像上）、Kinetic-Type（动态字本身就是主视觉）、Curtain-Reveal（英雄区随滚动像幕布一样分开）、Scroll-Pinned（英雄区固定不动、内容在其后滚动）。
+_Source_: DTF §10
+
+**Bento grid · Bento 网格**:
+Asymmetric tiles of mixed sizes (Apple Control Center style). **Cell-count rule · 格数规则**: a bento
+has exactly as many cells as you have content for. An empty tile in the middle or at the end means the
+grid was planned wrong. Reshape it; never paste a blank to balance it.
+大小不一的非对称瓦片（苹果控制中心那种）。格数规则：bento 有多少内容就有多少格。中间或末尾出现空格，说明网格规划错了。重排它，绝不塞一个空块去"凑平衡"。
+_Source_: DTF §4.7
+
+**Masonry layout · 瀑布流布局**:
+A staggered grid with no fixed row height; tiles pack by their own height. Bento aligns to a grid;
+masonry does not.
+一套错落的网格，没有固定行高；瓦片按各自高度堆叠。Bento 对齐到网格，masonry 不对齐。
+_Source_: DTF §10
+
+**Split-screen scroll · 分屏滚动**:
+Two halves that move in opposite directions on scroll: one holds while the other advances, or they
+counter-scroll.
+两半在滚动时反向移动：一半停住、另一半前进，或彼此对向滚动。
+_Source_: DTF §10
+
+**Zigzag · 错位交替** (alternation cap · 交替上限):
+Alternating image-left/text-right, then flipped. Fine twice; the third in a row is banal (a pre-flight
+fail). Break the run with a full-width section, a bento, or a vertical stack.
+图左文右、再翻转的交替排布。用两次没问题；连续第三次就俗了（pre-flight 不合格）。用整幅区块、bento 或纵向堆叠打断它。
+_Source_: DTF §4.7
+
+**Composition anchor · 构图锚点**:
+Where the text block sits within one section. Reflex puts it left-of-image every time; there are ten
+places it can anchor (centered, bottom-left over image, right-third caption, off-grid offset, and so on).
+Use at least three different anchors across a page.
+文字块在一个区块内落在哪个位置。惯性总是把它放在图像左边；其实有十个可锚定的位置（居中、压在图上的左下、右三分之一说明、偏离网格的错位等）。一个页面里至少用三种不同锚点。
+_Source_: imagegen-frontend-web §2
+
+**Eyebrow budget · 眉标预算**:
+The ration on small tracked-caps labels above headings: at most one per three sections, hero counts as
+one. Overrunning the budget is the templated-rhythm tell.
+标题上方那种小号加宽大写标签的配额：每三个区块最多一个，英雄区算一个。超支就是"模板化节奏"的破绽。
+_Source_: DTF §4.7 · §9.F
+
 ---
 
 ## Content, Copy & Data · 内容、文案与数据

@@ -1,0 +1,159 @@
+/* ==========================================================================
+   pattern-thumbs.css — shared wireframe thumbnails for the Pattern Glossary
+   (Lessons 07-08 and reference/pattern-glossary.html).
+
+   Every layout pattern is a small grayscale SILHOUETTE, not a faux-real page:
+   dark bars = headline, mid bars = body text, tinted hatch = an asset/image,
+   one vermilion chip = a CTA. Silhouettes read fast in the recognition game and
+   never pretend to be a screenshot. One fictional brand throughout: "Foundry".
+
+   Base frame: .pat  (4:3). Primitives inside: .h headline, .t text line,
+   .e eyebrow, .c cta chip, .a asset panel. Pattern classes compose them.
+   ========================================================================== */
+
+.pat {
+  position: relative; box-sizing: border-box;
+  aspect-ratio: 4 / 3; width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  overflow: hidden; color: var(--ink);
+}
+.pat * { box-sizing: border-box; }
+
+/* primitives ------------------------------------------------------------- */
+.pat .h  { background: var(--ink); border-radius: 1px; height: 9px; }
+.pat .h2 { height: 7px; }
+.pat .t  { background: var(--ink-faint); opacity: .6; border-radius: 1px; height: 4px; }
+.pat .e  { background: var(--accent); opacity: .8; border-radius: 1px; height: 3px; width: 22%; }
+.pat .c  { background: var(--accent); border-radius: 2px; height: 9px; width: 34%; }
+/* an asset / image stand-in: warm neutral hatch, never a solid AI-purple blob */
+.pat .a {
+  background:
+    repeating-linear-gradient(135deg, rgba(28,26,22,.10) 0 2px, transparent 2px 7px),
+    var(--surface-2);
+  border-radius: 2px;
+}
+.pat .stack { display: flex; flex-direction: column; gap: 6px; justify-content: center; }
+.pat .pad { padding: 12px; }
+
+/* ============================ HERO PARADIGMS ============================= */
+
+/* 1 · Asymmetric Split — text one side, asset the other, generous whitespace */
+.hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; align-items: center; }
+.hero-split .col { display: flex; flex-direction: column; gap: 6px; }
+.hero-split .h { width: 92%; } .hero-split .h.s { width: 66%; }
+.hero-split .t { width: 84%; } .hero-split .c { margin-top: 4px; }
+.hero-split .a { align-self: stretch; }
+
+/* 2 · Editorial Manifesto — huge type, no asset, almost a poster */
+.hero-manifesto { display: flex; flex-direction: column; justify-content: center; gap: 9px; padding: 14px; }
+.hero-manifesto .h { height: 16px; }
+.hero-manifesto .h.a1 { width: 94%; } .hero-manifesto .h.a2 { width: 78%; } .hero-manifesto .h.a3 { width: 88%; }
+
+/* 3 · Media Mask — type knocked out of a full-bleed asset */
+.hero-mask { display: grid; place-items: center; }
+.hero-mask .a { position: absolute; inset: 0; border-radius: 0;
+  background: repeating-linear-gradient(135deg, rgba(255,255,255,.12) 0 2px, transparent 2px 7px), var(--ink-soft); }
+.hero-mask .word {
+  position: relative; z-index: 1;
+  font-family: var(--font-display); font-weight: 800; font-size: 34px; letter-spacing: -0.03em;
+  color: var(--surface); /* the type reads as the frame showing through the asset */
+  text-shadow: 0 0 0 var(--surface);
+}
+
+/* 4 · Kinetic-Type — animated typography as the visual (words at play) */
+.hero-kinetic { display: grid; place-items: center; }
+.hero-kinetic .k {
+  position: absolute; font-family: var(--font-display); font-weight: 800; color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.hero-kinetic .k1 { top: 18%; left: 12%; font-size: 20px; transform: rotate(-7deg); }
+.hero-kinetic .k2 { top: 40%; left: 40%; font-size: 30px; color: var(--accent); }
+.hero-kinetic .k3 { top: 62%; left: 20%; font-size: 16px; opacity: .5; transform: rotate(5deg); }
+.hero-kinetic .tick { position: absolute; right: 10px; top: 10px; width: 10px; height: 10px; border-right: 2px solid var(--accent); border-top: 2px solid var(--accent); }
+
+/* 5 · Curtain-Reveal — hero parts on scroll; two panels split at a seam */
+.hero-curtain { display: grid; grid-template-rows: 1fr 1fr; }
+.hero-curtain .panel { background: var(--ink); }
+.hero-curtain .top { border-bottom: 2px solid var(--bg); transform: translateY(-8px); }
+.hero-curtain .bot { transform: translateY(8px); }
+.hero-curtain .seam { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 5px; align-items: center; z-index: 1; }
+.hero-curtain .seam .h { width: 52%; background: var(--surface); }
+.hero-curtain .seam .t { width: 40%; background: var(--surface); opacity: .8; }
+
+/* 6 · Scroll-Pinned — hero stays put while content scrolls behind it */
+.hero-pinned { padding: 0; }
+.hero-pinned .behind { position: absolute; inset: 10px 10px auto 46%; display: flex; flex-direction: column; gap: 6px; opacity: .5; }
+.hero-pinned .behind .t { width: 100%; } .hero-pinned .behind .a { height: 22px; }
+.hero-pinned .card {
+  position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+  width: 48%; background: var(--surface); border: 1px solid var(--line); border-radius: 4px;
+  box-shadow: var(--shadow); padding: 10px; display: flex; flex-direction: column; gap: 6px; z-index: 1;
+}
+.hero-pinned .card .h { width: 80%; } .hero-pinned .card .t { width: 64%; }
+.hero-pinned .pin { position: absolute; right: -5px; top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--surface); }
+
+/* ============================ LAYOUT & GRIDS ============================= */
+
+/* Bento — asymmetric tiles, EXACT cell count (right) vs a planted empty cell (wrong) */
+.bento { display: grid; gap: 6px; padding: 10px;
+  grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr;
+  grid-template-areas: "big a b" "big wide wide"; }
+.bento .cell { background: var(--surface-2); border-radius: 3px; }
+.bento .cell.img { background:
+    repeating-linear-gradient(135deg, rgba(28,26,22,.10) 0 2px, transparent 2px 7px), var(--surface-2); }
+.bento .big { grid-area: big; }
+.bento .wcell { grid-area: wide; }
+.bento .empty { background: transparent; border: 1px dashed var(--accent); }
+.bento-wrong .empty::after { content: "?"; display: grid; place-items: center; height: 100%;
+  font-family: var(--font-mono); font-size: 13px; color: var(--accent); }
+
+/* Masonry — staggered columns, no fixed row height */
+.masonry { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding: 10px; align-items: start; }
+.masonry .col { display: flex; flex-direction: column; gap: 6px; }
+.masonry .tile { background: var(--surface-2); border-radius: 3px; }
+
+/* Split-Screen Scroll — two halves moving opposite directions */
+.splitscroll { display: grid; grid-template-columns: 1fr 1fr; }
+.splitscroll .half { position: relative; display: grid; place-items: center; }
+.splitscroll .l { background: var(--surface-2); }
+.splitscroll .r { background: var(--ink); }
+.splitscroll .arw { font-family: var(--font-mono); font-weight: 700; font-size: 18px; }
+.splitscroll .l .arw { color: var(--ink); } .splitscroll .r .arw { color: var(--surface); }
+
+/* Zigzag — alternating image/text rows; the cap variant flags the 3rd */
+.zigzag { display: flex; flex-direction: column; gap: 7px; padding: 10px; justify-content: center; }
+.zigzag .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: center; }
+.zigzag .row.flip { direction: rtl; } .zigzag .row.flip > * { direction: ltr; }
+.zigzag .row .a { height: 20px; }
+.zigzag .row .side { display: flex; flex-direction: column; gap: 4px; }
+.zigzag .row.bad { position: relative; }
+.zigzag .row.bad::after { content: "×3"; position: absolute; right: 2px; top: -2px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--accent); }
+.zigzag .row.bad .a { outline: 1px solid var(--accent); }
+
+/* ========================= COMPOSITION ANCHORS ========================== */
+/* one text block placed within a frame; some over a full-bleed asset */
+.anc { position: relative; }
+.anc .a.full { position: absolute; inset: 0; border-radius: 0; }
+.anc .blk { position: absolute; display: flex; flex-direction: column; gap: 4px; width: 46%; z-index: 1; }
+.anc .blk .h { width: 100%; height: 7px; } .anc .blk .t { width: 78%; }
+.anc .blk.on .h { background: var(--surface); } .anc .blk.on .t { background: var(--surface); opacity: .85; }
+.anc .blk.center { left: 50%; top: 50%; transform: translate(-50%, -50%); align-items: center; text-align: center; }
+.anc .blk.center .h { width: 60%; } .anc .blk.center .t { width: 44%; }
+.anc .blk.tl { left: 12%; top: 16%; } .anc .blk.br { left: 42%; top: 58%; width: 46%; align-items: flex-end; }
+.anc .blk.bl { left: 10%; bottom: 12%; top: auto; } .anc .blk.brc { right: 10%; bottom: 12%; left: auto; top: auto; width: 40%; align-items: flex-end; }
+.anc .blk.ltcap { left: 8%; top: 50%; transform: translateY(-50%); width: 30%; }
+.anc .blk.rtcap { right: 8%; left: auto; top: 50%; transform: translateY(-50%); width: 30%; align-items: flex-end; }
+.anc .blk.low { left: 50%; bottom: 12%; top: auto; transform: translateX(-50%); align-items: center; }
+.anc .blk.offset { left: 22%; top: 30%; width: 40%; }
+.anc .blk.safe { left: 8%; bottom: 10%; top: auto; width: 34%; }
+.anc .rvis, .anc .lvis { position: absolute; top: 0; bottom: 0; width: 62%;
+  background: repeating-linear-gradient(135deg, rgba(28,26,22,.10) 0 2px, transparent 2px 7px), var(--surface-2); }
+.anc .rvis { right: 0; } .anc .lvis { left: 0; }
+
+@media (max-width: 560px) {
+  .hero-mask .word { font-size: 26px; }
+  .hero-kinetic .k2 { font-size: 24px; }
+}
