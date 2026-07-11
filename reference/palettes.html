@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference: The Palette Sheet</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../assets/palettes.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 20px;
+  }
+  .cat > .cat-note { max-width: var(--measure); color: var(--ink-soft); font-size: 14.5px; margin: -8px 0 20px; }
+  /* family cards */
+  .fam-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  .fam-card { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .fam-card .bar { display: flex; height: 60px; }
+  .fam-card .bar span { flex: 1; }
+  .fam-card .body { padding: 12px 13px 14px; }
+  .fam-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin: 0 0 5px; }
+  .fam-card p { font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; margin: 0 0 9px; }
+  .fam-card .roles { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; }
+  .fam-card .roles div { font-size: 10.5px; color: var(--ink-soft); }
+  .fam-card .roles code { font-family: var(--font-mono); color: var(--ink); }
+  /* rules list */
+  .rules { max-width: var(--measure); margin: 22px 0 0; padding: 0; list-style: none; }
+  .rules li { font-size: 14.5px; padding: 8px 0; border-top: 1px dashed var(--line); }
+  .rules li b { font-family: var(--font-display); }
+  .backlink { margin-top: 40px; }
+  @media print { .fam-cards { grid-template-columns: repeat(3, 1fr); } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste &middot; Reference &middot; print me</p>
+    <h1>The Palette Sheet</h1>
+    <p>The five named families with their tokens by hex, the banned AI default, and the color rules.
+      From Lesson 10. Most of a palette is neutral; one accent does the talking.</p>
+  </div>
+
+  <!-- ===================== FAMILIES ===================== -->
+  <section class="cat">
+    <h2>Families &middot; a named set of tokens</h2>
+    <p class="cat-note">Each is four values doing the work: substrate, surface, ink, one accent. Bars
+      run background &rarr; surface &rarr; ink &rarr; accent.</p>
+    <div class="fam-cards">
+      <div class="fam-card">
+        <div class="bar"><span style="background:#EDF0F2"></span><span style="background:#FCFDFE"></span><span style="background:#14181B"></span><span style="background:#3C5A6E"></span></div>
+        <div class="body">
+          <h3>Cold Luxury</h3>
+          <p>Cool grays and near-black with one steel-blue accent. Quiet and expensive.</p>
+          <div class="roles"><div>bg <code>#EDF0F2</code></div><div>ink <code>#14181B</code></div><div>surface <code>#FCFDFE</code></div><div>accent <code>#3C5A6E</code></div></div>
+        </div>
+      </div>
+      <div class="fam-card">
+        <div class="bar"><span style="background:#F1EFE6"></span><span style="background:#FBFAF3"></span><span style="background:#18211A"></span><span style="background:#2E6B44"></span></div>
+        <div class="body">
+          <h3>Forest</h3>
+          <p>Warm cream under a deep, desaturated forest green. Grounded and natural.</p>
+          <div class="roles"><div>bg <code>#F1EFE6</code></div><div>ink <code>#18211A</code></div><div>surface <code>#FBFAF3</code></div><div>accent <code>#2E6B44</code></div></div>
+        </div>
+      </div>
+      <div class="fam-card">
+        <div class="bar"><span style="background:#16130E"></span><span style="background:#201C15"></span><span style="background:#EFE7D8"></span><span style="background:#C89B5C"></span></div>
+        <div class="body">
+          <h3>Black &amp; Tan</h3>
+          <p>Dark warm substrate, one camel accent. The accent is light because the ground is dark.</p>
+          <div class="roles"><div>bg <code>#16130E</code></div><div>ink <code>#EFE7D8</code></div><div>surface <code>#201C15</code></div><div>accent <code>#C89B5C</code></div></div>
+        </div>
+      </div>
+      <div class="fam-card">
+        <div class="bar"><span style="background:#F4F1E8"></span><span style="background:#FFFFFE"></span><span style="background:#15181E"></span><span style="background:#2A46C8"></span></div>
+        <div class="body">
+          <h3>Cobalt + Cream</h3>
+          <p>Cream paper and a confident cobalt. One saturated hero on a neutral base.</p>
+          <div class="roles"><div>bg <code>#F4F1E8</code></div><div>ink <code>#15181E</code></div><div>surface <code>#FFFFFE</code></div><div>accent <code>#2A46C8</code></div></div>
+        </div>
+      </div>
+      <div class="fam-card">
+        <div class="bar"><span style="background:#EFECE5"></span><span style="background:#FAF8F2"></span><span style="background:#232A2E"></span><span style="background:#C0552E"></span></div>
+        <div class="body">
+          <h3>Terracotta + Slate</h3>
+          <p>Slate-gray ink on warm paper, warmed by an earthy terracotta accent.</p>
+          <div class="roles"><div>bg <code>#EFECE5</code></div><div>ink <code>#232A2E</code></div><div>surface <code>#FAF8F2</code></div><div>accent <code>#C0552E</code></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE BANNED DEFAULT ===================== -->
+  <section class="cat">
+    <h2>The banned default &middot; refuse it on sight</h2>
+    <p class="cat-note">The palette every model reaches for on a "premium consumer" brief. Not ugly,
+      just universal, which makes it a tell.</p>
+    <div class="pal-teardown">
+      <div class="pt-card bad">
+        <div class="pt-swatches"><span style="background:#E7DCC9"></span><span style="background:#B08D57"></span><span style="background:#3B2A1E"></span></div>
+        <div class="pt-body">
+          <span class="pt-verdict">Banned default</span>
+          <p class="pt-name">Beige + Brass + Espresso</p>
+          <p class="pt-why">Beige substrate, brass accent, espresso ink. Every cookware and skincare
+            mock lands here, so it reads as generated, not luxury.</p>
+          <div class="pt-hexes"><code>#E7DCC9</code><code>#B08D57</code><code>#3B2A1E</code></div>
+        </div>
+      </div>
+      <div class="pt-card ok">
+        <div class="pt-swatches"><span style="background:#16130E"></span><span style="background:#C89B5C"></span><span style="background:#EFE7D8"></span></div>
+        <div class="pt-body">
+          <span class="pt-verdict">Instead</span>
+          <p class="pt-name">Commit to dark (Black &amp; Tan)</p>
+          <p class="pt-why">Same warmth, but a dark ground makes the single camel accent a choice, not
+            a hedge.</p>
+          <div class="pt-hexes"><code>#16130E</code><code>#C89B5C</code><code>#EFE7D8</code></div>
+        </div>
+      </div>
+      <div class="pt-card ok">
+        <div class="pt-swatches"><span style="background:#EFECE5"></span><span style="background:#C0552E"></span><span style="background:#232A2E"></span></div>
+        <div class="pt-body">
+          <span class="pt-verdict">Instead</span>
+          <p class="pt-name">Specific accent (Terracotta + Slate)</p>
+          <p class="pt-why">Warm and earthy, but a cool slate ink and a specific clay accent make it a
+            real decision.</p>
+          <div class="pt-hexes"><code>#EFECE5</code><code>#C0552E</code><code>#232A2E</code></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RULES ===================== -->
+  <section class="cat">
+    <h2>Rules &middot; the discipline that keeps a palette tuned</h2>
+    <ul class="rules">
+      <li><b>One accent lock.</b> One accent color, used sparingly on the things that act (primary
+        button, link, live badge). A second accent competes and the page loses its center.</li>
+      <li><b>Saturation ceiling.</b> Keep the accent below roughly 80% saturation. Full neon reads as a
+        template default; a slightly muted hue reads as chosen.</li>
+      <li><b>Neutrals do the work.</b> Surface, ink, and hairlines are all grays. Most of the page is
+        neutral so the one accent has somewhere to land.</li>
+      <li><b>Pick a gray temperature.</b> Every gray leans warm or cool. Mixing the two reads as off
+        without a nameable reason. Choose one and keep all grays in it.</li>
+      <li><b>No pure black or white.</b> Ink is an off-black tinted toward the substrate; the page is an
+        off-white. Pure <code>#000</code> on <code>#FFF</code> is harsh and, again, a default.</li>
+      <li><b>Tinted shadows.</b> Shadows carry a hint of the substrate or ink color, not pure gray, so
+        they sit in the same light as everything else.</li>
+      <li><b>Refuse the beige-brass-espresso default.</b> The AI "premium" reflex. If a brief pulls you
+        there, commit harder (dark ground) or pick a specific accent instead.</li>
+    </ul>
+  </section>
+
+  <div class="backlink">
+    <a class="btn btn--ghost" href="../lessons/0010-color.html">&larr; Back to Lesson 10</a>
+  </div>
+</main>
+</body>
+</html>

@@ -298,6 +298,46 @@ it by default. Fix: warm neutral base + one flat accent, no glow.
 紫蓝渐变加霓虹按钮辉光，是最容易被认出的 AI 指纹；默认要避免。改法：暖中性底色 + 一个平涂强调色，不发光。
 _Source_: DTF §4.2 · §9.A
 
+### Color families & discipline · 配色族与纪律 (Lesson 10)
+
+**Palette family · 配色族**:
+A named set of token values (substrate, surface, ink, one accent) that a page commits to. Swapping the
+family swaps only those values, never the markup: same object, different brand. Cold Luxury, Forest,
+Black & Tan, Cobalt + Cream, Terracotta + Slate.
+一组有名字的令牌取值（基底、表面、墨色、一个强调色），页面锁定使用。换配色族只换这些值、不换结构：同一个东西，不同品牌。
+_Source_: DTF §4.2
+
+**Accent lock · 强调色锁定**:
+The discipline of committing to exactly one accent for the whole page, used only on what acts (primary
+button, link, live badge). A second accent competes and the page loses its center.
+全页只锁定一个强调色的纪律，只用在"会动作"的东西上（主按钮、链接、实时徽标）。第二个强调色会抢戏，页面就失去了重心。
+_Source_: DTF §4.2
+
+**Saturation ceiling · 饱和度上限**:
+The rule that the accent stays below roughly 80% saturation. Full neon reads as a template default; a
+slightly muted hue reads as chosen.
+强调色保持在约 80% 饱和度以下的规则。全霓虹显得像模板默认值；略微降饱和才显得是主动选择。
+_Source_: DTF §4.2
+
+**Warm / cool gray · 暖灰 / 冷灰**:
+Every gray leans warm or cool. Pick one temperature and keep all grays in it; mixing the two reads as
+off without a nameable reason.
+每种灰都偏暖或偏冷。选定一个色温，让所有灰都留在里面；两者混用会莫名其妙地"不对劲"。
+_Source_: DTF §4.2
+
+**Tinted shadow · 带色阴影**:
+A shadow carrying a hint of the substrate or ink color rather than pure gray/black, so it sits in the
+same light as everything else. A pure-black shadow floats.
+带一点基底或墨色色调、而非纯灰/纯黑的阴影，让它和其他元素处在同一束光里。纯黑阴影会"浮"在页面上。
+_Source_: DTF §4.2
+
+**Beige-brass-espresso default · 米色-黄铜-浓咖默认配** ⚑ tell:
+The palette every model reaches for on a "premium consumer" brief (beige #E7DCC9, brass #B08D57,
+espresso #3B2A1E). Not ugly, just universal, which makes it a tell. Fix: commit to a dark ground or
+pick a specific accent.
+每个模型接到"高端消费品"需求时都会伸手去拿的那组配色（米色 #E7DCC9、黄铜 #B08D57、浓咖 #3B2A1E）。不难看，只是太普遍，所以成了痕迹。改法：换成深色基底，或选一个更具体的强调色。
+_Source_: DTF §4.2
+
 **OLED black · OLED 纯黑（近黑）**:
 The deepest near-black (around #050505) used as a substrate so colored orbs and glows read cleanly.
 Still not pure #000000: even at maximum darkness, true black kills depth.

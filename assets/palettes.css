@@ -1,0 +1,158 @@
+/* ==========================================================================
+   palettes.css — Lesson 10 (Color) widgets.
+
+   The whole lesson turns on ONE idea: a page's colors are tokens, and a
+   "palette family" is just a named set of values for those tokens. So the
+   live-recolor demo renders a real product card entirely from --f-* custom
+   properties; swapping the family swaps only those values, never the markup.
+   palettes.js owns the family values (single source of truth) and writes them
+   onto .pal-stage. Everything here styles the card, the swatch board, the
+   banned-palette teardown, the warm/cool gray toggle, and the quiz chips.
+   ========================================================================== */
+
+/* ---- family token defaults (Cold Luxury), so it renders before JS ---- */
+.pal-stage {
+  --f-bg:        #EDF0F2;
+  --f-surface:   #FCFDFE;
+  --f-ink:       #14181B;
+  --f-ink-soft:  #4C575E;
+  --f-line:      rgba(20,24,27,.12);
+  --f-accent:    #3C5A6E;
+  --f-accent-ink:#294250;
+  --f-shadow:    rgba(20,24,27,.18);
+
+  display: grid;
+  grid-template-columns: minmax(0, 300px) 1fr;
+  gap: 26px;
+  align-items: start;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--f-bg);           /* the substrate is part of the palette */
+  transition: background .35s ease;
+}
+@media (max-width: 620px) { .pal-stage { grid-template-columns: 1fr; } }
+
+/* ---- the recolored product card ---- */
+.pcard {
+  background: var(--f-surface);
+  color: var(--f-ink);
+  border: 1px solid var(--f-line);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 1px 2px var(--f-shadow), 0 20px 44px -26px var(--f-shadow);
+  transition: background .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+.pcard-media {
+  height: 108px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--f-accent), var(--f-accent-ink));
+  margin-bottom: 14px;
+}
+.pcard-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--f-accent-ink);
+  margin: 0 0 6px;
+}
+.pcard-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.32rem; letter-spacing: -.01em; margin: 0 0 5px;
+}
+.pcard-desc { font-size: 13.5px; color: var(--f-ink-soft); margin: 0 0 14px; line-height: 1.45; }
+.pcard-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.pcard-price { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; }
+.pcard-tag {
+  font-size: 11px; padding: 3px 9px; border-radius: 999px;
+  color: var(--f-accent-ink); border: 1px solid var(--f-line);
+}
+.pcard-btn {
+  display: block; width: 100%; text-align: center;
+  padding: 10px 14px; border: 0; border-radius: 9px; cursor: pointer;
+  font-family: var(--font-body); font-weight: 600; font-size: 14px;
+  background: var(--f-accent); color: var(--f-surface);
+  transition: background .35s ease, color .35s ease;
+}
+
+/* ---- the swatch board (built by palettes.js) ---- */
+.pal-side { display: flex; flex-direction: column; gap: 14px; }
+.pal-board { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 8px; }
+.pal-fam {
+  display: block; text-align: left; cursor: pointer;
+  padding: 8px 9px 9px; border: 1px solid var(--line); border-radius: 9px;
+  background: var(--surface); color: var(--ink); font: inherit;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.pal-fam:hover { border-color: var(--ink-faint); }
+.pal-fam.is-active { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.pal-fam-chips { display: flex; gap: 0; height: 18px; border-radius: 4px; overflow: hidden; margin-bottom: 6px; }
+.pal-fam-chips span { flex: 1; }
+.pal-fam-name { font-size: 12.5px; font-weight: 600; letter-spacing: -.005em; }
+
+/* ---- readout: the active family's roles by hex ---- */
+.pal-readout {
+  border: 1px solid var(--line); border-radius: 9px;
+  padding: 12px 13px; background: var(--surface-2);
+}
+.pal-readout h4 { margin: 0 0 2px; font-family: var(--font-display); font-size: 15px; }
+.pal-readout .pal-note { margin: 0 0 11px; font-size: 12.5px; color: var(--ink-soft); line-height: 1.4; }
+.pal-roles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.pal-role { text-align: center; }
+.pal-role .chip { height: 30px; border-radius: 6px; border: 1px solid var(--line); }
+.pal-role .r { display: block; margin-top: 5px; font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-faint); }
+.pal-role .h { display: block; font-family: var(--font-mono); font-size: 10px; color: var(--ink-soft); }
+
+/* ==========================================================================
+   Banned-palette teardown: the AI "premium" default beside two that work.
+   Each column is a self-contained mini palette labelled BY HEX.
+   ========================================================================== */
+.pal-teardown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 720px) { .pal-teardown { grid-template-columns: 1fr; } }
+.pt-card { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.pt-swatches { display: flex; height: 76px; }
+.pt-swatches span { flex: 1; }
+.pt-body { padding: 12px 13px 14px; }
+.pt-verdict {
+  display: inline-block; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: .1em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; margin-bottom: 7px;
+}
+.pt-card.bad .pt-verdict { color: var(--accent-ink); background: var(--accent-wash); }
+.pt-card.ok  .pt-verdict { color: var(--good); background: var(--good-wash); }
+.pt-name { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin: 0 0 5px; }
+.pt-why { font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; margin: 0 0 9px; }
+.pt-hexes { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.pt-hexes code { font-family: var(--font-mono); font-size: 10.5px; color: var(--ink-soft); }
+
+/* ==========================================================================
+   Warm / cool gray toggle: one panel that flips between a temperature clash
+   and a locked single-temperature version. Colors set inline per state below.
+   ========================================================================== */
+.gray-demo { max-width: 460px; }
+.gray-panel {
+  border-radius: var(--radius); padding: 18px; transition: all .3s ease;
+  /* VIOLATION default: cool substrate, warm border, warm ink, cool chip */
+  background: #EEF1F3; border: 2px solid #DED8CE; color: #2B2620;
+}
+.gray-panel .gp-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #8A8279; margin: 0 0 6px; }
+.gray-panel h4 { margin: 0 0 6px; font-family: var(--font-display); font-size: 1.1rem; }
+.gray-panel p { margin: 0 0 12px; font-size: 13.5px; line-height: 1.5; }
+.gray-panel .gp-chip { display: inline-block; font-size: 12px; padding: 4px 11px; border-radius: 999px; background: #E3E7EA; color: #2B2620; }
+.gray-panel.locked {
+  /* LOCKED: every gray shares one warm undertone */
+  background: #F2EFE9; border-color: #E1DBD0; color: #221E18;
+}
+.gray-panel.locked .gp-eyebrow { color: #8C8377; }
+.gray-panel.locked .gp-chip { background: #E9E4DB; color: #221E18; }
+.gray-state { margin: 12px 0 0; font-size: 13px; color: var(--ink-soft); }
+.gray-state b { font-family: var(--font-display); }
+
+/* ==========================================================================
+   Quiz color specimens: a labelled chip strip embedded inside a quiz prompt.
+   ========================================================================== */
+.cspec { display: flex; gap: 6px; margin: 4px 0 10px; }
+.cspec span { width: 42px; height: 42px; border-radius: 7px; border: 1px solid var(--line); }
+.cspec.wide span { width: 34px; height: 34px; }
+
+/* name-that-family specimen strips (NameGame visual options) */
+.fam-strip { display: flex; height: 52px; width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); }
+.fam-strip span { flex: 1; }
