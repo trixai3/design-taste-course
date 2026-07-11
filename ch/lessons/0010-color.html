@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 10 课：颜色</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="../../assets/course.css">
+<link rel="stylesheet" href="../../assets/palettes.css">
+<style>
+  /* lesson-local: two-column disciplines note */
+  .disc { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 6px; }
+  .disc .card { margin: 0; }
+  .disc h3 { margin: 0 0 6px; font-size: 1rem; }
+  @media (max-width: 560px) { .disc { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="masthead">
+    <p class="kicker">
+      <span>Design Taste</span><span class="sep">/</span>
+      <span>模块 C：工艺</span><span class="sep">/</span>
+      <span>第 10 课</span><span class="sep">/</span>
+      <span>约 15 分钟</span>
+    </p>
+    <h1>颜色：中性色做活儿，一个强调色拿荣耀</h1>
+    <div class="win">
+      <span class="tag">你的一个小胜利</span>
+      <p style="margin:0">读完这节课，你能一眼叫出一个<strong>配色家族</strong>的名字，把颜色规则当作规则
+        说清楚（<strong>单一强调色锁定</strong>、饱和度上限、冷暖灰纪律、不用纯黑或纯白），并能凭色值认出那个
+        被禁用的 AI「高级感」<strong>默认配色</strong>。页面的大部分是中性色，你注意到的那个颜色，正在做一份
+        工作。</p>
+    </div>
+  </header>
+
+  <!-- ===== spaced recall from Lessons 07-09 ===== -->
+  <section style="margin-bottom:44px">
+    <div id="recall"></div>
+  </section>
+
+  <section class="prose">
+    <p class="lead">配色方案不是一块你喜欢颜色堆出来的心情板。它是一小组 token，其中大多数是中性色。表层、
+      墨色、细线：全都是灰色。一个强调色，用得节制，扛起了个性。换掉数值、保留角色，同一个页面就变成了不同的
+      品牌。</p>
+    <p>所以「在颜色上有品味」，大部分靠的是克制，加上几条硬规则。锁定一个强调色。让饱和度别顶到天花板。选定
+      一个灰色的色温，然后待在里面。永远别去够纯黑或纯白。还要认得那一套每个 AI 都会默认用的暖色调色板，这样
+      你才能一眼拒绝它。</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= SHOW 1: live recolor ================= -->
+  <section class="prose">
+    <h2>一张卡片，五个家族</h2>
+    <p>这是同一张商品卡片，标记结构从未改变。下面的每个按钮只会替换<strong>颜色 token</strong>：基底、
+      表层、墨色、那一个强调色。点着看每个家族切换过去，看同一个对象的整个个性如何变化。读一读每个下面标注
+      的角色，你会看到只有四个数值在做全部的工作。</p>
+  </section>
+  <section class="wide" style="max-width:760px">
+    <div class="pal-stage" data-recolor>
+      <div class="pcard">
+        <div class="pcard-media"></div>
+        <p class="pcard-eyebrow">新品</p>
+        <h4 class="pcard-title">光圈水壶</h4>
+        <p class="pcard-desc">手工打磨的钢材，单一出水口，专为摆在台面上而生。</p>
+        <div class="pcard-row">
+          <span class="pcard-price">$148</span>
+          <span class="pcard-tag">有货</span>
+        </div>
+        <button class="pcard-btn" type="button">加入购物车</button>
+      </div>
+      <div class="pal-side">
+        <div class="pal-board"></div>
+        <div class="pal-readout"></div>
+      </div>
+    </div>
+    <p class="tl-note" style="max-width:68ch;margin:14px auto 0;color:var(--ink-soft);font-size:14px">
+      同一张卡片，五个品牌。注意强调色在卡片上从不会无缘无故出现两次：媒体图块、一行小标签、一个按钮，仅此
+      而已。其余全是中性色。这就是强调色锁定在起作用。</p>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= SHOW 2: the banned palette ================= -->
+  <section class="prose">
+    <h2>每个 AI 都会伸手去拿的那套配色</h2>
+    <p>让一个模型给你做「高级」「手工感」或「精致消费品」的品牌，它会收敛到同样的三个颜色：米色基底、黄铜
+      强调色、浓缩咖啡色的墨色。这不能说是错，但它<em>无处不在</em>，这就让它成了一处痕迹。下面按色值列出
+      它，旁边放着两套同样能实现「暖色且高级」这份需求、却没有落入俗套的配色。</p>
+  </section>
+  <section class="wide" style="max-width:860px">
+    <div class="pal-teardown">
+      <div class="pt-card bad">
+        <div class="pt-swatches">
+          <span style="background:#E7DCC9"></span><span style="background:#B08D57"></span><span style="background:#3B2A1E"></span>
+        </div>
+        <div class="pt-body">
+          <span class="pt-verdict">被禁的默认项</span>
+          <p class="pt-name">米色 + 黄铜 + 浓缩咖啡</p>
+          <p class="pt-why">AI 对「高级消费品」的条件反射。每一份厨具、咖啡、护肤品的效果图都会落到这里，
+            所以它现在传递的信号是「AI 生成」，而不是「高级」。</p>
+          <div class="pt-hexes"><code>#E7DCC9</code><code>#B08D57</code><code>#3B2A1E</code></div>
+        </div>
+      </div>
+      <div class="pt-card ok">
+        <div class="pt-swatches">
+          <span style="background:#16130E"></span><span style="background:#C89B5C"></span><span style="background:#EFE7D8"></span>
+        </div>
+        <div class="pt-body">
+          <span class="pt-verdict">成立</span>
+          <p class="pt-name">Black &amp; Tan</p>
+          <p class="pt-why">同样的暖色调，但态度坚决：深色基底让那唯一的驼色强调色读起来像是刻意选择，而
+            不是一种保险的折中。</p>
+          <div class="pt-hexes"><code>#16130E</code><code>#C89B5C</code><code>#EFE7D8</code></div>
+        </div>
+      </div>
+      <div class="pt-card ok">
+        <div class="pt-swatches">
+          <span style="background:#EFECE5"></span><span style="background:#C0552E"></span><span style="background:#232A2E"></span>
+        </div>
+        <div class="pt-body">
+          <span class="pt-verdict">成立</span>
+          <p class="pt-name">Terracotta + Slate</p>
+          <p class="pt-why">暖调、质朴，但墨色是冷调的石板灰，强调色是一种具体的陶土色。这是一次真正的
+            选择，而不是那老三样默认色。</p>
+          <div class="pt-hexes"><code>#EFECE5</code><code>#C0552E</code><code>#232A2E</code></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= SHOW 3: warm/cool gray ================= -->
+  <section class="prose">
+    <h2>选定一个灰色的色温，然后待在里面</h2>
+    <p>灰色并不「中性」。每一种灰都偏暖或偏冷，人眼会把两者的混用读成<em>不对劲</em>，却说不出哪里不对。
+      下面这个面板用了冷灰背景、暖灰边框、暖色墨色，还有一个冷色的小标签。把色温锁定住，每一种灰就都落进
+      同一个家族。</p>
+  </section>
+  <section class="wide gray-demo" data-gray>
+    <div class="gray-panel">
+      <p class="gp-eyebrow">账户</p>
+      <h4>色温检查</h4>
+      <p>边框、背景、文字和标签，应该在冷暖上达成一致。这个版本没有，读起来就有一种说不清的廉价感。</p>
+      <span class="gp-chip">草稿</span>
+    </div>
+    <p class="gray-state"></p>
+    <button class="btn" type="button" data-gray-toggle style="margin-top:10px"></button>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= the rules, stated ================= -->
+  <section class="prose">
+    <h2>把规则讲清楚</h2>
+    <div class="disc">
+      <div class="card">
+        <h3>单一强调色锁定</h3>
+        <p>只用一个强调色，节制地用在有行动力的元素上：主按钮、链接、实时徽标。第二个强调色会互相竞争，
+          页面就会失去重心。其余一切都交给中性色来扛。</p>
+      </div>
+      <div class="card">
+        <h3>饱和度上限</h3>
+        <p>把强调色的饱和度控制在大约 80% 以下。全开的荧光色读起来像模板默认值；略微柔和一点的色相，读
+          起来像是经过选择的。眼睛信任克制。</p>
+      </div>
+      <div class="card">
+        <h3>不用纯黑或纯白</h3>
+        <p>墨色是一种带一点基底色温的近黑色；页面是一种近白色，而不是 <code>#FFFFFF</code>。纯 <code>#000</code>
+          配纯 <code>#FFF</code> 太刺眼，而且，又是一个默认值。</p>
+      </div>
+      <div class="card">
+        <h3>带色调的阴影</h3>
+        <p>阴影不是灰色的。把它们染上一点基底色或墨色的色调，让它们和其他一切处在同一种光线里。纯黑色
+          的阴影会显得悬浮。</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= THE DO ================= -->
+  <section class="prose">
+    <h2>找出违规之处</h2>
+    <p>四组小配色，每一组恰好违反一条规则。读一读色块，叫出它违反的那条规则。修法永远是把那条规则反过来
+      说一遍。</p>
+  </section>
+  <section style="margin:18px 0 30px">
+    <div id="viol-quiz"></div>
+  </section>
+
+  <section class="prose">
+    <h2>叫出这个家族的名字</h2>
+    <p>反过来做一次识别练习：给你一个家族的名字，选出属于它的色条。还是配色板上那五个家族，这次凭记忆
+      来认。</p>
+  </section>
+  <div class="wide" id="fam-game" style="max-width:560px;margin:20px auto 0"></div>
+
+  <div class="endmatter">
+    <a class="card next-link" href="../reference/palettes.html">
+      <div>
+        <p class="eyebrow">参考资料 &middot; 留着它</p>
+        <h3>配色参考卡</h3>
+        <p>五个配色家族的色卡，附色值与角色说明，加上被禁的默认配色和颜色规则，都在这一页可打印的表里。</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+
+    <div class="card">
+      <p class="eyebrow">主要来源 &middot; 读这个</p>
+      <h3>Refactoring UI，颜色那几章</h3>
+      <p>关于如何用中性色加一个强调色搭建配色方案，以及饱和度与色温背后的道理，这是我读过最清楚的实战
+        指南：<a href="https://www.refactoringui.com/">refactoringui.com</a>。搭配 design-taste-frontend
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">第 4.2 节</a>
+        一起读，能拿到完整的命名家族和被禁默认项。</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">你的老师</p>
+      <h3>随时追问</h3>
+      <p>指着任意一个网站问「这里的那个强调色是什么？」或者「这些灰是暖是冷？」，我们会一起把配色拆开来
+        看，直到叫出家族名字和它的违规之处，变成一种本能反应。</p>
+    </div>
+
+    <a class="card next-link" href="./0011-space-surface.html">
+      <div>
+        <p class="eyebrow">下一课</p>
+        <h3>11 &mdash; 空间与表层</h3>
+        <p>为什么贵气的网站看起来就是贵：大尺度留白、圆角、阴影和颗粒感。这些是你可以复刻的标志性手法。</p>
+      </div>
+      <span class="arrow">&rarr;</span>
+    </a>
+  </div>
+
+</main>
+
+<script src="../../assets/quiz.js"></script>
+<script src="../../assets/name-game.js"></script>
+<script src="../../assets/palettes.js"></script>
+<script>
+  /* ---- recall from Lessons 07-09 ---- */
+  Quiz.mount("#recall", [
+    { q: "大小不一的非对称瓷砖，精确不重复地拼进同一个网格。这是哪种布局？",
+      options: ["Bento grid", "Masonry", "Asymmetric split", "Editorial manifesto"],
+      answer: 0,
+      why: "Bento grid：故意安排大小不一的瓷砖，固定、手工调出来的排布。Masonry 是等宽列的重复流式排列；另外两个都是 hero 范式。" },
+    { q: "一个区块固定不动，卡片却在它上面滑动、替换，你滚动滚动条时能看到。这是哪种动效套路？",
+      options: ["Sticky-stack", "Scrub", "Stagger", "Marquee"],
+      answer: 0,
+      why: "Sticky-stack：容器被固定住，子元素原地依次推进。Scrub 把某个元素的进度和滚动位置绑在一起；stagger 是带时间差的错峰入场；marquee 是持续循环的跑马灯。" },
+    { q: "一个无衬线标题里，有一个词被换成斜体衬线体，想让它显得特别。判定是什么？",
+      options: ["错：应该用同一字族的斜体来强调", "没问题，这种对比增添了优雅感", "正确使用了衬线规则", "是一次不错的搭配"],
+      answer: 0,
+      why: "两种声音相撞，读起来像是个错误，而不是强调。用同一字族自己的斜体来强调一个词；绝不要把一个外来的衬线体扔进无衬线标题里。" }
+  ]);
+
+  /* ---- spot the color violation ---- */
+  Quiz.mount("#viol-quiz", [
+    { q: '<div class="cspec"><span style="background:#F4F1E8"></span><span style="background:#2A46C8"></span><span style="background:#C0552E"></span><span style="background:#15181E"></span></div>这套配色违反了哪条规则？',
+      options: ["两个强调色打架（强调色锁定被破坏）", "饱和度超过上限", "冷灰暖灰混用", "纯黑纯白"],
+      answer: 0,
+      why: "钴蓝和赤陶色都很响亮，都在抢夺视线。锁定一个强调色；另一个要么降格成中性色，要么被砍掉。" },
+    { q: '<div class="cspec"><span style="background:#F4F1E8"></span><span style="background:#FCFAF4"></span><span style="background:#00E5FF"></span><span style="background:#15181E"></span></div>这套配色违反了哪条规则？',
+      options: ["饱和度超过上限", "两个强调色打架", "冷灰暖灰混用", "缺少带色调的阴影"],
+      answer: 0,
+      why: "这个强调色是全开的荧光青（饱和度接近 100%）。它读起来像模板默认值。把它压到 80% 以下，就会读起来像是经过选择的。" },
+    { q: '<div class="cspec"><span style="background:#EEF1F3"></span><span style="background:#DED8CE"></span><span style="background:#2B2620"></span><span style="background:#3C5A6E"></span></div>这套配色违反了哪条规则？',
+      options: ["冷灰暖灰混用", "饱和度超过上限", "两个强调色打架", "纯黑纯白"],
+      answer: 0,
+      why: "冷灰背景对上暖灰边框和暖色墨色。底色调在互相打架。给每一种灰都定下同一个色温。" },
+    { q: '<div class="cspec"><span style="background:#FFFFFF"></span><span style="background:#000000"></span><span style="background:#3C5A6E"></span><span style="background:#EDF0F2"></span></div>这套配色违反了哪条规则？',
+      options: ["纯黑纯白", "两个强调色打架", "饱和度超过上限", "冷灰暖灰混用"],
+      answer: 0,
+      why: "纯 #FFFFFF 配纯 #000000。太刺眼，而且是个默认值。改用一个近白色基底和一个带基底色温的近黑色墨色。" }
+  ]);
+
+  /* ---- name that family: name -> pick the swatch strip ---- */
+  (function () {
+    function strip(f) {
+      return '<div class="fam-strip">' +
+        '<span style="background:' + f.t.bg + '"></span>' +
+        '<span style="background:' + f.t.surface + '"></span>' +
+        '<span style="background:' + f.t["ink-soft"] + '"></span>' +
+        '<span style="background:' + f.t.ink + '"></span>' +
+        '<span style="background:' + f.t.accent + '"></span></div>';
+    }
+    var F = {};
+    Palette.FAMS.forEach(function (f) { F[f.key] = f; });
+    function round(key, distractors, why) {
+      var opts = [{ a: strip(F[key]), ok: true }];
+      distractors.forEach(function (k) { opts.push({ a: strip(F[k]) }); });
+      return { kind: "name", prompt: "选出属于这个家族的色条。", stim: F[key].name, options: opts, why: why };
+    }
+    NameGame.mount("#fam-game", {
+      rounds: [
+        round("cold", ["forest", "terra", "cobalt"],
+          "Cold Luxury：冷灰配一个钢蓝强调色，哪里都没有暖色。其他几个家族都带着暖色基底或暖色强调色。"),
+        round("tan", ["forest", "cobalt", "cold"],
+          "Black & Tan：这里唯一的深色基底，配一个浅驼色强调色。其余家族都坐落在浅色的地基上。"),
+        round("terra", ["cobalt", "forest", "tan"],
+          "Terracotta + Slate：暖调的陶土色强调色，压在暖纸上的石板灰墨色之上。Cobalt 是蓝色；Forest 是绿色；Black & Tan 是深色的。")
+      ]
+    });
+  })();
+
+  /* ---- wire the recolor board and the gray toggle, with localized copy ---- */
+  Palette.mount(document, {
+    notes: {
+      cold: "冷灰配近黑，只有一个钢蓝强调色。安静、克制、昂贵。",
+      forest: "暖米色基底衬着深沉、低饱和的森林绿。踏实、自然。",
+      tan: "深色暖基底配一个驼色强调色。因为底子是深的，强调色才用亮色。",
+      cobalt: "米色纸感配一个笃定的钴蓝。中性底上只放一个高饱和的主角色。",
+      terra: "暖纸上用石板灰做墨色，再用一个泥土感的赤陶色去暖化它。"
+    },
+    gray: {
+      lock: "锁定色温",
+      clash: "显示冲突",
+      lockedState: "<b>锁定。</b>每种灰都共享同一个暖底调，整块面板读起来像是一个决定。",
+      clashState: "<b>冲突。</b>冷灰底、暖灰边框、暖墨色、冷色标签。底调互相打架，看起来就廉价。"
+    }
+  });
+</script>
+</body>
+</html>

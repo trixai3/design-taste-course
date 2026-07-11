@@ -36,8 +36,9 @@ python3 -m http.server 4599
 | 07 | [Pattern Glossary I · 套路词典 I](lessons/0007-pattern-glossary-i.html) | 一眼叫出布局套路的名字：六种 hero 范式、grid 家族（bento / masonry / 分屏 / zigzag）、十个 composition anchor。 |
 | 08 | [Pattern Glossary II · 套路词典 II](lessons/0008-pattern-glossary-ii.html) | 看着页面的行为叫出动效的名字：错峰入场、粘性堆叠、固定/擦洗、跑马灯、磁吸按钮、弹性对线性，外加动效必须有动机、必须能降级这两条规则。 |
 | 09 | [排版 · Typography](lessons/0009-typography.html) | 一眼说出字体的类别和声音，让展示字体与正文字体各安其位，并说清衬线体什么时候「值得」使用。 |
+| 10 | [颜色 · Color](lessons/0010-color.html) | 一眼叫出配色家族的名字，把颜色规则当作规则说清楚，并认出被禁的「米色加黄铜」高级感默认配色。 |
 
-（第 10 课起仍在建设中。）
+（第 11 课起仍在建设中。）
 
 ## 参考卡（可打印）
 
@@ -49,6 +50,7 @@ python3 -m http.server 4599
 - [风格图鉴](reference/style-atlas.html)
 - [套路词典 · Pattern Glossary](reference/pattern-glossary.html)
 - [排版工艺 · The Typography Sheet](reference/typography.html)
+- [颜色工艺 · The Palette Sheet](reference/palettes.html)
 
 术语对照见仓库根部的双语词汇表 [`../GLOSSARY.md`](../GLOSSARY.md)（英文 · 中文）。
 

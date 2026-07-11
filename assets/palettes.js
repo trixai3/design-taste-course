@@ -63,16 +63,23 @@
     });
   }
 
-  function readoutHTML(fam) {
+  /* the readout's prose (the per-family note) is the one user-facing string
+     that a translated mirror needs to localize; pass opts.notes to override
+     it per family key. English is the default, so the base lesson is unchanged. */
+  function readoutHTML(fam, note) {
     var roles = READOUT.map(function (r) {
       return '<div class="pal-role"><div class="chip" style="background:' + fam.t[r] + '"></div>' +
              '<span class="r">' + r + '</span><span class="h">' + fam.t[r].toUpperCase() + "</span></div>";
     }).join("");
-    return '<h4>' + fam.name + '</h4><p class="pal-note">' + fam.note + "</p>" +
+    return '<h4>' + fam.name + '</h4><p class="pal-note">' + note + "</p>" +
            '<div class="pal-roles">' + roles + "</div>";
   }
 
-  function mountRecolor(stage) {
+  function noteFor(fam, opts) {
+    return (opts.notes && opts.notes[fam.key]) || fam.note;
+  }
+
+  function mountRecolor(stage, opts) {
     var board = stage.querySelector(".pal-board");
     var readout = stage.querySelector(".pal-readout");
     if (!board || !readout) return;
@@ -88,7 +95,7 @@
       b.type = "button";
       b.addEventListener("click", function () {
         apply(stage, fam);
-        readout.innerHTML = readoutHTML(fam);
+        readout.innerHTML = readoutHTML(fam, noteFor(fam, opts));
         buttons.forEach(function (x) { x.classList.remove("is-active"); });
         b.classList.add("is-active");
       });
@@ -98,32 +105,40 @@
 
     // start on the family already set by CSS defaults (the first one)
     apply(stage, FAMS[0]);
-    readout.innerHTML = readoutHTML(FAMS[0]);
+    readout.innerHTML = readoutHTML(FAMS[0], noteFor(FAMS[0], opts));
     buttons[0].classList.add("is-active");
   }
 
-  function mountGray(root) {
+  /* the gray-toggle's labels and state sentences, English by default; a mirror
+     passes opts.gray to localize. State strings are innerHTML (they carry a <b>). */
+  var GRAY_EN = {
+    lock: "Lock the temperature",
+    clash: "Show the clash",
+    lockedState: "<b>Locked.</b> Every gray shares one warm undertone, so the panel reads as one decision.",
+    clashState: "<b>Clash.</b> A cool-gray ground, a warm-gray border, warm ink, a cool chip. The undertones fight and it reads cheap."
+  };
+
+  function mountGray(root, opts) {
     var panel = root.querySelector(".gray-panel");
     var btn = root.querySelector("[data-gray-toggle]");
     var state = root.querySelector(".gray-state");
     if (!panel || !btn) return;
+    var g = {};
+    Object.keys(GRAY_EN).forEach(function (k) { g[k] = (opts.gray && opts.gray[k]) || GRAY_EN[k]; });
     function paint() {
       var locked = panel.classList.contains("locked");
-      btn.textContent = locked ? "Show the clash" : "Lock the temperature";
-      if (state) {
-        state.innerHTML = locked
-          ? '<b>Locked.</b> Every gray shares one warm undertone, so the panel reads as one decision.'
-          : '<b>Clash.</b> A cool-gray ground, a warm-gray border, warm ink, a cool chip. The undertones fight and it reads cheap.';
-      }
+      btn.textContent = locked ? g.clash : g.lock;
+      if (state) state.innerHTML = locked ? g.lockedState : g.clashState;
     }
     btn.addEventListener("click", function () { panel.classList.toggle("locked"); paint(); });
     paint();
   }
 
-  function mount(root) {
+  function mount(root, opts) {
     root = root || document;
-    Array.prototype.forEach.call(root.querySelectorAll("[data-recolor]"), mountRecolor);
-    Array.prototype.forEach.call(root.querySelectorAll("[data-gray]"), mountGray);
+    opts = opts || {};
+    Array.prototype.forEach.call(root.querySelectorAll("[data-recolor]"), function (s) { mountRecolor(s, opts); });
+    Array.prototype.forEach.call(root.querySelectorAll("[data-gray]"), function (r) { mountGray(r, opts); });
   }
 
   global.Palette = { mount: mount, FAMS: FAMS };

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>参考卡：颜色工艺</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="../../assets/course.css">
+<link rel="stylesheet" href="../../assets/palettes.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 20px;
+  }
+  .cat > .cat-note { max-width: var(--measure); color: var(--ink-soft); font-size: 14.5px; margin: -8px 0 20px; }
+  /* family cards */
+  .fam-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  .fam-card { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .fam-card .bar { display: flex; height: 60px; }
+  .fam-card .bar span { flex: 1; }
+  .fam-card .body { padding: 12px 13px 14px; }
+  .fam-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin: 0 0 5px; }
+  .fam-card p { font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; margin: 0 0 9px; }
+  .fam-card .roles { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; }
+  .fam-card .roles div { font-size: 10.5px; color: var(--ink-soft); }
+  .fam-card .roles code { font-family: var(--font-mono); color: var(--ink); }
+  /* rules list */
+  .rules { max-width: var(--measure); margin: 22px 0 0; padding: 0; list-style: none; }
+  .rules li { font-size: 14.5px; padding: 8px 0; border-top: 1px dashed var(--line); }
+  .rules li b { font-family: var(--font-display); }
+  .backlink { margin-top: 40px; }
+  @media print { .fam-cards { grid-template-columns: repeat(3, 1fr); } }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste &middot; 参考卡 &middot; 打印我</p>
+    <h1>颜色工艺 · The Palette Sheet</h1>
+    <p>五个命名配色家族的色值 token、被禁用的 AI 默认配色，以及颜色规则。来自第 10 课。一套配色的大部分
+      是中性色；说话的是那一个强调色。</p>
+  </div>
+
+  <!-- ===================== FAMILIES ===================== -->
+  <section class="cat">
+    <h2>家族 &middot; 一组有名字的 token</h2>
+    <p class="cat-note">每一个都是四个数值在做工作：基底、表层、墨色，还有一个强调色。色条的顺序是背景
+      &rarr; 表层 &rarr; 墨色 &rarr; 强调色。</p>
+    <div class="fam-cards">
+      <div class="fam-card">
+        <div class="bar"><span style="background:#EDF0F2"></span><span style="background:#FCFDFE"></span><span style="background:#14181B"></span><span style="background:#3C5A6E"></span></div>
+        <div class="body">
+          <h3>Cold Luxury</h3>
+          <p>冷灰和近黑色，配一个钢蓝强调色。安静，而且贵气。</p>
+          <div class="roles"><div>bg <code>#EDF0F2</code></div><div>ink <code>#14181B</code></div><div>surface <code>#FCFDFE</code></div><div>accent <code>#3C5A6E</code></div></div>
+        </div>
+      </div>
+      <div class="fam-card">
+        <div class="bar"><span style="background:#F1EFE6"></span><span style="background:#FBFAF3"></span><span style="background:#18211A"></span><span style="background:#2E6B44"></span></div>
+        <div class="body">
+          <h3>Forest</h3>
+          <p>暖奶油色下面压着一种深沉、去饱和的森林绿。踏实，自然。</p>
+          <div class="roles"><div>bg <code>#F1EFE6</code></div><div>ink <code>#18211A</code></div><div>surface <code>#FBFAF3</code></div><div>accent <code>#2E6B44</code></div></div>
+        </div>
+      </div>
+      <div class="fam-card">
+        <div class="bar"><span style="background:#16130E"></span><span style="background:#201C15"></span><span style="background:#EFE7D8"></span><span style="background:#C89B5C"></span></div>
+        <div class="body">
+          <h3>Black &amp; Tan</h3>
+          <p>深色的暖调基底，一个驼色强调色。强调色之所以浅，是因为地基是深色的。</p>
+          <div class="roles"><div>bg <code>#16130E</code></div><div>ink <code>#EFE7D8</code></div><div>surface <code>#201C15</code></div><div>accent <code>#C89B5C</code></div></div>
+        </div>
+      </div>
+      <div class="fam-card">
+        <div class="bar"><span style="background:#F4F1E8"></span><span style="background:#FFFFFE"></span><span style="background:#15181E"></span><span style="background:#2A46C8"></span></div>
+        <div class="body">
+          <h3>Cobalt + Cream</h3>
+          <p>奶油色纸张，配一个自信的钴蓝。中性底色上的一个饱和主角。</p>
+          <div class="roles"><div>bg <code>#F4F1E8</code></div><div>ink <code>#15181E</code></div><div>surface <code>#FFFFFE</code></div><div>accent <code>#2A46C8</code></div></div>
+        </div>
+      </div>
+      <div class="fam-card">
+        <div class="bar"><span style="background:#EFECE5"></span><span style="background:#FAF8F2"></span><span style="background:#232A2E"></span><span style="background:#C0552E"></span></div>
+        <div class="body">
+          <h3>Terracotta + Slate</h3>
+          <p>石板灰墨色压在暖调纸张上，由一个质朴的赤陶强调色暖化。</p>
+          <div class="roles"><div>bg <code>#EFECE5</code></div><div>ink <code>#232A2E</code></div><div>surface <code>#FAF8F2</code></div><div>accent <code>#C0552E</code></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE BANNED DEFAULT ===================== -->
+  <section class="cat">
+    <h2>被禁的默认项 &middot; 一眼就该拒绝</h2>
+    <p class="cat-note">只要给出「高级消费品」这份需求，每个模型都会伸手去拿这套配色。并不丑，只是太普遍
+      了，这就让它成了一处痕迹。</p>
+    <div class="pal-teardown">
+      <div class="pt-card bad">
+        <div class="pt-swatches"><span style="background:#E7DCC9"></span><span style="background:#B08D57"></span><span style="background:#3B2A1E"></span></div>
+        <div class="pt-body">
+          <span class="pt-verdict">被禁的默认项</span>
+          <p class="pt-name">米色 + 黄铜 + 浓缩咖啡</p>
+          <p class="pt-why">米色基底，黄铜强调色，浓缩咖啡色墨色。每一份厨具和护肤品效果图都会落到这里，
+            所以它读起来是「AI 生成」，而不是「高级」。</p>
+          <div class="pt-hexes"><code>#E7DCC9</code><code>#B08D57</code><code>#3B2A1E</code></div>
+        </div>
+      </div>
+      <div class="pt-card ok">
+        <div class="pt-swatches"><span style="background:#16130E"></span><span style="background:#C89B5C"></span><span style="background:#EFE7D8"></span></div>
+        <div class="pt-body">
+          <span class="pt-verdict">换成这样</span>
+          <p class="pt-name">彻底走深色（Black &amp; Tan）</p>
+          <p class="pt-why">同样的暖色调，但深色的地基让那唯一的驼色强调色变成一次选择，而不是一种折中。</p>
+          <div class="pt-hexes"><code>#16130E</code><code>#C89B5C</code><code>#EFE7D8</code></div>
+        </div>
+      </div>
+      <div class="pt-card ok">
+        <div class="pt-swatches"><span style="background:#EFECE5"></span><span style="background:#C0552E"></span><span style="background:#232A2E"></span></div>
+        <div class="pt-body">
+          <span class="pt-verdict">换成这样</span>
+          <p class="pt-name">具体的强调色（Terracotta + Slate）</p>
+          <p class="pt-why">暖调、质朴，但一个冷调的石板灰墨色和一个具体的陶土强调色，让它成为一次真正的
+            决定。</p>
+          <div class="pt-hexes"><code>#EFECE5</code><code>#C0552E</code><code>#232A2E</code></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RULES ===================== -->
+  <section class="cat">
+    <h2>规则 &middot; 让配色保持调准的纪律</h2>
+    <ul class="rules">
+      <li><b>单一强调色锁定。</b>只用一个强调色，节制地用在有行动力的元素上（主按钮、链接、实时徽标）。
+        第二个强调色会互相竞争，页面就会失去重心。</li>
+      <li><b>饱和度上限。</b>把强调色控制在大约 80% 饱和度以下。全饱和的荧光色读起来像模板默认值；略微
+        柔和的色相读起来像是经过选择的。</li>
+      <li><b>中性色做活儿。</b>表层、墨色和细线全都是灰色。页面的大部分是中性色，那一个强调色才有地方
+        落脚。</li>
+      <li><b>选定一个灰色的色温。</b>每一种灰都偏暖或偏冷。把两者混用，会读起来不对劲，却说不出具体哪里
+        不对。选一个色温，让所有灰色都待在里面。</li>
+      <li><b>不用纯黑或纯白。</b>墨色是一种染上基底色调的近黑色；页面是一种近白色。纯 <code>#000</code>
+        配 <code>#FFF</code> 太刺眼，而且，又是一个默认值。</li>
+      <li><b>带色调的阴影。</b>阴影带着一点基底色或墨色的色调，而不是纯灰色，这样它们才能和其他一切处在
+        同一种光线里。</li>
+      <li><b>拒绝米色黄铜浓缩咖啡这套默认配色。</b>这是 AI 对「高级」的条件反射。如果某份需求把你往那个
+        方向拉，就换成更彻底的做法（深色地基），或者选一个更具体的强调色。</li>
+    </ul>
+  </section>
+
+  <div class="backlink">
+    <a class="btn btn--ghost" href="../lessons/0010-color.html">&larr; 返回第 10 课</a>
+  </div>
+</main>
+</body>
+</html>
