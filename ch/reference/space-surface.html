@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>参考卡：空间与表层</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="../../assets/course.css">
+<link rel="stylesheet" href="../../assets/space-surface.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 20px;
+  }
+  .rules { max-width: var(--measure); margin: 0; padding: 0; list-style: none; }
+  .rules li { font-size: 14.5px; padding: 9px 0; border-top: 1px dashed var(--line); }
+  .rules li:first-child { border-top: 0; }
+  .rules li b { font-family: var(--font-display); }
+  .rules code { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink); background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+  .recipe { max-width: var(--measure); background: var(--surface-2); border-radius: var(--radius); padding: 16px 18px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink); line-height: 1.7; overflow-x: auto; }
+  .recipe .c { color: var(--ink-faint); }
+  .backlink { margin-top: 40px; }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste &middot; 参考卡 &middot; 打印我</p>
+    <h1>空间与表层参考卡</h1>
+    <p>让页面显贵的杠杆，附带它们的数值。来自第 11 课。内容相同、字体相同、颜色相同：改变这些，页面的
+      「身价」就变了。</p>
+  </div>
+
+  <!-- ===================== LEVERS ===================== -->
+  <section class="cat">
+    <h2>杠杆 &middot; 该伸手去拿什么</h2>
+    <ul class="rules">
+      <li><b>宏观留白。</b>把你的标准内边距加倍。安静、高级的区块用 <code>py-24</code> 到
+        <code>py-40</code>（最宽敞时可到 <code>py-48</code>）。空间是让页面显贵最便宜的办法，也是默认值
+        最先出错的地方。</li>
+      <li><b>行宽 = 65ch。</b>正文文字每行控制在大约 65 个字符（<code>max-width: 65ch</code>）。再宽就会
+        读起来像一份没有排版的文档。</li>
+      <li><b>圆角锁定。</b>选定<strong>一套</strong>圆角刻度，然后在所有地方都守住它（全直角、全柔和
+        12&ndash;16px，或全药丸形用于交互元素）。混用圆角只有在有明文规则、且处处遵守时才被允许。</li>
+      <li><b>双层描边（同心圆角）。</b>用一个带内边距的外壳把内容核心包起来。内层圆角等于外层圆角减去
+        内边距，于是曲线彼此嵌套：<code>外 20px &minus; 内边距 8px = 内 12px</code>。</li>
+      <li><b>带色调的弥散阴影。</b>大幅模糊，投射得远，负扩散，染上背景的色调，外加一条 1px 的内部高光。
+        绝不用又小又黑的 <code>shadow-md</code> 投影。</li>
+      <li><b>颗粒，约 3&ndash;6%。</b>一层微弱的胶片颗粒会读起来像实体的纸张。让它待在一个
+        <code>fixed; pointer-events:none</code> 的图层上，绝不放在滚动容器里。</li>
+    </ul>
+  </section>
+
+  <!-- ===================== RECIPES ===================== -->
+  <section class="cat">
+    <h2>配方 &middot; 照抄这些数值</h2>
+    <div class="recipe">
+<span class="c">/* double-bezel card */</span><br>
+.shell { padding: 8px; border-radius: 20px; background: rgba(28,26,22,.035); border: 1px solid rgba(28,26,22,.07); }<br>
+.core&nbsp;&nbsp;{ border-radius: 12px; <span class="c">/* 20 &minus; 8 */</span> background: #fff; }<br><br>
+<span class="c">/* diffusion shadow, tinted to ink */</span><br>
+box-shadow: inset 0 1px 0 rgba(255,255,255,.6),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 30px 60px -28px rgba(28,26,22,.30);<br><br>
+<span class="c">/* banned: the cheap default */</span><br>
+box-shadow: 0 4px 6px rgba(0,0,0,.3); <span class="c">/* shadow-md */</span>
+    </div>
+  </section>
+
+  <!-- ===================== TELLS ===================== -->
+  <section class="cat">
+    <h2>廉价痕迹 &middot; 该去掉什么</h2>
+    <ul class="rules">
+      <li><b>紧绷、统一的内边距。</b>到处都是默认组件间距。修法：把区块内边距加倍，让宏观间距区别于微观
+        间距。</li>
+      <li><b>刺眼的黑色阴影。</b><code>shadow-md</code> 或 <code>rgba(0,0,0,.3)</code>。修法：换成柔和、
+        投射得远、带色调的弥散阴影。</li>
+      <li><b>混用的圆角。</b>一张 4px 的卡片配一个 16px 的按钮。修法：锁定一套圆角系统。</li>
+      <li><b>每个元素都套边框。</b>每个元素周围都有一圈 1px 灰框。修法：改用发丝线、留白和阴影来做分隔。</li>
+      <li><b>铺满全宽的正文。</b>文字行贯穿整个容器宽度。修法：把行宽控制在 65ch 以内。</li>
+    </ul>
+  </section>
+
+  <!-- ===================== SOURCES ===================== -->
+  <section class="cat">
+    <h2>来源</h2>
+    <ul class="rules">
+      <li><b>Refactoring UI</b>（Wathan &amp; Schoger），「Spacing」与「Depth」两章：空间与分层
+        阴影背后的道理。<a href="https://www.refactoringui.com/">refactoringui.com</a></li>
+      <li><b>design-taste-frontend §4.4</b>：圆角锁定、带色调阴影、被禁的默认值。
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">SKILL.md</a></li>
+      <li><b>high-end-visual-design §4.A、§C、§6</b>（语料库）：双层描边、宏观留白、颗粒的性能
+        规则。</li>
+    </ul>
+  </section>
+
+  <div class="backlink">
+    <a class="btn btn--ghost" href="../lessons/0011-space-surface.html">&larr; 返回第 11 课</a>
+  </div>
+</main>
+</body>
+</html>
