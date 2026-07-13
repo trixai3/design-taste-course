@@ -559,6 +559,56 @@ _Source_: DTF §5
 
 ---
 
+## Space & Surface · 空间与表层 (Lesson 11)
+
+**Macro-whitespace · 宏观留白**:
+Deliberately generous spacing, especially between sections. The rule of thumb is to double your
+default padding: calm, premium sections run `py-24` to `py-40`. Space is the cheapest way to look
+expensive, and the first thing defaults get wrong.
+刻意慷慨的留白，尤其是段落之间。经验法则是把默认内边距翻倍：安静、高级的区块用 `py-24` 到 `py-40`。留白是"显贵"最便宜的手段，也是默认值最先做砸的地方。
+_Source_: high-end-visual-design §C · DTF §11
+
+**Measure (65ch) · 行宽（65ch）**:
+The length of a line of body text, capped near 65 characters (`max-width: 65ch`). Wider lines read as
+an unstyled document; the cap is a mark of care.
+一行正文的长度，控制在约 65 个字符（`max-width: 65ch`）。更宽就像没排过版的文档；设上限本身就是一种用心。
+_Source_: DTF §4.2
+
+**Radius lock / shape consistency · 圆角锁定 / 形状一致**:
+Pick one corner-radius scale and hold it everywhere (all-sharp, all-soft 12&ndash;16px, or all-pill
+for interactive). Mixed radii are allowed only under a documented rule followed everywhere; a 4px card
+with a 16px button reads as broken.
+选定一套圆角刻度并全局坚持（全直角、全柔角 12&ndash;16px、交互元素全胶囊）。混用圆角只有在有明文规则且处处遵守时才允许；4px 的卡片配 16px 的按钮看着就是坏的。
+_Source_: DTF §4.4
+
+**Double-bezel / concentric radius · 双层描边 / 同心圆角**:
+Wrapping a content core in an outer shell with padding, where the inner radius equals the outer radius
+minus the padding, so the curves nest concentrically (`outer 20px − pad 8px = inner 12px`). The
+signature premium card construction.
+把内容核心包进一个带内边距的外壳里，内圆角 = 外圆角 − 内边距，让弧线同心嵌套（`外 20px − 内边距 8px = 内 12px`）。高级卡片的招牌做法。
+_Source_: high-end-visual-design §4.A
+
+**Diffusion shadow · 弥散阴影**:
+A large, soft, far-cast shadow with negative spread, tinted to the background hue, usually paired with
+a 1px inner highlight. The premium alternative to the small black `shadow-md` drop.
+一层大范围、柔和、投得很远、带负扩散的阴影，色调偏向背景色，通常再配一道 1px 内高光。是那种又小又黑的 `shadow-md` 的高级替代。
+_Source_: DTF §4.4
+
+**shadow-md tell · shadow-md 破绽** ⚑ tell:
+The default small, dark, tight drop shadow (`0 4px 6px rgba(0,0,0,.3)`). The number-one surface tell.
+Fix: a soft, far, tinted diffusion shadow, or no shadow at all.
+默认那种又小又黑又紧的投影（`0 4px 6px rgba(0,0,0,.3)`）。头号表层破绽。改法：换成柔和、投远、带色调的弥散阴影，或干脆不用阴影。
+_Source_: high-end-visual-design §2
+
+**Grain / noise overlay · 颗粒 / 噪点叠层**:
+A faint film-grain (about 3&ndash;6% opacity) over a flat surface so it reads as physical paper. Keep
+it on a `fixed; pointer-events:none` layer, never on a scrolling container, so it costs no scroll
+performance.
+在平面上叠一层很淡的胶片颗粒（约 3&ndash;6% 不透明度），让它读起来像实体纸。要放在 `fixed; pointer-events:none` 的层上，绝不放在滚动容器里，才不拖累滚动性能。
+_Source_: high-end-visual-design §6 · §3.2
+
+---
+
 ## Content, Copy & Data · 内容、文案与数据
 
 **Filler verb · 空洞动词** ⚑ tell:

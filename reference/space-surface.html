@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference: The Space &amp; Surface Sheet</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="../assets/course.css">
+<link rel="stylesheet" href="../assets/space-surface.css">
+<style>
+  .ref-head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 8px; }
+  .ref-head h1 { font-family: var(--font-display); font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 6px; }
+  .ref-head p { margin: 0; color: var(--ink-soft); max-width: var(--measure); }
+  .cat { margin-top: 40px; }
+  .cat > h2 {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-ink);
+    border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 0 0 20px;
+  }
+  .rules { max-width: var(--measure); margin: 0; padding: 0; list-style: none; }
+  .rules li { font-size: 14.5px; padding: 9px 0; border-top: 1px dashed var(--line); }
+  .rules li:first-child { border-top: 0; }
+  .rules li b { font-family: var(--font-display); }
+  .rules code { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink); background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+  .recipe { max-width: var(--measure); background: var(--surface-2); border-radius: var(--radius); padding: 16px 18px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink); line-height: 1.7; overflow-x: auto; }
+  .recipe .c { color: var(--ink-faint); }
+  .backlink { margin-top: 40px; }
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="ref-head">
+    <p class="eyebrow">Design Taste &middot; Reference &middot; print me</p>
+    <h1>The Space &amp; Surface Sheet</h1>
+    <p>The levers that make a page feel expensive, with their numbers. From Lesson 11. Same content,
+      same font, same color: change these and the page changes price.</p>
+  </div>
+
+  <!-- ===================== LEVERS ===================== -->
+  <section class="cat">
+    <h2>Levers &middot; what to reach for</h2>
+    <ul class="rules">
+      <li><b>Macro-whitespace.</b> Double your standard padding. Calm, premium sections run
+        <code>py-24</code> to <code>py-40</code> (up to <code>py-48</code> at the most spacious). Space
+        is the cheapest way to look expensive, and the first thing defaults get wrong.</li>
+      <li><b>Measure = 65ch.</b> Cap body text near 65 characters per line
+        (<code>max-width: 65ch</code>). Wider reads as an unstyled document.</li>
+      <li><b>Radius lock.</b> Pick ONE corner-radius scale and hold it everywhere (all-sharp,
+        all-soft 12&ndash;16px, or all-pill for interactive). Mixed radii are allowed only under a
+        documented rule followed everywhere.</li>
+      <li><b>Double-bezel (concentric radius).</b> Wrap a content core in an outer shell with padding.
+        The inner radius is the outer radius minus the padding, so the curves nest:
+        <code>outer 20px &minus; pad 8px = inner 12px</code>.</li>
+      <li><b>Diffuse tinted shadow.</b> Large blur, cast far, negative spread, tinted to the background
+        hue, plus a 1px inner highlight. Never the small black <code>shadow-md</code> drop.</li>
+      <li><b>Grain, ~3&ndash;6%.</b> A faint film-grain reads as physical paper. Keep it on a
+        <code>fixed; pointer-events:none</code> layer, never on a scrolling container.</li>
+    </ul>
+  </section>
+
+  <!-- ===================== RECIPES ===================== -->
+  <section class="cat">
+    <h2>Recipes &middot; copy the numbers</h2>
+    <div class="recipe">
+<span class="c">/* double-bezel card */</span><br>
+.shell { padding: 8px; border-radius: 20px; background: rgba(28,26,22,.035); border: 1px solid rgba(28,26,22,.07); }<br>
+.core&nbsp;&nbsp;{ border-radius: 12px; <span class="c">/* 20 &minus; 8 */</span> background: #fff; }<br><br>
+<span class="c">/* diffusion shadow, tinted to ink */</span><br>
+box-shadow: inset 0 1px 0 rgba(255,255,255,.6),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 30px 60px -28px rgba(28,26,22,.30);<br><br>
+<span class="c">/* banned: the cheap default */</span><br>
+box-shadow: 0 4px 6px rgba(0,0,0,.3); <span class="c">/* shadow-md */</span>
+    </div>
+  </section>
+
+  <!-- ===================== TELLS ===================== -->
+  <section class="cat">
+    <h2>Cheap tells &middot; what to remove</h2>
+    <ul class="rules">
+      <li><b>Tight, uniform padding.</b> Default component spacing everywhere. Fix: double the section
+        padding, vary macro from micro.</li>
+      <li><b>Harsh black shadow.</b> <code>shadow-md</code> or <code>rgba(0,0,0,.3)</code>. Fix: a soft,
+        far, tinted diffusion shadow.</li>
+      <li><b>Mixed radii.</b> A 4px card with a 16px button. Fix: lock one radius system.</li>
+      <li><b>Borders on everything.</b> A 1px gray box around every element. Fix: hairlines, whitespace,
+        and shadow do the separating.</li>
+      <li><b>Full-width body text.</b> Lines running the whole container. Fix: cap at 65ch.</li>
+    </ul>
+  </section>
+
+  <!-- ===================== SOURCES ===================== -->
+  <section class="cat">
+    <h2>Sources</h2>
+    <ul class="rules">
+      <li><b>Refactoring UI</b> (Wathan &amp; Schoger), "Spacing" and "Depth" &mdash; the reasoning for
+        space and layered shadows. <a href="https://www.refactoringui.com/">refactoringui.com</a></li>
+      <li><b>design-taste-frontend §4.4</b> &mdash; radius lock, tinted shadows, banned defaults.
+        <a href="https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md">SKILL.md</a></li>
+      <li><b>high-end-visual-design §4.A, §C, §6</b> (corpus) &mdash; double-bezel, macro-whitespace,
+        grain performance rules.</li>
+    </ul>
+  </section>
+
+  <div class="backlink">
+    <a class="btn btn--ghost" href="../lessons/0011-space-surface.html">&larr; Back to Lesson 11</a>
+  </div>
+</main>
+</body>
+</html>

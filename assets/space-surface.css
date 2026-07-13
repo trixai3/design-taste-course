@@ -1,0 +1,209 @@
+/* ==========================================================================
+   space-surface.css — Lesson 11 (Space & Surface) widgets.
+
+   The lesson teaches WHY premium pages feel premium: it is space and surface,
+   not color or font. Every claim here is grounded in the corpus, cited inline:
+     - Macro-whitespace: "double your padding, py-24..py-40" (high-end-visual-
+       design §C); calm density uses py-32..py-48 (design-taste-frontend §11).
+     - Measure: body max-width 65ch (design-taste-frontend §4.2).
+     - Double-bezel: outer rounded-[2rem] + inner rounded-[calc(2rem-.375rem)],
+       concentric, inner radius = outer - padding (high-end §4.A).
+     - Radius lock: one corner-radius system, mixed only by documented rule
+       (design-taste-frontend §4.4).
+     - Shadows: tint to background hue, no pure-black drops; shadow-md banned;
+       premium = soft, highly diffused ambient (dtf §4.4, high-end §2/§3).
+     - Grain: noise ~0.03 opacity on a fixed, pointer-events-none layer
+       (high-end §6).
+   All state prose lives in the HTML (toggled by CSS classes) so the Chinese
+   mirror localizes by translating markup, never JS strings.
+   ========================================================================== */
+
+/* the fictional brand shown in every demo, so only space/surface varies */
+.ss-card-eyebrow {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--accent-ink); margin: 0 0 8px;
+}
+.ss-card-title { font-family: var(--font-display); font-weight: 700; margin: 0; }
+.ss-card-desc { color: var(--ink-soft); margin: 0; }
+
+/* ==========================================================================
+   1. CHEAP vs EXPENSIVE — identical content, opposite space/surface treatment.
+   ========================================================================== */
+.cx-two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+@media (max-width: 640px) { .cx-two { grid-template-columns: 1fr; } }
+
+.cx { border-radius: var(--radius); }
+.cx-frame { background: var(--surface-2); border-radius: var(--radius); }
+
+/* --- cheap: tight padding, harsh dark shadow, mixed radii, borders everywhere --- */
+.cx.cheap .cx-frame { padding: 16px; }
+.cx.cheap .ss-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;                         /* mixed radius #1 */
+  padding: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.3);       /* the banned shadow-md (dtf §2) */
+}
+.cx.cheap .ss-card-eyebrow { margin-bottom: 4px; }
+.cx.cheap .ss-card-title { font-size: 1.1rem; margin-bottom: 4px; }
+.cx.cheap .ss-card-desc { font-size: 13px; margin-bottom: 10px; }
+.cx.cheap .ss-card-price { font-family: var(--font-display); font-weight: 700; font-size: 1rem; }
+.cx.cheap .ss-btn {
+  display: inline-block; margin-top: 10px; padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;                        /* mixed radius #2 (fights the 4px card) */
+  background: var(--accent); color: #fff; font-size: 13px; font-weight: 600;
+}
+.cx.cheap .ss-tag {
+  display: inline-block; margin-left: 8px; padding: 2px 6px;
+  border: 1px solid var(--line); border-radius: 2px;   /* mixed radius #3 */
+  font-size: 11px; color: var(--ink-soft);
+}
+
+/* --- expensive: doubled whitespace, one radius system, double-bezel,
+       diffusion tinted shadow, hairline not borders --- */
+.cx.rich .cx-frame { padding: 34px; }         /* macro-whitespace (high-end §C) */
+.cx.rich .ss-shell {                          /* double-bezel outer shell (high-end §4.A) */
+  background: rgba(28,26,22,.035);
+  border: 1px solid var(--line-soft);
+  border-radius: 18px;
+  padding: 6px;
+}
+.cx.rich .ss-card {                           /* inner core: concentric radius = 18 - 6 */
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow:                                 /* diffusion + inner highlight, tinted (dtf §4.4) */
+    inset 0 1px 0 rgba(255,255,255,.6),
+    0 24px 50px -24px rgba(28,26,22,.28);
+}
+.cx.rich .ss-card-title { font-size: 1.22rem; margin-bottom: 8px; }
+.cx.rich .ss-card-desc { font-size: 14px; margin-bottom: 18px; line-height: 1.55; max-width: 34ch; }
+.cx.rich .ss-card-price { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; }
+.cx.rich .ss-btn {
+  display: inline-block; margin-top: 18px; padding: 10px 16px;
+  border: 0; border-radius: 10px;             /* one radius family with the card */
+  background: var(--accent); color: #fff; font-size: 14px; font-weight: 600;
+}
+.cx.rich .ss-tag {
+  display: inline-block; margin-left: 10px; padding: 3px 10px;
+  border-radius: 999px;                        /* pill, the documented interactive radius */
+  background: var(--surface-2); font-size: 11px; color: var(--ink-soft);
+}
+
+.cx-caption { margin: 12px 2px 0; font-size: 12.5px; color: var(--ink-soft); line-height: 1.45; }
+.cx-caption b { font-family: var(--font-display); }
+.cx-caption .lever { color: var(--accent-ink); }
+
+/* ==========================================================================
+   2. WHITESPACE SLIDER — one lever, cramped -> roomy. --pad/--gap set by JS.
+   ========================================================================== */
+[data-ws] { --pad: 20px; --gap: 12px; }
+.ws-stage {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface); overflow: hidden;
+}
+.ws-section { padding: var(--pad); transition: padding .12s linear; }
+.ws-section .ss-card-eyebrow { margin-bottom: var(--gap); }
+.ws-heading { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; margin: 0 0 var(--gap); }
+.ws-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+.ws-tile { background: var(--surface-2); border-radius: var(--radius-sm); padding: var(--gap); font-size: 13px; color: var(--ink-soft); }
+.ws-controls { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+.ws-controls input[type=range] { flex: 1; accent-color: var(--accent); }
+.ws-readout { font-family: var(--font-mono); font-size: 12px; color: var(--ink-soft); min-width: 78px; text-align: right; }
+.ws-readout b { color: var(--ink); }
+
+/* ==========================================================================
+   3. RADIUS-LOCK TOGGLE — concentric radius math. .locked flips broken -> fixed.
+      State prose is two spans toggled by CSS (localizable in HTML).
+   ========================================================================== */
+.rl-stage { display: grid; gap: 14px; }
+.rl-shell {                                    /* outer shell, padding 8, radius 20 */
+  background: rgba(28,26,22,.035);
+  border: 1px solid var(--line-soft);
+  padding: 8px; border-radius: 20px; max-width: 320px;
+}
+.rl-core {                                     /* broken by default: arbitrary inner radius */
+  background: var(--surface);
+  border-radius: 4px;                          /* wrong: not concentric with the 20px shell */
+  padding: 18px;
+  box-shadow: 0 10px 30px -18px rgba(28,26,22,.3);
+}
+.rl-core .ss-btn {
+  display: inline-block; margin-top: 12px; padding: 8px 14px;
+  border: 0; border-radius: 16px;             /* wrong: a third radius family */
+  background: var(--accent); color: #fff; font-size: 13px; font-weight: 600;
+}
+/* locked: inner radius = outer 20 - padding 8 = 12; button joins the family */
+.rl-stage.locked .rl-core { border-radius: 12px; }
+.rl-stage.locked .rl-core .ss-btn { border-radius: 9px; }
+
+.rl-btn { justify-self: start; }
+/* button label + note swap by state, both spans authored in HTML */
+.rl-stage .st-locked { display: none; }
+.rl-stage.locked .st-broken { display: none; }
+.rl-stage.locked .st-locked { display: inline; }
+.rl-note { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; }
+.rl-note code { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink); }
+
+/* ==========================================================================
+   4. DIFFUSION SHADOW vs shadow-md — same card, two shadows.
+   ========================================================================== */
+.sh-two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 560px) { .sh-two { grid-template-columns: 1fr; } }
+.sh-pad { padding: 30px 22px; background: var(--surface-2); border-radius: var(--radius); }
+.sh { background: var(--surface); border-radius: 12px; padding: 20px; }
+.sh.md { box-shadow: 0 4px 6px rgba(0,0,0,.3); }                 /* banned shadow-md */
+.sh.diffuse {                                                    /* tinted, soft, far-cast */
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.6),
+              0 30px 60px -28px rgba(28,26,22,.30);
+}
+.sh h4 { margin: 0 0 6px; font-family: var(--font-display); font-size: 1.05rem; }
+.sh p { margin: 0; font-size: 13px; color: var(--ink-soft); }
+.sh-cap { margin: 10px 2px 0; font-size: 12px; color: var(--ink-soft); }
+
+/* ==========================================================================
+   5. GRAIN TOGGLE — a paper-grain layer at low opacity. .has-grain adds it.
+      Grain data-URI is an SVG feTurbulence, so no external asset is fetched.
+   ========================================================================== */
+.grain-stage { display: grid; gap: 12px; }
+.grain-panel {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #F3EFE7, #E9E3D7);
+  border: 1px solid var(--line-soft); border-radius: var(--radius);
+  padding: 30px; min-height: 130px;
+}
+.grain-panel .gp-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 6px; }
+.grain-panel h4 { margin: 0; font-family: var(--font-display); font-size: 1.3rem; color: var(--ink); }
+.grain-panel .grain-layer {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  opacity: 0;                                   /* off by default */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  transition: opacity .2s ease;
+}
+.grain-stage.on .grain-layer { opacity: .06; }   /* ~film-grain, high-end §6 */
+.grain-cap { font-size: 12px; color: var(--ink-soft); line-height: 1.5; }
+.grain-cap .st-off { display: none; }
+.grain-stage.on .st-off { display: inline; }
+.grain-stage.on .st-on { display: none; }
+
+/* toggle button state labels (spans in HTML) */
+.grain-stage .lbl-on { display: none; }
+.grain-stage.on .lbl-off { display: none; }
+.grain-stage.on .lbl-on { display: inline; }
+
+/* quiz specimens: tiny cheap/rich mini-layouts for the forced-choice game */
+.mini { width: 100%; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.mini .mh { height: 10px; background: var(--surface-2); }
+.mini .mb { padding: 8px; }
+.mini .ml { height: 6px; border-radius: 3px; background: var(--line); margin-bottom: 5px; }
+.mini .ml.s { width: 40%; }
+.mini .ml.m { width: 70%; }
+.mini .mc { height: 26px; border-radius: 4px; background: var(--surface-2); margin-top: 6px; }
+/* cheap mini: cramped + harsh */
+.mini.cheap .mb { padding: 5px; }
+.mini.cheap .mc { box-shadow: 0 3px 5px rgba(0,0,0,.3); border-radius: 3px; }
+/* rich mini: roomy + soft */
+.mini.rich .mb { padding: 14px; }
+.mini.rich .mc { box-shadow: 0 12px 24px -12px rgba(28,26,22,.28); border-radius: 8px; }
+.mini.rich .ml { margin-bottom: 9px; }
